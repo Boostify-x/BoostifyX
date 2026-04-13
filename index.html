@@ -1,34 +1,487 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BoostifyX | India’s Fastest & Most Affordable SMM Panel</title>
+    <title>BoostifyX | SMM Panel & Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* ==================== MERGED CSS VARIABLES ==================== */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #6C2CF6, #FF2E63);
+            --dark-bg: #09090f; 
+            --card-bg: #ffffff;
+            --text-main: #2D3436;
+            --text-light: #636E72;
+            --white: #ffffff;
+            --radius: 24px;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+
+            /* Dashboard Variables */
+            --dash-primary-purple: #6C2CF6;
+            --dash-primary-pink: #FF2E63;
+            --dash-main-bg: #6C2CF6;
+            --dash-bg-light: #F4F5F9;
+            --dash-text-main: #1a365d;
+            --dash-text-light: #64748b;
+            --dash-yellow-accent: #FFD700;
+            --dash-green-btn: #00E676;
+            --dash-red-btn: #ef4444; 
+            --dash-radius-card: 20px;
+            --dash-radius-input: 12px;
+            --dash-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            --dash-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ==================== GLOBAL BASE CSS ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        /* Mode Toggles */
+        body.landing-mode { background-color: #f4f5f9; color: var(--text-main); overflow-x: hidden; line-height: 1.6; }
+        body.dashboard-mode { background: var(--dash-main-bg); color: var(--white); min-height: 100vh; padding-bottom: 90px; overflow-x: hidden; }
+
+        /* ==================== LANDING PAGE CSS ==================== */
+        #landing-wrapper .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        #landing-wrapper .btn { padding: 14px 28px; border-radius: 50px; border: none; font-weight: 700; cursor: pointer; transition: var(--transition); text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; }
+        #landing-wrapper .btn:active { transform: scale(0.95); }
+        #landing-wrapper .btn-primary { background: var(--primary-gradient); color: white; box-shadow: 0 5px 15px rgba(255, 46, 99, 0.3); }
+        #landing-wrapper .btn-primary:hover { box-shadow: 0 8px 25px rgba(255, 46, 99, 0.5); transform: translateY(-2px); }
+        #landing-wrapper .btn-outline { background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(5px); }
+        #landing-wrapper .hero-wrapper { background: var(--primary-gradient); border-bottom-left-radius: 40px; border-bottom-right-radius: 40px; position: relative; }
+        #landing-wrapper header { position: relative; width: 100%; z-index: 1000; padding: 15px 0; background: transparent; }
+        #landing-wrapper nav { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1001; }
+        /* MODIFIED: Text Logo style */
+        #landing-wrapper .logo { font-weight: 800; font-size: 24px; color: white; text-decoration: none; letter-spacing: -0.5px; }
+        #landing-wrapper .nav-right { display: flex; align-items: center; gap: 15px; }
+        #landing-wrapper .menu-toggle { color: white; font-size: 26px; cursor: pointer; display: block; }
+        #landing-wrapper .desktop-menu { display: none; }
+        #landing-wrapper .mobile-dropdown { display: none; width: 100%; background: transparent; padding: 10px 20px 30px; z-index: 1000; }
+        #landing-wrapper .mobile-dropdown.active { display: block; animation: fadeInDown 0.3s ease forwards; }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        #landing-wrapper .mobile-dropdown-links { list-style: none; }
+        #landing-wrapper .mobile-dropdown-links li { margin-bottom: 5px; }
+        #landing-wrapper .mobile-dropdown-links a { display: flex; align-items: center; gap: 15px; color: white; text-decoration: none; font-size: 16px; font-weight: 500; padding: 12px 20px; border-radius: 12px; transition: background 0.3s; }
+        #landing-wrapper .mobile-dropdown-links a i { width: 20px; text-align: center; font-size: 18px; }
+        #landing-wrapper .mobile-dropdown-links a.active-item { background: rgba(255, 255, 255, 0.2); box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1); }
+        #landing-wrapper .mobile-dropdown-links a:hover { background: rgba(255, 255, 255, 0.1); }
+        #landing-wrapper .hero { background: transparent; padding: 50px 0 60px; text-align: center; color: white; position: relative; }
+        #landing-wrapper .hero h1 { font-size: 32px; font-weight: 800; line-height: 1.2; margin-bottom: 15px; }
+        #landing-wrapper .hero p { font-size: 15px; opacity: 0.9; margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        #landing-wrapper .hero-btns { display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px; }
+        #landing-wrapper .login-card { background: var(--white); border-radius: var(--radius); padding: 30px 20px; color: var(--text-main); text-align: left; box-shadow: 0 20px 50px rgba(0,0,0,0.2); max-width: 400px; margin: 0 auto; transition: box-shadow 0.4s ease; }
+        #landing-wrapper .login-card h3 { margin-bottom: 20px; font-weight: 700; text-align: center; }
+        #landing-wrapper .form-group { margin-bottom: 12px; }
+        #landing-wrapper .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 5px; }
+        #landing-wrapper .form-group input { width: 100%; padding: 11px 15px; border-radius: 12px; border: 1px solid #ddd; font-size: 14px; outline: none; transition: var(--transition); }
+        #landing-wrapper .form-group input:focus { border-color: #6C2CF6; }
+        #landing-wrapper .forgot-pass { display: block; text-align: right; font-size: 12px; color: var(--text-light); text-decoration: none; margin-bottom: 20px; }
+        #landing-wrapper .btn-signin { width: 100%; background: var(--primary-gradient); color: white; padding: 14px; border-radius: 12px; font-weight: 700; border: none; margin-bottom: 15px; cursor: pointer; transition: var(--transition); box-shadow: 0 5px 15px rgba(255, 46, 99, 0.3); }
+        #landing-wrapper .btn-signin:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255, 46, 99, 0.5); }
+        #landing-wrapper .google-login { width: 100%; background: white; border: 1px solid #ddd; padding: 12px; border-radius: 12px; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 600; font-size: 14px; cursor: pointer; transition: var(--transition); }
+        #landing-wrapper .google-login:hover { background: #fdfdfd; border-color: #6C2CF6; }
+        #landing-wrapper .signup-text { text-align: center; font-size: 13px; margin-top: 15px; color: var(--text-light); }
+        #landing-wrapper .signup-text a { color: #FF2E63; font-weight: 700; text-decoration: none; }
+        #landing-wrapper .stats { margin-top: -30px; padding-bottom: 40px; }
+        #landing-wrapper .stats-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+        #landing-wrapper .stat-card { background: white; padding: 25px; border-radius: var(--radius); text-align: center; box-shadow: var(--shadow); }
+        #landing-wrapper .stat-card h2 { font-size: 28px; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; }
+        #landing-wrapper .stat-card p { color: var(--text-light); font-weight: 600; font-size: 14px; }
+        #landing-wrapper .advance-section { padding: 40px 0; }
+        #landing-wrapper .premium-box-wrapper { position: relative; margin-bottom: 40px; border-radius: var(--radius); background: var(--primary-gradient); padding: 3px; box-shadow: 0 15px 40px rgba(108, 44, 246, 0.2); transition: transform 0.3s; }
+        #landing-wrapper .premium-box-wrapper:hover { transform: translateY(-5px); }
+        #landing-wrapper .premium-box { background: white; border-radius: 21px; padding: 40px 30px; text-align: center; position: relative; overflow: hidden; }
+        #landing-wrapper .premium-box h2 { font-size: 24px; font-weight: 800; margin-bottom: 15px; color: #2D3436; }
+        #landing-wrapper .premium-box p { font-size: 16px; color: var(--text-light); line-height: 1.8; max-width: 800px; margin: 0 auto; }
+        #landing-wrapper .diff-container { background: white; border-radius: var(--radius); padding: 40px 30px; box-shadow: var(--shadow); margin-bottom: 40px; }
+        #landing-wrapper .diff-header { text-align: center; margin-bottom: 30px; }
+        #landing-wrapper .diff-header h3 { font-size: 22px; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; }
+        #landing-wrapper .diff-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        #landing-wrapper .diff-item { display: flex; align-items: flex-start; gap: 15px; padding: 20px; background: #f8f9fa; border-radius: 16px; border: 1px solid rgba(0,0,0,0.03); transition: var(--transition); }
+        #landing-wrapper .diff-item:hover { background: white; box-shadow: 0 10px 25px rgba(0,0,0,0.05); transform: translateX(5px); border-color: rgba(108, 44, 246, 0.2); }
+        #landing-wrapper .diff-icon { font-size: 24px; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        #landing-wrapper .diff-text h4 { font-size: 16px; font-weight: 700; margin-bottom: 5px; color: var(--text-main); }
+        #landing-wrapper .diff-text p { font-size: 13px; color: var(--text-light); line-height: 1.5; }
+        #landing-wrapper .split-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-bottom: 40px; }
+        #landing-wrapper .info-card { background: white; padding: 35px 30px; border-radius: var(--radius); box-shadow: var(--shadow); position: relative; overflow: hidden; }
+        #landing-wrapper .info-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        #landing-wrapper .audience-list { list-style: none; }
+        #landing-wrapper .audience-list li { margin-bottom: 12px; font-size: 15px; font-weight: 600; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
+        #landing-wrapper .audience-list li i { color: #00b894; }
+        #landing-wrapper .mission-text { font-size: 16px; color: var(--text-light); line-height: 1.8; font-style: italic; position: relative; z-index: 1; }
+        #landing-wrapper .features-wrapper { background: white; padding: 60px 0; margin-bottom: 20px; }
+        #landing-wrapper .section-header { text-align: center; margin-bottom: 40px; }
+        #landing-wrapper .section-header h2 { font-size: 28px; font-weight: 800; margin-bottom: 10px; }
+        #landing-wrapper .core-features-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        #landing-wrapper .core-feature-card { background: #ffffff; padding: 35px 30px; border-radius: var(--radius); box-shadow: var(--shadow); transition: var(--transition); text-align: center; border: 1px solid rgba(0,0,0,0.02); }
+        #landing-wrapper .core-feature-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(108, 44, 246, 0.12); }
+        #landing-wrapper .core-feature-icon { width: 70px; height: 70px; background: rgba(108, 44, 246, 0.1); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 28px; color: #6C2CF6; margin-bottom: 20px; transition: var(--transition); }
+        #landing-wrapper .core-feature-card:hover .core-feature-icon { background: var(--primary-gradient); color: white; transform: rotate(10deg); }
+        #landing-wrapper .core-feature-card h4 { font-size: 18px; margin-bottom: 10px; font-weight: 700; }
+        #landing-wrapper .core-feature-card p { color: var(--text-light); font-size: 14px; }
+        #landing-wrapper .content-box { padding: 40px 30px; border-radius: var(--radius); margin-bottom: 30px; line-height: 1.8; box-shadow: var(--shadow); transition: var(--transition); }
+        #landing-wrapper .content-box:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
+        #landing-wrapper .content-box h3 { font-size: 22px; font-weight: 800; margin-bottom: 20px; margin-top: 30px; }
+        #landing-wrapper .content-box h3:first-child { margin-top: 0; }
+        #landing-wrapper .content-box h4 { font-size: 18px; font-weight: 700; margin-top: 20px; margin-bottom: 10px; }
+        #landing-wrapper .content-box p { margin-bottom: 15px; font-size: 15px; }
+        #landing-wrapper .content-box ul { list-style: none; margin-bottom: 20px; padding-left: 10px; }
+        #landing-wrapper .content-box ul li { margin-bottom: 8px; position: relative; padding-left: 25px; font-weight: 500; }
+        #landing-wrapper .content-box ul li::before { content: '✔'; position: absolute; left: 0; color: #FF2E63; font-weight: bold; }
+        #landing-wrapper .box-light { background: #ffffff; border-top: 5px solid #6C2CF6; }
+        
+        #landing-wrapper .benefits-box { background: var(--primary-gradient); color: white; border-top: 5px solid #FF2E63; }
+        #landing-wrapper .benefits-box h3 { color: white; }
+        #landing-wrapper .benefits-box ul { padding-left: 0; list-style: none; text-align: left; max-width: fit-content; margin: 20px auto 0; }
+        #landing-wrapper .benefits-box ul li { font-weight: 600; font-size: 18px; padding-left: 0; }
+        #landing-wrapper .benefits-box ul li::before { display: none; }
+
+        #landing-wrapper .box-gradient { background: linear-gradient(135deg, rgba(108, 44, 246, 0.05), rgba(255, 46, 99, 0.05)); border: 1px solid rgba(108, 44, 246, 0.1); }
+        #landing-wrapper .testimonial-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 25px; }
+        #landing-wrapper .testimonial-card { background: white; padding: 20px; border-radius: 16px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 4px solid #FF2E63; }
+        #landing-wrapper .testi-header { font-weight: 700; font-size: 16px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; color: #2D3436; }
+        #landing-wrapper .testi-text { font-size: 14px; color: var(--text-light); font-style: italic; }
+        #landing-wrapper .alert-box { background: rgba(255, 193, 7, 0.1); border-left: 4px solid #ffc107; padding: 15px 20px; border-radius: 8px; margin-top: 20px; }
+        #landing-wrapper .alert-box strong { color: #b08d00; display: block; margin-bottom: 5px; }
+        #landing-wrapper .promo-image-container { text-align: center; margin-bottom: 60px; }
+        #landing-wrapper .promo-image-container img { width: 100%; max-width: 800px; border-radius: var(--radius); box-shadow: 0 20px 50px rgba(108, 44, 246, 0.2); transition: transform 0.3s ease; }
+        #landing-wrapper .promo-image-container img:hover { transform: scale(1.02); }
+        #landing-wrapper .services-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        #landing-wrapper .service-card { background: white; padding: 25px; border-radius: var(--radius); border: 1px solid #eee; position: relative; overflow: hidden; }
+        #landing-wrapper .service-card .platform-icon { font-size: 30px; margin-bottom: 15px; }
+        #landing-wrapper .service-card.insta { border-top: 4px solid #E1306C; }
+        #landing-wrapper .service-card.yt { border-top: 4px solid #FF0000; }
+        #landing-wrapper .service-card.fb { border-top: 4px solid #1877F2; }
+        #landing-wrapper .price-tag { font-weight: 800; color: #2D3436; font-size: 18px; margin: 10px 0; }
+        #landing-wrapper .timeline { position: relative; padding-left: 40px; }
+        #landing-wrapper .timeline::before { content: ''; position: absolute; left: 15px; top: 0; height: 100%; width: 2px; background: #eee; }
+        #landing-wrapper .timeline-item { position: relative; margin-bottom: 40px; }
+        #landing-wrapper .timeline-number { position: absolute; left: -40px; width: 32px; height: 32px; background: var(--primary-gradient); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; z-index: 2; }
+        #landing-wrapper .faq-wrapper { background: white; padding: 40px 30px; border-radius: var(--radius); box-shadow: var(--shadow); max-width: 800px; margin: 0 auto; }
+        #landing-wrapper .faq-item { border-bottom: 1px solid #f0f0f0; margin-bottom: 15px; padding-bottom: 15px; }
+        #landing-wrapper .faq-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        #landing-wrapper .faq-question { padding: 10px 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; font-size: 16px; }
+        #landing-wrapper .faq-answer { padding: 0; max-height: 0; overflow: hidden; transition: all 0.4s ease; color: var(--text-light); font-size: 15px; line-height: 1.7; }
+        #landing-wrapper .faq-item.active .faq-answer { padding: 10px 0 0 0; max-height: 300px; }
+        #landing-wrapper .faq-item i { transition: transform 0.3s; font-size: 14px; color: #6C2CF6; }
+        #landing-wrapper .faq-item.active i { transform: rotate(180deg); }
+        #landing-wrapper footer { background: var(--dark-bg); color: white; padding-top: 90px; position: relative; overflow: hidden; border-top: 3px solid transparent; border-image: var(--primary-gradient) 1; }
+        #landing-wrapper footer::before { content: ''; position: absolute; top: 0; left: 50%; width: 80%; height: 1px; background: var(--primary-gradient); transform: translateX(-50%); box-shadow: 0 0 25px 3px rgba(108, 44, 246, 0.7); }
+        #landing-wrapper .footer-glow { position: absolute; width: 400px; height: 400px; background: rgba(108, 44, 246, 0.15); filter: blur(100px); border-radius: 50%; top: -150px; left: -150px; z-index: 0; pointer-events: none; }
+        #landing-wrapper .footer-glow.right { background: rgba(255, 46, 99, 0.15); left: auto; right: -150px; top: auto; bottom: -100px; }
+        #landing-wrapper .footer-main { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr; gap: 45px; padding-bottom: 50px; text-align: left; }
+        /* MODIFIED: Footer Logo Style */
+        #landing-wrapper .footer-about h3 { font-size: 26px; margin-bottom: 15px; font-weight: 800; letter-spacing: -0.5px; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        #landing-wrapper .footer-about p { font-size: 15px; color: #9ca3af; line-height: 1.7; max-width: 350px; }
+        #landing-wrapper .footer-links h4 { font-size: 18px; margin-bottom: 25px; color: white; font-weight: 700; position: relative; display: inline-block; }
+        #landing-wrapper .footer-links h4::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 35px; height: 3px; background: var(--primary-gradient); border-radius: 5px; }
+        #landing-wrapper .footer-links ul { list-style: none; }
+        #landing-wrapper .footer-links li { margin-bottom: 16px; }
+        #landing-wrapper .footer-links a { color: #9ca3af; text-decoration: none; font-size: 15px; transition: var(--transition); display: inline-flex; align-items: center; gap: 10px; cursor: pointer; }
+        #landing-wrapper .footer-links a:hover { color: #FF2E63; transform: translateX(6px); }
+        #landing-wrapper .footer-bottom { position: relative; z-index: 1; padding: 30px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); background: rgba(0,0,0,0.2); }
+        #landing-wrapper .footer-bottom-container { display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; }
+        #landing-wrapper .copyright { font-size: 14px; color: #6b7280; }
+        #landing-wrapper .heart { color: #FF2E63; display: inline-block; animation: heartbeat 1.5s infinite; }
+        @keyframes heartbeat { 0% { transform: scale(1); } 15% { transform: scale(1.25); } 30% { transform: scale(1); } 45% { transform: scale(1.25); } 60% { transform: scale(1); } }
+        #landing-wrapper .social-icons { display: flex; gap: 15px; }
+        #landing-wrapper .social-icons a { color: #d1d5db; font-size: 18px; width: 45px; height: 45px; border-radius: 50%; background: rgba(255, 255, 255, 0.03); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: var(--transition); border: 1px solid rgba(255, 255, 255, 0.08); }
+        #landing-wrapper .social-icons a:hover { background: var(--primary-gradient); border-color: transparent; color: white; transform: translateY(-5px) scale(1.05); box-shadow: 0 10px 20px rgba(108, 44, 246, 0.4); }
+        #landing-wrapper .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        #landing-wrapper .fade-in.visible { opacity: 1; transform: translateY(0); }
+        #landing-wrapper #policy-page { display: none; background: #f4f5f9; min-height: 100vh; padding-bottom: 80px; }
+        #landing-wrapper .policy-header { background: var(--primary-gradient); padding: 40px 0 60px; text-align: center; color: white; border-bottom-left-radius: 40px; border-bottom-right-radius: 40px; position: relative; }
+        #landing-wrapper .policy-header h1 { font-size: 36px; font-weight: 800; margin-bottom: 10px; }
+        #landing-wrapper .back-btn { position: absolute; top: 20px; left: 20px; background: rgba(255,255,255,0.2); color: white; border: none; padding: 8px 16px; border-radius: 50px; cursor: pointer; font-weight: 600; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; transition: var(--transition); backdrop-filter: blur(5px); }
+        #landing-wrapper .back-btn:hover { background: rgba(255,255,255,0.3); transform: translateX(-5px); }
+        #landing-wrapper .policy-card { background: white; border-radius: var(--radius); padding: 50px 40px; box-shadow: var(--shadow); max-width: 900px; margin: -40px auto 0; position: relative; z-index: 10; }
+        #landing-wrapper .policy-card h2 { font-size: 24px; font-weight: 800; margin: 30px 0 15px; color: #6C2CF6; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        #landing-wrapper .policy-card p, #landing-wrapper .policy-card ul { margin-bottom: 15px; color: var(--text-light); font-size: 15px; line-height: 1.8; }
+        #landing-wrapper .policy-card ul { padding-left: 20px; }
+        #landing-wrapper .policy-date { font-weight: 600; color: #FF2E63; margin-bottom: 30px; display: inline-block; }
+
+        /* Landing Media Queries */
+        @media (min-width: 768px) {
+            #landing-wrapper .hero { padding: 80px 0 60px; } 
+            #landing-wrapper .hero h1 { font-size: 56px; }
+            #landing-wrapper .hero-btns { flex-direction: row; justify-content: center; }
+            #landing-wrapper .stats-grid { grid-template-columns: repeat(4, 1fr); }
+            #landing-wrapper .diff-grid { grid-template-columns: repeat(2, 1fr); }
+            #landing-wrapper .split-grid { grid-template-columns: 1fr 1fr; }
+            #landing-wrapper .core-features-grid { grid-template-columns: repeat(3, 1fr); }
+            #landing-wrapper .services-grid { grid-template-columns: repeat(3, 1fr); }
+            #landing-wrapper .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+            #landing-wrapper .menu-toggle { display: none; }
+            #landing-wrapper .mobile-dropdown { display: none !important; } 
+            #landing-wrapper .desktop-menu { display: flex; gap: 30px; align-items: center; }
+            #landing-wrapper .desktop-menu a { color: white; text-decoration: none; font-weight: 600; font-size: 14px; }
+            #landing-wrapper .timeline { display: flex; justify-content: space-between; padding-left: 0; margin-top: 40px; }
+            #landing-wrapper .timeline::before { top: 16px; left: 0; width: 100%; height: 2px; }
+            #landing-wrapper .timeline-item { text-align: center; flex: 1; padding: 0 15px; }
+            #landing-wrapper .timeline-number { position: relative; left: auto; margin: 0 auto 20px; }
+            #landing-wrapper .footer-main { grid-template-columns: 2fr repeat(4, 1fr); }
+            #landing-wrapper .footer-bottom-container { flex-direction: row; justify-content: space-between; text-align: left; }
+        }
+        @media (min-width: 1024px) { #landing-wrapper .services-grid { grid-template-columns: repeat(5, 1fr); } }
+
+        /* ==================== DASHBOARD PAGE CSS ==================== */
+        #dashboard-wrapper .header { display: flex; justify-content: space-between; align-items: center; padding: 20px; max-width: 800px; margin: 0 auto; }
+        #dashboard-wrapper .logo { font-weight: 800; font-size: 24px; color: white; text-decoration: none; } /* MODIFIED: Text Logo */
+        #dashboard-wrapper .menu-icon { color: var(--white); font-size: 28px; cursor: pointer; }
+        #dashboard-wrapper .sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1999; opacity: 0; visibility: hidden; transition: var(--dash-transition); backdrop-filter: blur(3px); }
+        #dashboard-wrapper .sidebar-overlay.active { opacity: 1; visibility: visible; }
+        #dashboard-wrapper .sidebar { position: fixed; top: 0; left: -100%; width: 85%; max-width: 350px; height: 100vh; background: var(--dash-primary-purple); z-index: 2000; transition: left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); overflow-y: auto; box-shadow: 10px 0 30px rgba(0,0,0,0.5); padding: 25px 20px 100px 20px; }
+        #dashboard-wrapper .sidebar.active { left: 0; }
+        #dashboard-wrapper .sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+        #dashboard-wrapper .sidebar-header .logo { font-size: 22px; color: white; text-decoration: none; font-weight: 800; } /* MODIFIED: Text Logo */
+        #dashboard-wrapper .close-btn { color: var(--white); font-size: 24px; cursor: pointer; transition: transform 0.3s; }
+        #dashboard-wrapper .close-btn:hover { transform: rotate(90deg); }
+        #dashboard-wrapper .sidebar-balance { background: var(--white); border-radius: var(--dash-radius-input); padding: 15px 18px; display: flex; justify-content: space-between; align-items: center; color: var(--dash-text-main); font-weight: 800; font-size: 18px; margin-bottom: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+        #dashboard-wrapper .sidebar-menu { list-style: none; }
+        #dashboard-wrapper .sidebar-menu li { margin-bottom: 3px; }
+        #dashboard-wrapper .sidebar-menu a { display: flex; align-items: center; gap: 15px; color: rgba(255,255,255,0.8); text-decoration: none; padding: 12px 16px; font-size: 15px; font-weight: 600; border-radius: 12px; transition: var(--dash-transition); cursor: pointer; }
+        #dashboard-wrapper .sidebar-menu a i { font-size: 18px; width: 25px; text-align: center; }
+        #dashboard-wrapper .sidebar-menu a:hover, #dashboard-wrapper .sidebar-menu a.active { background: rgba(255, 255, 255, 0.2); color: var(--white); }
+        #dashboard-wrapper .container { max-width: 800px; margin: 0 auto; padding: 0 15px; }
+        #dashboard-wrapper .card { background: var(--white); border-radius: var(--dash-radius-card); padding: 25px 20px; color: var(--dash-text-main); box-shadow: var(--dash-shadow); margin-bottom: 20px; }
+        #dashboard-wrapper .form-group { margin-bottom: 20px; position: relative; }
+        #dashboard-wrapper .form-group label { display: block; font-size: 14px; font-weight: 800; margin-bottom: 10px; color: var(--dash-text-main); }
+        #dashboard-wrapper .input-icon-wrapper { position: relative; }
+        #dashboard-wrapper .input-icon-wrapper i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #999; z-index: 2; }
+        #dashboard-wrapper .form-control { width: 100%; padding: 16px; border-radius: var(--dash-radius-input); border: 2px solid transparent; background: #F3F4F6; font-size: 15px; font-weight: 600; color: var(--dash-text-main); outline: none; transition: var(--dash-transition); }
+        #dashboard-wrapper .form-control.with-icon { padding-left: 45px; }
+        #dashboard-wrapper .form-control:focus { border-color: var(--dash-primary-purple); background: #fff; box-shadow: 0 4px 15px rgba(108, 44, 246, 0.1); }
+        #dashboard-wrapper select.form-control { appearance: none; cursor: pointer; padding-right: 40px; }
+        #dashboard-wrapper .select-wrapper { position: relative; }
+        #dashboard-wrapper .select-wrapper::after { content: '\f0d7'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; right: 18px; top: 50%; transform: translateY(-50%); color: #94a3b8; pointer-events: none; }
+        #dashboard-wrapper .min-max-text { font-size: 12px; color: var(--dash-text-light); margin-top: 5px; display: block; font-weight: 600; }
+        #dashboard-wrapper .btn-primary { width: 100%; background: var(--dash-primary-pink); color: var(--white); padding: 16px; border-radius: var(--dash-radius-input); font-weight: 800; font-size: 16px; border: none; cursor: pointer; box-shadow: 0 5px 15px rgba(255, 46, 99, 0.3); transition: var(--dash-transition); margin-top: 10px; }
+        #dashboard-wrapper .btn-primary:active { transform: scale(0.98); }
+        #dashboard-wrapper .btn-red { background: var(--dash-red-btn); color: var(--white); padding: 14px 20px; border-radius: var(--dash-radius-input); font-weight: 800; font-size: 15px; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3); transition: var(--dash-transition); display: inline-block; text-align: center; text-decoration: none;}
+        #dashboard-wrapper .btn-red.full { width: 100%; }
+        #dashboard-wrapper .btn-blue { background: #3b82f6; color: white; padding: 14px 20px; border-radius: var(--dash-radius-input); font-weight: 800; border: none; cursor: pointer; }
+        #dashboard-wrapper .promo-banner { text-align: center; margin-bottom: 25px; }
+        #dashboard-wrapper .promo-banner h2 { font-size: 22px; font-weight: 800; color: var(--white); line-height: 1.4; margin-bottom: 15px; }
+        #dashboard-wrapper .promo-banner h2 span { color: var(--dash-yellow-accent); }
+        #dashboard-wrapper .stats-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-bottom: 30px; }
+        #dashboard-wrapper .stat-card { background: linear-gradient(135deg, #FF2E63, #6C2CF6); border-radius: var(--dash-radius-card); padding: 25px 20px; display: flex; align-items: center; gap: 20px; box-shadow: var(--dash-shadow); }
+        #dashboard-wrapper .stat-icon { font-size: 40px; color: var(--white); opacity: 0.9; width: 60px; text-align: center; }
+        #dashboard-wrapper .stat-info h3 { font-size: 24px; font-weight: 800; margin-bottom: 5px; color: #fff;}
+        #dashboard-wrapper .stat-info p { font-size: 13px; font-weight: 500; opacity: 0.9; color: #fff; }
+        #dashboard-wrapper .add-funds-link { display: inline-block; margin-top: 8px; color: var(--dash-yellow-accent); font-size: 13px; font-weight: 800; text-decoration: none; background: rgba(0,0,0,0.2); padding: 5px 10px; border-radius: 8px; cursor:pointer;}
+        #dashboard-wrapper .wa-announcement { text-align: center; margin-bottom: 30px; }
+        #dashboard-wrapper .wa-announcement p { font-size: 16px; font-weight: 600; line-height: 1.5; margin-bottom: 15px; }
+        #dashboard-wrapper .wa-announcement p span { color: var(--dash-yellow-accent); font-weight: 800; }
+        #dashboard-wrapper .btn-join { background: var(--dash-green-btn); color: var(--white); border: none; padding: 12px 25px; border-radius: 50px; font-weight: 800; font-size: 14px; cursor: pointer; box-shadow: 0 5px 15px rgba(0, 230, 118, 0.4); transition: var(--dash-transition); }
+        #dashboard-wrapper .platform-filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 25px; }
+        #dashboard-wrapper .filter-btn { width: 48px; height: 48px; border-radius: 14px; border: 2px solid #eee; background: #fff; font-size: 20px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: var(--dash-transition); box-shadow: 0 2px 10px rgba(0,0,0,0.05);}
+        #dashboard-wrapper .filter-btn.active { border-color: var(--dash-primary-purple); background: rgba(108, 44, 246, 0.1); transform: translateY(-2px); }
+        #dashboard-wrapper .service-desc { background: #EAE6F5; border-radius: var(--dash-radius-input); padding: 18px; margin-bottom: 20px; border-left: 4px solid var(--dash-primary-purple); }
+        #dashboard-wrapper .service-desc h4 { font-size: 14px; color: var(--dash-primary-pink); margin-bottom: 8px; font-weight: 800; display: flex; align-items: center; gap: 5px;}
+        #dashboard-wrapper .service-desc p { font-size: 13.5px; line-height: 1.6; font-weight: 600;}
+        #dashboard-wrapper .info-card { background: var(--white); border-radius: var(--dash-radius-card); padding: 30px 25px; color: var(--dash-text-main); box-shadow: var(--dash-shadow); margin-bottom: 40px; }
+        #dashboard-wrapper .info-card a.title-link { color: #1877F2; font-size: 16px; font-weight: 800; text-decoration: underline; display: block; margin-bottom: 15px; }
+        #dashboard-wrapper .info-card p { font-size: 14px; color: var(--dash-text-light); line-height: 1.7; margin-bottom: 15px; font-weight: 600; }
+        #dashboard-wrapper .info-card h4 { font-size: 16px; font-weight: 800; color: var(--dash-text-main); margin-bottom: 15px; margin-top: 20px; }
+        #dashboard-wrapper .support-text { color: var(--dash-primary-purple); font-weight: 800; font-size: 15px; display: flex; align-items: center; gap: 8px; }
+        #dashboard-wrapper .orders-tabs { display: flex; gap: 10px; overflow-x: auto; margin-bottom: 20px; padding-bottom: 5px; scrollbar-width: none; }
+        #dashboard-wrapper .orders-tabs::-webkit-scrollbar { display: none; }
+        #dashboard-wrapper .order-tab { padding: 12px 24px; background: rgba(255,255,255,0.15); color: var(--white); border-radius: 50px; font-weight: 700; font-size: 14px; white-space: nowrap; cursor: pointer; transition: var(--dash-transition); }
+        #dashboard-wrapper .order-tab.active { background: var(--white); color: var(--dash-primary-purple); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        #dashboard-wrapper .search-box { display: flex; gap: 10px; margin-bottom: 20px; }
+        #dashboard-wrapper .search-box input { flex: 1; padding: 14px 20px; border-radius: 12px; border: none; background: #F3F4F6; font-weight: 600; outline: none; }
+        #dashboard-wrapper .search-box button { background: var(--dash-text-light); color: #fff; border: none; padding: 0 20px; border-radius: 12px; cursor: pointer; font-size: 18px; }
+        #dashboard-wrapper .table-responsive { overflow-x: auto; }
+        #dashboard-wrapper .custom-table { width: 100%; border-collapse: collapse; min-width: 500px; }
+        #dashboard-wrapper .custom-table th { text-align: left; padding: 15px; font-size: 14px; color: var(--dash-text-main); font-weight: 800; border-bottom: 2px solid #F3F4F6; }
+        #dashboard-wrapper .custom-table td { padding: 15px; font-size: 14px; color: var(--dash-text-light); font-weight: 600; border-bottom: 1px solid #F3F4F6; }
+        #dashboard-wrapper .custom-table td a { color: #3b82f6; text-decoration: none; word-break: break-all; }
+        #dashboard-wrapper .notice-card { text-align: center; }
+        #dashboard-wrapper .notice-card h3 { color: #dc2626; font-size: 18px; font-weight: 800; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        #dashboard-wrapper .notice-card p { font-size: 15px; font-weight: 700; color: #1e293b; line-height: 1.6; }
+        #dashboard-wrapper .notice-card p.red-text { color: #dc2626; margin: 10px 0; }
+        #dashboard-wrapper .notice-card p.light-text { font-weight: 600; color: #64748b; font-size: 14px; }
+        #dashboard-wrapper .qr-section { text-align: center; margin: 25px 0; }
+        #dashboard-wrapper .qr-section img { max-width: 250px; width: 100%; border-radius: 10px; border: 4px solid #f8fafc; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 10px; }
+        #dashboard-wrapper .qr-section p.upi-id { font-weight: 700; color: var(--dash-text-main); font-size: 15px; margin-bottom: 15px; }
+        #dashboard-wrapper .qr-section .logos { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; }
+        #dashboard-wrapper .qr-warning-main { font-size: 22px; font-weight: 800; color: #000; line-height: 1.4; margin-bottom: 20px; text-align: center; }
+        #dashboard-wrapper .qr-warning-sub { font-size: 18px; font-weight: 800; color: var(--dash-text-main); line-height: 1.5; text-align: center; margin-bottom: 20px; }
+        #dashboard-wrapper .qr-warning-sub mark { background: #FFD700; color: #000; padding: 2px 5px; border-radius: 4px; }
+        #dashboard-wrapper .welcome-card { background: var(--white); border-radius: var(--dash-radius-card); padding: 30px 20px; margin-bottom: 20px; box-shadow: var(--dash-shadow); }
+        #dashboard-wrapper .welcome-card h3 { font-size: 20px; font-weight: 800; color: var(--dash-text-main); margin-bottom: 10px; text-align: center; }
+        #dashboard-wrapper .welcome-card > p { text-align: center; color: var(--dash-text-light); font-weight: 600; margin-bottom: 20px; }
+        #dashboard-wrapper .welcome-card ul { list-style: none; padding-left: 0; margin-bottom: 20px; }
+        #dashboard-wrapper .welcome-card ul li { font-size: 14px; font-weight: 700; color: var(--dash-text-main); margin-bottom: 12px; display: flex; gap: 10px; align-items: flex-start; }
+        #dashboard-wrapper .welcome-card .highlight-text { text-align: center; font-weight: 800; color: var(--dash-primary-purple); font-size: 16px; display: block; }
+        #dashboard-wrapper .profile-tabs { display: flex; background: #F3F4F6; border-radius: 12px; padding: 5px; margin-bottom: 20px; }
+        #dashboard-wrapper .profile-tab { flex: 1; text-align: center; padding: 12px; font-weight: 800; color: var(--dash-text-light); font-size: 14px; border-radius: 10px; cursor: pointer; transition: var(--dash-transition); }
+        #dashboard-wrapper .profile-tab.active { background: var(--white); color: var(--dash-primary-purple); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        #dashboard-wrapper .inline-group { display: flex; gap: 15px; align-items: flex-end; }
+        #dashboard-wrapper .inline-group .form-group { flex: 1; margin-bottom: 0; }
+        #dashboard-wrapper textarea.form-control { min-height: 120px; resize: vertical; }
+        #dashboard-wrapper .notification-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #f1f5f9; }
+        #dashboard-wrapper .notification-item:last-child { border-bottom: none; }
+        #dashboard-wrapper .notif-text h4 { font-size: 15px; font-weight: 800; color: var(--dash-text-main); margin-bottom: 4px; }
+        #dashboard-wrapper .notif-text p { font-size: 12px; font-weight: 600; color: var(--dash-text-light); }
+        #dashboard-wrapper .switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+        #dashboard-wrapper .switch input { opacity: 0; width: 0; height: 0; }
+        #dashboard-wrapper .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px; }
+        #dashboard-wrapper .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+        #dashboard-wrapper input:checked + .slider { background-color: var(--dash-primary-purple); }
+        #dashboard-wrapper input:checked + .slider:before { transform: translateX(20px); }
+        #dashboard-wrapper .ref-banner h1 { font-size: 26px; font-weight: 800; color: var(--dash-text-main); line-height: 1.4; margin-bottom: 15px; text-align: center;}
+        #dashboard-wrapper .ref-banner h1 span { color: var(--dash-primary-pink); }
+        #dashboard-wrapper .ref-banner p { font-size: 15px; font-weight: 600; color: var(--dash-text-light); text-align: center; line-height: 1.6;}
+        #dashboard-wrapper .ref-link-box { display: flex; justify-content: space-between; align-items: center; background: #F3F4F6; border-radius: var(--dash-radius-input); padding: 15px; margin-top: 10px; }
+        #dashboard-wrapper .ref-link-box span { font-weight: 700; color: var(--dash-text-main); font-size: 14px; word-break: break-all;}
+        #dashboard-wrapper .icon-btn-group { display: flex; gap: 8px;}
+        #dashboard-wrapper .copy-btn { color: var(--dash-primary-purple); background: none; border: none; font-size: 20px; cursor: pointer; transition: 0.2s; }
+        #dashboard-wrapper .copy-btn:active { transform: scale(0.9); }
+        #dashboard-wrapper .ref-stat-row { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #F3F4F6; }
+        #dashboard-wrapper .ref-stat-row:last-child { border: none; padding-bottom: 0;}
+        #dashboard-wrapper .ref-stat-row span:first-child { font-weight: 800; color: var(--dash-text-main); }
+        #dashboard-wrapper .ref-stat-row span:last-child { font-weight: 700; color: var(--dash-text-light); }
+        #dashboard-wrapper .announcement-card { border-left: 4px solid var(--dash-primary-purple); padding: 20px; margin-bottom: 15px; }
+        #dashboard-wrapper .announcement-card h4 { font-size: 18px; font-weight: 800; margin-bottom: 8px; color: var(--dash-text-main); }
+        #dashboard-wrapper .announcement-card p { font-size: 14px; color: var(--dash-text-light); line-height: 1.6; margin-bottom: 12px; font-weight: 600; }
+        #dashboard-wrapper .announcement-footer { display: flex; justify-content: space-between; align-items: center; }
+        #dashboard-wrapper .announcement-date { font-size: 12px; color: #94a3b8; font-weight: 700; }
+        #dashboard-wrapper .badge { padding: 5px 12px; border-radius: 50px; font-size: 11px; font-weight: 800; text-transform: uppercase; }
+        #dashboard-wrapper .badge-update { background: #e0f2fe; color: #0284c7; }
+        #dashboard-wrapper .badge-important { background: #fee2e2; color: #dc2626; }
+        #dashboard-wrapper .badge-new { background: #dcfce7; color: #16a34a; }
+        #dashboard-wrapper .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        #dashboard-wrapper .blog-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; cursor: pointer; transition: transform 0.2s; }
+        #dashboard-wrapper .blog-card:hover { transform: translateY(-5px); }
+        #dashboard-wrapper .blog-img { width: 100%; height: 180px; background: #ddd; object-fit: cover; }
+        #dashboard-wrapper .blog-content { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+        #dashboard-wrapper .blog-title { font-size: 18px; font-weight: 800; color: var(--dash-text-main); margin-bottom: 10px; line-height: 1.4; }
+        #dashboard-wrapper .blog-preview { font-size: 14px; color: var(--dash-text-light); margin-bottom: 15px; line-height: 1.6; font-weight: 600; flex: 1; }
+        #dashboard-wrapper .blog-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+        #dashboard-wrapper .blog-date { font-size: 12px; color: #94a3b8; font-weight: 700; }
+        #dashboard-wrapper .read-more { color: var(--dash-primary-purple); font-weight: 800; font-size: 14px; text-decoration: none; }
+        #dashboard-wrapper .blog-details-img { width: 100%; height: 250px; object-fit: cover; border-radius: 12px; margin-bottom: 20px; }
+        #dashboard-wrapper .blog-details-title { font-size: 24px; font-weight: 800; color: var(--dash-text-main); margin-bottom: 15px; }
+        #dashboard-wrapper .blog-details-text { font-size: 15px; color: var(--dash-text-main); line-height: 1.8; font-weight: 500; }
+        
+        @media (min-width: 768px) { #dashboard-wrapper .stats-grid { grid-template-columns: repeat(3, 1fr); } }
+        
+        /* ==================== AI CHATBOT CSS ==================== */
+        .x-accent { color: #FF2E63; font-weight: 900; }
+
+        .ai-chat-btn { 
+            position: fixed; bottom: 25px; left: 25px;
+            width: 85px; height: 85px;
+            border-radius: 50%; cursor: pointer; z-index: 9999; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+            background: var(--white);
+            border: none; 
+            animation: floatAI 3s ease-in-out infinite;
+            transition: all 0.3s ease;
+            padding: 8px; /* MODIFIED: Reduced padding to make image larger */
+        }
+        @keyframes floatAI {
+            0% { transform: translateY(0px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); }
+            50% { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(108, 44, 246, 0.3); }
+            100% { transform: translateY(0px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); }
+        }
+        .ai-chat-btn img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+        .ai-chat-btn:hover { transform: scale(1.1) rotate(5deg); animation: none; }
+
+        #chatbot-page { 
+            display: none; background-color: #f5f7fb; height: 100vh; width: 100vw; 
+            position: fixed; top: 0; left: 0; z-index: 99999; flex-direction: column; overflow: hidden; 
+        }
+
+        .chat-header-bar { 
+            background: var(--white); padding: 15px 20px; display: flex; align-items: center; gap: 12px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-radius: 0 0 25px 25px; z-index: 10;
+        }
+        .chat-back-btn { margin-right: 5px; font-size: 20px; color: #1e272e; cursor: pointer; padding: 5px; transition: 0.3s; }
+        .chat-back-btn:active { transform: scale(0.8); }
+        .chat-bot-profile { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(108, 44, 246, 0.2); }
+        .chat-bot-profile img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+        .chat-info h3 { font-size: 16px; font-weight: 800; color: #1e272e; margin: 0;}
+        .chat-info p { font-size: 12px; color: #10ac84; font-weight: 700; display: flex; align-items: center; gap: 4px; margin: 0;}
+        .chat-info p::before { content: ''; width: 6px; height: 6px; background: #10ac84; border-radius: 50%; display: block; }
+
+        .chat-container { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 15px; scroll-behavior: smooth; }
+        
+        .chat-msg-wrap { display: flex; flex-direction: column; max-width: 85%; animation: fadeIn 0.3s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        .chat-msg-bot { align-self: flex-start; }
+        .chat-msg-user { align-self: flex-end; align-items: flex-end; }
+        
+        .chat-bubble { padding: 12px 16px; border-radius: 18px; font-size: 14px; line-height: 1.5; box-shadow: 0 4px 15px rgba(0,0,0,0.03); font-weight: 500;}
+        .chat-bubble-bot { background: #ffffff; color: #1e272e; border-top-left-radius: 4px; border: 1px solid #f0f0f0; }
+        .chat-bubble-user { background: var(--primary-gradient); color: white; border-bottom-right-radius: 4px; }
+
+        .chat-options-list { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; margin-top: 5px; }
+        .chat-chip { 
+            background: white; border: 1.5px solid #6C2CF6; color: #6C2CF6; padding: 10px 18px; 
+            border-radius: 25px; font-size: 13px; font-weight: 700; cursor: pointer; display: flex; 
+            align-items: center; gap: 8px; transition: 0.2s; box-shadow: 0 2px 10px rgba(108, 44, 246, 0.05); 
+        }
+        .chat-chip:active { background: #6C2CF6; color: white; transform: scale(0.96); }
+
+        .chat-footer { background: var(--white); padding: 12px 15px 20px 15px; display: flex; align-items: center; gap: 12px; border-top: 1px solid #f0f0f0; }
+        .chat-input-box { flex: 1; height: 48px; background: #f1f4f8; border: none; border-radius: 24px; padding: 0 20px; font-size: 14px; outline: none; transition: 0.3s; font-weight: 500;}
+        .chat-input-box:focus { background: #e8ecf2; }
+        .chat-input-box.locked { background: #eaedf2; color: #a4b0be; cursor: not-allowed; }
+        .chat-btn-send { width: 48px; height: 48px; background: var(--primary-gradient); border: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; opacity: 0.3; pointer-events: none; transition: 0.4s; box-shadow: 0 4px 15px rgba(108, 44, 246, 0.3); font-size: 18px;}
+        .chat-btn-send.active { opacity: 1; pointer-events: all; transform: scale(1.1); }
+        
+        .chat-typing { display: flex; gap: 4px; padding: 5px; }
+        .chat-typing span { width: 6px; height: 6px; background: #ccd1d7; border-radius: 50%; animation: blink 1s infinite; }
+        .chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+        .chat-typing span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes blink { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+        @media (min-width: 1024px) {
+            #chatbot-page { align-items: center; justify-content: center; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); }
+            .chat-header-bar { border-radius: 25px 25px 0 0; }
+            .chat-container, .chat-footer, .chat-header-bar { width: 400px; background: white; margin: 0 auto; }
+            .chat-footer { border-radius: 0 0 25px 25px; margin-bottom: 20px; }
+            .chat-header-bar { margin-top: 20px; }
+        }
+    </style>
 </head>
 <body class="landing-mode">
 
+    <!-- ========================================== -->
+    <!-- LANDING VIEW WRAPPER                       -->
+    <!-- ========================================== -->
     <div id="landing-wrapper">
         <div id="main-page">
             <div class="hero-wrapper" id="home-top">
                 <header id="header">
                     <div class="container">
                         <nav>
-                            <a href="index.html" class="logo">BoostifyX</a>
+                            <a href="#" class="logo">BoostifyX</a>
                             
                             <div class="desktop-menu">
-                                <a href="index.html">Home</a>
+                                <a href="#">Home</a>
                                 <a href="#services">Services</a>
                                 <a href="#features">Features</a>
                                 <a href="#faq">FAQ</a>
-                                <a href="auth.html" class="btn btn-outline">Login</a>
-                                <a href="auth.html" class="btn btn-primary">Sign Up</a>
+                                <a href="javascript:void(0);" onclick="showLoginCard()" class="btn btn-outline">Login</a>
+                                <a href="javascript:void(0);" onclick="showSignupCard()" class="btn btn-primary">Sign Up</a>
                             </div>
 
                             <div class="nav-right">
-                                <a href="auth.html" class="btn btn-primary btn-sm" style="padding: 8px 16px; font-size: 12px; margin-right: 10px;">Login</a>
+                                <a href="javascript:void(0);" onclick="showLoginCard()" class="btn btn-primary btn-sm" style="padding: 8px 16px; font-size: 12px; margin-right: 10px;">Login</a>
                                 <i class="fas fa-bars menu-toggle" id="menuIcon" onclick="toggleMenu()"></i>
                             </div>
                         </nav>
@@ -37,8 +490,8 @@
                     <div class="mobile-dropdown" id="mobileDropdown">
                         <div class="container">
                             <ul class="mobile-dropdown-links">
-                                <li><a href="auth.html" class="active-item"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
-                                <li><a href="auth.html"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                                <li><a href="javascript:void(0);" onclick="showLoginCard(); toggleMenu();" class="active-item"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
+                                <li><a href="javascript:void(0);" onclick="showSignupCard(); toggleMenu();"><i class="fas fa-user-plus"></i> Sign Up</a></li>
                                 <li><a href="#services" onclick="toggleMenu();"><i class="fas fa-clipboard-list"></i> Services</a></li>
                                 <li><a href="#services" onclick="toggleMenu();"><i class="fas fa-tags"></i> Pricing</a></li>
                                 <li><a href="#faq" onclick="toggleMenu();"><i class="fas fa-question-circle"></i> FAQ</a></li>
@@ -58,8 +511,67 @@
                         
                         <div class="hero-btns fade-in">
                             <a href="#services" class="btn btn-outline">See Pricing</a>
-                            <a href="auth.html" class="btn btn-primary">Get Started Now <i class="fas fa-arrow-right"></i></a>
+                            <a href="javascript:void(0);" onclick="showSignupCard()" class="btn btn-primary">Get Started Now <i class="fas fa-arrow-right"></i></a>
                         </div>
+
+                        <!-- LOGIN FORM -->
+                        <div class="login-card fade-in" id="login-card-container">
+                            <h3>Sign In to Dashboard</h3>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="login-email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" id="login-password" placeholder="••••••••" required>
+                            </div>
+                            <a href="#" class="forgot-pass">Forgot password?</a>
+                            
+                            <button type="button" class="btn btn-signin" onclick="handleLogin(event)">Sign In</button>
+                            
+                            <button type="button" class="google-login" onclick="signInWithGoogle(event)">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" width="18" alt="G">
+                                Sign in with Google
+                            </button>
+
+                            <p class="signup-text">Don't have an account? <a href="javascript:void(0);" onclick="showSignupCard()">Sign up Now</a></p>
+                        </div>
+
+                        <!-- SIGNUP FORM -->
+                        <div class="login-card fade-in" id="signup-card-container" style="display: none;">
+                            <h3>Create an Account</h3>
+                            
+                            <button type="button" class="google-login" style="margin-bottom: 20px;" onclick="signInWithGoogle(event)">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" width="18" alt="G">
+                                Sign up with Google
+                            </button>
+
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input type="text" id="signup-username" placeholder="Choose a username" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="signup-email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="form-group">
+                                <label>WhatsApp</label>
+                                <input type="tel" id="signup-whatsapp" placeholder="Your WhatsApp number" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" id="signup-password" placeholder="Create a password" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input type="password" id="signup-confirm-password" placeholder="Repeat password" required>
+                            </div>
+                            
+                            <button type="button" class="btn btn-signin" style="margin-top: 5px;" onclick="handleSignup(event)">Sign Up</button>
+
+                            <p class="signup-text">Already have an account? <a href="javascript:void(0);" onclick="showLoginCard()">Sign in</a></p>
+                        </div>
+
                     </div>
                 </section>
             </div> 
@@ -90,7 +602,7 @@
                     <div class="premium-box-wrapper fade-in">
                         <div class="premium-box">
                             <h2>🚀 Why Choose BoostifyX – Your Reliable SMM Growth Partner</h2>
-                            <p>In today’s competitive digital world, speed, stability, and transparency define success. That’s why <strong>BoostifyX</strong> is trusted by resellers, marketers, agencies, and creators across India.</p>
+                            <p>In today’s competitive digital world, speed, stability, and transparency define success. That’s why <strong>BoostifyX</strong> is trusted by resellers, marketers, agencies, and creators across India. We don’t just deliver services — we deliver performance, reliability, and long-term growth support.</p>
                         </div>
                     </div>
 
@@ -203,31 +715,31 @@
                                 <div class="platform-icon" style="color:#E1306C"><i class="fab fa-instagram"></i></div>
                                 <h4>Instagram Followers</h4>
                                 <p class="price-tag">₹10 <small>/ 1k</small></p>
-                                <a href="auth.html" class="btn btn-primary btn-sm" style="width:100%; font-size: 12px;">Order Now</a>
+                                <a href="javascript:void(0);" onclick="showLoginCard()" class="btn btn-primary btn-sm" style="width:100%; font-size: 12px;">Order Now</a>
                             </div>
                             <div class="service-card yt fade-in">
                                 <div class="platform-icon" style="color:#FF0000"><i class="fab fa-youtube"></i></div>
                                 <h4>YouTube Views</h4>
                                 <p class="price-tag">₹80 <small>/ 1k</small></p>
-                                <a href="auth.html" class="btn btn-primary btn-sm" style="width:100%; font-size: 12px;">Order Now</a>
+                                <a href="javascript:void(0);" onclick="showLoginCard()" class="btn btn-primary btn-sm" style="width:100%; font-size: 12px;">Order Now</a>
                             </div>
                             <div class="service-card fb fade-in">
                                 <div class="platform-icon" style="color:#1877F2"><i class="fab fa-facebook"></i></div>
                                 <h4>Facebook Likes</h4>
                                 <p class="price-tag">₹15 <small>/ 1k</small></p>
-                                <a href="auth.html" class="btn btn-primary btn-sm" style="width:100%; font-size: 12px;">Order Now</a>
+                                <a href="javascript:void(0);" onclick="showLoginCard()" class="btn btn-primary btn-sm" style="width:100%; font-size: 12px;">Order Now</a>
                             </div>
                             <div class="service-card fade-in">
                                 <div class="platform-icon" style="color:#0088cc"><i class="fab fa-telegram"></i></div>
                                 <h4>Telegram Members</h4>
                                 <p class="price-tag">₹40 <small>/ 1k</small></p>
-                                <a href="auth.html" class="btn btn-primary btn-sm" style="width:100%; font-size: 12px;">Order Now</a>
+                                <a href="javascript:void(0);" onclick="showLoginCard()" class="btn btn-primary btn-sm" style="width:100%; font-size: 12px;">Order Now</a>
                             </div>
                             <div class="service-card fade-in">
                                 <div class="platform-icon" style="color:#4a69bd"><i class="fas fa-globe"></i></div>
                                 <h4>Website Traffic</h4>
                                 <p class="price-tag">₹5 <small>/ 1k</small></p>
-                                <a href="auth.html" class="btn btn-primary btn-sm" style="width:100%; font-size: 12px;">Order Now</a>
+                                <a href="javascript:void(0);" onclick="showLoginCard()" class="btn btn-primary btn-sm" style="width:100%; font-size: 12px;">Order Now</a>
                             </div>
                         </div>
                     </div>
@@ -271,6 +783,23 @@
                         <div class="content-box box-light fade-in">
                             <h3>📘 What is an SMM Panel?</h3>
                             <p>An SMM Panel (Social Media Marketing Panel) is an online platform that provides social media marketing services in a centralized dashboard.</p>
+                            <ul>
+                                <li>Followers</li>
+                                <li>Likes & Views</li>
+                                <li>Comments</li>
+                                <li>Subscribers</li>
+                                <li>Engagement packages</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-box benefits-box fade-in">
+                            <h3 style="text-align: center;">🌟 BENEFITS SECTION</h3>
+                            <ul>
+                                <li>📈 Increase Visibility</li>
+                                <li>💬 Improve Engagement</li>
+                                <li>⏳ Save Time</li>
+                                <li>🏆 Build Credibility</li>
+                            </ul>
                         </div>
                     </div>
                 </section>
@@ -311,8 +840,8 @@
                         <div class="footer-links">
                             <h4>Account</h4>
                             <ul>
-                                <li><a href="auth.html">Login</a></li>
-                                <li><a href="auth.html">Register</a></li>
+                                <li><a href="javascript:void(0);" onclick="showLoginCard()">Login</a></li>
+                                <li><a href="javascript:void(0);" onclick="showSignupCard()">Register</a></li>
                             </ul>
                         </div>
                          <div class="footer-links">
@@ -327,7 +856,8 @@
                             <h4>Support</h4>
                             <ul>
                                 <li><a href="javascript:void(0);" onclick="openChatbotPage()">AI Assistant 🤖</a></li>
-                                <li><a href="auth.html">Support Ticket</a></li>
+                                <li><a href="#">Help Center</a></li>
+                                <li><a href="javascript:void(0);" onclick="handleLoginAndSwitchView('tickets')">Support Ticket</a></li>
                             </ul>
                         </div>
                         <div class="footer-links">
@@ -350,6 +880,7 @@
             </footer>
         </div>
 
+        <!-- Policy Pages -->
         <div id="policy-page">
             <div class="policy-header">
                 <button class="back-btn" onclick="closePolicyPage()"><i class="fas fa-arrow-left"></i> Back to Home</button>
@@ -357,57 +888,974 @@
             </div>
             <div class="container">
                 <div class="policy-card">
-                    <div id="content-terms" style="display: none;">
-                        <span class="policy-date">Last Updated: October 2023</span>
-                        <h2>1. General Terms</h2>
-                        <p>By registering and placing an order on BoostifyX, you automatically accept all the below-listed terms of service weather you read them or not.</p>
-                    </div>
-                    <div id="content-privacy" style="display: none;">
-                        <span class="policy-date">Last Updated: October 2023</span>
-                        <h2>1. Information Collection</h2>
-                        <p>BoostifyX highly values your privacy. We collect minimal data required to provide you with our services.</p>
-                    </div>
-                    <div id="content-refund" style="display: none;">
-                        <span class="policy-date">Last Updated: October 2023</span>
-                        <h2>1. Panel Balance Refunds</h2>
-                        <p>Once funds are deposited into your BoostifyX account, they cannot be reversed to your bank account, UPI, or Crypto wallet.</p>
-                    </div>
-                    <div id="content-disclaimer" style="display: none;">
-                        <span class="policy-date">Last Updated: October 2023</span>
-                        <h2>1. Service Liability</h2>
-                        <p>BoostifyX will not be responsible for any damages you or your business may suffer.</p>
-                    </div>
+                    <div id="content-terms" style="display: none;"><p>Terms of Service placeholder.</p></div>
+                    <div id="content-privacy" style="display: none;"><p>Privacy Policy placeholder.</p></div>
+                    <div id="content-refund" style="display: none;"><p>Refund Policy placeholder.</p></div>
+                    <div id="content-disclaimer" style="display: none;"><p>Disclaimer placeholder.</p></div>
                 </div>
             </div>
         </div>
         
     </div>
 
+    <!-- ========================================== -->
+    <!-- DASHBOARD VIEW WRAPPER                     -->
+    <!-- ========================================== -->
+    <div id="dashboard-wrapper" style="display: none;">
+        
+        <!-- SIDEBAR OVERLAY & MENU -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <div class="sidebar" id="sidebarMenu">
+            <div class="sidebar-header">
+                <a href="#" class="logo">BoostifyX</a>
+                <i class="fas fa-times close-btn" id="closeMenuBtn"></i>
+            </div>
+            <div class="sidebar-balance">
+                <span class="user-balance">₹0.00</span>
+                <i class="fas fa-wallet" style="color: var(--dash-primary-purple);"></i>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li><a onclick="switchView('dashboard')" id="nav-dashboard" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a onclick="switchView('dashboard')" id="nav-neworder"><i class="fas fa-shopping-cart"></i> New Order</a></li>
+                <li><a onclick="switchView('massorder')" id="nav-massorder"><i class="fas fa-layer-group"></i> Mass Order</a></li>
+                <li><a onclick="switchView('orders')" id="nav-orders"><i class="fas fa-list-alt"></i> Orders</a></li>
+                <li><a onclick="switchView('addfunds')" id="nav-addfunds"><i class="fas fa-rupee-sign"></i> Add Funds</a></li>
+                <li><a onclick="switchView('transactions')" id="nav-transactions"><i class="fas fa-exchange-alt"></i> Transactions</a></li>
+                <li><a onclick="switchView('affiliates')" id="nav-affiliates"><i class="fas fa-users"></i> Affiliates</a></li>
+                <li><a onclick="switchView('tickets')" id="nav-tickets"><i class="fas fa-headset"></i> Support Tickets</a></li>
+                <li><a onclick="switchView('announcements')" id="nav-announcements"><i class="fas fa-bullhorn"></i> Announcements</a></li>
+                <li><a onclick="switchView('blog')" id="nav-blog"><i class="fas fa-blog"></i> Blog</a></li>
+                <li><a onclick="switchView('profile')" id="nav-profile"><i class="fas fa-user-circle"></i> Profile</a></li>
+                
+                <li><a href="#" onclick="logoutUser(event)"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- HEADER -->
+        <header class="header">
+            <a href="#" class="logo">BoostifyX</a>
+            <i class="fas fa-bars menu-icon" id="openMenuBtn"></i>
+        </header>
+
+        <!-- VIEW: DASHBOARD -->
+        <div id="view-dashboard" class="container">
+            <div class="promo-banner">
+                <h2>💰 REFER OUR PANEL AND <br> EARN <span>5% COMMISION</span> 💰</h2>
+                <button class="btn-primary" style="width: auto; padding: 10px 30px; border-radius: 50px;" onclick="switchView('affiliates')">Click Here</button>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card" id="dash-username-card">
+                    <div class="stat-icon"><i class="fas fa-user-check"></i></div>
+                    <div class="stat-info">
+                        <h3>Username</h3>
+                        <p>Welcome to BoostifyX!</p>
+                    </div>
+                </div>
+                <div class="stat-card" id="dash-spent-card">
+                    <div class="stat-icon"><i class="fas fa-comment-dollar"></i></div>
+                    <div class="stat-info">
+                        <h3>₹0.00</h3>
+                        <p>Spent balance</p>
+                    </div>
+                </div>
+                <div class="stat-card" id="dash-balance-card">
+                    <div class="stat-icon"><i class="fas fa-rupee-sign"></i></div>
+                    <div class="stat-info">
+                        <h3 class="user-balance">₹0.00</h3>
+                        <p>Account balance</p>
+                        <a onclick="switchView('addfunds')" class="add-funds-link">Click Here To Add Funds</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wa-announcement">
+                <p>Join Our <span>WHATSAPP ANNOUNCEMENT</span><br>Group Regarding Services Updates Or Information</p>
+                <button class="btn-join">CLICK HERE TO JOIN</button>
+            </div>
+
+            <div class="card" style="padding: 30px 20px;">
+                <div class="platform-filters">
+                    <div class="filter-btn active" data-color="#6C2CF6" style="color:#6C2CF6"><i class="fas fa-bars"></i></div>
+                    <div class="filter-btn" data-color="#0088cc" style="color:#0088cc"><i class="fab fa-telegram-plane"></i></div>
+                    <div class="filter-btn" data-color="#E1306C" style="color:#E1306C"><i class="fab fa-instagram"></i></div>
+                    <div class="filter-btn" data-color="#1DB954" style="color:#1DB954"><i class="fab fa-spotify"></i></div>
+                    <div class="filter-btn" data-color="#6C2CF6" style="color:#6C2CF6"><i class="fas fa-globe"></i></div>
+                    <div class="filter-btn" data-color="#FF0000" style="color:#FF0000"><i class="fab fa-youtube"></i></div>
+                    <div class="filter-btn" data-color="#1877F2" style="color:#1877F2"><i class="fab fa-facebook-f"></i></div>
+                    <div class="filter-btn" data-color="#000000" style="color:#000000"><i class="fab fa-tiktok"></i></div>
+                </div>
+
+                <form>
+                    <div class="form-group">
+                        <div class="input-icon-wrapper">
+                            <i class="fas fa-search"></i>
+                            <input type="text" class="form-control with-icon" placeholder="Search">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <div class="select-wrapper">
+                            <select class="form-control"><option>✦ 𝐄𝐱𝐜𝐥𝐮𝐬𝐢𝐯𝐞</option></select>
+                        </div>
+                    </div>
+                    <div class="service-desc">
+                        <h4><i class="fas fa-siren-on"></i> 🚨 NO CANCEL/SPEED UPP</h4>
+                        <p>When the service is busy, the starting speed of the process changes.</p>
+                    </div>
+                    <div class="form-group"><label>Link</label><input type="url" class="form-control" placeholder="Enter link here"></div>
+                    <div class="form-group"><label>Quantity</label><input type="number" class="form-control" placeholder="0"></div>
+                    <button type="button" class="btn-primary">Submit</button>
+                </form>
+            </div>
+            
+            <div class="info-card">
+                <a href="#" class="title-link">Click Here To Join Our WhatsApp Community!</a>
+                <p>We believe in Quality Work at Most Affordable Rates.</p>
+                <div class="support-text"><i class="fab fa-whatsapp"></i> App Support : +91 9864761058</div>
+            </div>
+        </div>
+        
+        <!-- OTHER DASHBOARD VIEWS -->
+        <div id="view-massorder" class="container" style="display: none;">
+            <div class="card" style="padding: 30px 20px;">
+                <div class="form-group">
+                    <label>One order per line in format (service_id | link | quantity)</label>
+                    <textarea class="form-control" style="min-height: 250px; background: #EAE6F5; resize: vertical;" placeholder="102 | link | 1000"></textarea>
+                </div>
+                <button class="btn-red full">Submit</button>
+            </div>
+        </div>
+
+        <div id="view-addfunds" class="container" style="display: none;">
+            <div class="card notice-card">
+                <h3>⚖️ Payment Policy Notice</h3>
+                <p>Please make payments using your own personal account only.</p>
+            </div>
+            <div class="card">
+                <form id="paymentForm">
+                    <div class="form-group">
+                        <label>Method</label>
+                        <div class="select-wrapper">
+                            <select class="form-control" id="payMethod">
+                                <option value="UPI">🔘 UPI – Instant Scan & Pay</option>
+                                <option value="PhonePe">🔘 PhonePe (Recommended)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="qr-section">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=paytm.s1lhukq@pty" alt="Payment QR Code">
+                        <p class="upi-id">UPI ID: paytm.s1lhukq@pty</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Amount (₹)</label>
+                        <input type="number" id="payAmount" class="form-control" placeholder="Amount">
+                    </div>
+                    <div class="form-group">
+                        <label>Transaction ID</label>
+                        <input type="text" id="payOrderID" class="form-control" placeholder="Transaction/Order ID">
+                    </div>
+                    <button type="submit" class="btn-red full">Pay</button>
+                </form>
+            </div>
+            <div class="card">
+                <div class="table-responsive">
+                    <table class="custom-table" id="localTransTable">
+                        <thead><tr><th>ID</th><th>Date</th><th>Method</th><th>Amount</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-orders" class="container" style="display: none;">
+            <div class="card">
+                <div class="table-responsive">
+                    <table class="custom-table">
+                        <thead><tr><th>ID</th><th>Date</th><th>Link</th></tr></thead>
+                        <tbody><tr><td>1316338</td><td>2026-01-26</td><td><a href="#">https://www.instagram.com/...</a></td></tr></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-transactions" class="container" style="display: none;">
+            <div class="card">
+                <div class="table-responsive">
+                    <table class="custom-table" id="globalTransTable">
+                        <thead><tr><th>Date</th><th>Type</th><th>Description</th><th>Amount</th><th>Status</th><th>Balance</th></tr></thead>
+                        <tbody>
+                            <!-- Data will be loaded from Firestore -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-tickets" class="container" style="display: none;">
+            <div class="card">
+                <form id="ticketForm">
+                    <div class="form-group"><label>Order ID</label><input type="text" id="ticketID" class="form-control"></div>
+                    <div class="form-group"><label>Message</label><textarea id="ticketMsg" class="form-control" style="min-height: 100px;"></textarea></div>
+                    <button type="submit" class="btn-red full">Submit ticket</button>
+                </form>
+            </div>
+            <div class="card">
+                <div class="table-responsive">
+                    <table class="custom-table" id="ticketTable">
+                        <thead><tr><th>ID</th><th>Subject</th><th>Status</th><th>Date</th></tr></thead>
+                        <tbody><tr id="noTicketMsg"><td colspan="4" style="text-align:center;">No tickets found</td></tr></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-announcements" class="container" style="display: none;">
+            <div class="card announcement-card">
+                <div class="announcement-footer"><span class="badge badge-update">Update</span><span class="announcement-date">21 Feb 2026</span></div>
+                <h4>Instagram Services Speed Improved</h4>
+                <p>All Instagram followers services are now faster than before.</p>
+            </div>
+        </div>
+
+        <div id="view-blog" class="container" style="display: none;">
+            <div class="blog-grid">
+                <div class="card blog-card">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop" class="blog-img">
+                    <div class="blog-content">
+                        <h3 class="blog-title">How To Rank Telegram Channel Fast</h3>
+                        <p class="blog-preview">Complete strategy to grow Telegram subscribers...</p>
+                        <div class="blog-footer">
+                            <span class="blog-date">21 Feb 2026</span>
+                            <a href="#" class="read-more" onclick="openBlog(1)">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-blog-details" class="container" style="display: none;">
+            <div class="card">
+                <button onclick="switchView('blog')" class="btn-primary" style="width: auto; margin-bottom: 20px;"><i class="fas fa-arrow-left"></i> Back</button>
+                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop" class="blog-details-img" id="detailImg">
+                <h1 class="blog-details-title" id="detailTitle">Blog Title Here</h1>
+                <p class="blog-details-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+            </div>
+        </div>
+
+        <div id="view-profile" class="container" style="display: none;">
+            <div class="welcome-card">
+                <h3>🚀 Welcome to BoostifyX</h3>
+                <p>You are now part of a powerful social media growth platform.</p>
+            </div>
+            <div class="card">
+                <div class="form-group"><label>Email</label><input type="email" class="form-control" id="profile-email-field" value="your-email@example.com" disabled></div>
+                <button class="btn-red full" onclick="alert('Profile updates coming soon!')">Save Changes</button>
+            </div>
+        </div>
+
+        <div id="view-affiliates" class="container" style="display: none;">
+            <div class="card ref-banner">
+                <h1>💎 REFER AND EARN <span>5% COMMISION</span> 🌈</h1>
+                <div style="text-align: left; margin-top: 25px;">
+                    <label>Your Unique Link</label>
+                    <div class="ref-link-box">
+                        <span id="dynamicRefLink">https://boostifyx.com/ref/</span>
+                        <div class="icon-btn-group">
+                            <button class="copy-btn" onclick="copyRefLink()"><i class="fas fa-copy"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="ref-stat-row"><span>Commission rate</span><span>5%</span></div>
+                <div class="ref-stat-row"><span>Minimum payout</span><span>₹100.00</span></div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- ================== AI CHATBOT FLOATING BUTTON ================== -->
     <div class="ai-chat-btn" id="globalChatBtn" onclick="openChatbotPage()">
         <img src="https://i.ibb.co/3yjMhhcd/file-00000000408c71faa06b9ed512ae0c3a.png" alt="AI Chatbot">
     </div>
 
+    <!-- ================== CHATBOT PAGE CONTAINER ================== -->
     <div id="chatbot-page">
+        <!-- Header -->
         <div class="chat-header-bar">
             <i class="fas fa-arrow-left chat-back-btn" onclick="closeChatbotPage()"></i>
-            <div class="chat-bot-profile"><img src="https://i.ibb.co/3yjMhhcd/file-00000000408c71faa06b9ed512ae0c3a.png" alt="AI Avatar"></div>
-            <div class="chat-info"><h3>Boostify<span class="x-accent">X</span> AI</h3><p>Active Now</p></div>
+            <div class="chat-bot-profile">
+                <img src="https://i.ibb.co/3yjMhhcd/file-00000000408c71faa06b9ed512ae0c3a.png" alt="AI Avatar">
+            </div>
+            <div class="chat-info">
+                <h3>Boostify<span class="x-accent">X</span> AI</h3>
+                <p>Active Now</p>
+            </div>
         </div>
+
+        <!-- Chat Messages Area -->
         <div class="chat-container" id="chatBox"></div>
+
+        <!-- Footer Input Area -->
         <div class="chat-footer">
-            <div style="cursor:pointer; color:#636e72; font-size: 20px; padding: 5px;" onclick="document.getElementById('fileInp').click()"><i class="fas fa-paperclip"></i></div>
+            <div style="cursor:pointer; color:#636e72; font-size: 20px; padding: 5px;" onclick="document.getElementById('fileInp').click()">
+                <i class="fas fa-paperclip"></i>
+            </div>
             <input type="file" id="fileInp" hidden onchange="handleFile(this)">
+            
             <input type="text" id="msgInp" class="chat-input-box locked" placeholder="Select an option above..." disabled oninput="checkInput()">
-            <button class="chat-btn-send" id="sendBtn" onclick="onSend()"><i class="fas fa-paper-plane"></i></button>
+            
+            <button class="chat-btn-send" id="sendBtn" onclick="onSend()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
         </div>
     </div>
 
+
+    <!-- ========================================== -->
+    <!-- FIREBASE SDKs                              -->
+    <!-- ========================================== -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    
-    <script src="js/firebase.js"></script>
-    <script src="js/auth.js"></script>
-    <script src="js/dashboard.js"></script>
+
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT LOGIC                           -->
+    <!-- ========================================== -->
+    <script>
+        // ===================================
+        // FIREBASE INITIALIZATION
+        // ===================================
+        const firebaseConfig = {
+            apiKey: "AIzaSyAgocCLc3Vbf1tv6ISCQRglUzNTPi84-bA",
+            authDomain: "boostifyx-102dc.firebaseapp.com",
+            databaseURL: "https://boostifyx-102dc-default-rtdb.firebaseio.com",
+            projectId: "boostifyx-102dc",
+            storageBucket: "boostifyx-102dc.firebasestorage.app",
+            messagingSenderId: "579411145482",
+            appId: "1:579411145482:web:7b810fd0fe1f898bdb00f3"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+        const FieldValue = firebase.firestore.FieldValue;
+
+        // ===================================
+        // AUTH STATE MANAGEMENT & UI CONTROL
+        // ===================================
+
+        auth.onAuthStateChanged(async (user) => {
+            if (user) {
+                // User is signed in.
+                const userDocRef = db.collection('users').doc(user.uid);
+                const userDoc = await userDocRef.get();
+
+                if (userDoc.exists) {
+                    updateDashboardUI(userDoc.data());
+                } else {
+                    // This might happen if a user signs in with Google for the first time
+                    // but the document creation failed before. Let's create it now.
+                    await createUserData(user, user.displayName, null);
+                    const newUserDoc = await userDocRef.get();
+                    updateDashboardUI(newUserDoc.data());
+                }
+                
+                showDashboardView();
+
+            } else {
+                // User is signed out.
+                showLandingView();
+            }
+        });
+
+        function showDashboardView() {
+            document.body.classList.remove('landing-mode');
+            document.body.classList.add('dashboard-mode');
+            document.getElementById('landing-wrapper').style.display = 'none';
+            document.getElementById('dashboard-wrapper').style.display = 'block';
+            switchView('dashboard');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showLandingView() {
+            document.body.classList.remove('dashboard-mode');
+            document.body.classList.add('landing-mode');
+            document.getElementById('dashboard-wrapper').style.display = 'none';
+            document.getElementById('landing-wrapper').style.display = 'block';
+            openMainPage();
+            if(document.getElementById('sidebarMenu').classList.contains('active')) {
+                toggleSidebar();
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function updateDashboardUI(userData) {
+            if (!userData) return;
+            // Update stat cards
+            document.querySelector('#dash-username-card h3').innerText = userData.username || 'User';
+            document.querySelector('#dash-spent-card h3').innerText = `₹${userData.spent.toFixed(2)}`;
+            
+            const formattedBalance = `₹${userData.balance.toFixed(5)}`;
+            document.querySelectorAll('.user-balance').forEach(el => el.innerText = formattedBalance);
+
+            // Update profile page
+            document.getElementById('profile-email-field').value = userData.email;
+
+            // Generate referral link based on username
+            const refLinkEl = document.getElementById('dynamicRefLink');
+            if (refLinkEl) refLinkEl.innerText = `https://boostifyx.com/ref/${userData.username}`;
+        }
+
+
+        // ===================================
+        // AUTHENTICATION FUNCTIONS
+        // ===================================
+        
+        async function handleSignup(event) {
+            event.preventDefault();
+            const username = document.getElementById('signup-username').value.trim();
+            const email = document.getElementById('signup-email').value.trim();
+            const whatsapp = document.getElementById('signup-whatsapp').value.trim();
+            const password = document.getElementById('signup-password').value;
+            const confirmPassword = document.getElementById('signup-confirm-password').value;
+
+            if (!username || !email || !password) {
+                return alert("Please fill all required fields.");
+            }
+            if (password !== confirmPassword) {
+                return alert("Passwords do not match.");
+            }
+
+            try {
+                const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+                const user = userCredential.user;
+                
+                await user.updateProfile({ displayName: username });
+                await createUserData(user, username, whatsapp);
+                
+                alert("Account created successfully! Welcome to BoostifyX.");
+                // onAuthStateChanged will handle the UI switch
+            } catch (error) {
+                alert(`Error: ${error.message}`);
+            }
+        }
+
+        async function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value;
+
+            if (!email || !password) {
+                return alert("Please enter both email and password.");
+            }
+
+            try {
+                await auth.signInWithEmailAndPassword(email, password);
+                // onAuthStateChanged will handle the UI switch
+            } catch (error) {
+                alert(`Error: ${error.message}`);
+            }
+        }
+
+        async function signInWithGoogle(event) {
+            event.preventDefault();
+            const provider = new firebase.auth.GoogleAuthProvider();
+            try {
+                const result = await auth.signInWithPopup(provider);
+                const user = result.user;
+                
+                if (result.additionalUserInfo.isNewUser) {
+                    await createUserData(user, user.displayName, null);
+                    alert(`Welcome, ${user.displayName}! Your account has been created.`);
+                }
+                // onAuthStateChanged will handle the UI switch
+            } catch (error) {
+                alert(`Google Sign-In Error: ${error.message}`);
+            }
+        }
+
+        async function createUserData(user, username, whatsapp) {
+            const userRef = db.collection('users').doc(user.uid);
+            await userRef.set({
+                uid: user.uid,
+                username: username,
+                email: user.email,
+                whatsapp: whatsapp || '',
+                balance: 0.00,
+                spent: 0.00,
+                createdAt: FieldValue.serverTimestamp()
+            });
+        }
+
+        function logoutUser(event) {
+            event.preventDefault();
+            auth.signOut().catch(error => alert(`Logout Error: ${error.message}`));
+        }
+        
+        // Helper to check login status before switching view (e.g., for footer links)
+        function handleLoginAndSwitchView(viewName) {
+            if (auth.currentUser) {
+                switchView(viewName);
+            } else {
+                alert("Please log in to access this page.");
+                showLoginCard();
+            }
+        }
+
+
+        // ===================================
+        // LANDING PAGE LOGIC (UNCHANGED)
+        // ===================================
+        function toggleMenu() {
+            const menu = document.getElementById('mobileDropdown');
+            const icon = document.getElementById('menuIcon');
+            menu.classList.toggle('active');
+            if (menu.classList.contains('active')) {
+                icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+            }
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    const counter = entry.target.querySelector('.counter');
+                    if (counter && !counter.dataset.animated) {
+                        startCounter(counter); counter.dataset.animated = "true";
+                    }
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        function startCounter(el) {
+            const target = +el.getAttribute('data-target');
+            let current = 0;
+            const increment = target / 100;
+            const updateCount = () => {
+                if (current < target) {
+                    current += increment;
+                    el.innerText = Math.ceil(current).toLocaleString();
+                    requestAnimationFrame(updateCount);
+                } else {
+                    el.innerText = target.toLocaleString();
+                }
+            };
+            updateCount();
+        }
+
+        function openMainPage() {
+            document.getElementById('policy-page').style.display = 'none';
+            document.getElementById('main-page').style.display = 'block';
+        }
+
+        function showLoginCard() {
+            openMainPage();
+            document.getElementById('signup-card-container').style.display = 'none';
+            document.getElementById('login-card-container').style.display = 'block';
+            setTimeout(() => {
+                const target = document.getElementById('login-card-container');
+                if (target) {
+                    const y = target.getBoundingClientRect().top + window.scrollY - 100;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                    target.style.boxShadow = "0 0 40px rgba(255, 46, 99, 0.7)";
+                    setTimeout(() => { target.style.boxShadow = "0 20px 50px rgba(0,0,0,0.2)"; }, 1500);
+                }
+            }, 50);
+        }
+
+        function showSignupCard() {
+            openMainPage();
+            document.getElementById('login-card-container').style.display = 'none';
+            document.getElementById('signup-card-container').style.display = 'block';
+            setTimeout(() => {
+                const target = document.getElementById('signup-card-container');
+                if (target) {
+                    const y = target.getBoundingClientRect().top + window.scrollY - 100;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                    target.style.boxShadow = "0 0 40px rgba(108, 44, 246, 0.7)";
+                    setTimeout(() => { target.style.boxShadow = "0 20px 50px rgba(0,0,0,0.2)"; }, 1500);
+                }
+            }, 50);
+        }
+
+        function openPolicyPage(policyType) {
+            document.getElementById('main-page').style.display = 'none';
+            document.getElementById('policy-page').style.display = 'block';
+            window.scrollTo(0, 0);
+            document.getElementById('content-terms').style.display = 'none';
+            document.getElementById('content-privacy').style.display = 'none';
+            document.getElementById('content-refund').style.display = 'none';
+            document.getElementById('content-disclaimer').style.display = 'none'; 
+
+            if(policyType === 'terms') {
+                document.getElementById('content-terms').style.display = 'block';
+                document.getElementById('policy-title').innerText = 'Terms of Service';
+            } else if (policyType === 'privacy') {
+                document.getElementById('content-privacy').style.display = 'block';
+                document.getElementById('policy-title').innerText = 'Privacy Policy';
+            } else if (policyType === 'refund') {
+                document.getElementById('content-refund').style.display = 'block';
+                document.getElementById('policy-title').innerText = 'Refund Policy';
+            } else if (policyType === 'disclaimer') {
+                document.getElementById('content-disclaimer').style.display = 'block';
+                document.getElementById('policy-title').innerText = 'Disclaimer';
+            }
+        }
+
+        function closePolicyPage() {
+            openMainPage();
+            window.scrollTo(0, 0);
+        }
+
+
+        // ===================================
+        // DASHBOARD PAGE LOGIC
+        // ===================================
+        const openBtn = document.getElementById('openMenuBtn');
+        const closeBtn = document.getElementById('closeMenuBtn');
+        const sidebar = document.getElementById('sidebarMenu');
+        const overlay = document.getElementById('sidebarOverlay');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : 'auto';
+        }
+        openBtn.addEventListener('click', toggleSidebar);
+        closeBtn.addEventListener('click', toggleSidebar);
+        overlay.addEventListener('click', toggleSidebar);
+
+        const views = [
+            'dashboard', 'orders', 'profile', 'affiliates', 'addfunds', 
+            'massorder', 'transactions', 'tickets', 'announcements', 'blog', 'blog-details'
+        ];
+        
+        function switchView(targetView) {
+            views.forEach(view => {
+                document.getElementById('view-' + view).style.display = 'none';
+                const navItem = document.getElementById('nav-' + view);
+                if(navItem) navItem.classList.remove('active');
+            });
+            document.getElementById('nav-neworder').classList.remove('active');
+            document.getElementById('view-' + targetView).style.display = 'block';
+            
+            const activeNav = document.getElementById('nav-' + targetView);
+            if(activeNav) activeNav.classList.add('active');
+            if(sidebar.classList.contains('active')) toggleSidebar();
+            window.scrollTo(0, 0);
+        }
+
+        document.getElementById('paymentForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const currentUser = auth.currentUser;
+            if (!currentUser) {
+                return alert("You must be logged in to add funds.");
+            }
+            
+            const amount = parseFloat(document.getElementById('payAmount').value);
+            const orderId = document.getElementById('payOrderID').value;
+            const method = document.getElementById('payMethod').value;
+            if(!amount || !orderId) { alert("Please enter Amount and Transaction ID"); return; }
+            if(amount <= 0) { return alert("Amount must be positive."); }
+
+            const userDocRef = db.collection('users').doc(currentUser.uid);
+
+            try {
+                // Use a transaction to ensure data consistency
+                await db.runTransaction(async (transaction) => {
+                    const userDoc = await transaction.get(userDocRef);
+                    if (!userDoc.exists) {
+                        throw "User data not found!";
+                    }
+                    
+                    const newBalance = userDoc.data().balance + amount;
+                    transaction.update(userDocRef, { balance: newBalance });
+
+                    // Log this transaction in a subcollection
+                    const transactionsRef = userDocRef.collection('transactions').doc();
+                    transaction.set(transactionsRef, {
+                        type: 'credit',
+                        method: method,
+                        amount: amount,
+                        orderId: orderId,
+                        status: 'Completed',
+                        timestamp: FieldValue.serverTimestamp()
+                    });
+                });
+
+                // Update UI locally for immediate feedback
+                const userDoc = await userDocRef.get();
+                updateDashboardUI(userDoc.data());
+
+                alert("Payment Verified! Balance Updated.");
+                document.getElementById('paymentForm').reset();
+
+            } catch (error) {
+                console.error("Error adding funds: ", error);
+                alert("An error occurred while updating your balance. Please try again.");
+            }
+        });
+
+        document.getElementById('ticketForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const id = document.getElementById('ticketID').value;
+            const msg = document.getElementById('ticketMsg').value;
+            if(!msg) { alert("Please enter a message"); return; }
+            const noTicketMsg = document.getElementById('noTicketMsg');
+            if(noTicketMsg) noTicketMsg.style.display = 'none';
+            const randID = Math.floor(Math.random() * 10000);
+            const row = `<tr><td>${randID}</td><td>${id ? 'Order: ' + id : 'Support Request'}</td><td><span class="badge badge-new" style="background:#e0f2fe; color:#0284c7;">Pending</span></td><td>Just Now</td></tr>`;
+            document.querySelector('#ticketTable tbody').insertAdjacentHTML('afterbegin', row);
+            alert("Ticket Submitted Successfully!");
+            document.getElementById('ticketForm').reset();
+        });
+
+        function openBlog(id) {
+            switchView('blog-details');
+            if(id === 1) {
+                document.getElementById('detailTitle').innerText = "How To Rank Telegram Channel Fast";
+                document.getElementById('detailImg').src = "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop";
+            } else {
+                document.getElementById('detailTitle').innerText = "Organic vs Paid Growth – What Works Better?";
+                document.getElementById('detailImg').src = "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=1000&auto=format&fit=crop";
+            }
+        }
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.remove('active'); b.style.background = '#fff'; b.style.borderColor = '#eee';
+                });
+                this.classList.add('active');
+                const color = this.getAttribute('data-color');
+                let r = parseInt(color.slice(1, 3), 16), g = parseInt(color.slice(3, 5), 16), bHex = parseInt(color.slice(5, 7), 16);
+                this.style.background = `rgba(${r}, ${g}, ${bHex}, 0.1)`;
+                this.style.borderColor = color;
+            });
+        });
+
+        document.querySelectorAll('.order-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.order-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ Functionality
+            const faqItems = document.querySelectorAll('.faq-question');
+            faqItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const currentItem = this.parentElement;
+                    const isActive = currentItem.classList.contains('active');
+
+                    document.querySelectorAll('.faq-item').forEach(el => {
+                        el.classList.remove('active');
+                    });
+
+                    if (!isActive) {
+                        currentItem.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        function copyRefLink() {
+            const linkText = document.getElementById('dynamicRefLink').innerText;
+            navigator.clipboard.writeText(linkText).then(() => alert("Referral Link Copied!"));
+        }
+
+        // ===================================
+        // AI CHATBOT LOGIC (UNCHANGED)
+        // ===================================
+        const chatBox = document.getElementById('chatBox');
+        let chatInit = false;
+        let flow = "MAIN", curCat = "", qIdx = 0;
+        let specialState = "";
+
+        const db_chat = {
+            "Order Status": { subs: ["Pending", "Partial", "Canceled"], qs: ["Order ID"], res: "I have checked your order status with our server. Our team is working on it and updates will reflect shortly." },
+            "Add Funds Issues": { subs: ["UPI Payment Failed", "Crypto Not Added", "Amount Not Reflected"], qs: ["Transaction ID", "Amount (₹)"], res: "Our payment gateway team is verifying your transaction. Usually, it takes 5-15 minutes to reflect." },
+            "Refill / Drop Issues": { subs: ["Followers Dropped", "Refill Button Not Working", "Partial Refill Only"], qs: ["Order ID", "Drop Percentage (%)"], res: "I have sent a refill request to the respective server. Please allow 24-48 hours for processing." },
+            "Support Agent": { subs: ["Talk to Human", "Main Menu"], qs: [], res: "" }
+        };
+
+        function openChatbotPage() {
+            document.getElementById('globalChatBtn').style.display = 'none';
+            document.getElementById('chatbot-page').style.display = 'flex';
+            if(!chatInit) { 
+                startChat(); 
+                chatInit = true; 
+            }
+        }
+
+        function closeChatbotPage() {
+            document.getElementById('chatbot-page').style.display = 'none';
+            document.getElementById('globalChatBtn').style.display = 'block';
+        }
+
+        function startChat(skipGreeting = false) {
+            chatBox.innerHTML = "";
+            specialState = "";
+            if(!skipGreeting) {
+                showBot("Hello! I am your <b>Boostify<span class='x-accent'>X</span> AI Assistant</b>.<br>Please select your issue category below so I can assist you instantly:");
+            } else {
+                showBot("Please select a category from the Main Menu:");
+            }
+            showOpts(Object.keys(db_chat), "MAIN");
+        }
+
+        function showBot(txt, delay = 600) {
+            const id = 'b' + Date.now();
+            const w = document.createElement('div'); w.className = 'chat-msg-wrap chat-msg-bot';
+            w.innerHTML = `<div class="chat-bubble chat-bubble-bot" id="${id}"><div class="chat-typing"><span></span><span></span><span></span></div></div>`;
+            chatBox.appendChild(w); 
+            chatBox.scrollTop = chatBox.scrollHeight;
+            setTimeout(() => { 
+                document.getElementById(id).innerHTML = txt; 
+                chatBox.scrollTop = chatBox.scrollHeight; 
+            }, delay);
+        }
+
+        function showOpts(opts, type) {
+            flow = type;
+            const l = document.createElement('div'); l.className = 'chat-options-list';
+            opts.forEach(o => {
+                const b = document.createElement('div'); b.className = 'chat-chip'; b.innerText = o;
+                b.onclick = () => onSelect(o, l); 
+                l.appendChild(b);
+            });
+            setTimeout(() => { 
+                chatBox.appendChild(l); 
+                chatBox.scrollTop = chatBox.scrollHeight; 
+            }, 700);
+        }
+
+        function onSelect(txt, container) {
+            container.style.opacity = "0.5"; 
+            container.style.pointerEvents = "none";
+            
+            const w = document.createElement('div'); w.className = 'chat-msg-wrap chat-msg-user';
+            w.innerHTML = `<div class="chat-bubble chat-bubble-user">${txt}</div>`;
+            chatBox.appendChild(w); 
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            if(txt === "Main Menu" || txt === "Go Back") { 
+                setTimeout(() => startChat(true), 500); 
+                return; 
+            }
+            if(txt === "Talk to Human") { 
+                showBot("Connecting you to our support...<br>Please provide your <b>Order ID</b> below (or type N/A)"); 
+                specialState = "TICKET_CREATE";
+                unlockInput(); 
+                return; 
+            }
+
+            if(flow === "MAIN") {
+                curCat = txt;
+                showBot(`You selected <b>${txt}</b>.<br>Please choose your specific issue:`);
+                showOpts(db_chat[txt].subs, "SUB");
+            } else if(flow === "SUB") {
+                qIdx = 0; flow = "ASK"; ask();
+            }
+        }
+
+        function ask() {
+            const qs = db_chat[curCat].qs;
+            if(qIdx < qs.length) { 
+                showBot(`Please enter your <b>${qs[qIdx]}</b>:`); 
+                unlockInput(); 
+            } else { 
+                const tkt = "#BX" + Math.floor(Math.random()*900000+100000);
+                showBot(`<b>Ticket ID Generated: ${tkt}</b><br>${db_chat[curCat].res}`);
+                setTimeout(askFinalMenu, 1500);
+            }
+        }
+
+        function askFinalMenu() {
+            showBot("Is there anything else I can help you with?"); 
+            showOpts(["Main Menu"], "FINAL");
+        }
+
+        function unlockInput() { 
+            const inp = document.getElementById('msgInp');
+            inp.disabled = false; 
+            inp.classList.remove('locked'); 
+            inp.placeholder = "Type your answer here..."; 
+            inp.focus();
+            checkInput();
+        }
+
+        function checkInput() {
+            const val = document.getElementById('msgInp').value.trim();
+            const btn = document.getElementById('sendBtn');
+            if(val.length > 0) btn.classList.add('active');
+            else btn.classList.remove('active');
+        }
+
+        function onSend() {
+            const inp = document.getElementById('msgInp');
+            const txt = inp.value.trim(); 
+            if(!txt) return;
+            
+            inp.value = ""; 
+            inp.disabled = true; 
+            inp.classList.add('locked'); 
+            inp.placeholder = "Select an option above...";
+            document.getElementById('sendBtn').classList.remove('active');
+
+            const w = document.createElement('div'); w.className = 'chat-msg-wrap chat-msg-user';
+            w.innerHTML = `<div class="chat-bubble chat-bubble-user">${txt}</div>`;
+            chatBox.appendChild(w); 
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            if(specialState === "TICKET_CREATE") {
+                specialState = "";
+                const tkt = "#TKT" + Math.floor(Math.random()*900000+100000);
+                showBot(`Thanks! <b>Ticket ID: ${tkt}</b> has been assigned to a human agent. They will reply within 12-24 hrs.`);
+                setTimeout(askFinalMenu, 1500);
+                return;
+                }
+
+            if(flow === "ASK") { 
+                qIdx++; 
+                setTimeout(ask, 500); 
+            }
+        }
+
+        document.getElementById('msgInp').addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("sendBtn").click();
+            }
+        });
+
+        function handleFile(inp) {
+            const f = inp.files[0]; if(!f) return;
+            const r = new FileReader();
+            r.onload = (e) => { 
+                const w = document.createElement('div'); w.className = 'chat-msg-wrap chat-msg-user';
+                let h = `<div class="chat-bubble chat-bubble-user">Sent an attachment</div>`;
+                h += `<img src="${e.target.result}" style="max-width:180px; border-radius:12px; margin-top:8px; border:3px solid #fff;">`;
+                w.innerHTML = h; chatBox.appendChild(w); chatBox.scrollTop = chatBox.scrollHeight;
+
+                showBot("Screenshot received successfully! 🔍 Our team will review this.");
+                
+                document.getElementById('msgInp').disabled = true;
+                document.getElementById('msgInp').classList.add('locked');
+                document.getElementById('msgInp').placeholder = "Select an option above...";
+                document.getElementById('sendBtn').classList.remove('active');
+                
+                setTimeout(askFinalMenu, 2000);
+            };
+            r.readAsDataURL(f);
+        }
+    </script>
 </body>
 </html>
