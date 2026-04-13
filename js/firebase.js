@@ -1,4 +1,7 @@
-// /js/firebase.js
+```javascript
+// ===================================
+// FIREBASE INITIALIZATION
+// ===================================
 const firebaseConfig = {
     apiKey: "AIzaSyAgocCLc3Vbf1tv6ISCQRglUzNTPi84-bA",
     authDomain: "boostifyx-102dc.firebaseapp.com",
@@ -9,10 +12,15 @@ const firebaseConfig = {
     appId: "1:579411145482:web:7b810fd0fe1f898bdb00f3"
 };
 
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) { 
+    firebase.initializeApp(firebaseConfig); 
 }
 
 const auth = firebase.auth();
 const db = firebase.firestore();
 const FieldValue = firebase.firestore.FieldValue;
+
+window.auth = auth;
+window.db = db;
+window.FieldValue = FieldValue;
+```
