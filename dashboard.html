@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | BoostifyX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-mode">
+
+    <!-- Sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="sidebar" id="sidebarMenu">
+        <div class="sidebar-header">
+            <a href="https://boostifyx.in" class="logo">BoostifyX</a>
+            <i class="fas fa-times close-btn" id="closeMenuBtn"></i>
+        </div>
+        <div class="sidebar-balance">
+            <span class="user-balance">₹0.00</span>
+            <i class="fas fa-wallet" style="color: var(--dash-primary-purple);"></i>
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li><a onclick="loadPage('home')" id="nav-home" class="active"><i class="fas fa-home"></i> New Order</a></li>
+            <li><a onclick="loadPage('orders')" id="nav-orders"><i class="fas fa-list-alt"></i> Orders</a></li>
+            <li><a onclick="loadPage('add-funds')" id="nav-addfunds"><i class="fas fa-rupee-sign"></i> Add Funds</a></li>
+            <li><a onclick="loadPage('transactions')" id="nav-transactions"><i class="fas fa-exchange-alt"></i> Transactions</a></li>
+            <li><a onclick="loadPage('affiliates')" id="nav-affiliates"><i class="fas fa-users"></i> Affiliates</a></li>
+            <li><a onclick="loadPage('support')" id="nav-support"><i class="fas fa-headset"></i> Support</a></li>
+            <li><a href="#" onclick="logoutUser(event)"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="https://boostifyx.in" class="logo">BoostifyX</a>
+        <i class="fas fa-bars menu-icon" id="openMenuBtn"></i>
+    </header>
+
+    <!-- DYNAMIC CONTENT CONTAINER -->
+    <main id="dashboard-content">
+        <!-- Pages will be loaded here via JS (fetch) -->
+    </main>
+
+    <!-- Chatbot HTML (Keep it same as before) -->
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    
+    <script src="js/firebase.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/loadPage.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/payment.js"></script>
+</body>
+</html>
