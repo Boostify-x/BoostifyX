@@ -3,45 +3,411 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BoostifyX | SMM Panel</title>
+    <title>BoostifyX | India’s Fastest & Most Affordable SMM Panel</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="landing-mode">
-    <div id="landing-wrapper">
-        <header id="header">
-            <div class="container">
-                <nav>
-                    <a href="https://boostifyx.in" class="logo" style="color:var(--text-main)">BoostifyX</a>
-                    <div class="desktop-menu">
-                        <a href="#services" style="color:var(--text-main)">Services</a>
-                        <a href="#features" style="color:var(--text-main)">Features</a>
-                        <a href="auth.html" class="btn btn-outline" style="color:#6C2CF6; border-color:#6C2CF6;">Login</a>
-                        <a href="auth.html" class="btn btn-primary">Sign Up</a>
-                    </div>
-                </nav>
-            </div>
-        </header>
 
-        <section class="hero" style="background: var(--primary-gradient);">
+    <div id="landing-wrapper">
+        <div id="main-page">
+            <div class="hero-wrapper" id="home-top">
+                <header id="header">
+                    <div class="container">
+                        <nav>
+                            <a href="index.html" class="logo">BoostifyX</a>
+                            
+                            <div class="desktop-menu">
+                                <a href="index.html">Home</a>
+                                <a href="#services">Services</a>
+                                <a href="#features">Features</a>
+                                <a href="#faq">FAQ</a>
+                                <a href="auth.html" class="btn btn-outline">Login</a>
+                                <a href="auth.html" class="btn btn-primary">Sign Up</a>
+                            </div>
+
+                            <div class="nav-right">
+                                <a href="auth.html" class="btn btn-primary btn-sm" style="padding: 8px 16px; font-size: 12px; margin-right: 10px;">Login</a>
+                                <i class="fas fa-bars menu-toggle" id="menuIcon" onclick="toggleMenu()"></i>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="mobile-dropdown" id="mobileDropdown">
+                        <div class="container">
+                            <ul class="mobile-dropdown-links">
+                                <li><a href="auth.html" class="active-item"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
+                                <li><a href="auth.html"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                                <li><a href="#services" onclick="toggleMenu();"><i class="fas fa-clipboard-list"></i> Services</a></li>
+                                <li><a href="#services" onclick="toggleMenu();"><i class="fas fa-tags"></i> Pricing</a></li>
+                                <li><a href="#faq" onclick="toggleMenu();"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                                <li><a href="javascript:void(0);" onclick="openPolicyPage('terms'); toggleMenu();"><i class="fas fa-file-contract"></i> Terms & Conditions</a></li>
+                                <li><a href="javascript:void(0);" onclick="openPolicyPage('privacy'); toggleMenu();"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                                <li><a href="javascript:void(0);" onclick="openPolicyPage('refund'); toggleMenu();"><i class="fas fa-undo"></i> Refund Policy</a></li>
+                                <li><a href="javascript:void(0);" onclick="openPolicyPage('disclaimer'); toggleMenu();"><i class="fas fa-exclamation-triangle"></i> Disclaimer</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </header>
+
+                <section class="hero">
+                    <div class="container">
+                        <h1 class="fade-in">India’s Fastest & Most Affordable SMM Panel</h1>
+                        <p class="fade-in">Instant delivery of followers, likes, views & more — at unbeatable rates. Trusted by 35,000+ happy users.</p>
+                        
+                        <div class="hero-btns fade-in">
+                            <a href="#services" class="btn btn-outline">See Pricing</a>
+                            <a href="auth.html" class="btn btn-primary">Get Started Now <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </section>
+            </div> 
+
+            <main>
+                <div class="container stats">
+                    <div class="stats-grid">
+                        <div class="stat-card fade-in">
+                            <h2 class="counter" data-target="35000">0</h2>
+                            <p>Happy Users</p>
+                        </div>
+                        <div class="stat-card fade-in">
+                            <h2 class="counter" data-target="1000000">0</h2>
+                            <p>Orders Delivered</p>
+                        </div>
+                        <div class="stat-card fade-in">
+                            <h2 class="counter" data-target="2021">2021</h2>
+                            <p>Active Since</p>
+                        </div>
+                        <div class="stat-card fade-in">
+                            <h2 class="counter" data-target="24">0</h2>
+                            <p>Support Hours</p>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="advance-section container">
+                    <div class="premium-box-wrapper fade-in">
+                        <div class="premium-box">
+                            <h2>🚀 Why Choose BoostifyX – Your Reliable SMM Growth Partner</h2>
+                            <p>In today’s competitive digital world, speed, stability, and transparency define success. That’s why <strong>BoostifyX</strong> is trusted by resellers, marketers, agencies, and creators across India.</p>
+                        </div>
+                    </div>
+
+                    <div class="diff-container fade-in">
+                        <div class="diff-header">
+                            <h3>🌟 Why Choose BoostifyX?</h3>
+                        </div>
+                        <div class="diff-grid">
+                            <div class="diff-item">
+                                <div class="diff-icon">⚡</div>
+                                <div class="diff-text">
+                                    <h4>Instant Order Processing</h4>
+                                    <p>Most services start instantly with real-time tracking inside your dashboard.</p>
+                                </div>
+                            </div>
+                            <div class="diff-item">
+                                <div class="diff-icon">💸</div>
+                                <div class="diff-text">
+                                    <h4>Lowest Market Pricing</h4>
+                                    <p>Designed for agencies and resellers who want strong margins and scalable growth.</p>
+                                </div>
+                            </div>
+                            <div class="diff-item">
+                                <div class="diff-icon">🔐</div>
+                                <div class="diff-text">
+                                    <h4>100% Secure System</h4>
+                                    <p>No password required. Encrypted order handling and secure payment integration.</p>
+                                </div>
+                            </div>
+                            <div class="diff-item">
+                                <div class="diff-icon">📊</div>
+                                <div class="diff-text">
+                                    <h4>Advanced Dashboard</h4>
+                                    <p>Clean, beginner-friendly interface with advanced features for power users.</p>
+                                </div>
+                            </div>
+                            <div class="diff-item">
+                                <div class="diff-icon">📲</div>
+                                <div class="diff-text">
+                                    <h4>24/7 Smart Support</h4>
+                                    <p>Quick support via our AI Assistant & Tickets to resolve issues efficiently.</p>
+                                </div>
+                            </div>
+                            <div class="diff-item">
+                                <div class="diff-icon">🚀</div>
+                                <div class="diff-text">
+                                    <h4>High-Performance Platform</h4>
+                                    <p>Our system supports high-volume growth for freelancers and large agencies.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="split-grid fade-in">
+                        <div class="info-card">
+                            <h3>💼 Who Uses BoostifyX?</h3>
+                            <ul class="audience-list">
+                                <li><i class="fas fa-check-circle"></i> Digital Marketing Agencies</li>
+                                <li><i class="fas fa-check-circle"></i> Social Media Resellers</li>
+                                <li><i class="fas fa-check-circle"></i> Influencers & Content Creators</li>
+                                <li><i class="fas fa-check-circle"></i> E-commerce Brands</li>
+                                <li><i class="fas fa-check-circle"></i> Freelancers</li>
+                            </ul>
+                        </div>
+                        <div class="info-card" style="background: var(--primary-gradient); color: white;">
+                            <h3 style="color: white;">🎯 Our Mission</h3>
+                            <p class="mission-text" style="color: rgba(255,255,255,0.9);">
+                                "To provide fast, affordable, and reliable social media growth solutions."
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="features-wrapper" id="features">
+                    <div class="container">
+                        <div class="section-header fade-in">
+                            <h2>🚀 Core Features</h2>
+                            <p>We provide the best tools to grow your social presence.</p>
+                        </div>
+
+                        <div class="core-features-grid">
+                            <div class="core-feature-card fade-in">
+                                <div class="core-feature-icon"><i class="fas fa-bolt"></i></div>
+                                <h4>⚡ Super Fast Services</h4>
+                                <p>We ensure instant delivery on most platforms like Instagram, Facebook, and YouTube.</p>
+                            </div>
+                            <div class="core-feature-card fade-in">
+                                <div class="core-feature-icon"><i class="fas fa-headset"></i></div>
+                                <h4>📲 24/7 Support</h4>
+                                <p>Our AI assistant and ticket system are available around the clock to help you out.</p>
+                            </div>
+                            <div class="core-feature-card fade-in">
+                                <div class="core-feature-icon"><i class="fas fa-tags"></i></div>
+                                <h4>💸 Affordable Pricing</h4>
+                                <p>Get the lowest market rates with top-quality services. Ideal for resellers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="services" style="background: #ffffff; padding: 60px 0;">
+                    <div class="container">
+                        <div class="section-header fade-in">
+                            <h2>Our Top Services</h2>
+                            <p>The cheapest rates for premium quality engagement.</p>
+                        </div>
+
+                        <div class="services-grid">
+                            <div class="service-card insta fade-in">
+                                <div class="platform-icon" style="color:#E1306C"><i class="fab fa-instagram"></i></div>
+                                <h4>Instagram Followers</h4>
+                                <p class="price-tag">₹10 <small>/ 1k</small></p>
+                                <a href="auth.html" class="btn btn-primary btn-sm" style="width:100%; font-size: 12px;">Order Now</a>
+                            </div>
+                            <div class="service-card yt fade-in">
+                                <div class="platform-icon" style="color:#FF0000"><i class="fab fa-youtube"></i></div>
+                                <h4>YouTube Views</h4>
+                                <p class="price-tag">₹80 <small>/ 1k</small></p>
+                                <a href="auth.html" class="btn btn-primary btn-sm" style="width:100%; font-size: 12px;">Order Now</a>
+                            </div>
+                            <div class="service-card fb fade-in">
+                                <div class="platform-icon" style="color:#1877F2"><i class="fab fa-facebook"></i></div>
+                                <h4>Facebook Likes</h4>
+                                <p class="price-tag">₹15 <small>/ 1k</small></p>
+                                <a href="auth.html" class="btn btn-primary btn-sm" style="width:100%; font-size: 12px;">Order Now</a>
+                            </div>
+                            <div class="service-card fade-in">
+                                <div class="platform-icon" style="color:#0088cc"><i class="fab fa-telegram"></i></div>
+                                <h4>Telegram Members</h4>
+                                <p class="price-tag">₹40 <small>/ 1k</small></p>
+                                <a href="auth.html" class="btn btn-primary btn-sm" style="width:100%; font-size: 12px;">Order Now</a>
+                            </div>
+                            <div class="service-card fade-in">
+                                <div class="platform-icon" style="color:#4a69bd"><i class="fas fa-globe"></i></div>
+                                <h4>Website Traffic</h4>
+                                <p class="price-tag">₹5 <small>/ 1k</small></p>
+                                <a href="auth.html" class="btn btn-primary btn-sm" style="width:100%; font-size: 12px;">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section style="background: #f4f5f9; padding: 80px 0;">
+                    <div class="container">
+                        <div class="promo-image-container fade-in">
+                            <a href="https://ibb.co/359gJJv8" target="_blank">
+                                <img src="https://i.ibb.co/j9Pnppzx/file-00000000ae2471f5b604f7d1ab24efcb.png" alt="BoostifyX Promo Dashboard">
+                            </a>
+                        </div>
+
+                        <div class="section-header fade-in">
+                            <h2>How to get started?</h2>
+                        </div>
+
+                        <div class="timeline fade-in" style="max-width: 900px; margin: 0 auto 60px;">
+                            <div class="timeline-item">
+                                <div class="timeline-number">1</div>
+                                <h4>Sign Up</h4>
+                                <p>Create your free account in 30 seconds.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-number">2</div>
+                                <h4>Add Funds</h4>
+                                <p>Top up your wallet using UPI or Crypto.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-number">3</div>
+                                <h4>Select Service</h4>
+                                <p>Choose from 10,000+ active services.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-number">4</div>
+                                <h4>Get Results</h4>
+                                <p>Watch your numbers grow instantly!</p>
+                            </div>
+                        </div>
+
+                        <div class="content-box box-light fade-in">
+                            <h3>📘 What is an SMM Panel?</h3>
+                            <p>An SMM Panel (Social Media Marketing Panel) is an online platform that provides social media marketing services in a centralized dashboard.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="faq" style="background: white; padding: 60px 0;">
+                    <div class="container">
+                        <div class="section-header fade-in">
+                            <h2>Frequently Asked Questions</h2>
+                        </div>
+                        <div class="faq-wrapper fade-in">
+                            <div class="faq-item">
+                                <div class="faq-question">❓ What is an SMM Panel? <i class="fas fa-chevron-down"></i></div>
+                                <div class="faq-answer">An SMM Panel (Social Media Marketing Panel) is a centralized platform where users can access automated social media growth services.</div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">❓ Are Your Services Safe & Secure? <i class="fas fa-chevron-down"></i></div>
+                                <div class="faq-answer">Yes. Our system uses controlled delivery mechanisms designed to minimize risks.</div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">❓ How Fast Is Order Delivery? <i class="fas fa-chevron-down"></i></div>
+                                <div class="faq-answer">Most services start instantly or within a few minutes. Delivery speed depends on service type.</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer>
+                <div class="footer-glow"></div>
+                <div class="footer-glow right"></div>
+
+                <div class="container">
+                    <div class="footer-main">
+                        <div class="footer-about">
+                            <h3>BoostifyX™</h3>
+                            <p>India’s smart SMM platform for fast, secure, and affordable social media growth.</p>
+                        </div>
+                        <div class="footer-links">
+                            <h4>Account</h4>
+                            <ul>
+                                <li><a href="auth.html">Login</a></li>
+                                <li><a href="auth.html">Register</a></li>
+                            </ul>
+                        </div>
+                         <div class="footer-links">
+                            <h4>Services</h4>
+                            <ul>
+                                <li><a href="#services">All Services</a></li>
+                                <li><a href="#services">Pricing</a></li>
+                                <li><a href="#">How It Works</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links">
+                            <h4>Support</h4>
+                            <ul>
+                                <li><a href="javascript:void(0);" onclick="openChatbotPage()">AI Assistant 🤖</a></li>
+                                <li><a href="auth.html">Support Ticket</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links">
+                            <h4>Legal</h4>
+                            <ul>
+                                <li><a href="javascript:void(0);" onclick="openPolicyPage('terms')">Terms of Service</a></li>
+                                <li><a href="javascript:void(0);" onclick="openPolicyPage('privacy')">Privacy Policy</a></li>
+                                <li><a href="javascript:void(0);" onclick="openPolicyPage('refund')">Refund Policy</a></li>
+                                <li><a href="javascript:void(0);" onclick="openPolicyPage('disclaimer')">Disclaimer</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="container footer-bottom-container">
+                        <p class="copyright">© 2026 BoostifyX™. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <div id="policy-page">
+            <div class="policy-header">
+                <button class="back-btn" onclick="closePolicyPage()"><i class="fas fa-arrow-left"></i> Back to Home</button>
+                <h1 id="policy-title">Policy Title</h1>
+            </div>
             <div class="container">
-                <h1 style="color: white;">India’s Fastest & Most Affordable SMM Panel</h1>
-                <p style="color: white;">Instant delivery of followers, likes, views & more — at unbeatable rates.</p>
-                <div class="hero-btns" style="justify-content: center; flex-direction: row; margin-top: 20px;">
-                    <a href="auth.html" class="btn btn-primary" style="background: white; color: #6C2CF6;">Get Started Now <i class="fas fa-arrow-right"></i></a>
+                <div class="policy-card">
+                    <div id="content-terms" style="display: none;">
+                        <span class="policy-date">Last Updated: October 2023</span>
+                        <h2>1. General Terms</h2>
+                        <p>By registering and placing an order on BoostifyX, you automatically accept all the below-listed terms of service weather you read them or not.</p>
+                    </div>
+                    <div id="content-privacy" style="display: none;">
+                        <span class="policy-date">Last Updated: October 2023</span>
+                        <h2>1. Information Collection</h2>
+                        <p>BoostifyX highly values your privacy. We collect minimal data required to provide you with our services.</p>
+                    </div>
+                    <div id="content-refund" style="display: none;">
+                        <span class="policy-date">Last Updated: October 2023</span>
+                        <h2>1. Panel Balance Refunds</h2>
+                        <p>Once funds are deposited into your BoostifyX account, they cannot be reversed to your bank account, UPI, or Crypto wallet.</p>
+                    </div>
+                    <div id="content-disclaimer" style="display: none;">
+                        <span class="policy-date">Last Updated: October 2023</span>
+                        <h2>1. Service Liability</h2>
+                        <p>BoostifyX will not be responsible for any damages you or your business may suffer.</p>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+        
+    </div>
 
-        <!-- Keep your services, features, FAQ, and footer HTML here exactly as before -->
-        <!-- Footer links me Login/Signup ka href="auth.html" kar dein -->
+    <div class="ai-chat-btn" id="globalChatBtn" onclick="openChatbotPage()">
+        <img src="https://i.ibb.co/3yjMhhcd/file-00000000408c71faa06b9ed512ae0c3a.png" alt="AI Chatbot">
+    </div>
+
+    <div id="chatbot-page">
+        <div class="chat-header-bar">
+            <i class="fas fa-arrow-left chat-back-btn" onclick="closeChatbotPage()"></i>
+            <div class="chat-bot-profile"><img src="https://i.ibb.co/3yjMhhcd/file-00000000408c71faa06b9ed512ae0c3a.png" alt="AI Avatar"></div>
+            <div class="chat-info"><h3>Boostify<span class="x-accent">X</span> AI</h3><p>Active Now</p></div>
+        </div>
+        <div class="chat-container" id="chatBox"></div>
+        <div class="chat-footer">
+            <div style="cursor:pointer; color:#636e72; font-size: 20px; padding: 5px;" onclick="document.getElementById('fileInp').click()"><i class="fas fa-paperclip"></i></div>
+            <input type="file" id="fileInp" hidden onchange="handleFile(this)">
+            <input type="text" id="msgInp" class="chat-input-box locked" placeholder="Select an option above..." disabled oninput="checkInput()">
+            <button class="chat-btn-send" id="sendBtn" onclick="onSend()"><i class="fas fa-paper-plane"></i></button>
+        </div>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    
     <script src="js/firebase.js"></script>
     <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
 </body>
 </html>
