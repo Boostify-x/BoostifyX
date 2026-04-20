@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoostifyX Premium Admin Panel</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Chart.js & Firebase -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+
+    <style>
+        :root {
+            --primary: #4f46e5;       
+            --primary-hover: #4338ca; 
+            --bg-base: #f8fafc;       
+            --bg-surface: #ffffff;    
+            --sidebar-bg: #0f172a;    
+            --sidebar-hover: #1e293b;
+            
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            
+            --success: #10b981; --success-bg: #d1fae5; 
+            --warning: #eab308; --warning-bg: #fef08a;  
+            --danger: #ef4444;  --danger-bg: #fee2e2;   
+            --info: #3b82f6;    --info-bg: #dbeafe;     
+            --orange: #f97316;  --orange-bg: #ffedd5;   
+            --failed: #78716c;  --failed-bg: #e7e5e4;
+
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            
+            --sidebar-w: 280px;
+            --radius: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--bg-base); color: var(--text-main); font-size: 13px; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+
+        /* ================= LOGIN SCREEN ================= */
+        #login-screen { position: fixed; inset: 0; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); display: flex; align-items: center; justify-content: center; z-index: 9999; }
+        .login-box { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); padding: 45px 40px; border-radius: 20px; width: 90%; max-width: 420px; text-align: center; }
+        .login-box h2 { font-size: 28px; font-weight: 800; margin-bottom: 5px; color: #ffffff; }
+        .login-box p { color: #94a3b8; margin-bottom: 30px; }
+        .input-group { margin-bottom: 20px; position: relative; }
+        .input-group i { position: absolute; left: 16px; top: 15px; color: #94a3b8; font-size: 14px; }
+        .login-box .form-control { width: 100%; padding: 14px 15px 14px 45px; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; font-size: 14px; outline: none; background: rgba(0,0,0,0.2); color: white; transition: 0.3s; }
+        .login-box .form-control:focus { border-color: var(--primary); background: rgba(0,0,0,0.4); box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2); }
+        .btn-primary { background: var(--primary); width: 100%; padding: 12px 16px; font-size: 14px; border-radius: 8px; border: none; cursor: pointer; color: white; font-weight: 700; transition: 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; flex-shrink: 0; white-space: nowrap;}
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(79,70,229,0.3);}
+        
+        .error-msg { background: rgba(239, 68, 68, 0.1); border: 1px solid var(--danger); color: #fca5a5; padding: 10px; border-radius: 8px; font-weight: 600; margin-top: 15px; display: none; }
+
+        /* ================= SIDEBAR ================= */
+        .wrapper { display: flex; height: 100vh; }
+        .sidebar { width: var(--sidebar-w); background: var(--sidebar-bg); color: #f8fafc; display: flex; flex-direction: column; transition: transform 0.3s; z-index: 1000; box-shadow: var(--shadow-md); overflow-y: auto; }
+        .brand { padding: 25px 20px; font-size: 22px; font-weight: 800; display: flex; align-items: center; gap: 10px; position: sticky; top: 0; background: var(--sidebar-bg); z-index: 10; border-bottom: 1px solid rgba(255,255,255,0.05);}
+        .brand i { color: var(--primary); }
+        .nav-list { padding: 15px 10px; display: flex; flex-direction: column; gap: 4px; }
+        .nav-item { padding: 13px 15px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 12px; color: #94a3b8; transition: 0.2s; font-weight: 600; font-size: 14px; }
+        .nav-item i { width: 20px; text-align: center; font-size: 16px; color: #cbd5e1; }
+        .nav-item:hover, .nav-item.active { background: var(--sidebar-hover); color: white; }
+        
+        .sidebar-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(2px); z-index: 999; display: none; }
+        .sidebar-overlay.show { display: block; }
+
+        /* ================= MAIN AREA ================= */
+        .main { flex-grow: 1; display: flex; flex-direction: column; overflow: hidden; position: relative; }
+        .topbar { height: 70px; background: var(--bg-surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 30px; z-index: 10; }
+        .menu-btn { display: none; background: none; border: none; font-size: 22px; cursor: pointer; color: var(--text-main); }
+        .search-bar { background: var(--bg-base); padding: 10px 18px; border-radius: 30px; display: flex; align-items: center; gap: 10px; width: 350px; border: 1px solid var(--border); transition: 0.3s;}
+        .search-bar:focus-within { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(79,70,229,0.1); }
+        .search-bar input { border: none; background: transparent; outline: none; width: 100%; font-size: 13px; }
+        .admin-profile { display: flex; align-items: center; gap: 12px; font-weight: 600; background: var(--bg-base); padding: 6px 16px 6px 6px; border-radius: 30px; border: 1px solid var(--border); cursor: pointer; transition: 0.2s; }
+        .admin-profile:hover { background: #e2e8f0; }
+        .admin-avatar { width: 34px; height: 34px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; overflow: hidden; }
+        .admin-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center; } /* Perfect crop fix */
+        
+        .content { flex-grow: 1; padding: 30px; overflow-y: auto; scroll-behavior: smooth; }
+
+        /* ================= UI COMPONENTS ================= */
+        .page-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 25px; border-bottom: 1px solid var(--border); padding-bottom: 15px; flex-wrap: wrap; gap: 15px;}
+        .page-title { font-size: 22px; font-weight: 800; color: var(--text-main); display:flex; align-items:center; gap:10px; }
+        
+        .filter-bar { display: flex; flex-wrap: nowrap; gap: 10px; overflow-x: auto; padding-bottom: 5px; scrollbar-width: thin; }
+        .filter-btn { padding: 8px 16px; font-size: 13px; font-weight: 600; background: var(--bg-base); border: 1px solid var(--border); color: var(--text-muted); cursor: pointer; border-radius: 8px; transition: 0.2s; white-space: nowrap; flex-shrink: 0; display:flex; align-items:center; gap:6px;}
+        .filter-btn:hover { background: var(--bg-surface); color: var(--text-main); border-color: #cbd5e1; }
+        .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); box-shadow: 0 2px 8px rgba(79, 70, 229, 0.2); }
+        
+        /* 🔥 Bulk Actions Toolbar (Horizontal Scrolling Fixed 1 Line) */
+        .bulk-actions { 
+            display: flex; flex-wrap: nowrap; gap: 10px; align-items: center; 
+            background: var(--bg-surface); padding: 12px 20px; border-radius: var(--radius); 
+            border: 1px solid var(--border); margin-bottom: 15px; box-shadow: var(--shadow-sm);
+            overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; 
+            width: 100%;
+        }
+        .bulk-actions::-webkit-scrollbar { display: none; }
+        .bulk-actions label { display: flex; align-items: center; gap: 8px; font-weight: 700; cursor: pointer; font-size: 13px; margin: 0; color: var(--text-main); flex-shrink: 0; white-space: nowrap;}
+        .bulk-actions input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; accent-color: var(--primary); opacity: 1 !important;}
+        .bulk-actions .btn-action { flex-shrink: 0; white-space: nowrap; margin-bottom: 0;}
+        .bulk-actions .push-right { margin-left: auto; flex-shrink: 0; white-space: nowrap; }
+        .divider { width: 1px; height: 20px; background: var(--border); margin: 0 5px; flex-shrink: 0;}
+
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 25px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 25px; }
+
+        .stat-card { background: var(--bg-surface); padding: 20px; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow-sm); display: flex; align-items: center; justify-content: space-between; transition: 0.2s; cursor: pointer; }
+        .stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--primary); }
+        .stat-info h3 { font-size: 12px; color: var(--text-muted); font-weight: 700; margin-bottom: 6px; text-transform: uppercase; }
+        .stat-info .val { font-size: 22px; font-weight: 800; color: var(--text-main); }
+        .stat-icon { width: 45px; height: 45px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+        
+        .ic-primary { background: var(--info-bg); color: var(--primary); }
+        .ic-success { background: var(--success-bg); color: var(--success); }
+        .ic-warning { background: var(--warning-bg); color: var(--warning); }
+        .ic-danger { background: var(--danger-bg); color: var(--danger); }
+        .ic-dark { background: #e2e8f0; color: var(--sidebar-bg); }
+
+        .panel { background: var(--bg-surface); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow-sm); padding: 25px; margin-bottom: 25px; width: 100%; }
+        .panel-title { font-size: 16px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+
+        .controls { padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border); outline: none; font-size: 13px; background: #f8fafc; width: 100%; margin-bottom: 15px; font-weight: 500; }
+        .controls:focus { border-color: var(--primary); background: white; box-shadow: 0 0 0 3px rgba(79,70,229,0.1); }
+        label { font-size: 12px; font-weight: 700; color: var(--text-muted); margin-bottom: 6px; display: block; }
+
+        .radio-group label { display: inline-flex; align-items:center; gap:8px; margin-right: 20px; font-weight:500; cursor:pointer; }
+        
+        .btn-action { padding: 8px 12px; border-radius: 6px; border: none; cursor: pointer; color: white; font-weight: 600; font-size: 12px; transition: 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 6px; box-shadow: var(--shadow-sm);}
+        .btn-action.bg-primary { background-color: var(--primary); }
+        .btn-action.bg-info { background-color: var(--info); }
+        .btn-action.bg-warning { background-color: var(--warning); }
+        .btn-action.bg-success { background-color: var(--success); }
+        .btn-action.bg-danger { background-color: var(--danger); }
+        .btn-action.bg-orange { background-color: var(--orange); }
+        .btn-action.bg-dark { background-color: var(--sidebar-bg); }
+        .btn-action:hover { opacity: 0.85; transform: translateY(-1px); box-shadow: var(--shadow-md); }
+
+        .table-wrap { overflow-x: auto; margin: 0 -25px; padding: 0 25px; }
+        table { width: 100%; border-collapse: collapse; }
+        .users-table { min-width: 1500px; }
+        .orders-table { min-width: 1700px; } 
+        .transactions-table, .api-table { min-width: 1200px; } 
+        .tickets-table, .services-table, .funds-table { min-width: 1400px; }
+
+        th { padding: 14px 15px; text-align: left; font-size: 12px; color: var(--text-muted); font-weight: 700; text-transform: uppercase; border-bottom: 2px solid var(--border); background: var(--bg-base); white-space: nowrap; }
+        td { padding: 14px 15px; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--text-main); font-weight: 500; white-space: nowrap; vertical-align: middle; }
+        tr:hover td { background: #f8fafc; }
+        
+        /* 🔥 Hidden Checkbox Logic on Hover/Select All */
+        td .row-checkbox { opacity: 0; pointer-events: none; width: 15px; height: 15px; cursor: pointer; accent-color: var(--primary); transition: 0.2s; }
+        tr:hover td .row-checkbox, td .row-checkbox:checked { opacity: 1; pointer-events: auto; }
+        .table-wrap.show-checkboxes td .row-checkbox { opacity: 1; pointer-events: auto; }
+        
+        .link-cell { word-break: break-all; white-space: normal; min-width: 200px; max-width: 250px; line-height: 1.4; }
+        .link-cell a { color: var(--primary); text-decoration: none; font-weight: 600; }
+        .link-cell a:hover { text-decoration: underline; }
+        
+        .hidden-key { font-family: monospace; background: var(--bg-base); padding: 4px 8px; border-radius: 4px; letter-spacing: 2px; }
+
+        .badge { padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; display: inline-block; letter-spacing: 0.5px;}
+        .b-pending { background: var(--warning-bg); color: #a16207; border: 1px solid #fde047; }
+        .b-completed, .b-open, .b-active { background: var(--success-bg); color: #047857; border: 1px solid #6ee7b7; }
+        .b-canceled, .b-closed, .b-inactive { background: var(--danger-bg); color: #b91c1c; border: 1px solid #fca5a5; }
+        .b-failed { background: var(--failed-bg); color: var(--failed); border: 1px solid #d6d3d1; }
+        .b-processing { background: var(--info-bg); color: #1d4ed8; border: 1px solid #93c5fd; }
+        
+        .action-flex { display: flex; gap: 6px; flex-wrap: nowrap; }
+        
+        /* 🪟 Modal Popup UI */
+        .modal-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(4px); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 20px; opacity: 0; transition: 0.3s; }
+        .modal-overlay.show { display: flex; opacity: 1; }
+        .modal-content { background: var(--bg-surface); width: 100%; max-width: 500px; border-radius: var(--radius); box-shadow: var(--shadow-lg); transform: translateY(20px); transition: 0.3s; overflow: hidden; }
+        .modal-overlay.show .modal-content { transform: translateY(0); }
+        .modal-header { padding: 20px 25px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--bg-base); }
+        .modal-header h3 { font-size: 18px; font-weight: 700; display:flex; align-items:center; gap:10px;}
+        .close-btn { background: none; border: none; font-size: 20px; color: var(--text-muted); cursor: pointer; transition: 0.2s;}
+        .close-btn:hover { color: var(--danger); }
+        .modal-body { padding: 25px; max-height: 70vh; overflow-y: auto; }
+        .modal-footer { padding: 15px 25px; border-top: 1px solid var(--border); background: var(--bg-base); display: flex; justify-content: flex-end; gap: 10px; }
+
+        @media (max-width: 992px) {
+            .sidebar { position: fixed; left: -280px; height: 100vh; }
+            .sidebar.show { left: 0; }
+            .menu-btn { display: block; }
+            .search-bar { display: none; }
+            .content { padding: 20px 15px; }
+            .grid-2, .grid-4 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🔐 LOGIN SCREEN -->
+    <div id="login-screen">
+        <div class="login-box">
+            <div style="font-size: 45px; color: #818cf8; margin-bottom: 15px;"><i class="fas fa-rocket"></i></div>
+            <h2>BoostifyX Panel</h2>
+            <p>Secure Admin Access</p>
+            <div class="input-group"><i class="fas fa-envelope"></i><input type="email" id="email" class="form-control" placeholder="Admin Email" required></div>
+            <div class="input-group"><i class="fas fa-lock"></i><input type="password" id="password" class="form-control" placeholder="Password" required></div>
+            <button class="btn-primary" id="login-btn" onclick="attemptLogin()">Secure Login <i class="fas fa-arrow-right"></i></button>
+            <div id="login-error" class="error-msg"></div>
+        </div>
+    </div>
+
+    <!-- 🎛️ MAIN LAYOUT -->
+    <div class="wrapper" id="admin-panel" style="display: none;">
+        <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleMobileSidebar()"></div>
+
+        <!-- 🚀 SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="brand"><i class="fas fa-rocket"></i> BoostifyX</div>
+            <div class="nav-list">
+                <div class="nav-item active" onclick="renderPage('dashboard', this)"><i class="fas fa-chart-pie"></i> Dashboard</div>
+                <div class="nav-item" onclick="renderPage('users', this)"><i class="fas fa-users"></i> Users</div>
+                <div class="nav-item" onclick="renderPage('orders', this)"><i class="fas fa-shopping-cart"></i> Orders</div>
+                <div class="nav-item" onclick="renderPage('funds', this)"><i class="fas fa-wallet"></i> Funds</div>
+                <div class="nav-item" onclick="renderPage('transactions', this)"><i class="fas fa-exchange-alt"></i> Transactions</div>
+                <div class="nav-item" onclick="renderPage('services', this)"><i class="fas fa-list-alt"></i> Services</div>
+                <div class="nav-item" onclick="renderPage('tickets', this)"><i class="fas fa-headset"></i> Tickets</div>
+                <div class="nav-item" onclick="renderPage('api', this)"><i class="fas fa-network-wired"></i> API Settings</div>
+                <div class="nav-item" onclick="renderPage('settings', this)"><i class="fas fa-cog"></i> Settings</div>
+                <div class="nav-item" style="margin-top: 20px; color: #ef4444;" onclick="logoutAdmin()"><i class="fas fa-sign-out-alt"></i> Logout</div>
+            </div>
+        </aside>
+
+        <!-- 🖥️ MAIN WORKSPACE -->
+        <div class="main">
+            <header class="topbar">
+                <button class="menu-btn" onclick="toggleMobileSidebar()"><i class="fas fa-bars"></i></button>
+                <div class="search-bar"><i class="fas fa-search text-muted"></i><input type="text" placeholder="Search User ID, Order ID..."></div>
+                
+                <!-- Fixed Admin Profile Name -->
+                <div class="admin-profile" onclick="renderPage('admin-profile', null)">
+                    <div class="admin-avatar"><img id="topbar-admin-img" src="https://ui-avatars.com/api/?name=Admin&background=4f46e5&color=fff"></div>
+                    <span id="admin-id">BoostifyX Admin</span>
+                </div>
+            </header>
+
+            <div class="content">
+                <div id="page-content-wrapper"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🪟 GLOBAL MODAL CONTAINER -->
+    <div class="modal-overlay" id="global-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title"><i class="fas fa-info-circle"></i> Modal Title</h3>
+                <button class="close-btn" onclick="closeModal()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Content injected via JS -->
+            </div>
+            <div class="modal-footer" id="modal-footer">
+                <button class="btn-action bg-dark" onclick="closeModal()">Close</button>
+                <button class="btn-action bg-primary" id="modal-save-btn" style="display:none;">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 📄 FULL HTML TEMPLATES (Hidden) -->
+    <div id="html-templates" style="display:none;">
+        <div id="template-dashboard">
+            <div class="page-header"><h2 class="page-title">Analytics Dashboard</h2></div>
+            <div class="grid-4">
+                <div class="stat-card" onclick="document.querySelectorAll('.sidebar .nav-item')[1].click()"><div class="stat-info"><h3>Total Users</h3><div class="val" id="d-u-tot">0</div></div><div class="stat-icon ic-primary"><i class="fas fa-users"></i></div></div>
+                <div class="stat-card" onclick="document.querySelectorAll('.sidebar .nav-item')[1].click()"><div class="stat-info"><h3>Today Users</h3><div class="val" id="d-u-today">0</div></div><div class="stat-icon ic-success"><i class="fas fa-user-plus"></i></div></div>
+                <div class="stat-card" onclick="document.querySelectorAll('.sidebar .nav-item')[3].click()"><div class="stat-info"><h3>Wallet Balance</h3><div class="val text-primary" id="d-f-wall">₹0</div></div><div class="stat-icon ic-warning"><i class="fas fa-wallet"></i></div></div>
+                <div class="stat-card" onclick="document.querySelectorAll('.sidebar .nav-item')[6].click()"><div class="stat-info"><h3>Open Tickets</h3><div class="val" id="d-t-open">0</div></div><div class="stat-icon ic-danger"><i class="fas fa-ticket-alt"></i></div></div>
+            </div>
+            <div class="grid-4">
+                <div class="stat-card" onclick="document.querySelectorAll('.sidebar .nav-item')[2].click()"><div class="stat-info"><h3>Total Orders</h3><div class="val" id="d-o-tot">0</div></div><div class="stat-icon ic-dark"><i class="fas fa-shopping-cart"></i></div></div>
+                <div class="stat-card" onclick="document.querySelectorAll('.sidebar .nav-item')[2].click()"><div class="stat-info"><h3>Pending Orders</h3><div class="val text-warning" id="d-o-pen">0</div></div><div class="stat-icon ic-warning"><i class="fas fa-clock"></i></div></div>
+                <div class="stat-card" onclick="document.querySelectorAll('.sidebar .nav-item')[2].click()"><div class="stat-info"><h3>Completed Orders</h3><div class="val text-success" id="d-o-com">0</div></div><div class="stat-icon ic-success"><i class="fas fa-check-circle"></i></div></div>
+                <div class="stat-card" onclick="document.querySelectorAll('.sidebar .nav-item')[2].click()"><div class="stat-info"><h3>Canceled Orders</h3><div class="val text-danger" id="d-o-can">0</div></div><div class="stat-icon ic-danger"><i class="fas fa-times-circle"></i></div></div>
+            </div>
+            <div class="grid-4">
+                <div class="stat-card"><div class="stat-info"><h3>Total Revenue</h3><div class="val text-success" id="d-rev">₹0.00</div></div><div class="stat-icon ic-success"><i class="fas fa-chart-line"></i></div></div>
+                <div class="stat-card"><div class="stat-info"><h3>API Cost</h3><div class="val text-danger" id="d-cost">₹0.00</div></div><div class="stat-icon ic-danger"><i class="fas fa-file-invoice-dollar"></i></div></div>
+                <div class="stat-card"><div class="stat-info"><h3>Net Profit</h3><div class="val text-primary" id="d-profit">₹0.00</div></div><div class="stat-icon ic-primary"><i class="fas fa-piggy-bank"></i></div></div>
+                <div class="stat-card" onclick="document.querySelectorAll('.sidebar .nav-item')[5].click()"><div class="stat-info"><h3>Total Services</h3><div class="val" id="d-s-tot">0</div></div><div class="stat-icon ic-dark"><i class="fas fa-layer-group"></i></div></div>
+            </div>
+            <div class="grid-2">
+                <div class="panel" style="height: 380px; padding-bottom: 40px;"><div class="panel-title">Revenue Graph (Last 6 Months)</div><canvas id="revenueChart"></canvas></div>
+                <div class="panel" style="height: 380px; padding-bottom: 40px;"><div class="panel-title">Orders Flow</div><canvas id="ordersChart"></canvas></div>
+            </div>
+        </div>
+
+        <!-- Add User Template -->
+        <div id="template-users-add">
+            <div class="page-header"><h2 class="page-title"><i class="fas fa-user-plus"></i> Add New User</h2></div>
+            <div class="panel" style="max-width: 500px; padding: 30px; margin: 0 auto;">
+                <label>Username:</label><input type="text" class="controls" placeholder="e.g. john_doe">
+                <label>Email (Gmail):</label><input type="email" class="controls" placeholder="user@gmail.com">
+                <label>Mobile Number:</label><input type="text" class="controls" placeholder="+911234567890">
+                <label>Initial Balance (₹):</label><input type="number" class="controls" value="0">
+                <label>Password:</label><input type="password" class="controls" placeholder="••••••••">
+                <label>Status:</label>
+                <div class="radio-group" style="margin-bottom: 25px; background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                    <label><input type="radio" name="add-status" value="active" checked> Active</label>
+                    <label><input type="radio" name="add-status" value="blocked"> Blocked</label>
+                </div>
+                <button class="btn-primary w-100" style="padding: 16px; font-size: 15px;" onclick="alert('User Added Successfully!')"><i class="fas fa-save"></i> CREATE USER</button>
+            </div>
+        </div>
+
+        <!-- Add Service Template -->
+        <div id="template-services-add">
+            <div class="page-header"><h2 class="page-title"><i class="fas fa-layer-group"></i> Add New Service</h2></div>
+            <div class="panel" style="max-width: 600px; padding: 30px; margin: 0 auto;">
+                <label>Category Name:</label><select class="controls"><option>Instagram</option><option>YouTube</option></select>
+                <label>Service Name:</label><input type="text" class="controls" placeholder="Instagram Real Followers (Fast)">
+                <div class="grid-2">
+                    <div><label>Min Quantity:</label><input type="number" class="controls" value="100"></div>
+                    <div><label>Max Quantity:</label><input type="number" class="controls" value="10000"></div>
+                </div>
+                <label>Price (per 1000):</label><input type="number" class="controls" value="10">
+                <label>API Provider:</label><select class="controls"><option>provider_smm</option></select>
+                <label>Service ID:</label><input type="number" class="controls" value="1234">
+                <button class="btn-primary w-100" style="padding: 16px; font-size: 15px; margin-top: 15px;" onclick="alert('Service Saved!')"><i class="fas fa-save"></i> SAVE SERVICE</button>
+            </div>
+        </div>
+
+        <!-- Add Category Template -->
+        <div id="template-categories-add">
+            <div class="page-header"><h2 class="page-title"><i class="fas fa-sitemap"></i> Add/Manage Categories</h2></div>
+            <div class="grid-2">
+                <div class="panel">
+                    <div class="panel-title"><i class="fas fa-plus"></i> New Category</div>
+                    <label>Category Name (Icon applies automatically):</label>
+                    <input type="text" class="controls" placeholder="e.g. Instagram, Facebook, Tiktok...">
+                    <label>Sort Order:</label>
+                    <input type="number" class="controls" value="1">
+                    <button class="btn-primary" style="padding:12px 20px;"><i class="fas fa-save"></i> Save Category</button>
+                </div>
+                <div class="panel">
+                    <div class="panel-title"><i class="fas fa-list"></i> Category List</div>
+                    <div class="table-wrap">
+                        <table style="min-width: 100%;">
+                            <thead><tr><th>Icon</th><th>Category Name</th><th>Action</th></tr></thead>
+                            <tbody id="cat-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Manual Fund Add Template -->
+        <div id="template-funds-manual">
+            <div class="page-header"><h2 class="page-title"><i class="fas fa-plus-circle"></i> Manual Add Balance</h2></div>
+            <div class="panel" style="max-width: 500px; padding: 30px; margin: 0 auto;">
+                <div style="background: var(--info-bg); color: var(--info); padding: 15px; border-radius: 8px; margin-bottom: 20px; font-weight: 600;">
+                    <i class="fas fa-info-circle"></i> Funds added here will auto-generate a Credit Transaction.
+                </div>
+                <label>User ID / Username:</label><input type="text" class="controls" placeholder="Enter User ID or Username">
+                <label>Amount (₹):</label><input type="number" class="controls" placeholder="e.g. 500">
+                <label>Reason / Category:</label>
+                <select class="controls"><option>Manual Approval (Deposit)</option><option>Admin Bonus / Gift</option><option>Refund / Compensation</option></select>
+                <button class="btn-primary w-100" style="padding: 15px; font-size: 15px; margin-top: 10px;" onclick="alert('Fund Added!')"><i class="fas fa-check"></i> ADD FUNDS</button>
+            </div>
+        </div>
+
+        <!-- Admin Profile Template -->
+        <div id="template-admin-profile">
+            <div class="page-header"><h2 class="page-title"><i class="fas fa-user-shield text-primary"></i> Admin Profile & Security</h2></div>
+            <div class="panel" style="max-width: 500px; margin: 0 auto; text-align: center; padding: 40px 20px;">
+                <div style="position: relative; width: 130px; height: 130px; margin: 0 auto 20px;">
+                    <img id="profile-page-img" src="https://ui-avatars.com/api/?name=Admin&background=4f46e5&color=fff" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: center; border: 4px solid var(--border); box-shadow: var(--shadow-md);">
+                    <label for="admin-photo-upload" style="position: absolute; bottom: 5px; right: 5px; background: var(--primary); color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; border: 3px solid white; transition: 0.2s;">
+                        <i class="fas fa-camera"></i>
+                    </label>
+                    <input type="file" id="admin-photo-upload" accept="image/*" style="display: none;" onchange="uploadAdminPhoto(event)">
+                </div>
+                
+                <h3 id="profile-email-text" style="font-size: 20px; font-weight: 800; margin-bottom: 5px;">loading...</h3>
+                <p style="color: var(--success); font-weight: 600; font-size: 13px; margin-bottom: 30px;"><i class="fas fa-check-circle"></i> Master Admin Active</p>
+                
+                <div style="text-align: left; background: var(--bg-base); padding: 20px; border-radius: 10px; border: 1px solid var(--border);">
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
+                        <span style="color: var(--text-muted); font-weight: 600;"><i class="fas fa-clock"></i> Last Login Time:</span>
+                        <strong id="profile-last-login" style="color: var(--text-main);">Loading...</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Site Template -->
+        <div id="template-settings-site">
+            <div class="page-header"><h2 class="page-title"><i class="fas fa-cogs"></i> Master Site Settings</h2></div>
+            <div class="grid-2">
+                <div class="panel">
+                    <div class="panel-title">System Modules</div>
+                    <label style="display:flex; align-items:center; gap:10px; padding:10px; border:1px solid var(--border); border-radius:8px; margin-bottom:10px;">
+                        <input type="checkbox" checked style="width:18px; height:18px;"> <span style="flex-grow:1; font-weight:600;">Website Live</span>
+                    </label>
+                    <label style="display:flex; align-items:center; gap:10px; padding:10px; border:1px solid var(--border); border-radius:8px; border-color:#fca5a5;">
+                        <input type="checkbox" style="width:18px; height:18px;"> <span style="flex-grow:1; font-weight:600;">Maintenance Mode</span>
+                    </label>
+                </div>
+                <div class="panel">
+                    <div class="panel-title">Currency Settings</div>
+                    <label>Default Currency:</label><select class="controls"><option>INR (Indian Rupee)</option><option>USD (US Dollar)</option></select>
+                    <label>Currency Symbol:</label><input type="text" class="controls" value="₹">
+                    <button class="btn-primary w-100" style="padding:15px; font-size:15px;" onclick="alert('Settings saved!')"><i class="fas fa-save"></i> Save Settings</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ==========================================
+        // 1. FIREBASE SETUP & DEMO DATA
+        // ==========================================
+        const firebaseConfig = { apiKey: "AIzaSy...", authDomain: "boostifyx.firebaseapp.com", databaseURL: "https://boostifyx.firebaseio.com", projectId: "boostifyx" };
+        if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth(); const db = firebase.database();
+
+        // 🟢 MOCK DATA
+        const mockUsers = [
+            { id: 'usr_01', username: 'sazzidul', email: 'sazzidul@gmail.com', mobile: '9876543210', wallet: 150.75, totalSpent: 2500, totalOrders: 15, status: 'active', joinDate: new Date('2026-04-18').getTime() },
+            { id: 'usr_02', username: 'rahul_99', email: 'rahul@gmail.com', mobile: '9123456789', wallet: 5.20, totalSpent: 120, totalOrders: 3, status: 'active', joinDate: new Date('2026-04-19').getTime() },
+            { id: 'usr_03', username: 'amit_bad', email: 'amit@gmail.com', mobile: '7654321098', wallet: 0.00, totalSpent: 50, totalOrders: 1, status: 'blocked', joinDate: new Date('2026-04-01').getTime() }
+        ];
+
+        const mockOrders = [
+            { id: 'ORD-95431', username: 'sazzidul', serviceName: 'Instagram Followers [HQ]', link: 'https://instagram.com/sazzidul_islam_real_account', quantity: 1000, charge: 120.00, apiCost: 90.00, status: 'completed', date: new Date('2026-04-20 10:00').getTime() },
+            { id: 'ORD-95432', username: 'rahul_99', serviceName: 'YouTube Views', link: 'https://youtube.com/watch?v=xyz123abc456', quantity: 5000, charge: 250.00, apiCost: 180.50, status: 'processing', date: new Date('2026-04-20 11:30').getTime() },
+            { id: 'ORD-95433', username: 'amit_bad', serviceName: 'Facebook Likes', link: 'https://facebook.com/me_profile_12', quantity: 200, charge: 80.00, apiCost: 65.00, status: 'failed', date: new Date('2026-04-20 12:10').getTime() }
+        ];
+
+        const mockPayments = [
+            { id: 'PAY-101', username: 'sazzidul', amount: 500, method: 'Manual UPI', status: 'pending', date: new Date('2026-04-20 09:00:00').getTime() },
+            { id: 'PAY-102', username: 'rahul_99', amount: 2000, method: 'Razorpay', status: 'completed', date: new Date('2026-04-19 14:00:00').getTime() },
+        ];
+
+        const mockTransactions = [
+            { id: 'TRN-501', username: 'sazzidul', type: 'credit', category: 'Razorpay', amount: 2000, balBefore: 50, balAfter: 2050, status: 'Success', date: new Date('2026-04-19 14:01:00').getTime() },
+            { id: 'TRN-502', username: 'rahul_99', type: 'debit', category: 'Order', amount: 120, balBefore: 270, balAfter: 150, status: 'Success', date: new Date('2026-04-20 10:00:00').getTime() },
+        ];
+
+        const mockServices = [
+            { id: 101, category: 'Instagram', name: 'IG Followers [FAST]', price: 100.00, apiCost: 80.00, min: 100, max: 10000, status: 'active' },
+            { id: 102, category: 'YouTube', name: 'YT HQ Views', price: 140.00, apiCost: 150.00, min: 1000, max: 1000000, status: 'inactive' }
+        ];
+
+        const mockCategories = ['Instagram', 'YouTube', 'Facebook', 'Twitter', 'Tiktok', 'Website'];
+
+        const mockTickets = [
+            { id: 701, username: 'sazzidul', category: 'Order Issue', subject: 'Order stuck #ORD-95431', priority: 'High', status: 'open', date: '10:15 AM' },
+            { id: 702, username: 'rahul_99', category: 'Payment', subject: 'Money deducted not added', priority: 'Medium', status: 'closed', date: 'Yesterday' }
+        ];
+
+        const mockApis = [
+            { id: 'API_1', name: 'JustPanel', type: 'SMM', url: 'https://api.justpanel.com/v2', key: 'e8f7a9d...c2b', status: 'active' },
+            { id: 'API_2', name: 'Razorpay', type: 'Payment', url: 'https://api.razorpay.com/v1', key: 'rzp_test_...', status: 'inactive' }
+        ];
+
+        window.allUsersData = mockUsers; window.allOrdersData = mockOrders; window.allServicesData = mockServices; 
+        window.allTicketsData = mockTickets; window.allApisData = mockApis; 
+        window.allPaymentsData = mockPayments; window.allTransactionsData = mockTransactions;
+        window.allCategoriesData = mockCategories; window.currentAdminUser = null;
+
+        // ==========================================
+        // 2. CORE FUNCTIONS & LOGIN LOGIC
+        // ==========================================
+        const allowedAdmins = ["rashidulboostifyx@gmail.com", "boostifyadmin@rashidul.com"];
+        const LOGIN_EXPIRY = 10 * 60 * 60 * 1000; // 10 Hours
+
+        window.onload = function() { checkAutoLogin(); };
+
+        function checkAutoLogin() {
+            let session = localStorage.getItem('admin_session');
+            if(session) {
+                session = JSON.parse(session);
+                if(Date.now() - session.time < LOGIN_EXPIRY && allowedAdmins.includes(session.email)) {
+                    window.currentAdminUser = { email: session.email, metadata: { lastSignInTime: new Date(session.time).toISOString() } };
+                    showPanel();
+                } else {
+                    localStorage.removeItem('admin_session');
+                }
+            }
+        }
+
+        async function attemptLogin() {
+            const email = document.getElementById('email').value.trim().toLowerCase();
+            const pass = document.getElementById('password').value;
+            const errDiv = document.getElementById('login-error');
+            
+            if(!email || !pass) return;
+
+            if(!allowedAdmins.includes(email)) {
+                errDiv.style.display = 'block';
+                errDiv.innerHTML = "<i class='fas fa-ban'></i> Unauthorized Email. Access Blocked!";
+                return;
+            }
+
+            errDiv.style.display = 'none';
+            // Successful Login Save
+            localStorage.setItem('admin_session', JSON.stringify({ email: email, time: Date.now() }));
+            window.currentAdminUser = { email: email, metadata: { lastSignInTime: new Date().toISOString() } };
+            
+            showPanel();
+        }
+
+        function showPanel() {
+            document.getElementById('login-screen').style.display = 'none';
+            document.getElementById('admin-panel').style.display = 'flex';
+            
+            db.ref('admin_settings/profile_photo').once('value', snap => {
+                if(snap.exists()){ document.getElementById('topbar-admin-img').src = snap.val(); }
+            });
+
+            renderPage('dashboard', document.querySelector('.sidebar .nav-item.active'));
+        }
+
+        function logoutAdmin() { 
+            localStorage.removeItem('admin_session');
+            location.reload(); 
+        }
+
+        function toggleMobileSidebar() { document.getElementById('sidebar').classList.toggle('show'); document.getElementById('sidebar-overlay').classList.toggle('show'); }
+        
+        // Show Hidden Checkboxes on Select All
+        function toggleAll(source) {
+            const wrap = source.closest('.main').querySelector('.table-wrap');
+            if(wrap) {
+                if(source.checked) wrap.classList.add('show-checkboxes');
+                else wrap.classList.remove('show-checkboxes');
+                
+                const checkboxes = wrap.querySelectorAll('.row-checkbox');
+                checkboxes.forEach(cb => cb.checked = source.checked);
+            }
+        }
+
+        function showSubPage(templateId, element) {
+            if(element) { element.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); element.classList.add('active'); }
+            const targetArea = document.getElementById('dynamic-content-area') || document.getElementById('page-content-wrapper');
+            targetArea.innerHTML = document.getElementById(`template-${templateId}`).innerHTML;
+            
+            // If Category page opened, render table
+            if(templateId === 'categories-add') renderCategoriesTable();
+        }
+
+        // ==========================================
+        // 3. MASTER PAGE RENDERER
+        // ==========================================
+        function renderPage(pageName, element) {
+            if(element) {
+                document.querySelectorAll('.sidebar .nav-item').forEach(el => el.classList.remove('active'));
+                element.classList.add('active');
+            }
+
+            const contentWrapper = document.getElementById('page-content-wrapper');
+            let html = '';
+
+            switch(pageName) {
+                case 'dashboard':
+                    contentWrapper.innerHTML = document.getElementById('template-dashboard').innerHTML;
+                    updateDashboardStats(); renderModernCharts();
+                    break;
+                case 'users':
+                    html = `
+                    <div class="page-header"><h2 class="page-title"><i class="fas fa-users"></i> User Management</h2>
+                    <div class="filter-bar"><button class="filter-btn active" onclick="renderUsers('all', this)"><i class="fas fa-list"></i> All</button><button class="filter-btn" onclick="renderUsers('active', this)"><i class="fas fa-check-circle"></i> Active</button><button class="filter-btn" onclick="renderUsers('blocked', this)"><i class="fas fa-ban"></i> Blocked</button></div></div>
+                    
+                    <div class="bulk-actions">
+                        <label><input type="checkbox" onclick="toggleAll(this)"> Select All</label><div class="divider"></div>
+                        <button class="btn-action bg-danger" onclick="alert('Bulk Delete Triggered')"><i class="fas fa-trash"></i> Delete Selected</button>
+                        <button class="btn-action bg-orange" onclick="alert('Bulk Block Triggered')"><i class="fas fa-ban"></i> Block Selected</button>
+                        <button class="btn-primary push-right" onclick="showSubPage('users-add', null)"><i class="fas fa-plus"></i> Add User</button>
+                    </div>
+
+                    <div id="dynamic-content-area">
+                        <div class="panel"><div class="table-wrap"><table class="users-table">
+                        <thead><tr><th style="width:40px;"></th><th>ID</th><th>User</th><th>Email</th><th>Mobile</th><th>Balance</th><th>Spent</th><th>Orders</th><th>Status</th><th>Join Date</th><th>Actions</th></tr></thead>
+                        <tbody id="dynamic-table-body"></tbody></table></div></div>
+                    </div>`;
+                    contentWrapper.innerHTML = html; renderUsers('all');
+                    break;
+
+                case 'orders':
+                     html = `
+                    <div class="page-header"><h2 class="page-title"><i class="fas fa-shopping-cart"></i> Order Management</h2>
+                    <div class="filter-bar"><button class="filter-btn active" onclick="renderOrders('all', this)"><i class="fas fa-globe"></i> All</button><button class="filter-btn" onclick="renderOrders('pending', this)"><i class="fas fa-clock"></i> Pending</button><button class="filter-btn" onclick="renderOrders('completed', this)"><i class="fas fa-check"></i> Completed</button></div></div>
+                    
+                    <div class="bulk-actions">
+                        <label><input type="checkbox" onclick="toggleAll(this)"> Select All</label><div class="divider"></div>
+                        <button class="btn-action bg-success" onclick="alert('Bulk Complete')"><i class="fas fa-check-double"></i> Complete Selected</button>
+                        <button class="btn-action bg-danger" onclick="alert('Bulk Cancel')"><i class="fas fa-times"></i> Cancel Selected</button>
+                        <button class="btn-action bg-dark" onclick="alert('Bulk Delete')"><i class="fas fa-trash"></i> Delete Selected</button>
+                    </div>
+
+                    <div id="dynamic-content-area">
+                        <div class="panel"><div class="table-wrap"><table class="orders-table">
+                        <thead><tr><th style="width:40px;"></th><th>Order ID</th><th>User</th><th>Service</th><th>Link</th><th>Qty</th><th>Charge</th><th>Cost</th><th>Profit</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead>
+                        <tbody id="dynamic-table-body"></tbody></table></div></div>
+                    </div>`;
+                    contentWrapper.innerHTML = html; renderOrders('all');
+                    break;
+
+                case 'funds':
+                    html = `
+                    <div class="page-header"><h2 class="page-title"><i class="fas fa-wallet"></i> Fund Management</h2>
+                    <div class="filter-bar"><button class="filter-btn active" onclick="renderPayments('all', this)"><i class="fas fa-list"></i> All Payments</button><button class="filter-btn" onclick="renderPayments('pending', this)"><i class="fas fa-hourglass-half"></i> Pending</button><button class="filter-btn" onclick="renderPayments('completed', this)"><i class="fas fa-check-double"></i> Approved</button></div></div>
+                    
+                    <div class="bulk-actions">
+                        <label><input type="checkbox" onclick="toggleAll(this)"> Select All</label><div class="divider"></div>
+                        <button class="btn-action bg-success" onclick="alert('Bulk Approve')"><i class="fas fa-check"></i> Approve Selected</button>
+                        <button class="btn-action bg-danger" onclick="alert('Bulk Reject')"><i class="fas fa-times"></i> Reject Selected</button>
+                        <button class="btn-primary push-right" onclick="showSubPage('funds-manual', null)"><i class="fas fa-plus"></i> Manual Add</button>
+                    </div>
+                    
+                    <div id="dynamic-content-area">
+                        <div class="panel"><div class="table-wrap"><table class="funds-table">
+                        <thead><tr><th style="width:40px;"></th><th>ID</th><th>User</th><th>Amount</th><th>Method</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead>
+                        <tbody id="dynamic-table-body"></tbody></table></div></div>
+                    </div>`;
+                    contentWrapper.innerHTML = html; renderPayments('all');
+                    break;
+
+                case 'transactions':
+                    html = `
+                    <div class="page-header"><h2 class="page-title"><i class="fas fa-exchange-alt"></i> Transactions</h2>
+                    <div class="filter-bar"><button class="filter-btn active" onclick="renderTransactions('all', this)"><i class="fas fa-list"></i> All</button><button class="filter-btn" onclick="renderTransactions('credit', this)"><i class="fas fa-arrow-down"></i> Credit</button><button class="filter-btn" onclick="renderTransactions('debit', this)"><i class="fas fa-arrow-up"></i> Debit</button></div></div>
+                    
+                    <div id="dynamic-content-area">
+                        <div class="panel"><div class="table-wrap"><table class="transactions-table">
+                        <thead><tr><th>ID</th><th>User</th><th>Type</th><th>Category</th><th>Amount</th><th>Bal Change</th><th>Status</th><th>Date</th></tr></thead>
+                        <tbody id="dynamic-table-body"></tbody></table></div></div>
+                    </div>`;
+                    contentWrapper.innerHTML = html; renderTransactions('all');
+                    break;
+                
+                case 'services':
+                    html = `
+                    <div class="page-header"><h2 class="page-title"><i class="fas fa-list-alt"></i> Service Management</h2>
+                    <div class="filter-bar"><button class="filter-btn active" onclick="renderPage('services', null)"><i class="fas fa-layer-group"></i> Services</button><button class="filter-btn" onclick="showSubPage('categories-add', this)"><i class="fas fa-sitemap"></i> Categories</button></div></div>
+                    
+                    <div class="bulk-actions">
+                        <label><input type="checkbox" onclick="toggleAll(this)"> Select All</label><div class="divider"></div>
+                        <button class="btn-action bg-success"><i class="fas fa-play"></i> Enable Selected</button>
+                        <button class="btn-action bg-warning"><i class="fas fa-pause"></i> Disable Selected</button>
+                        <button class="btn-action bg-danger"><i class="fas fa-trash"></i> Delete Selected</button>
+                        <button class="btn-primary push-right" onclick="showSubPage('services-add', null)"><i class="fas fa-plus"></i> Add Service</button>
+                    </div>
+
+                    <div id="dynamic-content-area">
+                        <div class="panel"><div class="table-wrap"><table class="services-table">
+                        <thead><tr><th style="width:40px;"></th><th>ID</th><th>Category</th><th>Name</th><th>Price/1k</th><th>Cost/1k</th><th>Profit</th><th>Min/Max</th><th>Status</th><th>Actions</th></tr></thead>
+                        <tbody id="dynamic-table-body"></tbody></table></div></div>
+                    </div>`;
+                    contentWrapper.innerHTML = html; renderServices();
+                    break;
+
+                case 'tickets':
+                    html = `
+                    <div class="page-header"><h2 class="page-title"><i class="fas fa-headset"></i> Support Tickets</h2></div>
+                    <div class="bulk-actions">
+                        <label><input type="checkbox" onclick="toggleAll(this)"> Select All</label><div class="divider"></div>
+                        <button class="btn-action bg-success"><i class="fas fa-check"></i> Close Selected</button>
+                        <button class="btn-action bg-danger"><i class="fas fa-trash"></i> Delete Selected</button>
+                    </div>
+                    <div class="panel"><div class="table-wrap"><table class="tickets-table">
+                    <thead><tr><th style="width:40px;"></th><th>ID</th><th>User</th><th>Category</th><th>Subject</th><th>Priority</th><th>Status</th><th>Actions</th></tr></thead>
+                    <tbody id="dynamic-table-body"></tbody></table></div></div>`;
+                    contentWrapper.innerHTML = html; renderTickets();
+                    break;
+                
+                case 'api':
+                    html = `
+                    <div class="page-header"><h2 class="page-title"><i class="fas fa-network-wired"></i> API Settings</h2></div>
+                    <div class="bulk-actions"><button class="btn-primary"><i class="fas fa-plus"></i> Add API Provider</button></div>
+                    <div class="panel"><div class="table-wrap"><table class="api-table">
+                    <thead><tr><th>ID</th><th>Name</th><th>Type</th><th>Base URL</th><th>API Key</th><th>Status</th><th>Actions</th></tr></thead>
+                    <tbody id="dynamic-table-body"></tbody></table></div></div>`;
+                    contentWrapper.innerHTML = html; renderApis();
+                    break;
+
+                case 'settings':
+                    contentWrapper.innerHTML = document.getElementById('template-settings-site').innerHTML;
+                    break;
+
+                case 'admin-profile':
+                    contentWrapper.innerHTML = document.getElementById('template-admin-profile').innerHTML;
+                    if(window.currentAdminUser){
+                        document.getElementById('profile-email-text').innerText = window.currentAdminUser.email;
+                        document.getElementById('profile-last-login').innerText = new Date(window.currentAdminUser.metadata.lastSignInTime).toLocaleString();
+                    }
+                    let currentImg = document.getElementById('topbar-admin-img').src;
+                    document.getElementById('profile-page-img').src = currentImg;
+                    break;
+            }
+            if(window.innerWidth <= 992 && document.getElementById('sidebar').classList.contains('show')) { toggleMobileSidebar(); }
+        }
+
+        // ==========================================
+        // 4. DATA RENDERERS & ACTIONS
+        // ==========================================
+        function renderUsers(filter, btn) {
+            if(btn){ btn.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); }
+            const tbody = document.getElementById('dynamic-table-body'); let html = "";
+            let data = filter === 'all' ? window.allUsersData : window.allUsersData.filter(u => u.status === filter);
+            data.forEach(u => {
+                let sBadge = u.status === 'blocked' ? `<span class="badge b-canceled">Blocked</span>` : `<span class="badge b-completed">Active</span>`;
+                html += `<tr>
+                    <td><input type="checkbox" class="row-checkbox" value="${u.id}"></td>
+                    <td>${u.id}</td><td><strong>${u.username}</strong></td><td>${u.email}</td><td>${u.mobile}</td>
+                    <td style="color:var(--success); font-weight:800;">₹${u.wallet.toFixed(2)}</td><td>₹${u.totalSpent.toFixed(2)}</td><td>${u.totalOrders}</td><td>${sBadge}</td>
+                    <td>${new Date(u.joinDate).toLocaleDateString()}</td>
+                    <td class="action-flex">
+                        <button class="btn-action bg-info" title="View Details" onclick="actionPopup('viewUser', '${u.username}')"><i class="fas fa-eye"></i> View</button>
+                        <button class="btn-action bg-warning" title="Edit User" onclick="actionPopup('editUser', '${u.username}')"><i class="fas fa-edit"></i> Edit</button>
+                        <button class="btn-action bg-success" title="Add Balance" onclick="actionPopup('addBalance', '${u.username}')"><i class="fas fa-wallet"></i> Bal</button>
+                        <button class="btn-action bg-orange" title="Block/Unblock" onclick="alert('Block toggled for ${u.username}')"><i class="fas fa-ban"></i> Block</button>
+                        <button class="btn-action bg-danger" title="Delete User" onclick="alert('Deleted ${u.username}')"><i class="fas fa-trash"></i></button>
+                    </td></tr>`;
+            });
+            if(tbody) tbody.innerHTML = html;
+        }
+
+        function renderOrders(filter, btn) {
+            if(btn){ btn.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); }
+            const tbody = document.getElementById('dynamic-table-body'); let html = "";
+            let data = filter === 'all' ? window.allOrdersData : window.allOrdersData.filter(o => o.status === filter);
+            data.forEach(o => {
+                let prof = o.charge - o.apiCost;
+                let bClass = o.status === 'completed' ? 'b-completed' : o.status === 'failed' ? 'b-failed' : 'b-pending';
+                html += `<tr>
+                    <td><input type="checkbox" class="row-checkbox" value="${o.id}"></td>
+                    <td style="color:var(--primary); font-weight:700;">${o.id}</td><td>${o.username}</td><td>${o.serviceName}</td>
+                    <td class="link-cell"><a href="${o.link}" target="_blank">${o.link}</a></td>
+                    <td>${o.quantity}</td><td>₹${o.charge.toFixed(2)}</td><td style="color:var(--danger)">₹${o.apiCost.toFixed(2)}</td><td style="color:var(--success)">₹${prof.toFixed(2)}</td>
+                    <td><span class="badge ${bClass}">${o.status}</span></td>
+                    <td>${new Date(o.date).toLocaleString()}</td>
+                    <td class="action-flex">
+                        <button class="btn-action bg-info" title="View"><i class="fas fa-eye"></i></button>
+                        <button class="btn-action bg-success" title="Mark Complete"><i class="fas fa-check"></i></button>
+                        <button class="btn-action bg-danger" title="Cancel Order"><i class="fas fa-times"></i></button>
+                        <button class="btn-action bg-warning" title="Retry via API"><i class="fas fa-sync"></i></button>
+                        <button class="btn-action bg-dark" title="Delete"><i class="fas fa-trash"></i></button>
+                    </td></tr>`;
+            });
+            if(tbody) tbody.innerHTML = html;
+        }
+
+        function renderPayments(filter, btn) {
+            if(btn){ btn.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); }
+            const tbody = document.getElementById('dynamic-table-body'); let html = "";
+            let data = filter === 'all' ? window.allPaymentsData : window.allPaymentsData.filter(p => p.status === filter);
+            data.forEach(p => {
+                let bClass = p.status === 'completed' ? 'b-completed' : p.status === 'pending' ? 'b-pending' : 'b-failed';
+                html += `<tr>
+                    <td><input type="checkbox" class="row-checkbox" value="${p.id}"></td>
+                    <td>${p.id}</td><td><strong>${p.username}</strong></td><td style="color:var(--success); font-weight:800;">₹${p.amount.toFixed(2)}</td>
+                    <td>${p.method}</td><td><span class="badge ${bClass}">${p.status}</span></td>
+                    <td>${new Date(p.date).toLocaleString()}</td>
+                    <td class="action-flex">
+                        <button class="btn-action bg-info" title="View"><i class="fas fa-eye"></i> View</button>
+                        <button class="btn-action bg-success" title="Approve"><i class="fas fa-check"></i> Approve</button>
+                        <button class="btn-action bg-danger" title="Reject"><i class="fas fa-times"></i> Reject</button>
+                        <button class="btn-action bg-warning" title="Flag"><i class="fas fa-flag"></i> Flag</button>
+                        <button class="btn-action bg-dark" title="Delete"><i class="fas fa-trash"></i></button>
+                    </td></tr>`;
+            });
+            if(tbody) tbody.innerHTML = html;
+        }
+
+        function renderTransactions(filter, btn) {
+            if(btn){ btn.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); }
+            const tbody = document.getElementById('dynamic-table-body'); let html = "";
+            let data = filter === 'all' ? window.allTransactionsData : window.allTransactionsData.filter(t => t.type === filter);
+            data.forEach(t => {
+                let isCredit = t.type === 'credit';
+                html += `<tr>
+                    <td>${t.id}</td><td><strong>${t.username}</strong></td>
+                    <td>${isCredit ? '<span class="badge b-completed">Credit</span>' : '<span class="badge b-canceled">Debit</span>'}</td>
+                    <td>${t.category}</td><td style="font-weight:800; color:${isCredit?'var(--success)':'var(--danger)'};">${isCredit?'+':'-'}₹${t.amount.toFixed(2)}</td>
+                    <td>₹${t.balBefore.toFixed(2)} &rarr; <strong>₹${t.balAfter.toFixed(2)}</strong></td>
+                    <td><span class="badge b-completed">${t.status}</span></td><td>${new Date(t.date).toLocaleString()}</td>
+                </tr>`;
+            });
+            if(tbody) tbody.innerHTML = html;
+        }
+
+        function renderServices() {
+            const tbody = document.getElementById('dynamic-table-body'); let html = "";
+            window.allServicesData.forEach(s => {
+                let sBadge = s.status === 'active' ? `<span class="badge b-active">Active</span>` : `<span class="badge b-inactive">Inactive</span>`;
+                let profit = s.price - s.apiCost;
+                html += `<tr>
+                    <td><input type="checkbox" class="row-checkbox"></td>
+                    <td>${s.id}</td><td><strong>${s.category}</strong></td><td>${s.name}</td>
+                    <td style="color:var(--primary); font-weight:700;">₹${s.price.toFixed(2)}</td><td style="color:var(--danger)">₹${s.apiCost.toFixed(2)}</td>
+                    <td style="color:var(--success); font-weight:700;">₹${profit.toFixed(2)}</td>
+                    <td>${s.min}/${s.max}</td><td>${sBadge}</td>
+                    <td class="action-flex">
+                        <button class="btn-action bg-warning" title="Edit"><i class="fas fa-edit"></i> Edit</button>
+                        <button class="btn-action bg-info" title="Toggle Status"><i class="fas fa-power-off"></i> Toggle</button>
+                        <button class="btn-action bg-danger" title="Delete"><i class="fas fa-trash"></i> Delete</button>
+                    </td></tr>`;
+            });
+            if(tbody) tbody.innerHTML = html;
+        }
+
+        // AUTO MAP ICONS BASED ON NAME
+        function getCatIcon(name) {
+            let n = name.toLowerCase();
+            if(n.includes('instagram')) return '<i class="fab fa-instagram" style="color:#c13584; font-size:20px;"></i>';
+            if(n.includes('youtube')) return '<i class="fab fa-youtube" style="color:#ff0000; font-size:20px;"></i>';
+            if(n.includes('facebook')) return '<i class="fab fa-facebook" style="color:#1877f2; font-size:20px;"></i>';
+            if(n.includes('twitter') || n.includes('x')) return '<i class="fab fa-twitter" style="color:#1da1f2; font-size:20px;"></i>';
+            if(n.includes('tiktok')) return '<i class="fab fa-tiktok" style="color:#000000; font-size:20px;"></i>';
+            if(n.includes('pinterest')) return '<i class="fab fa-pinterest" style="color:#e60023; font-size:20px;"></i>';
+            return '<i class="fas fa-globe" style="color:#64748b; font-size:20px;"></i>';
+        }
+
+        function renderCategoriesTable() {
+            const tbody = document.getElementById('cat-table-body'); let html = "";
+            window.allCategoriesData.forEach(c => {
+                html += `<tr>
+                    <td>${getCatIcon(c)}</td><td style="font-weight:700; font-size:14px;">${c}</td>
+                    <td class="action-flex"><button class="btn-action bg-danger"><i class="fas fa-trash"></i></button></td>
+                </tr>`;
+            });
+            if(tbody) tbody.innerHTML = html;
+        }
+
+        function renderTickets() {
+            const tbody = document.getElementById('dynamic-table-body'); let html = "";
+            window.allTicketsData.forEach(t => {
+                let pClass = t.priority === 'High' ? 'danger' : 'warning';
+                let sBadge = t.status === 'open' ? `<span class="badge b-open">Open</span>` : `<span class="badge b-closed">Closed</span>`;
+                html += `<tr>
+                    <td><input type="checkbox" class="row-checkbox"></td>
+                    <td style="color:var(--primary); font-weight:700;">#${t.id}</td><td><strong>${t.username}</strong></td>
+                    <td>${t.category}</td><td>${t.subject}</td>
+                    <td><span class="badge" style="background:var(--${pClass}-bg); color:var(--${pClass})">${t.priority}</span></td>
+                    <td>${sBadge}</td>
+                    <td class="action-flex">
+                        <button class="btn-action bg-primary" title="Open Chat"><i class="fas fa-comment-dots"></i> Chat</button>
+                        <button class="btn-action bg-success" title="Close Ticket"><i class="fas fa-check"></i> Close</button>
+                        <button class="btn-action bg-orange" title="Mark High Priority"><i class="fas fa-fire"></i> Priority</button>
+                        <button class="btn-action bg-danger" title="Delete"><i class="fas fa-trash"></i></button>
+                    </td></tr>`;
+            });
+            if(tbody) tbody.innerHTML = html;
+        }
+
+        function renderApis() {
+            const tbody = document.getElementById('dynamic-table-body'); let html = "";
+            window.allApisData.forEach(a => {
+                let sBadge = a.status === 'active' ? `<span class="badge b-active">Active</span>` : `<span class="badge b-inactive">Inactive</span>`;
+                let tBadge = a.type === 'SMM' ? `<span class="badge b-processing">SMM</span>` : `<span class="badge b-completed">Payment</span>`;
+                html += `<tr>
+                    <td>${a.id}</td><td><strong>${a.name}</strong></td><td>${tBadge}</td><td>${a.url}</td>
+                    <td><span class="hidden-key">${a.key}</span></td><td>${sBadge}</td>
+                    <td class="action-flex">
+                        <button class="btn-action bg-warning" title="Edit Settings"><i class="fas fa-edit"></i> Edit</button>
+                        <button class="btn-action bg-success" title="Activate/Deactivate"><i class="fas fa-power-off"></i> Toggle</button>
+                        <button class="btn-action bg-info" title="Test Connection" onclick="alert('API Connection Successful 🟢')"><i class="fas fa-plug"></i> Test</button>
+                        <button class="btn-action bg-danger" title="Delete"><i class="fas fa-trash"></i></button>
+                    </td></tr>`;
+            });
+            if(tbody) tbody.innerHTML = html;
+        }
+
+        function updateDashboardStats() {
+            if(document.getElementById('d-u-tot')){
+                document.getElementById('d-u-tot').innerText = allUsersData.length;
+                document.getElementById('d-o-tot').innerText = allOrdersData.length;
+                document.getElementById('d-t-open').innerText = allTicketsData.filter(t=>t.status==='open').length;
+                document.getElementById('d-s-tot').innerText = allServicesData.length;
+            }
+        }
+
+        // ==========================================
+        // 5. ADVANCED CHARTS
+        // ==========================================
+        function renderModernCharts() {
+            if(window.myCharts) { window.myCharts.rev.destroy(); window.myCharts.ord.destroy(); }
+            const revCtx = document.getElementById('revenueChart')?.getContext('2d');
+            const ordCtx = document.getElementById('ordersChart')?.getContext('2d');
+            if(!revCtx || !ordCtx) return;
+            
+            let gradientBlue = revCtx.createLinearGradient(0, 0, 0, 400);
+            gradientBlue.addColorStop(0, 'rgba(79, 70, 229, 0.4)');
+            gradientBlue.addColorStop(1, 'rgba(79, 70, 229, 0.0)');
+
+            const chartOptions = { 
+                responsive: true, maintainAspectRatio: false, 
+                interaction: { mode: 'index', intersect: false },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: '#0f172a', padding: 12, cornerRadius: 8, displayColors: false } },
+                scales: { x: { grid: { display: false } }, y: { grid: { color: '#e2e8f0', borderDash: [5, 5] }, beginAtZero: true } }
+            };
+
+            window.myCharts = {};
+            window.myCharts.rev = new Chart(revCtx, { type: 'line', data: { labels: ['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr'], datasets: [{ label: 'Revenue (₹)', data: [12000, 19000, 15000, 28000, 24000, 35000], borderColor: '#4f46e5', borderWidth: 3, tension: 0.4, fill:true, backgroundColor: gradientBlue, pointBackgroundColor: '#ffffff', pointBorderColor: '#4f46e5', pointBorderWidth: 2, pointRadius: 4 }] }, options: chartOptions });
+            window.myCharts.ord = new Chart(ordCtx, { type: 'bar', data: { labels: ['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr'], datasets: [{ label: 'Total Orders', data: [400, 650, 500, 800, 700, 1100], backgroundColor: '#10b981', borderRadius: 6 }] }, options: chartOptions });
+        }
+
+        // ==========================================
+        // 6. MODAL SYSTEM LOGIC
+        // ==========================================
+        function actionPopup(actionType, targetName) {
+            const modal = document.getElementById('global-modal'); const title = document.getElementById('modal-title'); const body = document.getElementById('modal-body'); const saveBtn = document.getElementById('modal-save-btn');
+            saveBtn.style.display = 'block';
+
+            if(actionType === 'viewUser') {
+                title.innerHTML = `<i class="fas fa-user text-info"></i> User Details: ${targetName}`;
+                body.innerHTML = `<div style="background:#f8fafc; padding:15px; border-radius:8px; border:1px solid #e2e8f0;"><p><strong>Username:</strong> ${targetName}</p><p><strong>Total Orders:</strong> 45</p><p><strong>Account Status:</strong> <span class="badge b-completed">Active</span></p></div>`;
+                saveBtn.style.display = 'none';
+            } else if(actionType === 'editUser') {
+                title.innerHTML = `<i class="fas fa-edit text-warning"></i> Edit User: ${targetName}`;
+                body.innerHTML = `<label>Full Name</label><input type="text" class="controls" value="${targetName}"><label>Email Address</label><input type="email" class="controls" value="${targetName}@gmail.com"><label>Mobile</label><input type="text" class="controls" value="+91 9876543210">`;
+                saveBtn.innerText = "Update Details"; saveBtn.onclick = () => { alert('Details Updated!'); closeModal(); };
+            } else if(actionType === 'addBalance') {
+                title.innerHTML = `<i class="fas fa-wallet text-success"></i> Manage Balance: ${targetName}`;
+                body.innerHTML = `<div style="font-size:24px; font-weight:800; color:var(--success); margin-bottom:15px; text-align:center;">Current: ₹150.75</div><label>Action</label><select class="controls"><option>Add Funds (+)</option><option>Deduct Funds (-)</option></select><label>Amount (₹)</label><input type="number" class="controls" placeholder="Enter amount"><label>Note / Reason</label><input type="text" class="controls" placeholder="e.g. Admin Bonus">`;
+                saveBtn.innerText = "Process Balance"; saveBtn.className = "btn-action bg-success"; saveBtn.onclick = () => { alert('Balance Updated!'); closeModal(); };
+            }
+            modal.classList.add('show');
+        }
+        function closeModal() { document.getElementById('global-modal').classList.remove('show'); }
+
+        // ==========================================
+        // 7. PROFILE PHOTO UPLOAD LOGIC
+        // ==========================================
+        function uploadAdminPhoto(event) {
+            const file = event.target.files[0]; if (!file) return;
+            document.getElementById('profile-page-img').style.opacity = '0.5';
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const base64Image = e.target.result;
+                db.ref('admin_settings/profile_photo').set(base64Image).then(() => {
+                    document.getElementById('profile-page-img').src = base64Image;
+                    document.getElementById('profile-page-img').style.opacity = '1';
+                    document.getElementById('topbar-admin-img').src = base64Image;
+                }).catch(err => {
+                    alert("Error saving photo: " + err.message);
+                    document.getElementById('profile-page-img').style.opacity = '1';
+                });
+            };
+            reader.readAsDataURL(file);
+        }
+    </script>
+</body>
+</html>
