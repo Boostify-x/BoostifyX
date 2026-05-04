@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- ADVANCED SEO META TAGS -->
+    <title>SIP Calculator Online Free – Advanced Mutual Fund Returns | BoostifyX</title>
+    <meta name="description" content="Calculate your mutual fund SIP returns accurately. Use our advanced SIP calculator with live interactive graphs to estimate your future wealth.">
+    <meta name="keywords" content="sip calculator, advanced sip calculator, mutual fund calculator, sip returns, grow wealth, sip investment calculator">
+    <meta name="author" content="BoostifyX">
+    <link rel="canonical" href="https://boostifyx.in/sip-calculator.html" />
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://boostifyx.in/sip-calculator.html">
+    <meta property="og:title" content="Advanced SIP Calculator | BoostifyX">
+    <meta property="og:description" content="Plan your wealth with our ultra-fast and animated SIP Returns Calculator.">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js for Advanced Graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Adsterra Popunders (Safe in Head) -->
+    <script src="https://pl29328467.profitablecpmratenetwork.com/b1/3a/cc/b13acc9740e47b78c81bd1f716464d78.js"></script>
+    <script src="https://pl29328470.profitablecpmratenetwork.com/c2/70/e5/c270e598d58b484b92bb80fe92789aff.js"></script>
+
+    <!-- Google Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Advanced SIP Calculator",
+      "operatingSystem": "Web",
+      "applicationCategory": "FinanceApplication",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], }, colors: { brandBlue: '#3B82F6', brandGreen: '#10B981' } } }
+        }
+    </script>
+
+    <style>
+        body { background-color: #f8fafc; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .card-shadow { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); border: 1px solid rgba(0,0,0,0.03); }
+        
+        /* Premium Fintech Slider */
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; cursor: pointer; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 22px; width: 22px; border-radius: 50%; background: #ffffff; border: 4px solid #3B82F6; cursor: pointer; margin-top: -8px; box-shadow: 0 4px 12px rgba(59,130,246,0.5); transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        input[type=range]:active::-webkit-slider-thumb { transform: scale(1.2); border-color: #2563EB; }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; cursor: pointer; background: #E2E8F0; border-radius: 10px; }
+        
+        /* Advanced Results Box Grid Background */
+        .premium-box {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            position: relative;
+        }
+        .premium-box::before {
+            content: ''; position: absolute; inset: 0; opacity: 0.1;
+            background-image: radial-gradient(#ffffff 1px, transparent 1px);
+            background-size: 16px 16px;
+        }
+
+        /* FAQ Accordion */
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; font-size: 13px; color: #64748b; }
+        .faq-box.active .faq-icon { transform: rotate(180deg); color: #3B82F6; }
+        .faq-box.active .faq-content { max-height: 150px; padding-top: 10px; border-top: 1px solid #f1f5f9; margin-top: 10px; }
+    </style>
+</head>
+<body class="text-slate-800 flex justify-center min-h-screen relative">
+
+    <!-- 1. PAGE LOAD POP-UP AD (Auto Close 5s) -->
+    <div id="page-load-ad" class="fixed inset-0 bg-black/90 z-[100] flex flex-col items-center justify-center backdrop-blur-sm px-4 opacity-0 transition-opacity duration-300 pointer-events-none">
+        <div class="bg-white p-2 rounded-2xl shadow-2xl relative max-w-[340px] w-full flex flex-col items-center transform scale-95 transition-transform duration-300" id="ad-box">
+            <button onclick="closePageLoadAd()" class="absolute -top-4 -right-4 bg-red-500 text-white w-9 h-9 rounded-full flex items-center justify-center border-2 border-white shadow-lg hover:bg-red-600 z-20 transition-transform hover:scale-110">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <span class="text-[10px] text-slate-400 font-bold uppercase mb-2 mt-1">Sponsor Advertisement</span>
+            <div class="w-[300px] h-[250px] bg-slate-100 flex items-center justify-center overflow-hidden rounded-lg">
+                <!-- Adsterra 300x250 -->
+                <script>
+                  atOptions = { 'key' : '325051f2cd9932285cc209930b7b6c29', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };
+                </script>
+                <script src="https://www.highperformanceformat.com/325051f2cd9932285cc209930b7b6c29/invoke.js"></script>
+            </div>
+            <div class="mt-3 mb-2 text-[11px] font-semibold text-slate-500 bg-slate-100 px-4 py-1.5 rounded-full flex items-center gap-2">
+                <i class="fa-solid fa-spinner fa-spin text-brandBlue"></i> Closing in <span id="ad-timer" class="text-brandBlue font-bold text-sm">5</span>s
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div id="app-container" class="w-full max-w-[480px] bg-white min-h-screen relative shadow-2xl flex flex-col opacity-0 transition-opacity duration-500">
+        
+        <!-- HEADER -->
+        <header class="bg-white border-b border-slate-100 flex items-center px-4 py-4 sticky top-0 z-20 shadow-sm">
+            <a href="index.html" class="p-2 -ml-2 text-slate-500 hover:text-brandBlue transition flex items-center gap-1.5 text-sm font-semibold">
+                <i class="fa-solid fa-house"></i> Home
+            </a>
+            <div class="mx-auto font-bold text-lg text-slate-800 pr-10">BoostifyX</div>
+        </header>
+
+        <main class="px-5 py-6 flex-1">
+            
+            <!-- Tool Title -->
+            <div class="text-center mb-6">
+                <h1 class="text-2xl font-extrabold text-slate-800 mb-2 tracking-tight">SIP Calculator <span class="bg-brandBlue/10 text-brandBlue text-[10px] px-2 py-0.5 rounded-full align-top uppercase tracking-wider">Pro</span></h1>
+                <p class="text-[13px] text-slate-500 leading-relaxed font-medium">
+                    Visualize the power of compounding. Estimate your mutual fund returns with our advanced interactive algorithm.
+                </p>
+            </div>
+
+            <!-- 2. TOP BANNER AD (320x50) -->
+            <div class="w-full flex justify-center mb-6 overflow-hidden rounded-lg min-h-[50px] bg-slate-50 border border-slate-100">
+                <script>
+                  atOptions = { 'key' : '813ac3f88e00cda4dd606c27868f4998', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
+                </script>
+                <script src="https://www.highperformanceformat.com/813ac3f88e00cda4dd606c27868f4998/invoke.js"></script>
+            </div>
+
+            <!-- CALCULATOR UI BOX -->
+            <div class="bg-white p-5 rounded-[24px] card-shadow border border-slate-100 mb-6">
+                
+                <!-- Monthly Investment -->
+                <div class="mb-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <label class="text-[13px] font-bold text-slate-700">Monthly Investment</label>
+                        <div class="relative">
+                            <span class="absolute left-3 top-1.5 text-slate-400 font-bold">₹</span>
+                            <input type="number" id="invInput" value="5000" class="bg-slate-50 border border-slate-200 rounded-xl pl-7 pr-3 py-1.5 text-right font-extrabold text-brandBlue w-32 outline-none focus:ring-2 focus:ring-brandBlue/50 transition shadow-inner">
+                        </div>
+                    </div>
+                    <input type="range" id="invRange" min="500" max="100000" step="500" value="5000">
+                </div>
+
+                <!-- Expected Return -->
+                <div class="mb-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <label class="text-[13px] font-bold text-slate-700">Expected Return Rate (p.a)</label>
+                        <div class="relative">
+                            <input type="number" id="rateInput" value="12" step="0.5" class="bg-slate-50 border border-slate-200 rounded-xl pr-7 pl-3 py-1.5 text-right font-extrabold text-brandBlue w-24 outline-none focus:ring-2 focus:ring-brandBlue/50 transition shadow-inner">
+                            <span class="absolute right-3 top-1.5 text-slate-400 font-bold">%</span>
+                        </div>
+                    </div>
+                    <input type="range" id="rateRange" min="1" max="30" step="0.5" value="12">
+                </div>
+
+                <!-- Time Period -->
+                <div class="mb-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <label class="text-[13px] font-bold text-slate-700">Time Period</label>
+                        <div class="relative">
+                            <input type="number" id="timeInput" value="10" class="bg-slate-50 border border-slate-200 rounded-xl pr-8 pl-3 py-1.5 text-right font-extrabold text-brandBlue w-24 outline-none focus:ring-2 focus:ring-brandBlue/50 transition shadow-inner">
+                            <span class="absolute right-3 top-2 text-[10px] uppercase text-slate-400 font-bold">Yr</span>
+                        </div>
+                    </div>
+                    <input type="range" id="timeRange" min="1" max="40" step="1" value="10">
+                </div>
+
+                <!-- ADVANCED ANIMATED RESULTS BOX -->
+                <div class="premium-box rounded-[20px] p-6 text-center mb-6 shadow-2xl overflow-hidden border border-slate-700 relative">
+                    <div class="relative z-10">
+                        <p class="text-[12px] text-slate-300 font-medium mb-1 uppercase tracking-wider">Estimated Wealth</p>
+                        <!-- Animated Number Counter ID -->
+                        <h2 class="text-4xl font-extrabold text-emerald-400 mb-5 tracking-tight" id="totalResult">₹ 11,61,695</h2>
+                        
+                        <div class="flex justify-between border-t border-slate-700/60 pt-4">
+                            <div class="text-left">
+                                <p class="text-[10px] text-slate-400 uppercase font-semibold tracking-wider">Invested</p>
+                                <p class="text-lg font-bold text-white" id="investedResult">₹ 6,00,000</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-[10px] text-slate-400 uppercase font-semibold tracking-wider">Est. Returns</p>
+                                <p class="text-lg font-bold text-brandBlue" id="returnsResult">₹ 5,61,695</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ADVANCED GRAPH WITH CENTER TEXT -->
+                <div class="w-full max-w-[240px] mx-auto relative mt-2">
+                    <canvas id="sipChart"></canvas>
+                    <!-- Center Overlay Absolute Data -->
+                    <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none mt-2">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Total</span>
+                        <span id="chartCenterText" class="text-lg font-extrabold text-slate-800">1.2M</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. MIDDLE NATIVE AD -->
+            <div class="w-full flex justify-center mb-6 overflow-hidden rounded-2xl bg-slate-50 min-h-[250px] border border-slate-100 shadow-sm">
+                <script async="async" data-cfasync="false" src="https://pl29328469.profitablecpmratenetwork.com/7c0513c8e22f42f980b06a1fa0c4ab2c/invoke.js"></script>
+                <div id="container-7c0513c8e22f42f980b06a1fa0c4ab2c"></div>
+            </div>
+
+            <!-- SEO CONTENT & FAQ -->
+            <div class="bg-white p-5 rounded-[20px] card-shadow mb-6">
+                <h2 class="text-lg font-bold text-slate-800 mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-chart-line text-emerald-500"></i> The Power of Compounding
+                </h2>
+                <p class="text-[13px] text-slate-600 leading-relaxed mb-4">
+                    Albert Einstein allegedly called compound interest the "Eighth Wonder of the World". In a Systematic Investment Plan (SIP), you don't just earn interest on your principal amount, you also earn interest on your past interest! The longer you stay invested, the steeper your wealth curve grows.
+                </p>
+            </div>
+
+            <!-- ADVANCED FAQ ACCORDION -->
+            <div class="bg-white p-5 rounded-[20px] card-shadow mb-6">
+                <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-question text-brandBlue"></i> Frequently Asked Questions
+                </h2>
+                <div class="space-y-2 border border-slate-100 rounded-xl p-1 bg-slate-50/50">
+                    <div class="faq-box rounded-lg p-3 cursor-pointer transition-all hover:bg-white" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center"><h3 class="font-bold text-[13px] text-slate-800">Q1. Can I pause my SIP anytime?</h3><i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon transition-transform duration-300"></i></div>
+                        <div class="faq-content">Yes, mutual funds offer immense flexibility. You can pause, stop, or increase your SIP amount at any time without heavy penalties.</div>
+                    </div>
+                    <div class="faq-box rounded-lg p-3 cursor-pointer transition-all hover:bg-white border-t border-slate-100" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center"><h3 class="font-bold text-[13px] text-slate-800">Q2. Are mutual fund returns tax-free?</h3><i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon transition-transform duration-300"></i></div>
+                        <div class="faq-content">No. Equity Mutual Funds are subject to Long Term Capital Gains (LTCG) tax of 10% on gains exceeding ₹1 Lakh in a financial year.</div>
+                    </div>
+                    <div class="faq-box rounded-lg p-3 cursor-pointer transition-all hover:bg-white border-t border-slate-100" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center"><h3 class="font-bold text-[13px] text-slate-800">Q3. What is a good return rate to assume?</h3><i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon transition-transform duration-300"></i></div>
+                        <div class="faq-content">Historically, Indian index funds (Nifty 50) have delivered around 12% to 15% annual returns over long periods (10+ years). However, past performance doesn't guarantee future results.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. BOTTOM BANNER AD (468x60) -->
+            <div class="w-full flex justify-center overflow-hidden rounded-xl bg-slate-50 min-h-[60px] mb-6 border border-slate-100">
+                <div class="transform scale-[0.95]">
+                    <script>
+                      atOptions = { 'key' : '170a48fef41011f11d7fe004dbc2d72a', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/170a48fef41011f11d7fe004dbc2d72a/invoke.js"></script>
+                </div>
+            </div>
+
+            <!-- RELATED TOOLS -->
+            <div>
+                <h2 class="text-sm font-bold text-slate-800 mb-3 ml-1">🔗 Explore More Tools</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <a href="emi-calculator.html" class="bg-white p-3.5 rounded-[16px] border border-slate-100 card-shadow text-[12px] font-bold text-slate-700 flex items-center gap-2.5 hover:border-brandBlue hover:text-brandBlue transition-all"><i class="fa-solid fa-calculator text-emerald-500 text-lg"></i> EMI Calc</a>
+                    <a href="gst-calculator.html" class="bg-white p-3.5 rounded-[16px] border border-slate-100 card-shadow text-[12px] font-bold text-slate-700 flex items-center gap-2.5 hover:border-brandBlue hover:text-brandBlue transition-all"><i class="fa-solid fa-percent text-blue-500 text-lg"></i> GST Calc</a>
+                    <a href="loan-interest-calculator.html" class="bg-white p-3.5 rounded-[16px] border border-slate-100 card-shadow text-[12px] font-bold text-slate-700 flex items-center gap-2.5 hover:border-brandBlue hover:text-brandBlue transition-all"><i class="fa-solid fa-building-columns text-orange-500 text-lg"></i> Loan Calc</a>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="bg-white border-t border-slate-200 py-6 text-center mt-4">
+            <p class="text-xs text-slate-400 font-medium">&copy; 2024 BoostifyX — Build Wealth Smartly</p>
+        </footer>
+    </div>
+
+    <!-- ADVANCED JAVASCRIPT LOGIC -->
+    <script>
+        // --- 1. DOM Elements ---
+        const invInput = document.getElementById('invInput');
+        const invRange = document.getElementById('invRange');
+        const rateInput = document.getElementById('rateInput');
+        const rateRange = document.getElementById('rateRange');
+        const timeInput = document.getElementById('timeInput');
+        const timeRange = document.getElementById('timeRange');
+
+        const totalResult = document.getElementById('totalResult');
+        const investedResult = document.getElementById('investedResult');
+        const returnsResult = document.getElementById('returnsResult');
+        const chartCenterText = document.getElementById('chartCenterText');
+        
+        const chartCanvas = document.getElementById('sipChart');
+        let sipChartInstance = null;
+
+        // State variables for animation tracking
+        let prevTotal = 0;
+        let prevInvested = 0;
+        let prevReturns = 0;
+
+        // --- 2. POPUP AD Logic ---
+        const adPopup = document.getElementById('page-load-ad');
+        const adBox = document.getElementById('ad-box');
+        const appContainer = document.getElementById('app-container');
+        let countdown = 5;
+        let adTimerInterval;
+
+        function showPageLoadAd() {
+            adPopup.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => adBox.classList.remove('scale-95'), 50); // pop animation
+            
+            adTimerInterval = setInterval(() => {
+                countdown--;
+                document.getElementById('ad-timer').innerText = countdown;
+                if (countdown <= 0) closePageLoadAd();
+            }, 1000);
+        }
+
+        function closePageLoadAd() {
+            clearInterval(adTimerInterval);
+            adPopup.classList.add('opacity-0', 'pointer-events-none');
+            appContainer.classList.remove('opacity-0');
+        }
+
+        // --- 3. LIVE NUMBER COUNTER ANIMATION ---
+        function animateValue(obj, start, end, duration, prefix = '₹ ') {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                // Ease out cubic
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                const current = Math.floor(easeOut * (end - start) + start);
+                
+                obj.innerText = prefix + formatCurrency(current);
+                
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    obj.innerText = prefix + formatCurrency(end); // force exact end value
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        function formatCurrency(num) {
+            return new Intl.NumberFormat('en-IN', { maximumFractionDigits: 0 }).format(num);
+        }
+
+        // Formats large numbers for Chart Center (e.g., 1.2M, 500K)
+        function formatCompact(num) {
+            if (num >= 10000000) return (num / 10000000).toFixed(2) + 'Cr';
+            if (num >= 100000) return (num / 100000).toFixed(2) + 'L';
+            if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+            return num;
+        }
+
+        // --- 4. ADVANCED FINTECH CHART SETUP ---
+        function createOrUpdateChart(invested, returns, total) {
+            // Update Center Text
+            chartCenterText.innerText = formatCompact(total);
+
+            if (sipChartInstance) {
+                sipChartInstance.data.datasets[0].data = [invested, returns];
+                sipChartInstance.update();
+            } else {
+                const ctx = chartCanvas.getContext('2d');
+                sipChartInstance = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Invested', 'Est. Returns'],
+                        datasets: [{
+                            data: [invested, returns],
+                            backgroundColor: ['#e2e8f0', '#3B82F6'], // Light grey and Brand Blue
+                            hoverBackgroundColor: ['#cbd5e1', '#2563EB'],
+                            borderWidth: 0,
+                            borderRadius: 4, // Rounded chart edges
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        cutout: '82%', // Thinner ring for premium look
+                        animation: {
+                            animateScale: true,
+                            animateRotate: true,
+                            duration: 1200,
+                            easing: 'easeOutQuart'
+                        },
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                backgroundColor: '#1e293b',
+                                titleFont: { family: 'Inter', size: 11 },
+                                bodyFont: { family: 'Inter', size: 13, weight: 'bold' },
+                                padding: 10,
+                                cornerRadius: 8,
+                                displayColors: false,
+                                callbacks: { label: (c) => `${c.label}: ₹ ${formatCurrency(c.raw)}` }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // --- 5. CORE MATH LOGIC ---
+        function calculateSIP() {
+            const P = parseFloat(invInput.value) || 0;
+            const annualRate = parseFloat(rateInput.value) || 0;
+            const years = parseFloat(timeInput.value) || 0;
+
+            const months = years * 12;
+            const monthlyRate = annualRate / 12 / 100;
+
+            let totalValue = 0;
+            let investedAmount = P * months;
+
+            if (annualRate > 0) {
+                totalValue = P * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate);
+            } else {
+                totalValue = investedAmount;
+            }
+
+            const estimatedReturns = totalValue - investedAmount;
+
+            // Trigger Number Animations (Duration 800ms)
+            animateValue(totalResult, prevTotal, totalValue, 800);
+            animateValue(investedResult, prevInvested, investedAmount, 800);
+            animateValue(returnsResult, prevReturns, estimatedReturns, 800);
+
+            // Update past state
+            prevTotal = totalValue;
+            prevInvested = investedAmount;
+            prevReturns = estimatedReturns;
+
+            // Update Chart
+            createOrUpdateChart(investedAmount, estimatedReturns, totalValue);
+        }
+
+        // --- 6. SLIDER & INPUT SYNC ---
+        function setupEventListeners() {
+            const inputs = [
+                { input: invInput, range: invRange },
+                { input: rateInput, range: rateRange },
+                { input: timeInput, range: timeRange }
+            ];
+
+            inputs.forEach(({ input, range }) => {
+                input.addEventListener('input', () => {
+                    range.value = input.value;
+                    updateSliderBackground(range);
+                    calculateSIP();
+                });
+                range.addEventListener('input', () => {
+                    input.value = range.value;
+                    updateSliderBackground(range);
+                    calculateSIP();
+                });
+            });
+        }
+        
+        function updateSliderBackground(slider) {
+            const min = slider.min;
+            const max = slider.max;
+            const val = slider.value;
+            const percentage = (val - min) * 100 / (max - min);
+            slider.style.background = `linear-gradient(to right, #3B82F6 ${percentage}%, #E2E8F0 ${percentage}%)`;
+        }
+
+        // --- 7. ADVANCED FAQ ACCORDION ---
+        function toggleFaq(element) {
+            const isActive = element.classList.contains('active');
+            document.querySelectorAll('.faq-box').forEach(box => box.classList.remove('active'));
+            if (!isActive) element.classList.add('active');
+        }
+
+        // --- 8. INITIALIZE ---
+        document.addEventListener('DOMContentLoaded', () => {
+            showPageLoadAd();
+            setupEventListeners();
+            
+            // Force initialize variables for the first load to prevent animation from 0 on page load
+            const initialP = parseFloat(invInput.value) || 0;
+            const initialRate = parseFloat(rateInput.value) || 0;
+            const initialYears = parseFloat(timeInput.value) || 0;
+            const mRate = initialRate / 12 / 100;
+            
+            prevInvested = initialP * initialYears * 12;
+            prevTotal = initialP * ((Math.pow(1 + mRate, initialYears * 12) - 1) / mRate) * (1 + mRate);
+            prevReturns = prevTotal - prevInvested;
+
+            document.querySelectorAll('input[type=range]').forEach(updateSliderBackground);
+            
+            // Set initial text without animation
+            totalResult.innerText = `₹ ${formatCurrency(prevTotal)}`;
+            investedResult.innerText = `₹ ${formatCurrency(prevInvested)}`;
+            returnsResult.innerText = `₹ ${formatCurrency(prevReturns)}`;
+            
+            createOrUpdateChart(prevInvested, prevReturns, prevTotal);
+        });
+    </script>
+</body>
+</html>
