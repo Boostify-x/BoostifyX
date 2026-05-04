@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- ================= SEO META TAGS ================= -->
+    <title>Disclaimer | Boostifyx.in</title>
+    <meta name="description" content="Disclaimer for Boostifyx.in. Information regarding the accuracy, liability, and intended use of our online tools and calculators.">
+    <meta name="keywords" content="website disclaimer, boostifyx liability, calculator accuracy, terms">
+    <meta name="author" content="Sazzidul Corporation">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                    colors: { darkblue: '#050B14', navy: '#0A1428', brandBlue: '#3B82F6', }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #f1f5f9; -webkit-tap-highlight-color: transparent; }
+        .card-shadow { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); border: 1px solid rgba(0,0,0,0.04); }
+    </style>
+</head>
+<body class="text-slate-800 antialiased font-sans flex justify-center min-h-screen">
+
+    <div class="w-full max-w-[480px] bg-slate-50 min-h-screen relative shadow-2xl flex flex-col overflow-x-hidden">
+
+        <!-- OFFCANVAS MENU -->
+        <div id="menu-overlay" class="fixed inset-0 bg-black/60 z-[60] hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm" onclick="toggleMenu()"></div>
+        <div id="side-menu" class="fixed top-0 left-0 w-[280px] h-full bg-white z-[70] transform -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col max-w-[480px]">
+            <div class="bg-gradient-to-r from-darkblue to-navy p-6 flex justify-between items-center">
+                <div class="flex items-center gap-2 font-bold text-xl text-white">
+                    <div class="bg-brandBlue p-1.5 rounded text-sm"><i class="fa-solid fa-bolt text-white"></i></div>
+                    <span>Boostifyx</span>
+                </div>
+                <button onclick="toggleMenu()" class="text-white/70 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="flex-1 overflow-y-auto py-4 px-4 flex flex-col gap-2">
+                <a href="index.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-medium transition"><i class="fa-solid fa-house w-5 text-brandBlue"></i> Home</a>
+                <a href="about.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-medium transition"><i class="fa-solid fa-circle-info w-5 text-slate-400"></i> About Us</a>
+                <a href="contact.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-medium transition"><i class="fa-solid fa-envelope w-5 text-slate-400"></i> Contact Support</a>
+                <a href="privacy.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-medium transition"><i class="fa-solid fa-shield-halved w-5 text-slate-400"></i> Privacy Policy</a>
+            </div>
+        </div>
+
+        <!-- HEADER -->
+        <header class="bg-white border-b border-slate-100 flex items-center px-4 py-4 sticky top-0 z-20 shadow-sm">
+            <a href="index.html" class="p-2 -ml-2 text-slate-500 hover:text-brandBlue transition flex items-center gap-1.5 text-sm font-semibold"><i class="fa-solid fa-arrow-left"></i> Home</a>
+            <div class="mx-auto font-bold text-lg text-slate-800 pr-10">Disclaimer</div>
+            <button onclick="toggleMenu()" class="p-2 -mr-2 text-slate-500 hover:text-brandBlue transition absolute right-5"><i class="fa-solid fa-bars text-xl"></i></button>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="px-5 py-8 flex-1">
+            <div class="mb-6">
+                <h1 class="text-2xl font-bold text-slate-800 mb-1">Disclaimer</h1>
+                <p class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">Last Updated: 2026</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-2xl card-shadow mb-6">
+                <p class="text-[13px] text-slate-600 leading-relaxed">
+                    The information and tools provided on <strong>Boostifyx.in</strong> are for general informational and utility purposes only. All information on the site is provided in good faith.
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <div>
+                    <h2 class="text-base font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-calculator text-brandBlue"></i> 1. Calculators Accuracy</h2>
+                    <p class="text-[13px] text-slate-600 leading-relaxed bg-white p-4 rounded-xl card-shadow border border-slate-50">While we strive to keep our tools (like EMI, GST, SIP calculators) completely accurate and up-to-date, we make no warranties of any kind about their completeness or accuracy. Any reliance you place on such tools is strictly at your own risk. Please cross-verify financial calculations with your bank or financial advisor.</p>
+                </div>
+
+                <!-- ADVERTISEMENT SPACE -->
+                <div class="w-full bg-white border border-slate-200 border-dashed rounded-xl h-[250px] flex flex-col items-center justify-center relative card-shadow my-2">
+                    <span class="absolute top-0 right-0 bg-slate-200 text-slate-500 text-[9px] px-1.5 py-0.5 rounded-bl-lg rounded-tr-xl">ADS</span>
+                    <span class="text-sm font-medium text-slate-500">Ad Space (300x250)</span>
+                </div>
+
+                <div>
+                    <h2 class="text-base font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-link text-brandBlue"></i> 2. External Links</h2>
+                    <p class="text-[13px] text-slate-600 leading-relaxed bg-white p-4 rounded-xl card-shadow border border-slate-50">Through this website, you may be able to link to other websites. We have no control over the nature, content, and availability of those sites. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="bg-white border-t border-slate-200 py-6 text-center">
+            <div class="flex justify-center gap-4 mb-4">
+                <a href="privacy.html" class="text-[11px] font-medium text-slate-500 hover:text-brandBlue">Privacy Policy</a>
+                <a href="terms.html" class="text-[11px] font-medium text-slate-500 hover:text-brandBlue">Terms of Service</a>
+                <a href="contact.html" class="text-[11px] font-medium text-slate-500 hover:text-brandBlue">Contact Us</a>
+            </div>
+            <p class="text-xs text-slate-400">&copy; 2026 Boostifyx.in — All Rights Reserved</p>
+            <p class="text-[10px] text-slate-400 mt-1">Designed & Powered by <span class="font-medium text-slate-600">Sazzidul Corporation</span></p>
+        </footer>
+    </div>
+
+    <!-- MENU SCRIPT -->
+    <script>
+        function toggleMenu() {
+            const sideMenu = document.getElementById('side-menu');
+            const menuOverlay = document.getElementById('menu-overlay');
+            sideMenu.classList.toggle('-translate-x-full');
+            menuOverlay.classList.toggle('hidden');
+            setTimeout(() => menuOverlay.classList.toggle('opacity-0'), 10);
+        }
+    </script>
+</body>
+</html>
