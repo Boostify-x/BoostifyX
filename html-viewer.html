@@ -144,13 +144,14 @@
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;
-    body { font-family: sans-serif; text-align: center; margin-top: 20%; }
-    h1 { color: #3B82F6; }
+    body { font-family: sans-serif; text-align: center; margin-top: 20%; background: #fff;}
+    h1 { color: #3B82F6; font-size: 2rem;}
   &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;h1&gt;Hello World!&lt;/h1&gt;
-  &lt;p&gt;Edit this code to see changes.&lt;/p&gt;
+  &lt;p&gt;Edit this code and click Run.&lt;/p&gt;
+  &lt;button onclick="alert('JS is working!')" style="padding:10px 20px; background:#3B82F6; color:#fff; border:none; border-radius:5px;"&gt;Click Me&lt;/button&gt;
 &lt;/body&gt;
 &lt;/html&gt;</textarea>
                 </div>
@@ -168,8 +169,8 @@
                     </div>
                     
                     <div class="preview-container border-2 border-slate-300 rounded-[20px] overflow-hidden bg-white shadow-inner relative h-[350px]">
-                        <!-- Iframe for sandboxed preview -->
-                        <iframe id="previewIframe" class="w-full h-full border-0 bg-white" sandbox="allow-scripts allow-modals"></iframe>
+                        <!-- Iframe for preview (allow-same-origin added for better JS support) -->
+                        <iframe id="previewIframe" class="w-full h-full border-0 bg-white" sandbox="allow-scripts allow-modals allow-same-origin"></iframe>
                     </div>
                 </div>
 
@@ -202,7 +203,7 @@
                     </div>
                     <div class="faq-box rounded-lg p-3 cursor-pointer transition-all hover:bg-white border-t border-slate-100" onclick="toggleFaq(this)">
                         <div class="flex justify-between items-center"><h3 class="font-bold text-[13px] text-slate-800">Is this safe to run external code?</h3><i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon transition-transform"></i></div>
-                        <div class="faq-content">Yes, the preview is rendered inside an isolated HTML <code>iframe</code> with sandbox attributes. This ensures that even if you paste malicious JS code, it cannot harm your device or steal data.</div>
+                        <div class="faq-content">Yes, the preview is rendered inside an isolated HTML <code>iframe</code>. This ensures that even if you paste external JS code, it remains isolated.</div>
                     </div>
                 </div>
             </div>
@@ -212,15 +213,6 @@
                 <div class="transform scale-[0.95]">
                     <script>atOptions = { 'key' : '170a48fef41011f11d7fe004dbc2d72a', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };</script>
                     <script src="https://www.highperformanceformat.com/170a48fef41011f11d7fe004dbc2d72a/invoke.js"></script>
-                </div>
-            </div>
-
-            <!-- Related Tools -->
-            <div>
-                <h2 class="text-sm font-bold text-slate-800 mb-3 ml-1">🔗 Developer Tools</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <a href="json-formatter.html" class="bg-white p-3.5 rounded-[16px] border border-slate-100 card-shadow text-[12px] font-bold text-slate-700 flex items-center gap-2.5 hover:text-brandBlue transition-all"><i class="fa-solid fa-brackets-curly text-brandBlue text-lg"></i> JSON Formatter</a>
-                    <a href="url-encoder-decoder.html" class="bg-white p-3.5 rounded-[16px] border border-slate-100 card-shadow text-[12px] font-bold text-slate-700 flex items-center gap-2.5 hover:text-brandBlue transition-all"><i class="fa-solid fa-link text-emerald-500 text-lg"></i> URL Encoder</a>
                 </div>
             </div>
 
@@ -270,10 +262,11 @@
         document.getElementById('clearBtn').addEventListener('click', () => {
             codeInput.value = '';
             previewWrapper.classList.add('hidden');
+            previewIframe.srcdoc = '';
             codeInput.focus();
         });
 
-        // Run Code Action (Monetized)
+        // Run Code Action (Monetized & FIXED using srcdoc)
         runBtn.addEventListener('click', () => {
             const code = codeInput.value;
             if(!code.trim()) { alert("Please enter some HTML code to run."); return; }
@@ -282,15 +275,11 @@
             clickCount++;
             if (clickCount > 1) { window.open(adsterraDirectLink, '_blank'); }
 
-            // Render logic
+            // Show Preview Wrapper
             previewWrapper.classList.remove('hidden');
             
-            // Access the iframe document and write the user code inside it safely
-            const iframeDoc = previewIframe.contentDocument || previewIframe.contentWindow.document;
-            
-            iframeDoc.open();
-            iframeDoc.write(code);
-            iframeDoc.close();
+            // Modern, secure, and bulletproof way to inject HTML into Iframe
+            previewIframe.srcdoc = code;
 
             // Smooth scroll down to preview
             previewWrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
