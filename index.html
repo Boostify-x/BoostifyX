@@ -1,601 +1,622 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>BoostifyX - Shop Smart, Earn More</title>
+    
+    <!-- ================= SEO META TAGS ================= -->
+    <title>Boostifyx.in | Best Free Online Tools - Calculators, Image & Dev Utilities</title>
+    <meta name="description" content="Use 25+ 100% Free Online Tools on Boostifyx. EMI & GST Calculators, Image Compressors, JSON Formatter, Word Counters, and more. Fast, secure, and mobile-friendly!">
+    <meta name="keywords" content="free online tools, EMI calculator, GST calculator India, image compressor free, JSON formatter, age calculator online, online utility tools, Boostifyx">
+    <meta name="author" content="Sazzidul Corporation">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://boostifyx.in/">
+    
+    <!-- Open Graph for Social Media Sharing -->
+    <meta property="og:title" content="Boostifyx.in | 100% Free Online Tools">
+    <meta property="og:description" content="Access 25+ premium free tools. Calculators, image editors, and dev utilities. Secure & Fast.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://boostifyx.in/">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: { primary: '#6028ff', secondary: '#f4f5f9' },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                    colors: { darkblue: '#050B14', navy: '#0A1428', brandBlue: '#3B82F6', }
                 }
             }
         }
     </script>
+
     <style>
-        body { background-color: #f9fafb; -webkit-tap-highlight-color: transparent; }
-        .hide { display: none !important; }
+        body {
+            background-color: #f1f5f9;
+            -webkit-tap-highlight-color: transparent;
+        }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Shadows */
+        .card-shadow {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
+        .card-shadow:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.2);
+        }
         
-        .glass-bottom-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-top: 1px solid #f1f1f1; z-index: 50; }
-        .hero-gradient { background: linear-gradient(135deg, #f3f0ff 0%, #ffffff 100%); }
-        
-        .snap-mandatory { scroll-snap-type: x mandatory; }
-        .snap-center { scroll-snap-align: center; }
-        
-        .smooth-scroll { scroll-behavior: smooth; }
+        #no-results { display: none; }
+
+        /* Smooth FAQ Accordion Classes */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out, padding-top 0.4s ease-in-out;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px; /* Adjust if content is very long */
+            padding-top: 12px;
+        }
+        .faq-item .faq-icon {
+            transition: transform 0.4s ease;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
     </style>
+
+    <!-- ================= GOOGLE FAQ SCHEMA (FOR SEO RANKING) ================= -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is Boostifyx.in?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Boostifyx.in is a premium platform offering 25+ 100% free online tools, including Finance Calculators (EMI, GST), Image Compressors, JSON Formatters, and Utility tools designed to simplify your daily digital tasks."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Is Boostifyx.in completely free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Boostifyx.in is 100% free forever. There are no hidden fees, premium subscriptions, or trial periods. All tools are unlocked for everyone globally."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Is my data safe when using the Image Compressor or Code Formatters?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. Your privacy is our priority. Most of our tools process data locally within your browser. We do not upload, save, or store your images, texts, or codes on any server."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Does the EMI and GST Calculator work for Indian users?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, our Finance tools are highly optimized for both Indian and Global users. The GST Calculator instantly handles Indian tax slabs (5%, 12%, 18%, 28%) accurately."
+        }
+      }]
+    }
+    </script>
 </head>
-<body class="text-gray-800 antialiased">
+<body class="text-slate-800 antialiased font-sans flex justify-center min-h-screen">
 
-    <!-- Header -->
-    <header id="main-header" class="sticky top-0 z-40 bg-white px-4 py-3 shadow-sm flex items-center justify-between">
-        <div class="leading-tight cursor-pointer" onclick="window.showView('home-view')">
-            <h1 class="text-xl font-bold text-gray-900 tracking-tight">Boostify<span class="text-primary">X</span></h1>
-        </div>
-        <div class="flex items-center">
-            <button onclick="window.showView('notifications-view')" class="relative p-2 bg-gray-50 rounded-full hover:bg-gray-100 transition">
-                <i class="fa-regular fa-bell text-gray-700 text-lg"></i>
-                <span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white animate-pulse"></span>
-            </button>
-        </div>
-    </header>
+    <div class="w-full max-w-[480px] bg-white min-h-screen relative shadow-2xl flex flex-col overflow-x-hidden">
 
-    <main id="main-content" class="w-full">
+        <!-- ================= OFFCANVAS MENU ================= -->
+        <div id="menu-overlay" class="fixed inset-0 bg-black/60 z-[60] hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm" onclick="toggleMenu()"></div>
         
-        <!-- ================= HOME VIEW ================= -->
-        <div id="home-view">
-            <!-- Search -->
-            <div class="px-4 pt-4 pb-2 bg-white">
-                <div class="flex rounded-xl overflow-hidden border border-gray-200 bg-gray-50 px-4 py-3">
-                    <i class="fa-solid fa-search text-gray-400 mr-2 my-auto"></i>
-                    <input type="text" placeholder="Search for products, brands..." class="w-full text-sm bg-transparent outline-none">
+        <div id="side-menu" class="fixed top-0 left-0 w-[280px] h-full bg-white z-[70] transform -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col max-w-[480px]">
+            <div class="bg-gradient-to-r from-darkblue to-navy p-6 flex justify-between items-center">
+                <div class="flex items-center gap-2 font-bold text-xl text-white">
+                    <div class="bg-brandBlue p-1.5 rounded text-sm"><i class="fa-solid fa-bolt text-white"></i></div>
+                    <span>Boostifyx</span>
                 </div>
+                <button onclick="toggleMenu()" class="text-white/70 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="flex-1 overflow-y-auto py-4 px-4 flex flex-col gap-2">
+                <a href="index.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-medium transition"><i class="fa-solid fa-house w-5 text-brandBlue"></i> Home</a>
+                <a href="#finance" onclick="toggleMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-medium transition"><i class="fa-solid fa-coins w-5 text-emerald-500"></i> Finance Tools</a>
+                <a href="#image" onclick="toggleMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-medium transition"><i class="fa-solid fa-image w-5 text-orange-500"></i> Image Tools</a>
+                <a href="#text" onclick="toggleMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-medium transition"><i class="fa-solid fa-font w-5 text-purple-500"></i> Text Tools</a>
+                <a href="#utility" onclick="toggleMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-medium transition"><i class="fa-solid fa-wrench w-5 text-red-500"></i> Utility Tools</a>
+                <hr class="my-2 border-slate-100">
+                <a href="about.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-medium transition"><i class="fa-solid fa-circle-info w-5 text-slate-400"></i> About Us</a>
+                <a href="contact.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-medium transition"><i class="fa-solid fa-envelope w-5 text-slate-400"></i> Contact Support</a>
+                <a href="privacy.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-medium transition"><i class="fa-solid fa-shield-halved w-5 text-slate-400"></i> Privacy Policy</a>
             </div>
 
-            <!-- Store Logos (Dynamic from Firebase) -->
-            <div class="bg-white">
-                <div class="flex overflow-x-auto hide-scrollbar gap-5 px-5 py-4 items-center" id="dynamic-stores-container">
-                    <div class="flex flex-col items-center gap-1.5 cursor-pointer" onclick="window.showView('home-view')">
-                        <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center text-lg"><i class="fa-solid fa-border-all"></i></div>
-                        <span class="text-[10px] font-bold text-gray-800">All</span>
-                    </div>
-                    <!-- Firebase stores will load here -->
-                </div>
+            <div class="p-5 border-t border-slate-100">
+                <p class="text-[11px] text-center text-slate-400">&copy; 2026 Boostifyx.in. All rights reserved.</p>
             </div>
+        </div>
 
-            <!-- Single Auto-Sliding Banner (Dynamic from Firebase) -->
-            <div class="bg-white border-b border-gray-100 pb-3 px-4">
-                <div id="single-banner-container" class="relative w-full rounded-2xl overflow-hidden shadow-sm transition-opacity duration-500 ease-in-out bg-gray-50 min-h-[130px] flex items-center justify-center">
-                    <span class="text-xs text-gray-400"><i class="fa-solid fa-spinner fa-spin"></i> Loading Banners...</span>
-                </div>
-            </div>
-
-            <!-- PERFECT HERO SECTION -->
-            <div class="bg-white px-4 py-3 mt-2">
-                <div class="hero-gradient rounded-3xl p-4 flex items-center shadow-sm border border-purple-100 h-[210px] relative overflow-hidden">
-                    <div class="w-[65%] flex flex-col justify-center relative z-20">
-                        <h2 class="text-[11px] min-[375px]:text-[13px] font-black text-gray-900 leading-tight mb-2 whitespace-nowrap">Shop Smart & Earn Real Cashback 💰</h2>
-                        <p class="text-[10px] text-gray-600 font-medium mb-5 leading-relaxed">Buy from top stores & earn real money.</p>
-                        <button onclick="document.getElementById('home-how-it-works').scrollIntoView({behavior: 'smooth'})" class="bg-primary text-white w-max px-6 py-2.5 rounded-full font-bold text-xs shadow-lg shadow-primary/30 active:scale-95 transition-transform">How to Earn?</button>
-                    </div>
-                    <div class="absolute -right-3 bottom-0 w-[45%] h-[150%] z-10 flex justify-end items-end pointer-events-none">
-                        <img src="https://i.ibb.co/gb3CcTML/file-000000008e6072078b0b6224b14b52cd.png" alt="Shopping Girl" class="h-full w-auto object-contain object-bottom drop-shadow-2xl scale-[1.3] origin-bottom-right">
+        <!-- ================= HERO SECTION ================= -->
+        <div class="bg-gradient-to-b from-darkblue to-navy text-white rounded-b-[2.5rem] pb-8 relative z-10">
+            <header class="flex justify-between items-center px-5 py-4">
+                <button onclick="toggleMenu()" class="p-2 -ml-2 text-white hover:text-gray-300 transition">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+                <div class="flex flex-col items-center justify-center cursor-pointer" onclick="window.location.href='index.html'">
+                    <div class="flex items-center gap-2 font-bold text-2xl tracking-wide">
+                        <div class="bg-brandBlue p-1.5 rounded-lg text-sm shadow-lg shadow-brandBlue/30"><i class="fa-solid fa-bolt text-white"></i></div>
+                        <span>Boostifyx<span class="text-brandBlue">.in</span></span>
                     </div>
                 </div>
-            </div>
+                <div class="p-2 w-8"></div>
+            </header>
 
-            <!-- Top Categories (Dynamic) -->
-            <div class="px-4 py-4 bg-white mt-2">
-                <div class="flex justify-between items-center mb-3">
-                    <h3 class="text-base font-bold text-gray-900">Top Categories</h3>
-                    <button onclick="window.openAllCategories()" class="text-primary text-xs font-bold bg-primary/10 px-3 py-1 rounded-full">View All &rarr;</button>
+            <div class="px-5 pt-6 pb-4 text-center relative z-10">
+                <div class="inline-block bg-white/10 border border-white/20 text-white text-[11px] font-semibold px-4 py-1.5 rounded-full mb-5 backdrop-blur-sm shadow-sm">
+                    ✨ 25+ FREE Online Tools
                 </div>
-                <div class="flex overflow-x-auto hide-scrollbar gap-3 pb-2" id="home-categories-grid">
-                    <span class="text-xs text-gray-400 p-2">Loading Categories...</span>
-                </div>
-            </div>
-
-            <!-- Top Deals For You (Dynamic) -->
-            <div class="px-4 py-3 bg-white mt-2">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-base font-bold text-gray-900 flex items-center gap-1">Top Deals <i class="fa-solid fa-fire text-orange-500"></i></h3>
-                    <button onclick="window.openDealsView()" class="text-primary text-xs font-bold bg-primary/10 px-3 py-1 rounded-full">View All &rarr;</button>
-                </div>
-                <div id="trending-row-1" class="flex overflow-x-auto hide-scrollbar gap-3 pb-3 snap-x snap-mandatory">
-                    <span class="text-xs text-gray-400 p-2">Loading Deals...</span>
-                </div>
-                <div id="trending-row-2" class="flex overflow-x-auto hide-scrollbar gap-3 pb-2 snap-x snap-mandatory"></div>
-            </div>
-
-            <!-- All Live Offers (Dynamic) -->
-            <div class="px-4 py-3 bg-white mt-2">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-base font-bold text-gray-900">All Live Offers</h3>
-                    <button onclick="window.openAllOffers()" class="text-primary text-xs font-bold bg-primary/10 px-3 py-1 rounded-full">View All &rarr;</button>
-                </div>
-                <div id="offers-row-1" class="flex overflow-x-auto hide-scrollbar gap-3 pb-3 snap-x snap-mandatory">
-                    <span class="text-xs text-gray-400 p-2">Loading Offers...</span>
-                </div>
-                <div id="offers-row-2" class="flex overflow-x-auto hide-scrollbar gap-3 pb-4 snap-x snap-mandatory"></div>
-            </div>
-
-            <!-- ================= HOW IT WORKS SECTION (MOVED TO BOTTOM) ================= -->
-            <div id="home-how-it-works" class="px-4 py-6 bg-white mt-2 mb-6">
-                <h3 class="text-base font-black text-gray-900 mb-5 flex items-center gap-2">
-                    <i class="fa-solid fa-circle-question text-primary"></i> How It Works?
-                </h3>
-                
-                <div class="space-y-5 relative before:absolute before:inset-0 before:ml-4 before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-primary/30 before:to-transparent">
-                    <div class="relative flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-black text-xs shrink-0 z-10 shadow-sm border-2 border-white">1</div>
-                        <div class="pt-1.5">
-                            <h4 class="text-xs font-bold text-gray-900">Click on Buy Now</h4>
-                            <p class="text-[10px] text-gray-500 mt-0.5 font-medium">Use our link to visit the store.</p>
-                        </div>
+                <h1 class="text-3xl font-bold leading-tight mb-3">
+                    Your Everyday<br>
+                    <span class="text-brandBlue">Smart Tools</span> Hub
+                </h1>
+                <p class="text-sm text-gray-400 mb-8 max-w-[280px] mx-auto leading-relaxed">
+                    Simple. Fast. Free for everyone. Boost your productivity today.
+                </p>
+                <div class="relative max-w-sm mx-auto">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
                     </div>
-                    <div class="relative flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-black text-xs shrink-0 z-10 shadow-sm border-2 border-white">2</div>
-                        <div class="pt-1.5">
-                            <h4 class="text-xs font-bold text-gray-900">Shop on the Real Store</h4>
-                            <p class="text-[10px] text-gray-500 mt-0.5 font-medium">Complete your purchase normally.</p>
-                        </div>
-                    </div>
-                    <div class="relative flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-full bg-orange-100 text-orange-500 flex items-center justify-center font-black text-xs shrink-0 z-10 shadow-sm border-2 border-white">3</div>
-                        <div class="pt-1.5">
-                            <h4 class="text-xs font-bold text-gray-900">Submit Your Order</h4>
-                            <p class="text-[10px] text-gray-500 mt-0.5 font-medium">Upload order details in your dashboard.</p>
-                        </div>
-                    </div>
-                    <div class="relative flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center font-black text-xs shrink-0 z-10 shadow-sm border-2 border-white">4</div>
-                        <div class="pt-1.5">
-                            <h4 class="text-xs font-bold text-gray-900">Get Cashback 💰</h4>
-                            <p class="text-[10px] text-gray-500 mt-0.5 font-medium">Cashback added to wallet after delivery.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-6 bg-red-50 border border-red-100 rounded-xl p-4">
-                    <h4 class="text-[11px] font-black text-red-600 mb-2 flex items-center gap-1">
-                        <i class="fa-solid fa-circle-exclamation"></i> Note:
-                    </h4>
-                    <ul class="text-[10px] text-red-500 space-y-2 font-medium ml-1">
-                        <li>• If the order is cancelled, returned, or refunded, cashback will not be credited.</li>
-                        <li>• Cashback will be credited within 3–7 days after delivery confirmation.</li>
-                    </ul>
+                    <input type="text" id="searchInput" class="block w-full pl-11 pr-4 py-3.5 bg-white/10 border border-white/20 rounded-full text-sm text-white placeholder-gray-400 focus:bg-white focus:text-slate-900 focus:ring-2 focus:ring-brandBlue outline-none transition-all shadow-lg" placeholder="Search for tools (e.g. EMI, JSON)...">
                 </div>
             </div>
         </div>
 
-        <!-- ================= ALL CATEGORIES VIEW ================= -->
-        <div id="categories-view" class="hide bg-white min-h-screen">
-            <div class="sticky top-0 z-40 bg-white border-b border-gray-100 shadow-sm">
-                <div class="px-4 py-3 flex items-center gap-3">
-                    <button onclick="window.goBack()" class="text-gray-700 text-xl w-8 h-8 flex items-center justify-center rounded-full bg-gray-100"><i class="fa-solid fa-arrow-left"></i></button>
-                    <h2 class="text-lg font-bold text-gray-900 flex-1">All Categories</h2>
-                </div>
-            </div>
-            <div class="p-4 grid grid-cols-3 gap-4 pb-10" id="all-categories-grid"></div>
-        </div>
-
-        <!-- ================= STORE / DEALS VIEW ================= -->
-        <div id="store-view" class="hide bg-white min-h-screen">
-            <div class="sticky top-0 z-40 bg-white border-b border-gray-100 shadow-sm">
-                <div class="flex items-center gap-3 px-4 py-3">
-                    <button onclick="window.goBack()" class="text-gray-700 text-xl w-8 h-8 flex items-center justify-center rounded-full bg-gray-100"><i class="fa-solid fa-arrow-left"></i></button>
-                    <h2 class="text-lg font-bold text-gray-900 flex-1" id="store-title">Store Name</h2>
-                </div>
-            </div>
-            <div class="px-4 py-4">
-                <div id="store-vertical-grid" class="grid grid-cols-2 gap-3 pb-10"></div>
-            </div>
-        </div>
-
-        <!-- ================= PRODUCT DETAIL PAGE (PDP) ================= -->
-        <div id="product-detail-view" class="hide bg-gray-50 min-h-screen relative pb-[80px]">
-            <div class="absolute top-0 w-full z-40 px-4 py-4 flex justify-between items-center pointer-events-none">
-                <button onclick="window.goBack()" class="pointer-events-auto bg-white/90 backdrop-blur shadow text-gray-800 w-10 h-10 flex items-center justify-center rounded-full"><i class="fa-solid fa-arrow-left"></i></button>
-                <div class="flex gap-3 pointer-events-auto">
-                    <button onclick="window.toggleLike(event)" id="pdp-like-btn" class="bg-white/90 backdrop-blur shadow text-gray-400 w-10 h-10 flex items-center justify-center rounded-full transition-colors"><i class="fa-solid fa-heart text-lg"></i></button>
-                    <button onclick="window.shareProduct()" class="bg-white/90 backdrop-blur shadow text-blue-500 w-10 h-10 flex items-center justify-center rounded-full"><i class="fa-solid fa-share-nodes text-lg"></i></button>
-                </div>
-            </div>
-
-            <div class="bg-white w-full h-[350px] relative border-b border-gray-100">
-                <div id="pdp-image-slider" class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar w-full h-full items-center smooth-scroll"></div>
-                <div class="absolute bottom-4 w-full flex justify-center gap-2" id="pdp-thumbnails"></div>
-            </div>
-
-            <div class="bg-white p-4 mb-2">
-                <div class="flex gap-2 items-center mb-2">
-                    <span id="pdp-store-badge" class="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-0.5 rounded">Store</span>
-                </div>
-                <h1 id="pdp-title" class="text-xl font-bold text-gray-900 leading-tight mb-2">Loading...</h1>
-                <div class="flex items-end gap-2 mb-5">
-                    <span id="pdp-price" class="text-2xl font-black text-gray-900">₹0</span>
-                    <span id="pdp-old-price" class="text-sm text-gray-400 line-through mb-1">₹0</span>
-                    <span id="pdp-discount" class="text-xs font-bold text-green-600 mb-1.5 ml-1">0% OFF</span>
-                </div>
-
-                <div class="relative bg-gradient-to-r from-purple-50 to-indigo-50 border border-dashed border-primary/40 rounded-xl p-4 overflow-hidden">
-                    <div class="absolute -right-4 -top-4 w-16 h-16 bg-primary/10 rounded-full blur-xl"></div>
-                    <div class="flex items-center gap-4 relative z-10">
-                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary text-xl shadow-[0_4px_10px_rgba(96,40,255,0.2)]"><i class="fa-solid fa-sack-dollar"></i></div>
-                        <div>
-                            <div class="flex items-center gap-2 mb-0.5">
-                                <p class="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Earn Extra</p>
-                                <span class="bg-green-100 text-green-600 text-[8px] font-bold px-1.5 py-0.5 rounded uppercase">Verified</span>
-                            </div>
-                            <p class="text-lg font-black text-primary drop-shadow-sm" id="pdp-cb-amount">Up to ₹0 Cashback</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white p-5 mb-2">
-                <h3 class="text-sm font-black text-gray-900 mb-4 uppercase tracking-wider border-b pb-2 border-gray-100">How to Claim Cashback</h3>
-                <div class="space-y-4">
-                    <div class="flex items-start gap-3">
-                        <div class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</div>
-                        <p class="text-xs text-gray-700 leading-relaxed">Click <b class="text-primary">"Continue & Buy"</b> button. You will be redirected to the official store.</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <div class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</div>
-                        <p class="text-xs text-gray-700 leading-relaxed">Add product to cart and complete payment normally.</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <div class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</div>
-                        <p class="text-xs text-gray-700 leading-relaxed">Copy Order ID & upload screenshot in <b class="text-gray-900">Dashboard &rarr; Order</b>.</p>
-                    </div>
-                </div>
-
-                <!-- GMAIL BUTTON -->
-                <a id="pdp-gmail-btn" href="#" target="_blank" class="mt-5 w-full bg-red-50 hover:bg-red-100 border border-red-200 text-red-600 font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-colors text-xs active:scale-95 shadow-sm">
-                    <i class="fa-solid fa-envelope text-base"></i> Send Order Details via Gmail
+        <!-- ================= STICKY CATEGORIES ================= -->
+        <div id="sticky-categories" class="sticky top-0 bg-white/90 backdrop-blur-md z-30 border-b border-slate-100 px-5 py-4 shadow-sm">
+            <div class="flex gap-4 overflow-x-auto hide-scrollbar pb-1">
+                <a href="#finance" class="flex flex-col items-center gap-1.5 min-w-[65px] group">
+                    <div class="w-[50px] h-[50px] rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-all shadow-sm"><i class="fa-solid fa-coins text-lg"></i></div>
+                    <span class="text-[10px] font-bold text-slate-600 uppercase tracking-wide">Finance</span>
+                </a>
+                <a href="#image" class="flex flex-col items-center gap-1.5 min-w-[65px] group">
+                    <div class="w-[50px] h-[50px] rounded-full bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-all shadow-sm"><i class="fa-solid fa-image text-lg"></i></div>
+                    <span class="text-[10px] font-bold text-slate-600 uppercase tracking-wide">Image</span>
+                </a>
+                <a href="#text" class="flex flex-col items-center gap-1.5 min-w-[65px] group">
+                    <div class="w-[50px] h-[50px] rounded-full bg-purple-50 border border-purple-100 flex items-center justify-center text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-all shadow-sm"><i class="fa-solid fa-font text-lg"></i></div>
+                    <span class="text-[10px] font-bold text-slate-600 uppercase tracking-wide">Text</span>
+                </a>
+                <a href="#utility" class="flex flex-col items-center gap-1.5 min-w-[65px] group">
+                    <div class="w-[50px] h-[50px] rounded-full bg-red-50 border border-red-100 flex items-center justify-center text-red-500 group-hover:bg-red-500 group-hover:text-white transition-all shadow-sm"><i class="fa-solid fa-wrench text-lg"></i></div>
+                    <span class="text-[10px] font-bold text-slate-600 uppercase tracking-wide">Utility</span>
+                </a>
+                <a href="#web" class="flex flex-col items-center gap-1.5 min-w-[65px] group">
+                    <div class="w-[50px] h-[50px] rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-500 group-hover:bg-indigo-500 group-hover:text-white transition-all shadow-sm"><i class="fa-solid fa-code text-lg"></i></div>
+                    <span class="text-[10px] font-bold text-slate-600 uppercase tracking-wide">Web/Dev</span>
                 </a>
             </div>
+        </div>
 
-            <div class="bg-white p-4 mb-2">
-                <h3 class="text-sm font-bold text-gray-900 mb-2">Product Description</h3>
-                <p id="pdp-desc" class="text-xs text-gray-600 leading-relaxed">Loading...</p>
+        <!-- ================= TRENDING TOOLS ================= -->
+        <div id="trending-wrapper" class="px-5 py-6 bg-gradient-to-b from-slate-50 to-white">
+            <div class="flex items-center gap-2 mb-4">
+                <i class="fa-solid fa-fire text-orange-500"></i>
+                <h2 class="text-lg font-bold text-slate-800">Trending Tools</h2>
+                <span class="ml-auto text-[10px] bg-slate-200 text-slate-600 px-2 py-0.5 rounded-full">Auto-updated</span>
             </div>
+            <div id="trending-container" class="flex gap-3 overflow-x-auto hide-scrollbar pb-2 pt-1 -mx-5 px-5"></div>
+        </div>
 
-            <div class="fixed bottom-0 w-full glass-bottom-nav px-4 py-3 z-50 flex items-center justify-between border-t border-gray-200">
-                <div class="flex flex-col">
-                    <span class="text-[10px] text-gray-500 font-bold">Effective Price</span>
-                    <span id="pdp-bottom-price" class="text-xl font-black text-green-600 leading-none">₹0</span>
+        <div id="no-results" class="px-5 py-10 text-center flex-col items-center justify-center">
+            <i class="fa-solid fa-magnifying-glass-minus text-4xl text-slate-300 mb-3"></i>
+            <h3 class="font-bold text-slate-700">No tools found</h3>
+            <p class="text-xs text-slate-500 mt-1">Try searching with a different keyword.</p>
+        </div>
+
+        <!-- ================= ALL TOOLS SECTION ================= -->
+        <div class="px-5 py-4 space-y-8" id="all-tools-wrapper">
+            
+            <script>
+                const toolsData = [
+                    { id: 'emi', name: 'EMI Calculator', desc: 'Calculate your EMI instantly', cat: 'finance', icon: 'fa-calculator', color: 'text-emerald-600', bg: 'bg-emerald-50', link: 'emi-calculator.html', defaultViews: 1200 },
+                    { id: 'gst', name: 'GST Calculator', desc: 'Calculate GST amount easily', cat: 'finance', icon: 'fa-percent', color: 'text-emerald-600', bg: 'bg-emerald-50', link: 'gst-calculator.html', defaultViews: 850 },
+                    { id: 'sip', name: 'SIP Calculator', desc: 'Plan your mutual fund returns', cat: 'finance', icon: 'fa-chart-line', color: 'text-emerald-600', bg: 'bg-emerald-50', link: 'sip-calculator.html', defaultViews: 1500 },
+                    { id: 'loan', name: 'Loan Interest Calculator', desc: 'Check interest on loans', cat: 'finance', icon: 'fa-building-columns', color: 'text-emerald-600', bg: 'bg-emerald-50', link: 'loan-calculator.html', defaultViews: 400 },
+                    { id: 'discount', name: 'Discount Calculator', desc: 'Find final price after discount', cat: 'finance', icon: 'fa-tags', color: 'text-emerald-600', bg: 'bg-emerald-50', link: 'discount-calculator.html', defaultViews: 600 },
+                    { id: 'profit', name: 'Profit & Loss', desc: 'Calculate business margins', cat: 'finance', icon: 'fa-scale-balanced', color: 'text-emerald-600', bg: 'bg-emerald-50', link: 'profit-loss-calculator.html', defaultViews: 550 },
+                    
+                    { id: 'img-comp', name: 'Image Compressor', desc: 'Reduce image size safely', cat: 'image', icon: 'fa-compress', color: 'text-orange-500', bg: 'bg-orange-50', link: 'image-compressor.html', defaultViews: 1800 },
+                    { id: 'img-res', name: 'Image Resizer', desc: 'Change image dimensions', cat: 'image', icon: 'fa-down-left-and-up-right-to-center', color: 'text-orange-500', bg: 'bg-orange-50', link: 'image-resizer.html', defaultViews: 900 },
+                    { id: 'img-crop', name: 'Image Crop Tool', desc: 'Crop pictures perfectly', cat: 'image', icon: 'fa-crop-simple', color: 'text-orange-500', bg: 'bg-orange-50', link: 'image-crop.html', defaultViews: 450 },
+                    { id: 'img-b64', name: 'Image to Base64', desc: 'Convert image to code', cat: 'image', icon: 'fa-file-code', color: 'text-orange-500', bg: 'bg-orange-50', link: 'image-to-base64.html', defaultViews: 300 },
+                    
+                    { id: 'word-count', name: 'Word Counter', desc: 'Count words & characters', cat: 'text', icon: 'fa-file-word', color: 'text-purple-500', bg: 'bg-purple-50', link: 'word-counter.html', defaultViews: 1100 },
+                    { id: 'case-conv', name: 'Case Converter', desc: 'Change text uppercase/lowercase', cat: 'text', icon: 'fa-font', color: 'text-purple-500', bg: 'bg-purple-50', link: 'case-converter.html', defaultViews: 750 },
+                    { id: 'text-rep', name: 'Text Repeater', desc: 'Repeat text multiple times', cat: 'text', icon: 'fa-copy', color: 'text-purple-500', bg: 'bg-purple-50', link: 'text-repeater.html', defaultViews: 200 },
+                    { id: 'remove-space', name: 'Remove Extra Spaces', desc: 'Clean up messy formatting', cat: 'text', icon: 'fa-align-left', color: 'text-purple-500', bg: 'bg-purple-50', link: 'remove-spaces.html', defaultViews: 350 },
+                    
+                    { id: 'age', name: 'Age Calculator', desc: 'Calculate exact age in days', cat: 'utility', icon: 'fa-user-clock', color: 'text-red-500', bg: 'bg-red-50', link: 'age-calculator.html', defaultViews: 1400 },
+                    { id: 'qr', name: 'QR Code Generator', desc: 'Create custom QR codes', cat: 'utility', icon: 'fa-qrcode', color: 'text-red-500', bg: 'bg-red-50', link: 'qr-generator.html', defaultViews: 1300 },
+                    { id: 'pass', name: 'Password Generator', desc: 'Create secure passwords', cat: 'utility', icon: 'fa-shield-halved', color: 'text-red-500', bg: 'bg-red-50', link: 'password-generator.html', defaultViews: 1000 },
+                    { id: 'unit', name: 'Unit Converter', desc: 'Convert lengths, weights, etc', cat: 'utility', icon: 'fa-ruler-combined', color: 'text-red-500', bg: 'bg-red-50', link: 'unit-converter.html', defaultViews: 650 },
+                    { id: 'time', name: 'Time Converter', desc: 'Convert timezones & units', cat: 'utility', icon: 'fa-clock', color: 'text-red-500', bg: 'bg-red-50', link: 'time-converter.html', defaultViews: 300 },
+                    
+                    { id: 'url', name: 'URL Encoder/Decoder', desc: 'Encode URLs safely', cat: 'web', icon: 'fa-link', color: 'text-indigo-500', bg: 'bg-indigo-50', link: 'url-encoder.html', defaultViews: 800 },
+                    { id: 'b64', name: 'Base64 Encoder/Decoder', desc: 'Encode or decode strings', cat: 'web', icon: 'fa-hashtag', color: 'text-indigo-500', bg: 'bg-indigo-50', link: 'base64-encoder.html', defaultViews: 400 },
+                    { id: 'json', name: 'JSON Formatter', desc: 'Beautify JSON code', cat: 'web', icon: 'fa-code', color: 'text-indigo-500', bg: 'bg-indigo-50', link: 'json-formatter.html', defaultViews: 1250 },
+                    { id: 'html', name: 'HTML Viewer', desc: 'Preview HTML code live', cat: 'web', icon: 'fa-file-code', color: 'text-indigo-500', bg: 'bg-indigo-50', link: 'html-viewer.html', defaultViews: 500 },
+                    { id: 'color', name: 'Color Code Picker', desc: 'Extract HEX & RGB codes', cat: 'web', icon: 'fa-eye-dropper', color: 'text-indigo-500', bg: 'bg-indigo-50', link: 'color-picker.html', defaultViews: 700 },
+                ];
+
+                function renderCategory(categoryName) {
+                    const tools = toolsData.filter(t => t.cat === categoryName);
+                    let html = '';
+                    tools.forEach(t => {
+                        html += `
+                        <div class="tool-card bg-white p-3.5 rounded-2xl card-shadow flex items-center justify-between cursor-pointer" onclick="recordClick('${t.id}', '${t.link}')" data-title="${t.name.toLowerCase()}" data-desc="${t.desc.toLowerCase()}">
+                            <div class="flex items-center gap-3.5 w-full">
+                                <div class="w-11 h-11 rounded-xl ${t.bg} ${t.color} flex items-center justify-center flex-shrink-0">
+                                    <i class="fa-solid ${t.icon} text-lg"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="font-semibold text-sm text-slate-800 mb-0.5">${t.name}</h3>
+                                    <p class="text-[11px] text-slate-500 leading-tight">${t.desc}</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-slate-300 text-xs pl-2"></i>
+                        </div>`;
+                    });
+                    document.write(html);
+                }
+            </script>
+
+            <!-- Tools Sections Output -->
+            <section id="finance" class="tool-section scroll-mt-24"><div class="flex items-center gap-2 mb-4 section-header"><div class="w-1 h-5 bg-emerald-500 rounded-full"></div><h2 class="text-lg font-bold text-slate-800">Finance Tools</h2></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-3 tools-grid"><script>renderCategory('finance');</script></div></section>
+            <div class="search-hide-ad w-full bg-slate-50 border border-slate-200 border-dashed rounded-xl h-[70px] flex flex-col items-center justify-center relative mt-2 mb-6"><span class="absolute top-0 right-0 bg-slate-200 text-slate-500 text-[9px] px-1.5 py-0.5 rounded-bl-lg rounded-tr-xl">ADS</span><span class="text-sm font-medium text-slate-500">Ad Space</span></div>
+            <section id="image" class="tool-section scroll-mt-24"><div class="flex items-center gap-2 mb-4 section-header"><div class="w-1 h-5 bg-orange-500 rounded-full"></div><h2 class="text-lg font-bold text-slate-800">Image Tools</h2></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-3 tools-grid"><script>renderCategory('image');</script></div></section>
+            <section id="text" class="tool-section scroll-mt-24"><div class="flex items-center gap-2 mb-4 section-header"><div class="w-1 h-5 bg-purple-500 rounded-full"></div><h2 class="text-lg font-bold text-slate-800">Text Tools</h2></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-3 tools-grid"><script>renderCategory('text');</script></div></section>
+            <div class="search-hide-ad w-full bg-slate-50 border border-slate-200 border-dashed rounded-xl h-[70px] flex flex-col items-center justify-center relative mt-2 mb-6"><span class="absolute top-0 right-0 bg-slate-200 text-slate-500 text-[9px] px-1.5 py-0.5 rounded-bl-lg rounded-tr-xl">ADS</span><span class="text-sm font-medium text-slate-500">Ad Space</span></div>
+            <section id="utility" class="tool-section scroll-mt-24"><div class="flex items-center gap-2 mb-4 section-header"><div class="w-1 h-5 bg-red-500 rounded-full"></div><h2 class="text-lg font-bold text-slate-800">Utility Tools</h2></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-3 tools-grid"><script>renderCategory('utility');</script></div></section>
+            <section id="web" class="tool-section scroll-mt-24"><div class="flex items-center gap-2 mb-4 section-header"><div class="w-1 h-5 bg-indigo-500 rounded-full"></div><h2 class="text-lg font-bold text-slate-800">Web & Developer Tools</h2></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-3 tools-grid"><script>renderCategory('web');</script></div></section>
+        </div>
+
+        <hr class="border-slate-100 my-6 mx-5" id="divider-1">
+
+        <!-- ================= ADVANCED FEATURES SECTION ================= -->
+        <div id="features-wrapper" class="px-5 pb-10">
+            <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-star text-brandBlue"></i> Why Choose Us
+            </h2>
+            <div class="grid grid-cols-2 gap-3">
+                <div class="bg-gradient-to-b from-white to-blue-50/30 p-4 rounded-2xl border border-blue-100 card-shadow flex flex-col items-center text-center group">
+                    <div class="w-10 h-10 rounded-full bg-blue-100/50 flex items-center justify-center text-brandBlue mb-2.5 group-hover:scale-110 transition-all duration-300"><i class="fa-solid fa-bolt-lightning text-lg"></i></div>
+                    <span class="text-[13px] font-bold text-slate-800 mb-1">⚡ Always Free</span>
+                    <span class="text-[10px] text-slate-500 leading-tight">No cost, no hidden charges — forever free</span>
                 </div>
-                <button id="pdp-buy-btn" class="bg-gradient-to-r from-primary to-indigo-600 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-primary/30 flex items-center gap-2 active:scale-95 transition-transform">
-                    Continue & Buy <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                </button>
+                <div class="bg-gradient-to-b from-white to-emerald-50/30 p-4 rounded-2xl border border-emerald-100 card-shadow flex flex-col items-center text-center group">
+                    <div class="w-10 h-10 rounded-full bg-emerald-100/50 flex items-center justify-center text-emerald-500 mb-2.5 group-hover:scale-110 transition-all duration-300"><i class="fa-solid fa-rocket text-lg"></i></div>
+                    <span class="text-[13px] font-bold text-slate-800 mb-1">🚀 Super Fast</span>
+                    <span class="text-[10px] text-slate-500 leading-tight">Get instant results in seconds</span>
+                </div>
+                <div class="bg-gradient-to-b from-white to-purple-50/30 p-4 rounded-2xl border border-purple-100 card-shadow flex flex-col items-center text-center group">
+                    <div class="w-10 h-10 rounded-full bg-purple-100/50 flex items-center justify-center text-purple-500 mb-2.5 group-hover:scale-110 transition-all duration-300"><i class="fa-solid fa-shield-halved text-lg"></i></div>
+                    <span class="text-[13px] font-bold text-slate-800 mb-1">🔒 Privacy First</span>
+                    <span class="text-[10px] text-slate-500 leading-tight">Your data stays secure on your device</span>
+                </div>
+                <div class="bg-gradient-to-b from-white to-orange-50/30 p-4 rounded-2xl border border-orange-100 card-shadow flex flex-col items-center text-center group">
+                    <div class="w-10 h-10 rounded-full bg-orange-100/50 flex items-center justify-center text-orange-500 mb-2.5 group-hover:scale-110 transition-all duration-300"><i class="fa-solid fa-mobile-screen-button text-lg"></i></div>
+                    <span class="text-[13px] font-bold text-slate-800 mb-1">📱 Mobile Friendly</span>
+                    <span class="text-[10px] text-slate-500 leading-tight">Smooth experience on all devices</span>
+                </div>
             </div>
         </div>
 
-    </main>
-
-    <!-- ================= FIREBASE & LOGIC SCRIPT ================= -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
-
-        // FIREBASE CONFIGURATION
-        const firebaseConfig = {
-            apiKey: "AIzaSyAgocCLc3Vbf1tv6ISCQRglUzNTPi84-bA",
-            authDomain: "boostifyx-102dc.firebaseapp.com",
-            databaseURL: "https://boostifyx-102dc-default-rtdb.firebaseio.com",
-            projectId: "boostifyx-102dc",
-            storageBucket: "boostifyx-102dc.firebasestorage.app",
-            messagingSenderId: "579411145482",
-            appId: "1:579411145482:web:7b810fd0fe1f898bdb00f3"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getDatabase(app);
-
-        // Global State
-        window.globalProducts = {};
-        window.globalCategories = {};
-        window.globalBanners = [];
-        let currentPdpId = null;
-        let viewHistory = ['home-view'];
-        let currentBannerIdx = 0;
-        let bannerInterval;
-
-        // Navigation Functions
-        window.showView = function(viewId) {
-            document.querySelectorAll('main > div').forEach(el => el.classList.add('hide'));
-            document.getElementById(viewId).classList.remove('hide');
-            window.scrollTo(0,0);
+        <!-- ================= SMOOTH FAQ SECTION (SEO OPTIMIZED) ================= -->
+        <div id="faq-wrapper" class="px-5 pb-10 bg-slate-50 pt-8 rounded-t-3xl border-t border-slate-200/60">
+            <div class="flex items-center justify-center gap-2 mb-6">
+                <i class="fa-solid fa-circle-question text-xl text-brandBlue"></i>
+                <h2 class="text-xl font-bold text-slate-800">Frequently Asked Questions</h2>
+            </div>
             
-            if(['product-detail-view', 'store-view', 'categories-view', 'notifications-view'].includes(viewId)) {
-                document.getElementById('main-header').classList.add('hide');
-            } else {
-                document.getElementById('main-header').classList.remove('hide');
-            }
-            if(viewHistory[viewHistory.length-1] !== viewId) viewHistory.push(viewId);
-        };
-
-        window.goBack = function() {
-            if(viewHistory.length > 1) {
-                viewHistory.pop(); 
-                const previousView = viewHistory[viewHistory.length - 1];
-                window.showView(previousView);
-                viewHistory.pop(); 
-            } else { 
-                window.showView('home-view'); 
-            }
-        };
-
-        // Utility
-        function buildProductCard(pid, p, widthClass = "w-[140px] shrink-0") {
-            const price = Number(p.price) || 0;
-            const oldPrice = Number(p.oldPrice) || 0;
-            const cbPct = p.cashbackPct || 0;
-            const img = (p.images && p.images.length > 0) ? p.images[0] : 'https://via.placeholder.com/150';
-            
-            return `
-                <div onclick="window.openProductDetail('${pid}')" class="${widthClass} bg-white rounded-xl p-3 border border-gray-100 shadow-[0_2px_8px_-3px_rgba(0,0,0,0.1)] flex flex-col relative cursor-pointer active:scale-95 transition-transform snap-center">
-                    <div class="absolute top-0 right-0 bg-green-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-bl-xl rounded-tr-xl z-10">${cbPct}% CB</div>
-                    <div class="h-24 mb-2 flex items-center justify-center p-2"><img src="${img}" class="max-h-full object-contain mix-blend-multiply"></div>
-                    <div class="text-[9px] text-gray-400 font-bold mb-0.5 uppercase tracking-wide">${p.store || 'Store'}</div>
-                    <h3 class="text-[11px] font-bold text-gray-800 line-clamp-2 h-8 mb-1 leading-tight">${p.name || 'Product'}</h3>
-                    <div class="flex items-end gap-1.5 mt-auto">
-                        <span class="font-black text-gray-900 text-sm">₹${price.toLocaleString()}</span>
-                        <span class="text-[9px] text-gray-400 line-through mb-0.5 font-medium">₹${oldPrice.toLocaleString()}</span>
+            <div class="space-y-3" id="faq-container">
+                <!-- FAQ 1 -->
+                <div class="faq-item bg-white rounded-xl border border-slate-200 card-shadow px-4 py-1">
+                    <button class="w-full text-left font-semibold text-[13px] text-slate-800 flex justify-between items-center py-3 outline-none" onclick="toggleFaq(this)">
+                        1. What is Boostifyx.in?
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon"></i>
+                    </button>
+                    <div class="faq-answer text-[11.5px] text-slate-500 leading-relaxed border-slate-100">
+                        <div class="pb-3 border-t border-slate-100 pt-3">
+                            Boostifyx.in is a premium platform offering 25+ 100% free online tools, including Finance Calculators (EMI, GST), Image Compressors, JSON Formatters, and Utility tools designed to simplify your daily digital tasks.
+                        </div>
                     </div>
                 </div>
-            `;
-        }
 
-        // Action Handlers
-        window.handleBannerAction = function(type, target) {
-            if(type === 'pdp') window.openProductDetail(target);
-            else if(type === 'category') window.openStoreView(target, true);
-            else if(type === 'store') window.openStoreView(target);
-        };
-
-        function startBannerSlider() {
-            if(window.globalBanners.length === 0) return;
-            clearInterval(bannerInterval);
-            
-            const renderBanner = () => {
-                if(window.globalBanners.length === 0) return;
-                const b = window.globalBanners[currentBannerIdx];
-                const container = document.getElementById('single-banner-container');
-                container.style.opacity = 0; 
-                setTimeout(() => {
-                    container.innerHTML = `
-                        <div onclick="window.handleBannerAction('${b.actionType}', '${b.target}')" class="${b.bgClass || 'bg-gradient-to-r from-primary to-indigo-600'} p-5 text-white flex flex-col justify-center relative min-h-[130px] cursor-pointer w-full rounded-2xl">
-                            <div class="absolute right-[0%] top-[10%] text-white/10 text-7xl"><i class="fa-brands ${b.icon || 'fa-tag'}"></i></div>
-                            <h3 class="font-black text-xl leading-tight mb-1 relative z-10">${b.title || 'Special Deal'}</h3>
-                            <p class="text-xs font-medium opacity-90 mb-3 relative z-10">${b.text || ''}</p>
-                            <button class="bg-white/20 hover:bg-white/30 backdrop-blur w-max px-5 py-2 rounded-full text-[10px] font-bold relative z-10">${b.btnText || 'Shop Now'} &rarr;</button>
+                <!-- FAQ 2 -->
+                <div class="faq-item bg-white rounded-xl border border-slate-200 card-shadow px-4 py-1">
+                    <button class="w-full text-left font-semibold text-[13px] text-slate-800 flex justify-between items-center py-3 outline-none" onclick="toggleFaq(this)">
+                        2. Is Boostifyx.in completely free to use?
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon"></i>
+                    </button>
+                    <div class="faq-answer text-[11.5px] text-slate-500 leading-relaxed border-slate-100">
+                        <div class="pb-3 border-t border-slate-100 pt-3">
+                            Yes, Boostifyx.in is 100% free forever. There are no hidden fees, premium subscriptions, or trial periods. All tools are unlocked for everyone globally.
                         </div>
-                    `;
-                    container.style.opacity = 1; 
-                }, 300);
-            };
+                    </div>
+                </div>
 
-            renderBanner();
-            bannerInterval = setInterval(() => {
-                currentBannerIdx = (currentBannerIdx + 1) % window.globalBanners.length;
-                renderBanner();
-            }, 5000);
-        }
+                <!-- FAQ 3 -->
+                <div class="faq-item bg-white rounded-xl border border-slate-200 card-shadow px-4 py-1">
+                    <button class="w-full text-left font-semibold text-[13px] text-slate-800 flex justify-between items-center py-3 outline-none" onclick="toggleFaq(this)">
+                        3. Do I need to register or sign up?
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon"></i>
+                    </button>
+                    <div class="faq-answer text-[11.5px] text-slate-500 leading-relaxed border-slate-100">
+                        <div class="pb-3 border-t border-slate-100 pt-3">
+                            No login or registration is required. You can get instant access to all tools like the Image Resizer, Word Counter, and QR Generator without creating an account.
+                        </div>
+                    </div>
+                </div>
 
-        // Dynamic Firebase Listeners
-        function initDataFetch() {
-            // Fetch Stores
-            onValue(ref(db, 'stores'), (snapshot) => {
-                const stores = snapshot.val() || {};
-                const sContainer = document.getElementById('dynamic-stores-container');
-                let html = `
-                    <div class="flex flex-col items-center gap-1.5 cursor-pointer" onclick="window.showView('home-view')">
-                        <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center text-lg"><i class="fa-solid fa-border-all"></i></div>
-                        <span class="text-[10px] font-bold text-gray-800">All</span>
-                    </div>`;
-                Object.keys(stores).forEach(key => {
-                    const s = stores[key];
-                    html += `
-                    <div class="flex flex-col items-center gap-1.5 cursor-pointer" onclick="window.openStoreView('${s.name}')">
-                        <div class="w-10 h-10 rounded-full border border-gray-200 p-2"><img src="${s.logo}" class="w-full h-full object-contain"></div>
-                        <span class="text-[10px] font-medium text-gray-600">${s.name}</span>
-                    </div>`;
-                });
-                sContainer.innerHTML = html;
-            });
+                <!-- FAQ 4 -->
+                <div class="faq-item bg-white rounded-xl border border-slate-200 card-shadow px-4 py-1">
+                    <button class="w-full text-left font-semibold text-[13px] text-slate-800 flex justify-between items-center py-3 outline-none" onclick="toggleFaq(this)">
+                        4. Is my data safe when using these tools?
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon"></i>
+                    </button>
+                    <div class="faq-answer text-[11.5px] text-slate-500 leading-relaxed border-slate-100">
+                        <div class="pb-3 border-t border-slate-100 pt-3">
+                            Absolutely. Your privacy is our priority. Most of our tools process data locally within your browser. We do not upload, save, or store your images, texts, or codes on any server.
+                        </div>
+                    </div>
+                </div>
 
-            // Fetch Banners
-            onValue(ref(db, 'banners'), (snapshot) => {
-                const data = snapshot.val() || {};
-                window.globalBanners = Object.keys(data).map(k => data[k]);
-                if(window.globalBanners.length > 0) startBannerSlider();
-                else document.getElementById('single-banner-container').innerHTML = '';
-            });
-
-            // Fetch Categories
-            onValue(ref(db, 'categories'), (snapshot) => {
-                window.globalCategories = snapshot.val() || {};
-                const cGrid = document.getElementById('home-categories-grid');
-                const allCGrid = document.getElementById('all-categories-grid');
-                cGrid.innerHTML = '';
-                allCGrid.innerHTML = '';
+                <!-- FAQ 5 -->
+                <div class="faq-item bg-white rounded-xl border border-slate-200 card-shadow px-4 py-1">
+                    <button class="w-full text-left font-semibold text-[13px] text-slate-800 flex justify-between items-center py-3 outline-none" onclick="toggleFaq(this)">
+                        5. Does the EMI and GST Calculator work for Indian users?
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon"></i>
+                    </button>
+                    <div class="faq-answer text-[11.5px] text-slate-500 leading-relaxed border-slate-100">
+                        <div class="pb-3 border-t border-slate-100 pt-3">
+                            Yes, our Finance tools are highly optimized for both Indian and Global users. The GST Calculator instantly handles Indian tax slabs (5%, 12%, 18%, 28%) accurately.
+                        </div>
+                    </div>
+                </div>
                 
-                let count = 0;
-                Object.keys(window.globalCategories).forEach(key => {
-                    const c = window.globalCategories[key];
-                    const catHtml = `
-                    <div onclick="window.openStoreView('${c.name}', true)" class="min-w-[70px] text-center border border-gray-100 bg-white rounded-xl p-2 shadow-sm cursor-pointer hover:bg-gray-50 transition-colors">
-                        <img src="${c.image || 'https://via.placeholder.com/50'}" class="h-10 mx-auto object-contain mb-1">
-                        <div class="text-[10px] font-bold text-gray-800">${c.name}</div>
-                    </div>`;
-                    
-                    if(count < 4) cGrid.innerHTML += catHtml;
-                    
-                    allCGrid.innerHTML += `
-                    <div onclick="window.openStoreView('${c.name}', true)" class="text-center border border-gray-100 bg-white rounded-xl p-3 shadow-sm cursor-pointer active:scale-95">
-                        <img src="${c.image || 'https://via.placeholder.com/50'}" class="h-12 mx-auto object-contain mb-2">
-                        <div class="text-[10px] font-bold text-gray-800">${c.name}</div>
-                    </div>`;
-                    count++;
-                });
+                <!-- FAQ 6 -->
+                <div class="faq-item bg-white rounded-xl border border-slate-200 card-shadow px-4 py-1">
+                    <button class="w-full text-left font-semibold text-[13px] text-slate-800 flex justify-between items-center py-3 outline-none" onclick="toggleFaq(this)">
+                        6. Which are the most popular tools available?
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon"></i>
+                    </button>
+                    <div class="faq-answer text-[11.5px] text-slate-500 leading-relaxed border-slate-100">
+                        <div class="pb-3 border-t border-slate-100 pt-3">
+                            Our top-ranked tools globally include the EMI Calculator, JSON Formatter, Image Compressor, URL Encoder, and Secure Password Generator.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ 7 -->
+                <div class="faq-item bg-white rounded-xl border border-slate-200 card-shadow px-4 py-1">
+                    <button class="w-full text-left font-semibold text-[13px] text-slate-800 flex justify-between items-center py-3 outline-none" onclick="toggleFaq(this)">
+                        7. Can I use Boostifyx tools on my mobile phone?
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon"></i>
+                    </button>
+                    <div class="faq-answer text-[11.5px] text-slate-500 leading-relaxed border-slate-100">
+                        <div class="pb-3 border-t border-slate-100 pt-3">
+                            Yes! Our website is 100% responsive and mobile-friendly. You get a smooth, app-like experience whether you are on an Android, iPhone, Tablet, or Desktop.
+                        </div>
+                    </div>
+                </div>
 
-                if(count > 4) {
-                    cGrid.innerHTML += `
-                    <div onclick="window.openAllCategories()" class="min-w-[70px] text-center border border-gray-100 bg-white rounded-xl p-2 shadow-sm cursor-pointer hover:bg-gray-50 transition-colors">
-                        <div class="w-10 h-10 mx-auto bg-gray-50 rounded-full flex items-center justify-center mb-1 text-primary text-lg"><i class="fa-solid fa-layer-group"></i></div>
-                        <div class="text-[10px] font-bold text-gray-800">More</div>
-                    </div>`;
+                <!-- FAQ 8 -->
+                <div class="faq-item bg-white rounded-xl border border-slate-200 card-shadow px-4 py-1">
+                    <button class="w-full text-left font-semibold text-[13px] text-slate-800 flex justify-between items-center py-3 outline-none" onclick="toggleFaq(this)">
+                        8. How fast are the web development tools?
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon"></i>
+                    </button>
+                    <div class="faq-answer text-[11.5px] text-slate-500 leading-relaxed border-slate-100">
+                        <div class="pb-3 border-t border-slate-100 pt-3">
+                            Lightning-fast. Tools like our JSON Formatter, Base64 Encoder, and Color Picker rely on advanced client-side processing, meaning they give you results in milliseconds.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 9 -->
+                <div class="faq-item bg-white rounded-xl border border-slate-200 card-shadow px-4 py-1">
+                    <button class="w-full text-left font-semibold text-[13px] text-slate-800 flex justify-between items-center py-3 outline-none" onclick="toggleFaq(this)">
+                        9. Do you add new tools regularly?
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon"></i>
+                    </button>
+                    <div class="faq-answer text-[11.5px] text-slate-500 leading-relaxed border-slate-100">
+                        <div class="pb-3 border-t border-slate-100 pt-3">
+                            Yes, we continuously update our platform and add new premium utilities to improve user productivity and workflow.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 10 -->
+                <div class="faq-item bg-white rounded-xl border border-slate-200 card-shadow px-4 py-1">
+                    <button class="w-full text-left font-semibold text-[13px] text-slate-800 flex justify-between items-center py-3 outline-none" onclick="toggleFaq(this)">
+                        10. How can I contact support?
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon"></i>
+                    </button>
+                    <div class="faq-answer text-[11.5px] text-slate-500 leading-relaxed border-slate-100">
+                        <div class="pb-3 border-t border-slate-100 pt-3">
+                            You can directly reach out to us via our 'Contact Support' page or by sending an email to rashidulali6908@gmail.com for feedback or queries.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ================= PRO FOOTER ================= -->
+        <footer class="bg-navy mt-auto rounded-t-3xl text-white px-6 pt-10 pb-6 relative overflow-hidden -mt-4">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-brandBlue/10 rounded-full blur-2xl"></div>
+            <div class="relative z-10 flex flex-col items-center text-center mb-8">
+                <div class="flex items-center gap-2 font-bold text-2xl tracking-wide mb-2 cursor-pointer" onclick="window.location.href='index.html'">
+                    <div class="bg-brandBlue p-1.5 rounded text-sm"><i class="fa-solid fa-bolt text-white"></i></div>
+                    <span>Boostifyx<span class="text-brandBlue">.in</span></span>
+                </div>
+                <p class="text-xs text-gray-400 max-w-[250px] leading-relaxed">
+                    Your ultimate toolkit for daily digital tasks.<br>
+                    <span class="text-brandBlue/90 font-medium">Simple. Fast. Free for everyone.</span>
+                </p>
+            </div>
+
+            <div class="relative z-10 grid grid-cols-2 gap-4 mb-8 text-[13px]">
+                <div class="flex flex-col gap-2.5">
+                    <h4 class="font-semibold text-gray-200 mb-1 flex items-center gap-1.5">🔗 Quick Links</h4>
+                    <a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a>
+                    <a href="contact.html" class="text-gray-400 hover:text-white transition">Contact Support</a>
+                    <a href="index.html" class="text-gray-400 hover:text-white transition">All Tools</a>
+                    <a href="#finance" class="text-gray-400 hover:text-white transition">Categories</a>
+                </div>
+                <div class="flex flex-col gap-2.5 text-right items-end">
+                    <h4 class="font-semibold text-gray-200 mb-1 flex items-center gap-1.5">⚖️ Legal Policy</h4>
+                    <a href="privacy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                    <a href="terms.html" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                    <a href="disclaimer.html" class="text-gray-400 hover:text-white transition">Disclaimer</a>
+                </div>
+            </div>
+
+            <div class="relative z-10 border-t border-white/10 pt-6 flex flex-col items-center gap-1.5 text-center">
+                <p class="text-xs text-gray-400">2026 Boostifyx.in — All Rights Reserved</p>
+                <p class="text-[10px] text-gray-500">Designed & Powered by <span class="text-gray-300 font-medium">Sazzidul Corporation</span></p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- MAIN JAVASCRIPT LOGIC -->
+    <script>
+        // --- Smooth FAQ Accordion Logic ---
+        function toggleFaq(button) {
+            const currentItem = button.parentElement;
+            const allItems = document.querySelectorAll('.faq-item');
+            
+            // Close all others
+            allItems.forEach(item => {
+                if(item !== currentItem) {
+                    item.classList.remove('active');
                 }
             });
 
-            // Fetch Products
-            onValue(ref(db, 'products'), (snapshot) => {
-                window.globalProducts = snapshot.val() || {};
-                
-                const tRow1 = document.getElementById('trending-row-1');
-                const tRow2 = document.getElementById('trending-row-2');
-                const oRow1 = document.getElementById('offers-row-1');
-                const oRow2 = document.getElementById('offers-row-2');
-                
-                tRow1.innerHTML = ''; tRow2.innerHTML = '';
-                oRow1.innerHTML = ''; oRow2.innerHTML = '';
-
-                let trendingKeys = Object.keys(window.globalProducts).filter(k => window.globalProducts[k].trending);
-                let offerKeys = Object.keys(window.globalProducts);
-
-                const halfTrend = Math.ceil(trendingKeys.length / 2);
-                trendingKeys.slice(0, halfTrend).forEach(k => tRow1.innerHTML += buildProductCard(k, window.globalProducts[k]));
-                trendingKeys.slice(halfTrend).forEach(k => tRow2.innerHTML += buildProductCard(k, window.globalProducts[k]));
-
-                const halfAll = Math.ceil(offerKeys.length / 2);
-                offerKeys.slice(0, halfAll).forEach(k => oRow1.innerHTML += buildProductCard(k, window.globalProducts[k]));
-                offerKeys.slice(halfAll).forEach(k => oRow2.innerHTML += buildProductCard(k, window.globalProducts[k]));
-            });
+            // Toggle current
+            currentItem.classList.toggle('active');
         }
 
-        window.openStoreView = function(title, isCategory = false) {
-            document.getElementById('store-title').innerText = title;
-            const vGrid = document.getElementById('store-vertical-grid');
-            vGrid.innerHTML = '';
-            
-            Object.keys(window.globalProducts).forEach(pid => {
-                const p = window.globalProducts[pid];
-                let match = false;
-                
-                if (isCategory) {
-                    let catId = Object.keys(window.globalCategories).find(key => window.globalCategories[key].name === title);
-                    match = (p.categoryId === catId);
-                } else {
-                    match = (p.store === title);
-                }
+        // --- Menu Slide ---
+        const sideMenu = document.getElementById('side-menu');
+        const menuOverlay = document.getElementById('menu-overlay');
 
-                if(match) vGrid.innerHTML += buildProductCard(pid, p, "w-full");
-            });
-            window.showView('store-view');
-        };
-
-        window.openDealsView = function() {
-            document.getElementById('store-title').innerText = "Top Deals For You";
-            const vGrid = document.getElementById('store-vertical-grid');
-            vGrid.innerHTML = '';
-            Object.keys(window.globalProducts).filter(k => window.globalProducts[k].trending).forEach(pid => {
-                vGrid.innerHTML += buildProductCard(pid, window.globalProducts[pid], "w-full");
-            });
-            window.showView('store-view');
-        };
-
-        window.openAllOffers = function() {
-            document.getElementById('store-title').innerText = "All Live Offers";
-            const vGrid = document.getElementById('store-vertical-grid');
-            vGrid.innerHTML = '';
-            Object.keys(window.globalProducts).forEach(pid => vGrid.innerHTML += buildProductCard(pid, window.globalProducts[pid], "w-full"));
-            window.showView('store-view');
-        };
-
-        window.openAllCategories = function() {
-            window.showView('categories-view');
-        };
-
-        window.openProductDetail = function(pid) {
-            currentPdpId = pid;
-            const p = window.globalProducts[pid];
-            if(!p) return;
-            
-            const slider = document.getElementById('pdp-image-slider');
-            const thumbs = document.getElementById('pdp-thumbnails');
-            slider.innerHTML = ''; thumbs.innerHTML = '';
-            
-            const images = p.images || ['https://via.placeholder.com/300'];
-            images.forEach((img, idx) => {
-                slider.innerHTML += `<div class="w-full h-full flex-shrink-0 snap-center flex items-center justify-center p-6"><img src="${img}" class="max-h-full object-contain mix-blend-multiply"></div>`;
-                thumbs.innerHTML += `<div class="w-2 h-2 rounded-full transition-all ${idx===0 ? 'bg-primary w-4' : 'bg-gray-300'}"></div>`;
-            });
-
-            slider.onscroll = () => {
-                const idx = Math.round(slider.scrollLeft / slider.clientWidth);
-                Array.from(thumbs.children).forEach((dot, i) => {
-                    dot.className = `h-2 rounded-full transition-all ${i===idx ? 'bg-primary w-4' : 'bg-gray-300 w-2'}`;
-                });
-            };
-            setTimeout(() => { slider.scrollLeft = 0; }, 10);
-
-            const price = Number(p.price) || 0;
-            const oldPrice = Number(p.oldPrice) || 0;
-            const discount = oldPrice > 0 ? Math.round(((oldPrice - price) / oldPrice) * 100) : 0;
-            const cbPct = p.cashbackPct || 0;
-            const cbAmount = Math.round(price * (cbPct/100));
-
-            document.getElementById('pdp-store-badge').innerHTML = `<i class="fa-solid fa-store mr-1 text-gray-400"></i> ${p.store || 'Store'}`;
-            document.getElementById('pdp-title').innerText = p.name || '';
-            document.getElementById('pdp-price').innerText = "₹" + price.toLocaleString();
-            document.getElementById('pdp-old-price').innerText = oldPrice > 0 ? ("₹" + oldPrice.toLocaleString()) : "";
-            document.getElementById('pdp-discount').innerText = discount > 0 ? (discount + "% OFF") : "";
-            
-            document.getElementById('pdp-cb-amount').innerText = `Up to ₹${cbAmount} Cashback`;
-            document.getElementById('pdp-bottom-price').innerText = "₹" + price.toLocaleString();
-            
-            document.getElementById('pdp-desc').innerText = p.desc || 'No description available.';
-            document.getElementById('pdp-buy-btn').onclick = () => window.open(p.affiliateLink || '#', '_blank');
-            document.getElementById('pdp-like-btn').classList.replace('text-red-500', 'text-gray-400');
-
-            // Dynamic Gmail Configuration
-            const subject = encodeURIComponent("Cashback Claim for " + p.name);
-            const body = encodeURIComponent(`Hello,\n\nI have placed an order for ${p.name}.\n\nOrder ID: \nPurchase Date: \n\n(Please attach your order screenshot here before sending!)\n\nThank you.`);
-            document.getElementById('pdp-gmail-btn').href = `mailto:rashidulali6908@gmail.com?subject=${subject}&body=${body}`;
-
-            window.showView('product-detail-view');
-        };
-
-        window.toggleLike = function(e) {
-            const btn = e.currentTarget;
-            if(btn.classList.contains('text-red-500')) btn.classList.replace('text-red-500', 'text-gray-400');
-            else btn.classList.replace('text-gray-400', 'text-red-500');
-        };
-
-        window.shareProduct = function() {
-            const p = window.globalProducts[currentPdpId];
-            if(!p) return;
-            const shareUrl = `https://www.boostifyx.in/?product=${currentPdpId}`;
-            if (navigator.share) {
-                navigator.share({ title: p.name, text: `Hey! Get Up to ${p.cashbackPct || 0}% Cashback on ${p.name}! 💰`, url: shareUrl }).catch(console.error);
-            } else { 
-                alert("Copy link to share: " + shareUrl); 
+        function toggleMenu() {
+            if (sideMenu.classList.contains('-translate-x-full')) {
+                sideMenu.classList.remove('-translate-x-full');
+                menuOverlay.classList.remove('hidden');
+                setTimeout(() => menuOverlay.classList.remove('opacity-0'), 10);
+                document.body.style.overflow = 'hidden';
+            } else {
+                sideMenu.classList.add('-translate-x-full');
+                menuOverlay.classList.add('opacity-0');
+                setTimeout(() => menuOverlay.classList.add('hidden'), 300);
+                document.body.style.overflow = 'auto';
             }
-        };
+        }
 
-        // Initialize fetching on load
-        initDataFetch();
+        // --- Search Bar Filter ---
+        const searchInput = document.getElementById('searchInput');
+        const toolSections = document.querySelectorAll('.tool-section');
+        const noResultsDiv = document.getElementById('no-results');
+        const elementsToHideOnSearch = [
+            document.getElementById('trending-wrapper'),
+            document.getElementById('divider-1'),
+            document.getElementById('features-wrapper'),
+            document.getElementById('faq-wrapper'),
+            document.getElementById('sticky-categories'),
+            ...document.querySelectorAll('.search-hide-ad')
+        ];
+
+        searchInput.addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase().trim();
+            let totalVisibleTools = 0;
+
+            if (query === '') {
+                toolSections.forEach(sec => sec.style.display = 'block');
+                document.querySelectorAll('.tool-card').forEach(card => card.style.display = 'flex');
+                noResultsDiv.style.display = 'none';
+                elementsToHideOnSearch.forEach(el => { if(el) el.style.display = 'flex'; });
+                document.getElementById('trending-wrapper').style.display = 'block';
+                document.getElementById('features-wrapper').style.display = 'block';
+                document.getElementById('faq-wrapper').style.display = 'block';
+                document.getElementById('sticky-categories').style.display = 'block';
+                return;
+            }
+
+            elementsToHideOnSearch.forEach(el => { if(el) el.style.display = 'none'; });
+
+            toolSections.forEach(section => {
+                let hasVisibleTools = false;
+                const tools = section.querySelectorAll('.tool-card');
+                tools.forEach(tool => {
+                    const title = tool.getAttribute('data-title');
+                    const desc = tool.getAttribute('data-desc');
+                    if (title.includes(query) || desc.includes(query)) {
+                        tool.style.display = 'flex';
+                        hasVisibleTools = true;
+                        totalVisibleTools++;
+                    } else {
+                        tool.style.display = 'none';
+                    }
+                });
+                section.style.display = hasVisibleTools ? 'block' : 'none';
+            });
+            noResultsDiv.style.display = (totalVisibleTools === 0) ? 'flex' : 'none';
+        });
+
+        // --- Trending Analytics ---
+        function updateTrending() {
+            let stats = JSON.parse(localStorage.getItem('boostifyx_stats')) || {};
+            let sortedTools = toolsData.map(tool => {
+                return { ...tool, totalViews: (stats[tool.id] || 0) + tool.defaultViews };
+            }).sort((a, b) => b.totalViews - a.totalViews).slice(0, 5);
+
+            const container = document.getElementById('trending-container');
+            let html = '';
+            sortedTools.forEach(t => {
+                html += `
+                <div class="flex-shrink-0 bg-white border border-slate-100 rounded-xl px-4 py-2.5 flex items-center gap-2.5 card-shadow cursor-pointer" onclick="recordClick('${t.id}', '${t.link}')">
+                    <div class="w-7 h-7 rounded-lg ${t.bg} ${t.color} flex items-center justify-center text-sm"><i class="fa-solid ${t.icon}"></i></div>
+                    <div class="flex flex-col">
+                        <span class="text-[13px] font-bold text-slate-700 leading-tight">${t.name}</span>
+                        <span class="text-[9px] text-slate-400 font-medium"><i class="fa-solid fa-arrow-trend-up text-[8px] mr-0.5"></i> Trending</span>
+                    </div>
+                </div>`;
+            });
+            container.innerHTML = html;
+        }
+
+        function recordClick(toolId, targetUrl) {
+            let stats = JSON.parse(localStorage.getItem('boostifyx_stats')) || {};
+            stats[toolId] = (stats[toolId] || 0) + 1;
+            localStorage.setItem('boostifyx_stats', JSON.stringify(stats));
+            window.location.href = targetUrl;
+        }
+
+        document.addEventListener('DOMContentLoaded', updateTrending);
     </script>
 </body>
 </html>
