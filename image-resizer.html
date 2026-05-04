@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- ADVANCED SEO META TAGS -->
+    <title>Image Resizer Online Free – Change Dimensions & Pixels | BoostifyX</title>
+    <meta name="description" content="Resize your images instantly. Change image dimensions (width & height) in pixels or percentage. 100% Free, secure, and works directly in your browser.">
+    <meta name="keywords" content="image resizer, resize image online, change image dimensions, reduce image width height, picture resizer free, resize photo">
+    <meta name="author" content="BoostifyX">
+    <link rel="canonical" href="https://boostifyx.in/image-resizer.html" />
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://boostifyx.in/image-resizer.html">
+    <meta property="og:title" content="Free Image Resizer Online | BoostifyX">
+    <meta property="og:description" content="Change photo width and height instantly without losing quality. No upload to server needed.">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Adsterra Popunders (Safe in Head) -->
+    <script src="https://pl29328467.profitablecpmratenetwork.com/b1/3a/cc/b13acc9740e47b78c81bd1f716464d78.js"></script>
+    <script src="https://pl29328470.profitablecpmratenetwork.com/c2/70/e5/c270e598d58b484b92bb80fe92789aff.js"></script>
+
+    <!-- Google Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "BoostifyX Image Resizer",
+      "operatingSystem": "Web",
+      "applicationCategory": "UtilitiesApplication",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], }, colors: { brandBlue: '#3B82F6', brandDark: '#0f172a' } } }
+        }
+    </script>
+
+    <style>
+        body { background-color: #f8fafc; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .card-shadow { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); border: 1px solid rgba(0,0,0,0.03); }
+        
+        /* Custom Upload Zone */
+        .upload-zone { border: 2px dashed #cbd5e1; transition: all 0.3s ease; }
+        .upload-zone.dragover { border-color: #3B82F6; background-color: #eff6ff; }
+        
+        /* Input Focus Glow */
+        .glow-focus:focus { box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); }
+
+        /* FAQ Accordion */
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; font-size: 13px; color: #64748b; }
+        .faq-box.active .faq-icon { transform: rotate(180deg); color: #3B82F6; }
+        .faq-box.active .faq-content { max-height: 200px; padding-top: 10px; border-top: 1px solid #f1f5f9; margin-top: 10px; }
+    </style>
+</head>
+<body class="text-slate-800 flex justify-center min-h-screen relative">
+
+    <!-- 1. PAGE LOAD POP-UP AD (Auto Close 5s or Manual Close) -->
+    <div id="page-load-ad" class="fixed inset-0 bg-black/90 z-[100] flex flex-col items-center justify-center backdrop-blur-sm px-4 opacity-0 transition-opacity duration-300 pointer-events-none">
+        <div class="bg-white p-2 rounded-2xl shadow-2xl relative max-w-[340px] w-full flex flex-col items-center transform scale-95 transition-transform duration-300" id="ad-box">
+            <button onclick="closePageLoadAd()" class="absolute -top-4 -right-4 bg-red-500 text-white w-9 h-9 rounded-full flex items-center justify-center border-2 border-white shadow-lg hover:bg-red-600 z-20 transition-transform hover:scale-110">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <span class="text-[10px] text-slate-400 font-bold uppercase mb-2 mt-1">Sponsor Advertisement</span>
+            <div class="w-[300px] h-[250px] bg-slate-100 flex items-center justify-center overflow-hidden rounded-lg">
+                <script>
+                  atOptions = { 'key' : '325051f2cd9932285cc209930b7b6c29', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };
+                </script>
+                <script src="https://www.highperformanceformat.com/325051f2cd9932285cc209930b7b6c29/invoke.js"></script>
+            </div>
+            <div class="mt-3 mb-2 text-[11px] font-semibold text-slate-500 bg-slate-100 px-4 py-1.5 rounded-full flex items-center gap-2">
+                <i class="fa-solid fa-spinner fa-spin text-brandBlue"></i> Closing in <span id="ad-timer" class="text-brandBlue font-bold text-sm">5</span>s
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div id="app-container" class="w-full max-w-[480px] bg-white min-h-screen relative shadow-2xl flex flex-col opacity-0 transition-opacity duration-500 pb-8">
+        
+        <!-- HEADER -->
+        <header class="bg-white border-b border-slate-100 flex items-center px-4 py-4 sticky top-0 z-20 shadow-sm">
+            <a href="index.html" class="p-2 -ml-2 text-slate-500 hover:text-brandBlue transition flex items-center gap-1.5 text-sm font-semibold">
+                <i class="fa-solid fa-house"></i> Home
+            </a>
+            <div class="mx-auto font-bold text-lg text-slate-800 pr-10">BoostifyX</div>
+        </header>
+
+        <main class="px-5 py-6 flex-1">
+            
+            <!-- Tool Title -->
+            <div class="text-center mb-6">
+                <h1 class="text-2xl font-extrabold text-slate-800 mb-2 tracking-tight">Image Resizer</h1>
+                <p class="text-[13px] text-slate-500 leading-relaxed font-medium">
+                    Change image dimensions (Width & Height) easily. 100% free and works locally in your browser.
+                </p>
+            </div>
+
+            <!-- 2. TOP BANNER AD (320x50) -->
+            <div class="w-full flex justify-center mb-6 overflow-hidden rounded-lg min-h-[50px] bg-slate-50 border border-slate-100">
+                <script>
+                  atOptions = { 'key' : '813ac3f88e00cda4dd606c27868f4998', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
+                </script>
+                <script src="https://www.highperformanceformat.com/813ac3f88e00cda4dd606c27868f4998/invoke.js"></script>
+            </div>
+
+            <!-- TOOL UI BOX -->
+            <div class="bg-white p-5 rounded-[24px] card-shadow border border-slate-100 mb-6">
+                
+                <!-- Upload Area -->
+                <div id="uploadZone" class="upload-zone rounded-2xl p-6 flex flex-col items-center justify-center bg-slate-50 cursor-pointer relative overflow-hidden mb-2">
+                    <input type="file" id="imageInput" accept="image/png, image/jpeg, image/webp" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
+                    <div class="bg-blue-100 text-brandBlue w-14 h-14 rounded-full flex items-center justify-center mb-3 shadow-inner">
+                        <i class="fa-solid fa-expand text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-700 mb-1">Upload to Resize</h3>
+                    <p class="text-[11px] text-slate-400 font-medium text-center">JPEG, PNG, WebP format</p>
+                </div>
+
+                <!-- Hidden Workspace (Visible after upload) -->
+                <div id="workspace" class="hidden">
+                    
+                    <!-- Preview Area -->
+                    <div class="flex items-center gap-4 bg-slate-50 p-3 rounded-xl border border-slate-100 mb-5 mt-2">
+                        <img id="previewImg" class="w-16 h-16 object-cover rounded-lg shadow-sm border border-slate-200" src="" alt="Preview">
+                        <div class="overflow-hidden">
+                            <p id="fileName" class="text-[13px] font-bold text-slate-700 truncate">image.jpg</p>
+                            <p class="text-[11px] text-slate-500 font-medium mt-0.5">Original: <span id="origDim" class="font-bold">1920x1080</span></p>
+                        </div>
+                        <button id="resetBtn" class="ml-auto text-slate-400 hover:text-rose-500 p-2"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+
+                    <!-- Resizing Controls -->
+                    <div class="bg-slate-800 p-4 rounded-[16px] shadow-lg mb-5 border border-slate-700 relative">
+                        <p class="text-[12px] text-slate-300 font-semibold mb-3 uppercase tracking-wider border-b border-slate-600 pb-2">New Dimensions (px)</p>
+                        
+                        <div class="flex items-center gap-4">
+                            <!-- Width -->
+                            <div class="flex-1">
+                                <label class="text-[10px] text-slate-400 uppercase font-bold mb-1 block">Width</label>
+                                <input type="number" id="widthInput" class="w-full bg-slate-900 border border-slate-600 text-white font-bold rounded-lg p-2.5 outline-none glow-focus transition text-center" placeholder="1080">
+                            </div>
+                            
+                            <!-- Lock Icon -->
+                            <div class="pt-4 flex flex-col items-center">
+                                <button id="lockBtn" class="text-emerald-400 hover:text-emerald-300 transition" title="Lock Aspect Ratio">
+                                    <i class="fa-solid fa-link text-lg" id="lockIcon"></i>
+                                </button>
+                            </div>
+
+                            <!-- Height -->
+                            <div class="flex-1">
+                                <label class="text-[10px] text-slate-400 uppercase font-bold mb-1 block">Height</label>
+                                <input type="number" id="heightInput" class="w-full bg-slate-900 border border-slate-600 text-white font-bold rounded-lg p-2.5 outline-none glow-focus transition text-center" placeholder="1080">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Download Button with Smart Monetization Click -->
+                    <button id="downloadBtn" class="w-full bg-brandBlue hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl transition-all shadow-[0_4px_15px_rgba(59,130,246,0.4)] flex items-center justify-center gap-2 transform active:scale-95">
+                        <i class="fa-solid fa-download"></i> Resize & Download
+                    </button>
+                    <p class="text-[10px] text-center text-slate-400 mt-2"><i class="fa-solid fa-lock text-emerald-500 mr-1"></i> Processed locally. No server upload.</p>
+                </div>
+            </div>
+
+            <!-- 3. MIDDLE NATIVE AD -->
+            <div class="w-full flex justify-center mb-6 overflow-hidden rounded-2xl bg-slate-50 min-h-[250px] border border-slate-100 shadow-sm">
+                <script async="async" data-cfasync="false" src="https://pl29328469.profitablecpmratenetwork.com/7c0513c8e22f42f980b06a1fa0c4ab2c/invoke.js"></script>
+                <div id="container-7c0513c8e22f42f980b06a1fa0c4ab2c"></div>
+            </div>
+
+            <!-- ADVANCED FAQ ACCORDION -->
+            <div class="bg-white p-5 rounded-[20px] card-shadow mb-6">
+                <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-question text-brandBlue"></i> Frequently Asked Questions
+                </h2>
+                <div class="space-y-2 border border-slate-100 rounded-xl p-1 bg-slate-50/50">
+                    <div class="faq-box rounded-lg p-3 cursor-pointer transition-all hover:bg-white" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center"><h3 class="font-bold text-[13px] text-slate-800">Q1. What does the "Lock" icon do?</h3><i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon transition-transform duration-300"></i></div>
+                        <div class="faq-content">The lock icon keeps the "Aspect Ratio" safe. This means if you change the width, the height will automatically adjust so your photo doesn't look stretched or squeezed.</div>
+                    </div>
+                    <div class="faq-box rounded-lg p-3 cursor-pointer transition-all hover:bg-white border-t border-slate-100" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center"><h3 class="font-bold text-[13px] text-slate-800">Q2. Is my picture uploaded online?</h3><i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon transition-transform duration-300"></i></div>
+                        <div class="faq-content">No. BoostifyX uses modern browser technologies to resize your images entirely on your device. It is 100% private and secure.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. BOTTOM BANNER AD (468x60) -->
+            <div class="w-full flex justify-center overflow-hidden rounded-xl bg-slate-50 min-h-[60px] mb-6 border border-slate-100">
+                <div class="transform scale-[0.95]">
+                    <script>
+                      atOptions = { 'key' : '170a48fef41011f11d7fe004dbc2d72a', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/170a48fef41011f11d7fe004dbc2d72a/invoke.js"></script>
+                </div>
+            </div>
+
+            <!-- RELATED TOOLS -->
+            <div>
+                <h2 class="text-sm font-bold text-slate-800 mb-3 ml-1">🔗 Try Other Image Tools</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <a href="image-compressor.html" class="bg-white p-3.5 rounded-[16px] border border-slate-100 card-shadow text-[12px] font-bold text-slate-700 flex items-center gap-2.5 hover:border-brandBlue hover:text-brandBlue transition-all"><i class="fa-solid fa-compress text-brandBlue text-lg"></i> Image Compressor</a>
+                    <a href="image-crop.html" class="bg-white p-3.5 rounded-[16px] border border-slate-100 card-shadow text-[12px] font-bold text-slate-700 flex items-center gap-2.5 hover:border-brandBlue hover:text-brandBlue transition-all"><i class="fa-solid fa-crop-simple text-emerald-500 text-lg"></i> Image Crop</a>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ADVANCED JAVASCRIPT LOGIC -->
+    <script>
+        // --- 1. POPUP AD Logic ---
+        const adPopup = document.getElementById('page-load-ad');
+        const adBox = document.getElementById('ad-box');
+        const appContainer = document.getElementById('app-container');
+        let countdown = 5;
+        let adTimerInterval;
+
+        function showPageLoadAd() {
+            adPopup.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => adBox.classList.remove('scale-95'), 50);
+            
+            adTimerInterval = setInterval(() => {
+                countdown--;
+                document.getElementById('ad-timer').innerText = countdown;
+                if (countdown <= 0) closePageLoadAd();
+            }, 1000);
+        }
+
+        function closePageLoadAd() {
+            clearInterval(adTimerInterval);
+            adPopup.classList.add('opacity-0', 'pointer-events-none');
+            appContainer.classList.remove('opacity-0');
+        }
+
+        // --- 2. SMART MONETIZATION LOGIC (Adsterra Direct Link on Clicks) ---
+        // Your Adsterra Direct Link here:
+        const adsterraDirectLink = "https://www.profitablecpmratenetwork.com/hsu74brun?key=d7a1fa9890aeb9356de9956923b832dd";
+        let downloadClickCount = 0; // Track clicks
+
+        function handleMonetizedClick(e) {
+            downloadClickCount++;
+            
+            // First click is free (does actual work). Second, third, etc. trigger the ad first!
+            if (downloadClickCount > 1) {
+                // Open Adsterra Direct Link in new tab quietly
+                window.open(adsterraDirectLink, '_blank');
+                
+                // Note: We don't stop the actual download from happening.
+                // The Ad opens in background/new tab, while tool still downloads the file, keeping user happy.
+            }
+            
+            processAndDownload(); // Do the actual tool job
+        }
+
+        // --- 3. RESIZER LOGIC ---
+        const imageInput = document.getElementById('imageInput');
+        const uploadZone = document.getElementById('uploadZone');
+        const workspace = document.getElementById('workspace');
+        
+        const previewImg = document.getElementById('previewImg');
+        const fileName = document.getElementById('fileName');
+        const origDim = document.getElementById('origDim');
+        const resetBtn = document.getElementById('resetBtn');
+        
+        const widthInput = document.getElementById('widthInput');
+        const heightInput = document.getElementById('heightInput');
+        const lockBtn = document.getElementById('lockBtn');
+        const lockIcon = document.getElementById('lockIcon');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        let originalFile = null;
+        let originalWidth = 0;
+        let originalHeight = 0;
+        let aspectRatio = 1;
+        let isLocked = true; // Lock aspect ratio by default
+
+        // Drag & Drop
+        imageInput.addEventListener('dragenter', () => uploadZone.classList.add('dragover'));
+        imageInput.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
+        imageInput.addEventListener('drop', () => uploadZone.classList.remove('dragover'));
+
+        // Handle File Upload
+        imageInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            if (!file.type.startsWith('image/')) {
+                alert('Please upload a valid image file.');
+                return;
+            }
+
+            originalFile = file;
+            fileName.innerText = file.name;
+            
+            uploadZone.classList.add('hidden');
+            workspace.classList.remove('hidden');
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                previewImg.src = event.target.result;
+                
+                // Get exact dimensions after load
+                previewImg.onload = () => {
+                    originalWidth = previewImg.naturalWidth;
+                    originalHeight = previewImg.naturalHeight;
+                    aspectRatio = originalWidth / originalHeight;
+                    
+                    origDim.innerText = `${originalWidth}x${originalHeight}`;
+                    widthInput.value = originalWidth;
+                    heightInput.value = originalHeight;
+                };
+            };
+            reader.readAsDataURL(file);
+        });
+
+        // Toggle Aspect Ratio Lock
+        lockBtn.addEventListener('click', () => {
+            isLocked = !isLocked;
+            if(isLocked) {
+                lockIcon.className = "fa-solid fa-link text-lg";
+                lockBtn.className = "text-emerald-400 hover:text-emerald-300 transition";
+                // Snap height to match current width
+                heightInput.value = Math.round(widthInput.value / aspectRatio);
+            } else {
+                lockIcon.className = "fa-solid fa-link-slash text-lg";
+                lockBtn.className = "text-slate-500 hover:text-slate-400 transition";
+            }
+        });
+
+        // Sync inputs if locked
+        widthInput.addEventListener('input', () => {
+            if(isLocked && widthInput.value > 0) {
+                heightInput.value = Math.round(widthInput.value / aspectRatio);
+            }
+        });
+
+        heightInput.addEventListener('input', () => {
+            if(isLocked && heightInput.value > 0) {
+                widthInput.value = Math.round(heightInput.value * aspectRatio);
+            }
+        });
+
+        // Download Action (Connected to Monetized Click)
+        downloadBtn.addEventListener('click', handleMonetizedClick);
+
+        function processAndDownload() {
+            if (!originalFile) return;
+
+            const finalWidth = parseInt(widthInput.value);
+            const finalHeight = parseInt(heightInput.value);
+
+            if(!finalWidth || !finalHeight || finalWidth <= 0 || finalHeight <= 0) {
+                alert("Please enter valid width and height.");
+                return;
+            }
+
+            // Draw new sized image on canvas
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = finalWidth;
+            canvas.height = finalHeight;
+            
+            // Image smoothing for better quality
+            ctx.imageSmoothingEnabled = true;
+            ctx.imageSmoothingQuality = 'high';
+            
+            ctx.drawImage(previewImg, 0, 0, finalWidth, finalHeight);
+            
+            // Generate Download
+            canvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                
+                const originalName = originalFile.name.split('.')[0];
+                link.download = `${originalName}_${finalWidth}x${finalHeight}.jpg`; // Keep it JPG for simplicity
+                
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                URL.revokeObjectURL(url);
+            }, 'image/jpeg', 0.95);
+        }
+
+        // Reset Workspace
+        resetBtn.addEventListener('click', () => {
+            originalFile = null;
+            imageInput.value = '';
+            workspace.classList.add('hidden');
+            uploadZone.classList.remove('hidden');
+        });
+
+        // --- 4. ADVANCED FAQ ACCORDION ---
+        function toggleFaq(element) {
+            const isActive = element.classList.contains('active');
+            document.querySelectorAll('.faq-box').forEach(box => box.classList.remove('active'));
+            if (!isActive) element.classList.add('active');
+        }
+
+        // --- 5. INITIALIZE ---
+        document.addEventListener('DOMContentLoaded', () => {
+            showPageLoadAd();
+        });
+    </script>
+</body>
+</html>
