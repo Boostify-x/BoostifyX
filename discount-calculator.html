@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- ADVANCED SEO META TAGS -->
+    <title>Discount Calculator Online Free – Check Final Price & Savings</title>
+    <meta name="description" content="Calculate your final product price after discount instantly. Find out exactly how much money you save during sales with our free Discount Calculator.">
+    <meta name="keywords" content="discount calculator, sale calculator, percentage calculator, discount final price, savings calculator, calculate discount free">
+    <meta name="author" content="BoostifyX">
+    <link rel="canonical" href="https://boostifyx.in/discount-calculator.html" />
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://boostifyx.in/discount-calculator.html">
+    <meta property="og:title" content="Discount Calculator Online | BoostifyX">
+    <meta property="og:description" content="Instantly calculate final price after discount and see exactly how much you save.">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js for Advanced Graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Adsterra Popunders (Safe in Head) -->
+    <script src="https://pl29328467.profitablecpmratenetwork.com/b1/3a/cc/b13acc9740e47b78c81bd1f716464d78.js"></script>
+    <script src="https://pl29328470.profitablecpmratenetwork.com/c2/70/e5/c270e598d58b484b92bb80fe92789aff.js"></script>
+
+    <!-- Google Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Discount Calculator",
+      "operatingSystem": "Web",
+      "applicationCategory": "ShoppingApplication",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], }, colors: { brandBlue: '#3B82F6', brandRed: '#f43f5e', brandGreen: '#10B981' } } }
+        }
+    </script>
+
+    <style>
+        body { background-color: #f8fafc; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .card-shadow { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); border: 1px solid rgba(0,0,0,0.03); }
+        
+        /* Premium Fintech Slider */
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; cursor: pointer; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 22px; width: 22px; border-radius: 50%; background: #ffffff; border: 4px solid #3B82F6; cursor: pointer; margin-top: -8px; box-shadow: 0 4px 12px rgba(59,130,246,0.5); transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        input[type=range]:active::-webkit-slider-thumb { transform: scale(1.2); border-color: #2563EB; }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; cursor: pointer; background: #E2E8F0; border-radius: 10px; }
+        
+        /* Advanced Results Box - Receipt Style */
+        .premium-box {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            position: relative;
+        }
+        /* Receipt zigzag edge effect */
+        .premium-box::after {
+            content: ""; position: absolute; bottom: -6px; left: 0; right: 0; height: 6px;
+            background-size: 12px 12px;
+            background-image: radial-gradient(circle at 6px 6px, transparent 6px, #1e293b 7px);
+        }
+
+        /* FAQ Accordion */
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; font-size: 13px; color: #64748b; }
+        .faq-box.active .faq-icon { transform: rotate(180deg); color: #3B82F6; }
+        .faq-box.active .faq-content { max-height: 150px; padding-top: 10px; border-top: 1px solid #f1f5f9; margin-top: 10px; }
+    </style>
+</head>
+<body class="text-slate-800 flex justify-center min-h-screen relative">
+
+    <!-- 1. PAGE LOAD POP-UP AD (Auto Close 5s) -->
+    <div id="page-load-ad" class="fixed inset-0 bg-black/90 z-[100] flex flex-col items-center justify-center backdrop-blur-sm px-4 opacity-0 transition-opacity duration-300 pointer-events-none">
+        <div class="bg-white p-2 rounded-2xl shadow-2xl relative max-w-[340px] w-full flex flex-col items-center transform scale-95 transition-transform duration-300" id="ad-box">
+            <button onclick="closePageLoadAd()" class="absolute -top-4 -right-4 bg-red-500 text-white w-9 h-9 rounded-full flex items-center justify-center border-2 border-white shadow-lg hover:bg-red-600 z-20 transition-transform hover:scale-110">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <span class="text-[10px] text-slate-400 font-bold uppercase mb-2 mt-1">Sponsor Advertisement</span>
+            <div class="w-[300px] h-[250px] bg-slate-100 flex items-center justify-center overflow-hidden rounded-lg">
+                <!-- Adsterra 300x250 -->
+                <script>
+                  atOptions = { 'key' : '325051f2cd9932285cc209930b7b6c29', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };
+                </script>
+                <script src="https://www.highperformanceformat.com/325051f2cd9932285cc209930b7b6c29/invoke.js"></script>
+            </div>
+            <div class="mt-3 mb-2 text-[11px] font-semibold text-slate-500 bg-slate-100 px-4 py-1.5 rounded-full flex items-center gap-2">
+                <i class="fa-solid fa-spinner fa-spin text-brandBlue"></i> Closing in <span id="ad-timer" class="text-brandBlue font-bold text-sm">5</span>s
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div id="app-container" class="w-full max-w-[480px] bg-white min-h-screen relative shadow-2xl flex flex-col opacity-0 transition-opacity duration-500 pb-8">
+        
+        <!-- HEADER -->
+        <header class="bg-white border-b border-slate-100 flex items-center px-4 py-4 sticky top-0 z-20 shadow-sm">
+            <a href="index.html" class="p-2 -ml-2 text-slate-500 hover:text-brandBlue transition flex items-center gap-1.5 text-sm font-semibold">
+                <i class="fa-solid fa-house"></i> Home
+            </a>
+            <div class="mx-auto font-bold text-lg text-slate-800 pr-10">BoostifyX</div>
+        </header>
+
+        <main class="px-5 py-6 flex-1">
+            
+            <!-- Tool Title -->
+            <div class="text-center mb-6">
+                <h1 class="text-2xl font-extrabold text-slate-800 mb-2 tracking-tight">Discount Calculator</h1>
+                <p class="text-[13px] text-slate-500 leading-relaxed font-medium">
+                    Shopping in a sale? Instantly find out how much you are actually paying and how much you save!
+                </p>
+            </div>
+
+            <!-- 2. TOP BANNER AD (320x50) -->
+            <div class="w-full flex justify-center mb-6 overflow-hidden rounded-lg min-h-[50px] bg-slate-50 border border-slate-100">
+                <script>
+                  atOptions = { 'key' : '813ac3f88e00cda4dd606c27868f4998', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
+                </script>
+                <script src="https://www.highperformanceformat.com/813ac3f88e00cda4dd606c27868f4998/invoke.js"></script>
+            </div>
+
+            <!-- CALCULATOR UI BOX -->
+            <div class="bg-white p-5 rounded-[24px] card-shadow border border-slate-100 mb-6">
+                
+                <!-- Original Price -->
+                <div class="mb-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <label class="text-[13px] font-bold text-slate-700">Original Price (MRP)</label>
+                        <div class="relative">
+                            <span class="absolute left-3 top-1.5 text-slate-400 font-bold">₹</span>
+                            <input type="number" id="priceInput" value="2500" class="bg-slate-50 border border-slate-200 rounded-xl pl-7 pr-3 py-1.5 text-right font-extrabold text-brandBlue w-32 outline-none focus:ring-2 focus:ring-brandBlue/50 transition shadow-inner">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Discount Percentage -->
+                <div class="mb-5">
+                    <div class="flex justify-between items-center mb-3">
+                        <label class="text-[13px] font-bold text-slate-700">Discount Rate</label>
+                        <div class="relative">
+                            <input type="number" id="discountInput" value="20" step="1" class="bg-slate-50 border border-slate-200 rounded-xl pr-7 pl-3 py-1.5 text-right font-extrabold text-brandBlue w-24 outline-none focus:ring-2 focus:ring-brandBlue/50 transition shadow-inner">
+                            <span class="absolute right-3 top-1.5 text-slate-400 font-bold">%</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Discount Chips -->
+                    <div class="grid grid-cols-5 gap-2 mb-4">
+                        <button onclick="setDiscount(10)" class="disc-btn py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 transition">10%</button>
+                        <button onclick="setDiscount(20)" class="disc-btn py-1.5 text-xs font-bold rounded-lg border-brandBlue bg-brandBlue text-white shadow-sm transition">20%</button>
+                        <button onclick="setDiscount(30)" class="disc-btn py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 transition">30%</button>
+                        <button onclick="setDiscount(50)" class="disc-btn py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 transition">50%</button>
+                        <button onclick="setDiscount(75)" class="disc-btn py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 transition">75%</button>
+                    </div>
+
+                    <input type="range" id="discountRange" min="0" max="100" step="1" value="20">
+                </div>
+
+                <!-- ADVANCED ANIMATED RESULTS BOX -->
+                <div class="premium-box rounded-t-[20px] rounded-b-[4px] p-6 text-center mb-4 shadow-xl">
+                    <div class="relative z-10">
+                        <p class="text-[12px] text-slate-300 font-medium mb-1 uppercase tracking-wider">Final Price to Pay</p>
+                        <!-- Animated Number Counter -->
+                        <h2 class="text-4xl font-extrabold text-white mb-5 tracking-tight" id="finalResult">₹ 2,000</h2>
+                        
+                        <div class="flex justify-between border-t border-slate-700/60 pt-4">
+                            <div class="text-left">
+                                <p class="text-[10px] text-slate-400 uppercase font-semibold tracking-wider">Original</p>
+                                <p class="text-lg font-bold text-slate-300 line-through decoration-brandRed" id="originalResult">₹ 2,500</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-[10px] text-brandGreen uppercase font-bold tracking-wider flex items-center justify-end gap-1"><i class="fa-solid fa-tag"></i> You Save</p>
+                                <p class="text-xl font-extrabold text-emerald-400" id="savedResult">₹ 500</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ADVANCED GRAPH -->
+                <div class="w-full max-w-[200px] mx-auto mt-6">
+                    <canvas id="discountChart"></canvas>
+                </div>
+            </div>
+
+            <!-- 3. MIDDLE NATIVE AD -->
+            <div class="w-full flex justify-center mb-6 overflow-hidden rounded-2xl bg-slate-50 min-h-[250px] border border-slate-100 shadow-sm">
+                <script async="async" data-cfasync="false" src="https://pl29328469.profitablecpmratenetwork.com/7c0513c8e22f42f980b06a1fa0c4ab2c/invoke.js"></script>
+                <div id="container-7c0513c8e22f42f980b06a1fa0c4ab2c"></div>
+            </div>
+
+            <!-- ADVANCED FAQ ACCORDION -->
+            <div class="bg-white p-5 rounded-[20px] card-shadow mb-6">
+                <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-question text-brandBlue"></i> Frequently Asked Questions
+                </h2>
+                <div class="space-y-2 border border-slate-100 rounded-xl p-1 bg-slate-50/50">
+                    <div class="faq-box rounded-lg p-3 cursor-pointer transition-all hover:bg-white" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center"><h3 class="font-bold text-[13px] text-slate-800">Q1. How is the discount calculated?</h3><i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon transition-transform duration-300"></i></div>
+                        <div class="faq-content">We simply calculate the percentage of the original price. E.g., a 20% discount on ₹100 means you save ₹20, and the final price becomes ₹80.</div>
+                    </div>
+                    <div class="faq-box rounded-lg p-3 cursor-pointer transition-all hover:bg-white border-t border-slate-100" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center"><h3 class="font-bold text-[13px] text-slate-800">Q2. What does "50% + 50% Off" mean in shops?</h3><i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon transition-transform duration-300"></i></div>
+                        <div class="faq-content">It does NOT mean the item is free (100% off). It means they first give a 50% discount on the MRP, and then give another 50% discount on the new reduced price. The actual total discount is 75%.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. BOTTOM BANNER AD (468x60) -->
+            <div class="w-full flex justify-center overflow-hidden rounded-xl bg-slate-50 min-h-[60px] mb-6 border border-slate-100">
+                <div class="transform scale-[0.95]">
+                    <script>
+                      atOptions = { 'key' : '170a48fef41011f11d7fe004dbc2d72a', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/170a48fef41011f11d7fe004dbc2d72a/invoke.js"></script>
+                </div>
+            </div>
+
+            <!-- RELATED TOOLS -->
+            <div>
+                <h2 class="text-sm font-bold text-slate-800 mb-3 ml-1">🔗 Try Other Tools</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <a href="gst-calculator.html" class="bg-white p-3.5 rounded-[16px] border border-slate-100 card-shadow text-[12px] font-bold text-slate-700 flex items-center gap-2.5 hover:border-brandBlue hover:text-brandBlue transition-all"><i class="fa-solid fa-percent text-blue-500 text-lg"></i> GST Calc</a>
+                    <a href="emi-calculator.html" class="bg-white p-3.5 rounded-[16px] border border-slate-100 card-shadow text-[12px] font-bold text-slate-700 flex items-center gap-2.5 hover:border-brandBlue hover:text-brandBlue transition-all"><i class="fa-solid fa-calculator text-emerald-500 text-lg"></i> EMI Calc</a>
+                    <a href="sip-calculator.html" class="bg-white p-3.5 rounded-[16px] border border-slate-100 card-shadow text-[12px] font-bold text-slate-700 flex items-center gap-2.5 hover:border-brandBlue hover:text-brandBlue transition-all"><i class="fa-solid fa-chart-line text-orange-500 text-lg"></i> SIP Calc</a>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ADVANCED JAVASCRIPT LOGIC -->
+    <script>
+        // --- 1. DOM Elements ---
+        const priceInput = document.getElementById('priceInput');
+        const discountInput = document.getElementById('discountInput');
+        const discountRange = document.getElementById('discountRange');
+
+        const finalResult = document.getElementById('finalResult');
+        const originalResult = document.getElementById('originalResult');
+        const savedResult = document.getElementById('savedResult');
+        
+        const chartCanvas = document.getElementById('discountChart');
+        let discountChartInstance = null;
+
+        // State variables for animation tracking
+        let prevFinal = 0;
+        let prevSaved = 0;
+
+        // --- 2. POPUP AD Logic ---
+        const adPopup = document.getElementById('page-load-ad');
+        const adBox = document.getElementById('ad-box');
+        const appContainer = document.getElementById('app-container');
+        let countdown = 5;
+        let adTimerInterval;
+
+        function showPageLoadAd() {
+            adPopup.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => adBox.classList.remove('scale-95'), 50); // pop animation
+            
+            adTimerInterval = setInterval(() => {
+                countdown--;
+                document.getElementById('ad-timer').innerText = countdown;
+                if (countdown <= 0) closePageLoadAd();
+            }, 1000);
+        }
+
+        function closePageLoadAd() {
+            clearInterval(adTimerInterval);
+            adPopup.classList.add('opacity-0', 'pointer-events-none');
+            appContainer.classList.remove('opacity-0');
+        }
+
+        // --- 3. LIVE NUMBER COUNTER ANIMATION ---
+        function animateValue(obj, start, end, duration, prefix = '₹ ') {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                // Ease out cubic
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                const current = Math.floor(easeOut * (end - start) + start);
+                
+                obj.innerText = prefix + formatCurrency(current);
+                
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    obj.innerText = prefix + formatCurrency(end); // force exact end value
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        function formatCurrency(num) {
+            return new Intl.NumberFormat('en-IN', { maximumFractionDigits: 0 }).format(num);
+        }
+
+        // --- 4. QUICK DISCOUNT CHIPS LOGIC ---
+        function setDiscount(val) {
+            discountInput.value = val;
+            discountRange.value = val;
+            updateSliderBackground(discountRange);
+            
+            document.querySelectorAll('.disc-btn').forEach(btn => {
+                btn.className = "disc-btn py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 transition";
+            });
+            const clickedBtn = Array.from(document.querySelectorAll('.disc-btn')).find(b => b.innerText === val + '%');
+            if(clickedBtn) {
+                clickedBtn.className = "disc-btn py-1.5 text-xs font-bold rounded-lg border-brandBlue bg-brandBlue text-white shadow-sm transition";
+            }
+            calculateDiscount();
+        }
+
+        // --- 5. ADVANCED CHART SETUP ---
+        function createOrUpdateChart(finalPrice, savedAmount) {
+            if (discountChartInstance) {
+                discountChartInstance.data.datasets[0].data = [finalPrice, savedAmount];
+                discountChartInstance.update();
+            } else {
+                const ctx = chartCanvas.getContext('2d');
+                discountChartInstance = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['You Pay', 'You Save'],
+                        datasets: [{
+                            data: [finalPrice, savedAmount],
+                            backgroundColor: ['#3B82F6', '#10B981'], // Blue for Pay, Green for Save
+                            hoverBackgroundColor: ['#2563EB', '#059669'],
+                            borderWidth: 0,
+                            borderRadius: 4, 
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        cutout: '75%',
+                        animation: { animateScale: true, animateRotate: true, duration: 800, easing: 'easeOutQuart' },
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                backgroundColor: '#1e293b',
+                                titleFont: { family: 'Inter', size: 11 },
+                                bodyFont: { family: 'Inter', size: 13, weight: 'bold' },
+                                padding: 10, cornerRadius: 8, displayColors: false,
+                                callbacks: { label: (c) => `${c.label}: ₹ ${formatCurrency(c.raw)}` }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // --- 6. CORE MATH LOGIC ---
+        function calculateDiscount() {
+            const P = parseFloat(priceInput.value) || 0;
+            const discountRate = parseFloat(discountInput.value) || 0;
+
+            // Cap discount at 100%
+            const safeRate = discountRate > 100 ? 100 : discountRate;
+
+            const savedAmount = (P * safeRate) / 100;
+            const finalPrice = P - savedAmount;
+
+            // Trigger Animations
+            animateValue(finalResult, prevFinal, finalPrice, 600);
+            animateValue(savedResult, prevSaved, savedAmount, 600);
+            originalResult.innerText = `₹ ${formatCurrency(P)}`;
+
+            // Update state
+            prevFinal = finalPrice;
+            prevSaved = savedAmount;
+
+            // Update Chart
+            createOrUpdateChart(finalPrice, savedAmount);
+        }
+
+        // --- 7. SLIDER & INPUT SYNC ---
+        function setupEventListeners() {
+            priceInput.addEventListener('input', calculateDiscount);
+            
+            discountInput.addEventListener('input', () => {
+                discountRange.value = discountInput.value;
+                updateSliderBackground(discountRange);
+                // Reset chips if custom value entered
+                document.querySelectorAll('.disc-btn').forEach(btn => {
+                    btn.className = "disc-btn py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 transition";
+                });
+                calculateDiscount();
+            });
+
+            discountRange.addEventListener('input', () => {
+                discountInput.value = discountRange.value;
+                updateSliderBackground(discountRange);
+                calculateDiscount();
+            });
+        }
+        
+        function updateSliderBackground(slider) {
+            const min = slider.min;
+            const max = slider.max;
+            const val = slider.value;
+            const percentage = (val - min) * 100 / (max - min);
+            slider.style.background = `linear-gradient(to right, #3B82F6 ${percentage}%, #E2E8F0 ${percentage}%)`;
+        }
+
+        // --- 8. ADVANCED FAQ ACCORDION ---
+        function toggleFaq(element) {
+            const isActive = element.classList.contains('active');
+            document.querySelectorAll('.faq-box').forEach(box => box.classList.remove('active'));
+            if (!isActive) element.classList.add('active');
+        }
+
+        // --- 9. INITIALIZE ---
+        document.addEventListener('DOMContentLoaded', () => {
+            showPageLoadAd();
+            setupEventListeners();
+            
+            // Set initial state without animation
+            const initialP = parseFloat(priceInput.value) || 0;
+            const initialDisc = parseFloat(discountInput.value) || 0;
+            prevSaved = (initialP * initialDisc) / 100;
+            prevFinal = initialP - prevSaved;
+
+            updateSliderBackground(discountRange);
+            
+            finalResult.innerText = `₹ ${formatCurrency(prevFinal)}`;
+            savedResult.innerText = `₹ ${formatCurrency(prevSaved)}`;
+            originalResult.innerText = `₹ ${formatCurrency(initialP)}`;
+            
+            createOrUpdateChart(prevFinal, prevSaved);
+        });
+    </script>
+</body>
+</html>
