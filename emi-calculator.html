@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- ADVANCED SEO META TAGS -->
+    <title>EMI Calculator Online Free – Advanced Loan EMI Calc | BoostifyX</title>
+    <meta name="description" content="Calculate your loan EMI instantly. Use our advanced EMI calculator with live interactive graphs to plan your home, car, or personal loan repayments.">
+    <meta name="keywords" content="emi calculator, loan emi calculator, home loan emi, car loan emi, personal loan emi, advanced emi calculator, calculate emi free">
+    <meta name="author" content="BoostifyX">
+    <link rel="canonical" href="https://boostifyx.in/emi-calculator.html" />
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://boostifyx.in/emi-calculator.html">
+    <meta property="og:title" content="Advanced EMI Calculator | BoostifyX">
+    <meta property="og:description" content="Instantly calculate your monthly loan EMI with our ultra-fast and animated tool.">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js for Advanced Graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Adsterra Popunders (Safe in Head) -->
+    <script src="https://pl29328467.profitablecpmratenetwork.com/b1/3a/cc/b13acc9740e47b78c81bd1f716464d78.js"></script>
+    <script src="https://pl29328470.profitablecpmratenetwork.com/c2/70/e5/c270e598d58b484b92bb80fe92789aff.js"></script>
+
+    <!-- Google Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Advanced EMI Calculator",
+      "operatingSystem": "Web",
+      "applicationCategory": "FinanceApplication",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is EMI?", "acceptedAnswer": { "@type": "Answer", "text": "EMI stands for Equated Monthly Installment. It is a fixed payment amount made by a borrower to a lender at a specified date each calendar month." } },
+        { "@type": "Question", "name": "How does this EMI Calculator work?", "acceptedAnswer": { "@type": "Answer", "text": "It uses the standard mathematical formula based on your Loan Amount, Interest Rate, and Tenure to calculate the exact monthly payment and total interest payable." } }
+      ]
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], }, colors: { brandBlue: '#3B82F6', brandRose: '#fb7185' } } }
+        }
+    </script>
+
+    <style>
+        body { background-color: #f8fafc; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .card-shadow { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); border: 1px solid rgba(0,0,0,0.03); }
+        
+        /* Premium Fintech Slider */
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; cursor: pointer; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 22px; width: 22px; border-radius: 50%; background: #ffffff; border: 4px solid #3B82F6; cursor: pointer; margin-top: -8px; box-shadow: 0 4px 12px rgba(59,130,246,0.5); transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        input[type=range]:active::-webkit-slider-thumb { transform: scale(1.2); border-color: #2563EB; }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; cursor: pointer; background: #E2E8F0; border-radius: 10px; }
+        
+        /* Advanced Results Box Grid Background */
+        .premium-box {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            position: relative;
+        }
+        .premium-box::before {
+            content: ''; position: absolute; inset: 0; opacity: 0.1;
+            background-image: radial-gradient(#ffffff 1px, transparent 1px);
+            background-size: 16px 16px;
+        }
+
+        /* FAQ Accordion */
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; font-size: 13px; color: #64748b; }
+        .faq-box.active .faq-icon { transform: rotate(180deg); color: #3B82F6; }
+        .faq-box.active .faq-content { max-height: 150px; padding-top: 10px; border-top: 1px solid #f1f5f9; margin-top: 10px; }
+    </style>
+</head>
+<body class="text-slate-800 flex justify-center min-h-screen relative">
+
+    <!-- 1. PAGE LOAD POP-UP AD (Auto Close 5s) -->
+    <div id="page-load-ad" class="fixed inset-0 bg-black/90 z-[100] flex flex-col items-center justify-center backdrop-blur-sm px-4 opacity-0 transition-opacity duration-300 pointer-events-none">
+        <div class="bg-white p-2 rounded-2xl shadow-2xl relative max-w-[340px] w-full flex flex-col items-center transform scale-95 transition-transform duration-300" id="ad-box">
+            <button onclick="closePageLoadAd()" class="absolute -top-4 -right-4 bg-red-500 text-white w-9 h-9 rounded-full flex items-center justify-center border-2 border-white shadow-lg hover:bg-red-600 z-20 transition-transform hover:scale-110">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <span class="text-[10px] text-slate-400 font-bold uppercase mb-2 mt-1">Sponsor Advertisement</span>
+            <div class="w-[300px] h-[250px] bg-slate-100 flex items-center justify-center overflow-hidden rounded-lg">
+                <!-- Adsterra 300x250 -->
+                <script>
+                  atOptions = { 'key' : '325051f2cd9932285cc209930b7b6c29', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };
+                </script>
+                <script src="https://www.highperformanceformat.com/325051f2cd9932285cc209930b7b6c29/invoke.js"></script>
+            </div>
+            <div class="mt-3 mb-2 text-[11px] font-semibold text-slate-500 bg-slate-100 px-4 py-1.5 rounded-full flex items-center gap-2">
+                <i class="fa-solid fa-spinner fa-spin text-brandBlue"></i> Closing in <span id="ad-timer" class="text-brandBlue font-bold text-sm">5</span>s
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div id="app-container" class="w-full max-w-[480px] bg-white min-h-screen relative shadow-2xl flex flex-col opacity-0 transition-opacity duration-500">
+        
+        <!-- HEADER -->
+        <header class="bg-white border-b border-slate-100 flex items-center px-4 py-4 sticky top-0 z-20 shadow-sm">
+            <a href="index.html" class="p-2 -ml-2 text-slate-500 hover:text-brandBlue transition flex items-center gap-1.5 text-sm font-semibold">
+                <i class="fa-solid fa-house"></i> Home
+            </a>
+            <div class="mx-auto font-bold text-lg text-slate-800 pr-10">BoostifyX</div>
+        </header>
+
+        <main class="px-5 py-6 flex-1">
+            
+            <!-- Tool Title -->
+            <div class="text-center mb-6">
+                <h1 class="text-2xl font-extrabold text-slate-800 mb-2 tracking-tight">EMI Calculator <span class="bg-brandBlue/10 text-brandBlue text-[10px] px-2 py-0.5 rounded-full align-top uppercase tracking-wider">Pro</span></h1>
+                <p class="text-[13px] text-slate-500 leading-relaxed font-medium">
+                    Plan your loan intelligently. Calculate your Equated Monthly Installment with precision.
+                </p>
+            </div>
+
+            <!-- 2. TOP BANNER AD (320x50) -->
+            <div class="w-full flex justify-center mb-6 overflow-hidden rounded-lg min-h-[50px] bg-slate-50 border border-slate-100">
+                <script>
+                  atOptions = { 'key' : '813ac3f88e00cda4dd606c27868f4998', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
+                </script>
+                <script src="https://www.highperformanceformat.com/813ac3f88e00cda4dd606c27868f4998/invoke.js"></script>
+            </div>
+
+            <!-- CALCULATOR UI BOX -->
+            <div class="bg-white p-5 rounded-[24px] card-shadow border border-slate-100 mb-6">
+                
+                <!-- Loan Amount -->
+                <div class="mb-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <label class="text-[13px] font-bold text-slate-700">Loan Amount</label>
+                        <div class="relative">
+                            <span class="absolute left-3 top-1.5 text-slate-400 font-bold">₹</span>
+                            <input type="number" id="loanInput" value="500000" class="bg-slate-50 border border-slate-200 rounded-xl pl-7 pr-3 py-1.5 text-right font-extrabold text-brandBlue w-32 outline-none focus:ring-2 focus:ring-brandBlue/50 transition shadow-inner">
+                        </div>
+                    </div>
+                    <input type="range" id="loanRange" min="10000" max="10000000" step="10000" value="500000">
+                </div>
+
+                <!-- Interest Rate -->
+                <div class="mb-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <label class="text-[13px] font-bold text-slate-700">Interest Rate (p.a)</label>
+                        <div class="relative">
+                            <input type="number" id="rateInput" value="8.5" step="0.1" class="bg-slate-50 border border-slate-200 rounded-xl pr-7 pl-3 py-1.5 text-right font-extrabold text-brandBlue w-24 outline-none focus:ring-2 focus:ring-brandBlue/50 transition shadow-inner">
+                            <span class="absolute right-3 top-1.5 text-slate-400 font-bold">%</span>
+                        </div>
+                    </div>
+                    <input type="range" id="rateRange" min="1" max="30" step="0.1" value="8.5">
+                </div>
+
+                <!-- Loan Tenure -->
+                <div class="mb-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <label class="text-[13px] font-bold text-slate-700">Loan Tenure</label>
+                        <div class="relative">
+                            <input type="number" id="tenureInput" value="10" class="bg-slate-50 border border-slate-200 rounded-xl pr-8 pl-3 py-1.5 text-right font-extrabold text-brandBlue w-24 outline-none focus:ring-2 focus:ring-brandBlue/50 transition shadow-inner">
+                            <span class="absolute right-3 top-2 text-[10px] uppercase text-slate-400 font-bold">Yr</span>
+                        </div>
+                    </div>
+                    <input type="range" id="tenureRange" min="1" max="30" step="1" value="10">
+                </div>
+
+                <!-- ADVANCED ANIMATED RESULTS BOX -->
+                <div class="premium-box rounded-[20px] p-6 text-center mb-6 shadow-2xl overflow-hidden border border-slate-700 relative">
+                    <div class="relative z-10">
+                        <p class="text-[12px] text-slate-300 font-medium mb-1 uppercase tracking-wider">Monthly EMI</p>
+                        <!-- Animated Number Counter -->
+                        <h2 class="text-4xl font-extrabold text-emerald-400 mb-5 tracking-tight" id="emiResult">₹ 6,199</h2>
+                        
+                        <div class="flex justify-between border-t border-slate-700/60 pt-4">
+                            <div class="text-left">
+                                <p class="text-[10px] text-slate-400 uppercase font-semibold tracking-wider">Principal</p>
+                                <p class="text-lg font-bold text-white" id="principalResult">₹ 5,00,000</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-[10px] text-slate-400 uppercase font-semibold tracking-wider">Total Interest</p>
+                                <p class="text-lg font-bold text-brandRose" id="interestResult">₹ 2,43,911</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ADVANCED GRAPH WITH CENTER TEXT -->
+                <div class="w-full max-w-[240px] mx-auto relative mt-2">
+                    <canvas id="emiChart"></canvas>
+                    <!-- Center Overlay Absolute Data -->
+                    <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none mt-2">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Total Pay</span>
+                        <span id="chartCenterText" class="text-lg font-extrabold text-slate-800">7.4L</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. MIDDLE NATIVE AD -->
+            <div class="w-full flex justify-center mb-6 overflow-hidden rounded-2xl bg-slate-50 min-h-[250px] border border-slate-100 shadow-sm">
+                <script async="async" data-cfasync="false" src="https://pl29328469.profitablecpmratenetwork.com/7c0513c8e22f42f980b06a1fa0c4ab2c/invoke.js"></script>
+                <div id="container-7c0513c8e22f42f980b06a1fa0c4ab2c"></div>
+            </div>
+
+            <!-- SEO CONTENT & FAQ -->
+            <div class="bg-white p-5 rounded-[20px] card-shadow mb-6">
+                <h2 class="text-lg font-bold text-slate-800 mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-lightbulb text-amber-500"></i> Smart EMI Planning
+                </h2>
+                <p class="text-[13px] text-slate-600 leading-relaxed mb-4">
+                    Knowing your Equated Monthly Installment (EMI) helps you budget your monthly expenses better. Try adjusting the loan tenure slider: increasing the tenure lowers your monthly EMI but significantly increases the total interest you pay to the bank!
+                </p>
+            </div>
+
+            <!-- ADVANCED FAQ ACCORDION -->
+            <div class="bg-white p-5 rounded-[20px] card-shadow mb-6">
+                <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-question text-brandBlue"></i> Frequently Asked Questions
+                </h2>
+                <div class="space-y-2 border border-slate-100 rounded-xl p-1 bg-slate-50/50">
+                    <div class="faq-box rounded-lg p-3 cursor-pointer transition-all hover:bg-white" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center"><h3 class="font-bold text-[13px] text-slate-800">Q1. Can I use this for Home Loans?</h3><i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon transition-transform duration-300"></i></div>
+                        <div class="faq-content">Yes, this calculator works perfectly for Home Loans, Personal Loans, Car Loans, and Education Loans. Just enter the respective interest rate.</div>
+                    </div>
+                    <div class="faq-box rounded-lg p-3 cursor-pointer transition-all hover:bg-white border-t border-slate-100" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center"><h3 class="font-bold text-[13px] text-slate-800">Q2. Is EMI calculated on a flat or reducing rate?</h3><i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon transition-transform duration-300"></i></div>
+                        <div class="faq-content">This tool uses the reducing balance method, which is the standard formula used by all major Indian banks and financial institutions.</div>
+                    </div>
+                    <div class="faq-box rounded-lg p-3 cursor-pointer transition-all hover:bg-white border-t border-slate-100" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center"><h3 class="font-bold text-[13px] text-slate-800">Q3. Does prepayment reduce my EMI?</h3><i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon transition-transform duration-300"></i></div>
+                        <div class="faq-content">Prepaying a chunk of your loan reduces your outstanding principal. This will either reduce your remaining loan tenure or lower your upcoming EMI amounts depending on the bank's policy.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. BOTTOM BANNER AD (468x60) -->
+            <div class="w-full flex justify-center overflow-hidden rounded-xl bg-slate-50 min-h-[60px] mb-6 border border-slate-100">
+                <div class="transform scale-[0.95]">
+                    <script>
+                      atOptions = { 'key' : '170a48fef41011f11d7fe004dbc2d72a', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/170a48fef41011f11d7fe004dbc2d72a/invoke.js"></script>
+                </div>
+            </div>
+
+            <!-- RELATED TOOLS -->
+            <div>
+                <h2 class="text-sm font-bold text-slate-800 mb-3 ml-1">🔗 Explore More Tools</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <a href="sip-calculator.html" class="bg-white p-3.5 rounded-[16px] border border-slate-100 card-shadow text-[12px] font-bold text-slate-700 flex items-center gap-2.5 hover:border-brandBlue hover:text-brandBlue transition-all"><i class="fa-solid fa-chart-line text-blue-500 text-lg"></i> SIP Calc</a>
+                    <a href="gst-calculator.html" class="bg-white p-3.5 rounded-[16px] border border-slate-100 card-shadow text-[12px] font-bold text-slate-700 flex items-center gap-2.5 hover:border-brandBlue hover:text-brandBlue transition-all"><i class="fa-solid fa-percent text-emerald-500 text-lg"></i> GST Calc</a>
+                    <a href="loan-interest-calculator.html" class="bg-white p-3.5 rounded-[16px] border border-slate-100 card-shadow text-[12px] font-bold text-slate-700 flex items-center gap-2.5 hover:border-brandBlue hover:text-brandBlue transition-all"><i class="fa-solid fa-building-columns text-orange-500 text-lg"></i> Loan Int.</a>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="bg-white border-t border-slate-200 py-6 text-center mt-4">
+            <p class="text-xs text-slate-400 font-medium">&copy; 2024 BoostifyX — Build Wealth Smartly</p>
+        </footer>
+    </div>
+
+    <!-- ADVANCED JAVASCRIPT LOGIC -->
+    <script>
+        // --- 1. DOM Elements ---
+        const loanInput = document.getElementById('loanInput');
+        const loanRange = document.getElementById('loanRange');
+        const rateInput = document.getElementById('rateInput');
+        const rateRange = document.getElementById('rateRange');
+        const tenureInput = document.getElementById('tenureInput');
+        const tenureRange = document.getElementById('tenureRange');
+
+        const emiResult = document.getElementById('emiResult');
+        const principalResult = document.getElementById('principalResult');
+        const interestResult = document.getElementById('interestResult');
+        const chartCenterText = document.getElementById('chartCenterText');
+        
+        const chartCanvas = document.getElementById('emiChart');
+        let emiChartInstance = null;
+
+        // State variables for animation tracking
+        let prevEmi = 0;
+        let prevPrincipal = 0;
+        let prevInterest = 0;
+
+        // --- 2. POPUP AD Logic ---
+        const adPopup = document.getElementById('page-load-ad');
+        const adBox = document.getElementById('ad-box');
+        const appContainer = document.getElementById('app-container');
+        let countdown = 5;
+        let adTimerInterval;
+
+        function showPageLoadAd() {
+            adPopup.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => adBox.classList.remove('scale-95'), 50); // pop animation
+            
+            adTimerInterval = setInterval(() => {
+                countdown--;
+                document.getElementById('ad-timer').innerText = countdown;
+                if (countdown <= 0) closePageLoadAd();
+            }, 1000);
+        }
+
+        function closePageLoadAd() {
+            clearInterval(adTimerInterval);
+            adPopup.classList.add('opacity-0', 'pointer-events-none');
+            appContainer.classList.remove('opacity-0');
+        }
+
+        // --- 3. LIVE NUMBER COUNTER ANIMATION ---
+        function animateValue(obj, start, end, duration, prefix = '₹ ') {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                // Ease out cubic
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                const current = Math.floor(easeOut * (end - start) + start);
+                
+                obj.innerText = prefix + formatCurrency(current);
+                
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    obj.innerText = prefix + formatCurrency(end); // force exact end value
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        function formatCurrency(num) {
+            return new Intl.NumberFormat('en-IN', { maximumFractionDigits: 0 }).format(num);
+        }
+
+        // Formats large numbers for Chart Center (e.g., 7.4L, 1.2Cr)
+        function formatCompact(num) {
+            if (num >= 10000000) return (num / 10000000).toFixed(2) + 'Cr';
+            if (num >= 100000) return (num / 100000).toFixed(2) + 'L';
+            if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+            return num.toFixed(0);
+        }
+
+        // --- 4. ADVANCED FINTECH CHART SETUP ---
+        function createOrUpdateChart(principal, interest, totalAmount) {
+            // Update Center Text
+            chartCenterText.innerText = formatCompact(totalAmount);
+
+            if (emiChartInstance) {
+                emiChartInstance.data.datasets[0].data = [principal, interest];
+                emiChartInstance.update();
+            } else {
+                const ctx = chartCanvas.getContext('2d');
+                emiChartInstance = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Principal', 'Total Interest'],
+                        datasets: [{
+                            data: [principal, interest],
+                            backgroundColor: ['#3B82F6', '#fb7185'], // Brand Blue & Brand Rose
+                            hoverBackgroundColor: ['#2563EB', '#f43f5e'],
+                            borderWidth: 0,
+                            borderRadius: 4, // Rounded chart edges
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        cutout: '82%', // Thinner ring for premium look
+                        animation: {
+                            animateScale: true,
+                            animateRotate: true,
+                            duration: 1200,
+                            easing: 'easeOutQuart'
+                        },
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                backgroundColor: '#1e293b',
+                                titleFont: { family: 'Inter', size: 11 },
+                                bodyFont: { family: 'Inter', size: 13, weight: 'bold' },
+                                padding: 10,
+                                cornerRadius: 8,
+                                displayColors: false,
+                                callbacks: { label: (c) => `${c.label}: ₹ ${formatCurrency(c.raw)}` }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // --- 5. CORE MATH LOGIC ---
+        function calculateEMI() {
+            const P = parseFloat(loanInput.value) || 0;
+            const annualRate = parseFloat(rateInput.value) || 0;
+            const years = parseFloat(tenureInput.value) || 0;
+            const N = years * 12;
+
+            let emi = 0;
+            let totalAmount = 0;
+            let totalInterest = 0;
+
+            if (P > 0 && annualRate > 0 && N > 0) {
+                const R = annualRate / 12 / 100;
+                emi = P * R * (Math.pow(1 + R, N)) / (Math.pow(1 + R, N) - 1);
+                totalAmount = emi * N;
+                totalInterest = totalAmount - P;
+            } else if (P > 0 && N > 0) {
+                emi = P / N; // 0% interest case
+                totalAmount = P;
+                totalInterest = 0;
+            }
+
+            // Trigger Number Animations (Duration 800ms)
+            animateValue(emiResult, prevEmi, emi, 800);
+            animateValue(principalResult, prevPrincipal, P, 800);
+            animateValue(interestResult, prevInterest, totalInterest, 800);
+
+            // Update past state
+            prevEmi = emi;
+            prevPrincipal = P;
+            prevInterest = totalInterest;
+
+            // Update Chart
+            createOrUpdateChart(P, totalInterest, totalAmount);
+        }
+
+        // --- 6. SLIDER & INPUT SYNC ---
+        function setupEventListeners() {
+            const inputs = [
+                { input: loanInput, range: loanRange },
+                { input: rateInput, range: rateRange },
+                { input: tenureInput, range: tenureRange }
+            ];
+
+            inputs.forEach(({ input, range }) => {
+                input.addEventListener('input', () => {
+                    range.value = input.value;
+                    updateSliderBackground(range);
+                    calculateEMI();
+                });
+                range.addEventListener('input', () => {
+                    input.value = range.value;
+                    updateSliderBackground(range);
+                    calculateEMI();
+                });
+            });
+        }
+        
+        function updateSliderBackground(slider) {
+            const min = slider.min;
+            const max = slider.max;
+            const val = slider.value;
+            const percentage = (val - min) * 100 / (max - min);
+            slider.style.background = `linear-gradient(to right, #3B82F6 ${percentage}%, #E2E8F0 ${percentage}%)`;
+        }
+
+        // --- 7. ADVANCED FAQ ACCORDION ---
+        function toggleFaq(element) {
+            const isActive = element.classList.contains('active');
+            document.querySelectorAll('.faq-box').forEach(box => box.classList.remove('active'));
+            if (!isActive) element.classList.add('active');
+        }
+
+        // --- 8. INITIALIZE ---
+        document.addEventListener('DOMContentLoaded', () => {
+            showPageLoadAd();
+            setupEventListeners();
+            
+            // Initial calculations to prevent 0 to real value jump on first load
+            const P = parseFloat(loanInput.value) || 0;
+            const annualRate = parseFloat(rateInput.value) || 0;
+            const N = (parseFloat(tenureInput.value) || 0) * 12;
+            const R = annualRate / 12 / 100;
+            
+            prevPrincipal = P;
+            prevEmi = P * R * (Math.pow(1 + R, N)) / (Math.pow(1 + R, N) - 1);
+            let initialTotalAmount = prevEmi * N;
+            prevInterest = initialTotalAmount - P;
+
+            document.querySelectorAll('input[type=range]').forEach(updateSliderBackground);
+            
+            // Set initial text without animation
+            emiResult.innerText = `₹ ${formatCurrency(prevEmi)}`;
+            principalResult.innerText = `₹ ${formatCurrency(prevPrincipal)}`;
+            interestResult.innerText = `₹ ${formatCurrency(prevInterest)}`;
+            
+            createOrUpdateChart(prevPrincipal, prevInterest, initialTotalAmount);
+        });
+    </script>
+</body>
+</html>
