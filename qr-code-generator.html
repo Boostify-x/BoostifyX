@@ -7,53 +7,35 @@
     <!-- DEEP SEO META TAGS -->
     <title>Free QR Code Generator Online – Create Custom QR Codes</title>
     <meta name="description" content="Generate high-quality QR codes for URLs, text, Wi-Fi, and contacts instantly. Free online QR Code generator tool. Download as PNG image instantly with solid white background.">
-    <meta name="keywords" content="qr code generator, create qr code free, make qr code online, url to qr code, wifi qr code generator, download qr code image">
+    <meta name="keywords" content="qr code generator, create qr code free, make qr code online, url to qr code, download qr code image">
     <meta name="author" content="BoostifyX">
     <link rel="canonical" href="https://boostifyx.in/qr-code-generator.html" />
     
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://boostifyx.in/qr-code-generator.html">
-    <meta property="og:title" content="Create Custom QR Codes for Free | BoostifyX">
-    <meta property="og:description" content="Turn your text, links, or contact info into a scannable QR Code instantly.">
-
     <link rel="icon" type="image/png" href="favicon.png">
     
+    <!-- Tailwind CSS & Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- ADVANCED QR CODE LIBRARY (Fixes Scan & Background Issues) -->
-    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <!-- STABLE QR CODE LIBRARY (QRious - Fixes Background Issues) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 
     <!-- Adsterra Popunders -->
     <script src="https://pl29328467.profitablecpmratenetwork.com/b1/3a/cc/b13acc9740e47b78c81bd1f716464d78.js"></script>
     <script src="https://pl29328470.profitablecpmratenetwork.com/c2/70/e5/c270e598d58b484b92bb80fe92789aff.js"></script>
 
-    <!-- Google Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "BoostifyX QR Code Generator",
-      "operatingSystem": "Web",
-      "applicationCategory": "UtilitiesApplication",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
-    }
+    <script>
+        tailwind.config = { 
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { brandBlue: '#3B82F6' } } } 
+        }
     </script>
-
-    <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { brandBlue: '#3B82F6' } } } }</script>
 
     <style>
         body { background-color: #f8fafc; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
         .card-shadow { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); border: 1px solid rgba(0,0,0,0.03); }
         .premium-box { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
         
-        /* SEO Content Styling */
-        .seo-content h2 { font-size: 1.125rem; font-weight: 700; color: #1e293b; margin-bottom: 0.5rem; margin-top: 1.5rem; }
-        .seo-content h3 { font-size: 1rem; font-weight: 600; color: #334155; margin-bottom: 0.5rem; margin-top: 1rem; }
-        .seo-content p { font-size: 0.8125rem; color: #475569; line-height: 1.6; margin-bottom: 0.75rem; }
-        .seo-content ul { list-style-type: disc; padding-left: 1.25rem; font-size: 0.8125rem; color: #475569; margin-bottom: 1rem; }
-
         .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; font-size: 13px; color: #64748b; }
         .faq-box.active .faq-icon { transform: rotate(180deg); color: #3B82F6; }
         .faq-box.active .faq-content { max-height: 200px; padding-top: 10px; border-top: 1px solid #f1f5f9; margin-top: 10px; }
@@ -61,7 +43,7 @@
 </head>
 <body class="text-slate-800 flex justify-center min-h-screen relative">
 
-    <!-- Auto Close Popup Ad -->
+    <!-- 1. Auto Close Popup Ad -->
     <div id="page-load-ad" class="fixed inset-0 bg-black/90 z-[100] flex flex-col items-center justify-center backdrop-blur-sm px-4 opacity-0 transition-opacity duration-300 pointer-events-none">
         <div class="bg-white p-2 rounded-2xl shadow-2xl relative max-w-[340px] w-full flex flex-col items-center transform scale-95 transition-transform duration-300" id="ad-box">
             <button onclick="closePageLoadAd()" class="absolute -top-4 -right-4 bg-red-500 text-white w-9 h-9 rounded-full flex items-center justify-center border-2 border-white shadow-lg hover:bg-red-600 z-20">
@@ -69,7 +51,9 @@
             </button>
             <span class="text-[10px] text-slate-400 font-bold uppercase mb-2 mt-1">Advertisement</span>
             <div class="w-[300px] h-[250px] bg-slate-100 flex items-center justify-center overflow-hidden rounded-lg">
-                <script>atOptions = { 'key' : '325051f2cd9932285cc209930b7b6c29', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };</script>
+                <script>
+                  atOptions = { 'key' : '325051f2cd9932285cc209930b7b6c29', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };
+                </script>
                 <script src="https://www.highperformanceformat.com/325051f2cd9932285cc209930b7b6c29/invoke.js"></script>
             </div>
             <div class="mt-3 mb-2 text-[11px] font-semibold text-slate-500 bg-slate-100 px-4 py-1.5 rounded-full flex items-center gap-2">
@@ -82,7 +66,9 @@
     <div id="app-container" class="w-full max-w-[480px] bg-white min-h-screen relative shadow-2xl flex flex-col opacity-0 transition-opacity duration-500 pb-8">
         
         <header class="bg-white border-b border-slate-100 flex items-center px-4 py-4 sticky top-0 z-20 shadow-sm">
-            <a href="index.html" class="p-2 -ml-2 text-slate-500 hover:text-brandBlue transition flex items-center gap-1.5 text-sm font-semibold"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="index.html" class="p-2 -ml-2 text-slate-500 hover:text-brandBlue transition flex items-center gap-1.5 text-sm font-semibold">
+                <i class="fa-solid fa-house"></i> Home
+            </a>
             <div class="mx-auto font-bold text-lg text-slate-800 pr-10">BoostifyX</div>
         </header>
 
@@ -90,12 +76,14 @@
             
             <div class="text-center mb-6">
                 <h1 class="text-2xl font-extrabold text-slate-800 mb-2 tracking-tight">QR Code Generator</h1>
-                <p class="text-[13px] text-slate-500 leading-relaxed font-medium">Instantly convert your Website Links, Text, or Contacts into a scannable QR code.</p>
+                <p class="text-[13px] text-slate-500 leading-relaxed font-medium">Instantly convert your Website Links or Text into a scannable QR code.</p>
             </div>
 
             <!-- Header Ad -->
             <div class="w-full flex justify-center mb-6 overflow-hidden rounded-lg min-h-[50px] bg-slate-50 border border-slate-100">
-                <script>atOptions = { 'key' : '813ac3f88e00cda4dd606c27868f4998', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };</script>
+                <script>
+                  atOptions = { 'key' : '813ac3f88e00cda4dd606c27868f4998', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
+                </script>
                 <script src="https://www.highperformanceformat.com/813ac3f88e00cda4dd606c27868f4998/invoke.js"></script>
             </div>
 
@@ -116,14 +104,14 @@
                 <div id="outputArea" class="hidden">
                     <div class="premium-box rounded-[16px] p-6 text-center mb-4 flex flex-col items-center justify-center relative overflow-hidden">
                         
-                        <!-- Fixed QR Canvas (White Background & Margin included) -->
-                        <canvas id="qrCanvas" class="rounded-lg shadow-2xl relative z-10" style="width: 200px; height: 200px;"></canvas>
+                        <!-- Canvas for QR Code -->
+                        <canvas id="qrCanvas" class="rounded-lg shadow-2xl relative z-10 bg-white p-2"></canvas>
                         
                         <p class="text-[10px] text-slate-400 mt-4 relative z-10"><i class="fa-solid fa-camera mr-1"></i> Scan to test</p>
                     </div>
 
                     <!-- Monetized Download Button -->
-                    <button id="downloadBtn" class="w-full bg-brandBlue hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl transition-all shadow-[0_4px_15px_rgba(59,130,246,0.4)] text-sm flex items-center justify-center gap-2 transform active:scale-95">
+                    <button id="downloadBtn" class="w-full bg-brandBlue hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl transition-all shadow-md text-sm flex items-center justify-center gap-2 transform active:scale-95">
                         <i class="fa-solid fa-download"></i> Download PNG Image
                     </button>
                 </div>
@@ -135,26 +123,13 @@
                 <div id="container-7c0513c8e22f42f980b06a1fa0c4ab2c"></div>
             </div>
 
-            <!-- DETAILED SEO ARTICLE SECTION -->
-            <article class="bg-white p-5 rounded-[20px] card-shadow mb-6 seo-content border border-slate-100">
-                <div class="flex items-center gap-2 mb-2 text-brandBlue">
-                    <i class="fa-solid fa-book-open text-xl"></i>
-                    <span class="font-bold text-sm tracking-wider uppercase">Guide</span>
-                </div>
-                <h2>What is a QR Code?</h2>
-                <p>A Quick Response (QR) code is a two-dimensional barcode that stores digital information. It can be easily read and decoded by smartphones, tablets, and dedicated QR scanners like Google Lens.</p>
-                
-                <h3>Why does a QR code need a white background?</h3>
-                <p>Scanners rely on high contrast to detect the small square modules inside a QR code. Our tool automatically adds a "Quiet Zone" (a solid white border margin) around the code. This ensures that no matter what app you use to scan it, it works 100% of the time.</p>
-            </article>
-
             <!-- FAQ -->
             <div class="bg-white p-5 rounded-[20px] card-shadow mb-6">
                 <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-circle-question text-brandBlue"></i> FAQs</h2>
                 <div class="space-y-2 border border-slate-100 rounded-xl p-1 bg-slate-50/50">
                     <div class="faq-box rounded-lg p-3 cursor-pointer transition-all hover:bg-white" onclick="toggleFaq(this)">
                         <div class="flex justify-between items-center"><h3 class="font-bold text-[13px] text-slate-800">Do these QR Codes expire?</h3><i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon transition-transform"></i></div>
-                        <div class="faq-content">No, static QR codes generated on our platform are permanent and do not have an expiration date. They will work as long as the content (like your website link) remains active.</div>
+                        <div class="faq-content">No, static QR codes generated on our platform are permanent and do not have an expiration date. They will work forever.</div>
                     </div>
                 </div>
             </div>
@@ -162,7 +137,9 @@
             <!-- Footer Ad -->
             <div class="w-full flex justify-center overflow-hidden rounded-xl bg-slate-50 min-h-[60px] mb-6">
                 <div class="transform scale-[0.95]">
-                    <script>atOptions = { 'key' : '170a48fef41011f11d7fe004dbc2d72a', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };</script>
+                    <script>
+                      atOptions = { 'key' : '170a48fef41011f11d7fe004dbc2d72a', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
+                    </script>
                     <script src="https://www.highperformanceformat.com/170a48fef41011f11d7fe004dbc2d72a/invoke.js"></script>
                 </div>
             </div>
@@ -171,64 +148,71 @@
     </div>
 
     <script>
-        // Ad Logic
+        // 1. Popup Ad Logic
         const adPopup = document.getElementById('page-load-ad');
         const adBox = document.getElementById('ad-box');
         const appContainer = document.getElementById('app-container');
-        let countdown = 5; let adTimerInterval;
+        let countdown = 5; 
+        let adTimerInterval;
 
         function showPageLoadAd() {
             adPopup.classList.remove('opacity-0', 'pointer-events-none');
             setTimeout(() => adBox.classList.remove('scale-95'), 50);
+            
             adTimerInterval = setInterval(() => {
-                countdown--; document.getElementById('ad-timer').innerText = countdown;
+                countdown--; 
+                document.getElementById('ad-timer').innerText = countdown;
                 if (countdown <= 0) closePageLoadAd();
             }, 1000);
         }
+
         function closePageLoadAd() {
-            clearInterval(adTimerInterval); adPopup.classList.add('opacity-0', 'pointer-events-none'); appContainer.classList.remove('opacity-0');
+            clearInterval(adTimerInterval); 
+            adPopup.classList.add('opacity-0', 'pointer-events-none'); 
+            appContainer.classList.remove('opacity-0');
         }
 
-        // Smart Monetization
+        // 2. Smart Monetization
         const adsterraDirectLink = "https://www.profitablecpmratenetwork.com/hsu74brun?key=d7a1fa9890aeb9356de9956923b832dd";
         let clickCount = 0;
 
-        // FIXED QR Code Generator Logic (Uses proper canvas with white background and margins)
+        // 3. QR Code Generator Logic using 'QRious'
         const textInput = document.getElementById('textInput');
-        const qrCanvas = document.getElementById('qrCanvas');
         const outputArea = document.getElementById('outputArea');
+        const qrCanvas = document.getElementById('qrCanvas');
+        
+        // Setup QRious
+        let qr = new QRious({
+            element: qrCanvas,
+            size: 250,
+            background: 'white', // Solid white background
+            foreground: '#0f172a', // Dark slate color for code
+            padding: 15, // White border margin for easy scanning
+            level: 'H' // High error correction
+        });
 
         document.getElementById('generateBtn').addEventListener('click', () => {
             const text = textInput.value.trim();
-            if(!text) { alert("Please enter text or URL first."); return; }
+            if(!text) { 
+                alert("Please enter text or URL first."); 
+                return; 
+            }
 
-            // Using updated library to generate scannable QR with white padding
-            QRCode.toCanvas(qrCanvas, text, {
-                width: 250,
-                margin: 3, // This creates the 'Quiet Zone' required by Google Lens
-                color: {
-                    dark: '#0f172a',    // Dark code modules
-                    light: '#ffffff'    // Solid White Background
-                }
-            }, function (error) {
-                if (error) {
-                    alert("Error generating QR code.");
-                    console.error(error);
-                    return;
-                }
-                
-                // Show output
-                outputArea.classList.remove('hidden');
-                outputArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            });
+            // Generate new QR code
+            qr.value = text;
+
+            outputArea.classList.remove('hidden');
+            outputArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
 
-        // Download Action (Monetized & Fixes Background Issue)
+        // 4. Download Action (Monetized)
         document.getElementById('downloadBtn').addEventListener('click', () => {
             clickCount++;
-            if (clickCount > 1) { window.open(adsterraDirectLink, '_blank'); }
+            if (clickCount > 1) { 
+                window.open(adsterraDirectLink, '_blank'); 
+            }
 
-            // Directly download the properly generated canvas
+            // Download directly from the canvas
             const imgURL = qrCanvas.toDataURL("image/png");
             const link = document.createElement('a');
             link.href = imgURL;
@@ -238,7 +222,7 @@
             document.body.removeChild(link);
         });
 
-        // FAQ
+        // 5. FAQ
         function toggleFaq(element) {
             const isActive = element.classList.contains('active');
             document.querySelectorAll('.faq-box').forEach(box => box.classList.remove('active'));
