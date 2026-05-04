@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- ADVANCED SEO META TAGS -->
+    <title>Case Converter Online Free – UPPERCASE, lowercase, Title Case | BoostifyX</title>
+    <meta name="description" content="Instantly convert your text between UPPERCASE, lowercase, Title Case, and Sentence case. Free online case converter tool. No character limits.">
+    <meta name="keywords" content="case converter, uppercase to lowercase, title case converter, sentence case, lowercase to uppercase, online text tools">
+    <meta name="author" content="BoostifyX">
+    <link rel="canonical" href="https://boostifyx.in/case-converter.html" />
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://boostifyx.in/case-converter.html">
+    <meta property="og:title" content="Free Online Case Converter | BoostifyX">
+    <meta property="og:description" content="Easily transform text into Uppercase, Lowercase, Title Case, or Sentence case instantly.">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Adsterra Popunders (Safe in Head) -->
+    <script src="https://pl29328467.profitablecpmratenetwork.com/b1/3a/cc/b13acc9740e47b78c81bd1f716464d78.js"></script>
+    <script src="https://pl29328470.profitablecpmratenetwork.com/c2/70/e5/c270e598d58b484b92bb80fe92789aff.js"></script>
+
+    <!-- Google Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "BoostifyX Case Converter",
+      "operatingSystem": "Web",
+      "applicationCategory": "UtilitiesApplication",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { brandBlue: '#3B82F6', brandDark: '#0f172a' } } }
+        }
+    </script>
+
+    <style>
+        body { background-color: #f8fafc; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .card-shadow { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); border: 1px solid rgba(0,0,0,0.03); }
+        
+        /* Custom Textarea scrollbar */
+        textarea::-webkit-scrollbar { width: 6px; }
+        textarea::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        textarea::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        textarea:focus { box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); }
+
+        /* FAQ Accordion */
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; font-size: 13px; color: #64748b; }
+        .faq-box.active .faq-icon { transform: rotate(180deg); color: #3B82F6; }
+        .faq-box.active .faq-content { max-height: 200px; padding-top: 10px; border-top: 1px solid #f1f5f9; margin-top: 10px; }
+    </style>
+</head>
+<body class="text-slate-800 flex justify-center min-h-screen relative">
+
+    <!-- 1. PAGE LOAD POP-UP AD (Auto Close 5s) -->
+    <div id="page-load-ad" class="fixed inset-0 bg-black/90 z-[100] flex flex-col items-center justify-center backdrop-blur-sm px-4 opacity-0 transition-opacity duration-300 pointer-events-none">
+        <div class="bg-white p-2 rounded-2xl shadow-2xl relative max-w-[340px] w-full flex flex-col items-center transform scale-95 transition-transform duration-300" id="ad-box">
+            <button onclick="closePageLoadAd()" class="absolute -top-4 -right-4 bg-red-500 text-white w-9 h-9 rounded-full flex items-center justify-center border-2 border-white shadow-lg hover:bg-red-600 z-20 transition-transform hover:scale-110">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <span class="text-[10px] text-slate-400 font-bold uppercase mb-2 mt-1">Sponsor Advertisement</span>
+            <div class="w-[300px] h-[250px] bg-slate-100 flex items-center justify-center overflow-hidden rounded-lg">
+                <script>
+                  atOptions = { 'key' : '325051f2cd9932285cc209930b7b6c29', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };
+                </script>
+                <script src="https://www.highperformanceformat.com/325051f2cd9932285cc209930b7b6c29/invoke.js"></script>
+            </div>
+            <div class="mt-3 mb-2 text-[11px] font-semibold text-slate-500 bg-slate-100 px-4 py-1.5 rounded-full flex items-center gap-2">
+                <i class="fa-solid fa-spinner fa-spin text-brandBlue"></i> Closing in <span id="ad-timer" class="text-brandBlue font-bold text-sm">5</span>s
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div id="app-container" class="w-full max-w-[480px] bg-white min-h-screen relative shadow-2xl flex flex-col opacity-0 transition-opacity duration-500 pb-8">
+        
+        <!-- HEADER -->
+        <header class="bg-white border-b border-slate-100 flex items-center px-4 py-4 sticky top-0 z-20 shadow-sm">
+            <a href="index.html" class="p-2 -ml-2 text-slate-500 hover:text-brandBlue transition flex items-center gap-1.5 text-sm font-semibold">
+                <i class="fa-solid fa-house"></i> Home
+            </a>
+            <div class="mx-auto font-bold text-lg text-slate-800 pr-10">BoostifyX</div>
+        </header>
+
+        <main class="px-5 py-6 flex-1">
+            
+            <!-- Tool Title -->
+            <div class="text-center mb-6">
+                <h1 class="text-2xl font-extrabold text-slate-800 mb-2 tracking-tight">Case Converter</h1>
+                <p class="text-[13px] text-slate-500 leading-relaxed font-medium">
+                    Forgot to turn off Caps Lock? Instantly fix your text by converting it to any letter case.
+                </p>
+            </div>
+
+            <!-- 2. TOP BANNER AD (320x50) -->
+            <div class="w-full flex justify-center mb-6 overflow-hidden rounded-lg min-h-[50px] bg-slate-50 border border-slate-100">
+                <script>
+                  atOptions = { 'key' : '813ac3f88e00cda4dd606c27868f4998', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
+                </script>
+                <script src="https://www.highperformanceformat.com/813ac3f88e00cda4dd606c27868f4998/invoke.js"></script>
+            </div>
+
+            <!-- TOOL UI BOX -->
+            <div class="bg-white p-5 rounded-[24px] card-shadow border border-slate-100 mb-6">
+                
+                <!-- Text Input Area -->
+                <div class="relative mb-4">
+                    <textarea id="textInput" placeholder="Type or paste your text here to convert..." class="w-full h-[220px] bg-slate-50 border border-slate-200 rounded-xl p-4 text-sm text-slate-800 resize-none outline-none transition-all"></textarea>
+                    
+                    <!-- Stats Badge -->
+                    <div class="absolute bottom-3 right-3 bg-white border border-slate-200 text-[10px] text-slate-500 font-bold px-2 py-1 rounded-md shadow-sm">
+                        <span id="charCount">0</span> Chars
+                    </div>
+                </div>
+
+                <!-- Case Conversion Buttons -->
+                <p class="text-[11px] text-slate-400 font-bold uppercase tracking-wider mb-2 pl-1">Select Format</p>
+                <div class="grid grid-cols-2 gap-2 mb-4">
+                    <button onclick="convertCase('upper')" class="bg-slate-100 hover:bg-brandBlue hover:text-white text-slate-700 font-bold py-2.5 rounded-lg transition-all text-[13px] border border-slate-200 hover:border-brandBlue shadow-sm">
+                        UPPERCASE
+                    </button>
+                    <button onclick="convertCase('lower')" class="bg-slate-100 hover:bg-brandBlue hover:text-white text-slate-700 font-bold py-2.5 rounded-lg transition-all text-[13px] border border-slate-200 hover:border-brandBlue shadow-sm">
+                        lowercase
+                    </button>
+                    <button onclick="convertCase('title')" class="bg-slate-100 hover:bg-brandBlue hover:text-white text-slate-700 font-bold py-2.5 rounded-lg transition-all text-[13px] border border-slate-200 hover:border-brandBlue shadow-sm">
+                        Title Case
+                    </button>
+                    <button onclick="convertCase('sentence')" class="bg-slate-100 hover:bg-brandBlue hover:text-white text-slate-700 font-bold py-2.5 rounded-lg transition-all text-[13px] border border-slate-200 hover:border-brandBlue shadow-sm">
+                        Sentence case.
+                    </button>
+                    <button onclick="convertCase('alternating')" class="col-span-2 bg-slate-100 hover:bg-indigo-500 hover:text-white text-slate-700 font-bold py-2.5 rounded-lg transition-all text-[13px] border border-slate-200 hover:border-indigo-500 shadow-sm flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-shuffle"></i> aLtErNaTiNg cAsE
+                    </button>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex gap-2 border-t border-slate-100 pt-4">
+                    <button id="clearBtn" class="bg-rose-50 hover:bg-rose-100 text-rose-500 font-bold px-4 py-3.5 rounded-xl transition text-sm">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                    <button id="copyBtn" class="flex-1 bg-brandBlue hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl transition shadow-[0_4px_15px_rgba(59,130,246,0.4)] text-sm flex items-center justify-center gap-2 transform active:scale-95">
+                        <i class="fa-regular fa-copy" id="copyIcon"></i> <span id="copyText">Copy Result</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 3. MIDDLE NATIVE AD -->
+            <div class="w-full flex justify-center mb-6 overflow-hidden rounded-2xl bg-slate-50 min-h-[250px] border border-slate-100 shadow-sm">
+                <script async="async" data-cfasync="false" src="https://pl29328469.profitablecpmratenetwork.com/7c0513c8e22f42f980b06a1fa0c4ab2c/invoke.js"></script>
+                <div id="container-7c0513c8e22f42f980b06a1fa0c4ab2c"></div>
+            </div>
+
+            <!-- ADVANCED FAQ ACCORDION -->
+            <div class="bg-white p-5 rounded-[20px] card-shadow mb-6">
+                <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-question text-brandBlue"></i> Frequently Asked Questions
+                </h2>
+                <div class="space-y-2 border border-slate-100 rounded-xl p-1 bg-slate-50/50">
+                    <div class="faq-box rounded-lg p-3 cursor-pointer transition-all hover:bg-white" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center"><h3 class="font-bold text-[13px] text-slate-800">Q1. What is Title Case?</h3><i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon transition-transform duration-300"></i></div>
+                        <div class="faq-content">In Title Case, the first letter of every single word is capitalized. It is mostly used for Book Titles, Headlines, or Names (e.g., "The Quick Brown Fox").</div>
+                    </div>
+                    <div class="faq-box rounded-lg p-3 cursor-pointer transition-all hover:bg-white border-t border-slate-100" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center"><h3 class="font-bold text-[13px] text-slate-800">Q2. What is Sentence case?</h3><i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon transition-transform duration-300"></i></div>
+                        <div class="faq-content">In Sentence case, only the very first letter of the sentence is capitalized, and the rest of the text is converted to lowercase (just like normal human writing).</div>
+                    </div>
+                    <div class="faq-box rounded-lg p-3 cursor-pointer transition-all hover:bg-white border-t border-slate-100" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center"><h3 class="font-bold text-[13px] text-slate-800">Q3. What is Alternating Case?</h3><i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon transition-transform duration-300"></i></div>
+                        <div class="faq-content">Alternating case randomly or sequentially changes letters to upper and lower case. It is popularly used on the internet to indicate sarcasm or memes (e.g., "hElLo wOrLd").</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. BOTTOM BANNER AD (468x60) -->
+            <div class="w-full flex justify-center overflow-hidden rounded-xl bg-slate-50 min-h-[60px] mb-6 border border-slate-100">
+                <div class="transform scale-[0.95]">
+                    <script>
+                      atOptions = { 'key' : '170a48fef41011f11d7fe004dbc2d72a', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/170a48fef41011f11d7fe004dbc2d72a/invoke.js"></script>
+                </div>
+            </div>
+
+            <!-- RELATED TOOLS -->
+            <div>
+                <h2 class="text-sm font-bold text-slate-800 mb-3 ml-1">🔗 Try Other Text Tools</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <a href="word-counter.html" class="bg-white p-3.5 rounded-[16px] border border-slate-100 card-shadow text-[12px] font-bold text-slate-700 flex items-center gap-2.5 hover:border-brandBlue hover:text-brandBlue transition-all"><i class="fa-solid fa-calculator text-brandBlue text-lg"></i> Word Counter</a>
+                    <a href="text-repeater.html" class="bg-white p-3.5 rounded-[16px] border border-slate-100 card-shadow text-[12px] font-bold text-slate-700 flex items-center gap-2.5 hover:border-brandBlue hover:text-brandBlue transition-all"><i class="fa-solid fa-copy text-emerald-500 text-lg"></i> Text Repeater</a>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ADVANCED JAVASCRIPT LOGIC -->
+    <script>
+        // --- 1. POPUP AD Logic ---
+        const adPopup = document.getElementById('page-load-ad');
+        const adBox = document.getElementById('ad-box');
+        const appContainer = document.getElementById('app-container');
+        let countdown = 5;
+        let adTimerInterval;
+
+        function showPageLoadAd() {
+            adPopup.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => adBox.classList.remove('scale-95'), 50);
+            
+            adTimerInterval = setInterval(() => {
+                countdown--;
+                document.getElementById('ad-timer').innerText = countdown;
+                if (countdown <= 0) closePageLoadAd();
+            }, 1000);
+        }
+
+        function closePageLoadAd() {
+            clearInterval(adTimerInterval);
+            adPopup.classList.add('opacity-0', 'pointer-events-none');
+            appContainer.classList.remove('opacity-0');
+        }
+
+        // --- 2. SMART MONETIZATION LOGIC (Adsterra Direct Link) ---
+        const adsterraDirectLink = "https://www.profitablecpmratenetwork.com/hsu74brun?key=d7a1fa9890aeb9356de9956923b832dd";
+        let copyClickCount = 0; 
+
+        // --- 3. CASE CONVERTER LOGIC ---
+        const textInput = document.getElementById('textInput');
+        const charCount = document.getElementById('charCount');
+        const clearBtn = document.getElementById('clearBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        const copyText = document.getElementById('copyText');
+        const copyIcon = document.getElementById('copyIcon');
+
+        // Update Char Count
+        textInput.addEventListener('input', () => {
+            charCount.innerText = textInput.value.length;
+        });
+
+        // Conversion Engine
+        function convertCase(type) {
+            let text = textInput.value;
+            if(!text) return;
+
+            switch(type) {
+                case 'upper':
+                    text = text.toUpperCase();
+                    break;
+                case 'lower':
+                    text = text.toLowerCase();
+                    break;
+                case 'title':
+                    // Lowercase everything first, then capitalize first letter of each word
+                    text = text.toLowerCase().replace(/(?:^|\s)\w/g, function(match) {
+                        return match.toUpperCase();
+                    });
+                    break;
+                case 'sentence':
+                    // Lowercase everything, then capitalize the first letter after a dot/start
+                    text = text.toLowerCase().replace(/(^\s*\w|[\.\!\?]\s*\w)/g, function(match) {
+                        return match.toUpperCase();
+                    });
+                    break;
+                case 'alternating':
+                    // Makes every alternate letter lowercase/uppercase
+                    text = text.toLowerCase().split('').map((char, index) => {
+                        return index % 2 === 0 ? char.toLowerCase() : char.toUpperCase();
+                    }).join('');
+                    break;
+            }
+            
+            textInput.value = text;
+            
+            // Add brief flash animation to textarea to show it worked
+            textInput.classList.add('bg-blue-100');
+            setTimeout(() => textInput.classList.remove('bg-blue-100'), 300);
+        }
+
+        // Buttons Logic
+        clearBtn.addEventListener('click', () => {
+            textInput.value = '';
+            charCount.innerText = '0';
+            textInput.focus();
+        });
+
+        copyBtn.addEventListener('click', () => {
+            if(!textInput.value) return;
+
+            copyClickCount++;
+            // Monetization logic (Trigger on 2nd click onwards)
+            if (copyClickCount > 1) {
+                window.open(adsterraDirectLink, '_blank');
+            }
+
+            // Copy to clipboard
+            navigator.clipboard.writeText(textInput.value).then(() => {
+                copyBtn.classList.replace('bg-brandBlue', 'bg-emerald-500');
+                copyBtn.classList.replace('hover:bg-blue-700', 'hover:bg-emerald-600');
+                copyText.innerText = "Copied!";
+                copyIcon.className = "fa-solid fa-check";
+
+                setTimeout(() => {
+                    copyBtn.classList.replace('bg-emerald-500', 'bg-brandBlue');
+                    copyBtn.classList.replace('hover:bg-emerald-600', 'hover:bg-blue-700');
+                    copyText.innerText = "Copy Result";
+                    copyIcon.className = "fa-regular fa-copy";
+                }, 2000);
+            });
+        });
+
+        // --- 4. ADVANCED FAQ ACCORDION ---
+        function toggleFaq(element) {
+            const isActive = element.classList.contains('active');
+            document.querySelectorAll('.faq-box').forEach(box => box.classList.remove('active'));
+            if (!isActive) element.classList.add('active');
+        }
+
+        // --- 5. INITIALIZE ---
+        document.addEventListener('DOMContentLoaded', () => {
+            showPageLoadAd();
+            textInput.focus(); // Auto focus on load
+        });
+    </script>
+</body>
+</html>
