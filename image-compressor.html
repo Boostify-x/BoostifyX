@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- ADVANCED SEO META TAGS -->
+    <title>Image Compressor Online Free – Reduce Image Size in KB | BoostifyX</title>
+    <meta name="description" content="Compress JPEG, PNG, and WebP images online for free. Reduce image file size in KB/MB instantly without losing quality. Fast, secure, and mobile-friendly.">
+    <meta name="keywords" content="image compressor, compress image online, reduce image size, image size reducer in kb, compress photo, free image compressor">
+    <meta name="author" content="BoostifyX">
+    <link rel="canonical" href="https://boostifyx.in/image-compressor.html" />
+    
+    <!-- Open Graph & Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://boostifyx.in/image-compressor.html">
+    <meta property="og:title" content="Free Online Image Compressor | BoostifyX">
+    <meta property="og:description" content="Reduce image size instantly in your browser. No upload to server, 100% private.">
+    <meta property="twitter:card" content="summary_large_image">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Adsterra Popunders (Safe in Head) -->
+    <script src="https://pl29328467.profitablecpmratenetwork.com/b1/3a/cc/b13acc9740e47b78c81bd1f716464d78.js"></script>
+    <script src="https://pl29328470.profitablecpmratenetwork.com/c2/70/e5/c270e598d58b484b92bb80fe92789aff.js"></script>
+
+    <!-- Google Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "BoostifyX Image Compressor",
+      "operatingSystem": "Web",
+      "applicationCategory": "UtilitiesApplication",
+      "description": "Reduce image size online instantly without losing visual quality.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is my image uploaded to your server?", "acceptedAnswer": { "@type": "Answer", "text": "No! All compression happens directly inside your mobile or computer browser. Your images are 100% private and never uploaded to our servers." } },
+        { "@type": "Question", "name": "Will the image lose quality?", "acceptedAnswer": { "@type": "Answer", "text": "We use advanced Canvas API compression that reduces file size (KB) significantly while keeping the visual quality almost identical to the original." } }
+      ]
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], }, colors: { brandBlue: '#3B82F6', brandDark: '#0f172a' } } }
+        }
+    </script>
+
+    <style>
+        body { background-color: #f8fafc; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .card-shadow { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); border: 1px solid rgba(0,0,0,0.03); }
+        
+        /* Custom Upload Zone */
+        .upload-zone { border: 2px dashed #cbd5e1; transition: all 0.3s ease; }
+        .upload-zone.dragover { border-color: #3B82F6; background-color: #eff6ff; }
+        
+        /* Premium Slider */
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; cursor: pointer; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 22px; width: 22px; border-radius: 50%; background: #ffffff; border: 4px solid #3B82F6; cursor: pointer; margin-top: -8px; box-shadow: 0 4px 12px rgba(59,130,246,0.5); transition: transform 0.2s; }
+        input[type=range]:active::-webkit-slider-thumb { transform: scale(1.2); border-color: #2563EB; }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; cursor: pointer; background: #E2E8F0; border-radius: 10px; }
+        
+        /* Advanced FAQ Accordion */
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; font-size: 13px; color: #64748b; }
+        .faq-box.active .faq-icon { transform: rotate(180deg); color: #3B82F6; }
+        .faq-box.active .faq-content { max-height: 200px; padding-top: 10px; border-top: 1px solid #f1f5f9; margin-top: 10px; }
+    </style>
+</head>
+<body class="text-slate-800 flex justify-center min-h-screen relative">
+
+    <!-- 1. PAGE LOAD POP-UP AD (Auto Close 5s or Manual Close) -->
+    <!-- Note: Adsterra pushes Video/Interactive Ads automatically in this 300x250 slot -->
+    <div id="page-load-ad" class="fixed inset-0 bg-black/90 z-[100] flex flex-col items-center justify-center backdrop-blur-sm px-4 opacity-0 transition-opacity duration-300 pointer-events-none">
+        <div class="bg-white p-2 rounded-2xl shadow-2xl relative max-w-[340px] w-full flex flex-col items-center transform scale-95 transition-transform duration-300" id="ad-box">
+            <!-- User Close Button -->
+            <button onclick="closePageLoadAd()" class="absolute -top-4 -right-4 bg-red-500 text-white w-9 h-9 rounded-full flex items-center justify-center border-2 border-white shadow-lg hover:bg-red-600 z-20 transition-transform hover:scale-110">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <span class="text-[10px] text-slate-400 font-bold uppercase mb-2 mt-1">Sponsor Advertisement</span>
+            
+            <!-- Adsterra 300x250 (Video/Interactive Format) -->
+            <div class="w-[300px] h-[250px] bg-slate-100 flex items-center justify-center overflow-hidden rounded-lg">
+                <script>
+                  atOptions = { 'key' : '325051f2cd9932285cc209930b7b6c29', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };
+                </script>
+                <script src="https://www.highperformanceformat.com/325051f2cd9932285cc209930b7b6c29/invoke.js"></script>
+            </div>
+            
+            <div class="mt-3 mb-2 text-[11px] font-semibold text-slate-500 bg-slate-100 px-4 py-1.5 rounded-full flex items-center gap-2">
+                <i class="fa-solid fa-spinner fa-spin text-brandBlue"></i> Closing in <span id="ad-timer" class="text-brandBlue font-bold text-sm">5</span>s
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div id="app-container" class="w-full max-w-[480px] bg-white min-h-screen relative shadow-2xl flex flex-col opacity-0 transition-opacity duration-500 pb-8">
+        
+        <!-- HEADER -->
+        <header class="bg-white border-b border-slate-100 flex items-center px-4 py-4 sticky top-0 z-20 shadow-sm">
+            <a href="index.html" class="p-2 -ml-2 text-slate-500 hover:text-brandBlue transition flex items-center gap-1.5 text-sm font-semibold">
+                <i class="fa-solid fa-house"></i> Home
+            </a>
+            <div class="mx-auto font-bold text-lg text-slate-800 pr-10">BoostifyX</div>
+        </header>
+
+        <main class="px-5 py-6 flex-1">
+            
+            <!-- Tool Title -->
+            <div class="text-center mb-6">
+                <h1 class="text-2xl font-extrabold text-slate-800 mb-2 tracking-tight">Image Compressor</h1>
+                <p class="text-[13px] text-slate-500 leading-relaxed font-medium">
+                    Reduce image file size safely without losing quality. 100% private, works directly in your browser.
+                </p>
+            </div>
+
+            <!-- 2. TOP BANNER AD (320x50) -->
+            <div class="w-full flex justify-center mb-6 overflow-hidden rounded-lg min-h-[50px] bg-slate-50 border border-slate-100">
+                <script>
+                  atOptions = { 'key' : '813ac3f88e00cda4dd606c27868f4998', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
+                </script>
+                <script src="https://www.highperformanceformat.com/813ac3f88e00cda4dd606c27868f4998/invoke.js"></script>
+            </div>
+
+            <!-- COMPRESSOR UI BOX -->
+            <div class="bg-white p-5 rounded-[24px] card-shadow border border-slate-100 mb-6">
+                
+                <!-- Upload Area -->
+                <div id="uploadZone" class="upload-zone rounded-2xl p-6 flex flex-col items-center justify-center bg-slate-50 cursor-pointer relative overflow-hidden mb-5">
+                    <input type="file" id="imageInput" accept="image/png, image/jpeg, image/webp" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
+                    <div class="bg-blue-100 text-brandBlue w-14 h-14 rounded-full flex items-center justify-center mb-3 shadow-inner">
+                        <i class="fa-solid fa-cloud-arrow-up text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-700 mb-1">Upload Image</h3>
+                    <p class="text-[11px] text-slate-400 font-medium text-center">JPEG, PNG, or WebP (Max 10MB)</p>
+                </div>
+
+                <!-- Hidden Workspace (Visible after upload) -->
+                <div id="workspace" class="hidden">
+                    
+                    <!-- Image Preview Area -->
+                    <div class="flex items-center gap-4 bg-slate-50 p-3 rounded-xl border border-slate-100 mb-5">
+                        <img id="previewImg" class="w-16 h-16 object-cover rounded-lg shadow-sm border border-slate-200" src="" alt="Preview">
+                        <div class="overflow-hidden">
+                            <p id="fileName" class="text-[13px] font-bold text-slate-700 truncate">image.jpg</p>
+                            <p class="text-[11px] text-slate-500 font-medium mt-0.5"><span id="origSizeLabel" class="text-rose-500 font-bold">2.5 MB</span> Original</p>
+                        </div>
+                        <button id="resetBtn" class="ml-auto text-slate-400 hover:text-rose-500 p-2"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+
+                    <!-- Quality Slider -->
+                    <div class="mb-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <label class="text-[13px] font-bold text-slate-700">Compression Quality</label>
+                            <span id="qualityLabel" class="text-[12px] font-extrabold text-brandBlue bg-blue-50 px-2 py-1 rounded">80%</span>
+                        </div>
+                        <input type="range" id="qualityRange" min="10" max="100" step="5" value="80">
+                        <div class="flex justify-between text-[10px] text-slate-400 font-semibold mt-2 px-1">
+                            <span>Small Size</span>
+                            <span>High Quality</span>
+                        </div>
+                    </div>
+
+                    <!-- Result Data -->
+                    <div class="bg-slate-800 rounded-xl p-4 flex justify-between items-center mb-5 shadow-lg relative overflow-hidden">
+                        <div>
+                            <p class="text-[10px] text-slate-400 uppercase font-semibold tracking-wider">New Size</p>
+                            <h2 id="newSizeLabel" class="text-2xl font-extrabold text-emerald-400 mt-1">450 KB</h2>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-[10px] text-slate-400 uppercase font-semibold tracking-wider">You Saved</p>
+                            <h2 id="savedPercentLabel" class="text-xl font-bold text-brandBlue mt-1">82%</h2>
+                        </div>
+                    </div>
+
+                    <!-- Download Button -->
+                    <button id="downloadBtn" class="w-full bg-brandBlue hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl transition-all shadow-[0_4px_15px_rgba(59,130,246,0.4)] flex items-center justify-center gap-2 transform active:scale-95">
+                        <i class="fa-solid fa-download"></i> Download Compressed
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- 3. MIDDLE NATIVE AD -->
+            <div class="w-full flex justify-center mb-6 overflow-hidden rounded-2xl bg-slate-50 min-h-[250px] border border-slate-100 shadow-sm">
+                <script async="async" data-cfasync="false" src="https://pl29328469.profitablecpmratenetwork.com/7c0513c8e22f42f980b06a1fa0c4ab2c/invoke.js"></script>
+                <div id="container-7c0513c8e22f42f980b06a1fa0c4ab2c"></div>
+            </div>
+
+            <!-- SEO CONTENT -->
+            <div class="bg-white p-5 rounded-[20px] card-shadow mb-6">
+                <h2 class="text-lg font-bold text-slate-800 mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-shield-halved text-emerald-500"></i> Secure & Private
+                </h2>
+                <p class="text-[13px] text-slate-600 leading-relaxed mb-4">
+                    Most online image compressors upload your personal photos to their servers, which is a privacy risk. <b>BoostifyX Image Compressor</b> uses HTML5 Canvas technology to compress your images locally inside your device. Your photos never leave your phone!
+                </p>
+            </div>
+
+            <!-- ADVANCED FAQ ACCORDION -->
+            <div class="bg-white p-5 rounded-[20px] card-shadow mb-6">
+                <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-question text-brandBlue"></i> Frequently Asked Questions
+                </h2>
+                <div class="space-y-2 border border-slate-100 rounded-xl p-1 bg-slate-50/50">
+                    <div class="faq-box rounded-lg p-3 cursor-pointer transition-all hover:bg-white" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center"><h3 class="font-bold text-[13px] text-slate-800">Q1. Why do I need to compress images?</h3><i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon transition-transform duration-300"></i></div>
+                        <div class="faq-content">High-resolution photos from modern phones are often 5MB to 10MB in size. Compressing them to under 500KB helps in faster uploading to forms, sending via email, and saving storage space.</div>
+                    </div>
+                    <div class="faq-box rounded-lg p-3 cursor-pointer transition-all hover:bg-white border-t border-slate-100" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center"><h3 class="font-bold text-[13px] text-slate-800">Q2. What is the best quality percentage?</h3><i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon transition-transform duration-300"></i></div>
+                        <div class="faq-content">We recommend keeping the quality between <b>70% to 80%</b>. This range offers the perfect balance—drastically reducing the file size while keeping the image looking completely sharp to the human eye.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. BOTTOM BANNER AD (468x60) -->
+            <div class="w-full flex justify-center overflow-hidden rounded-xl bg-slate-50 min-h-[60px] mb-6 border border-slate-100">
+                <div class="transform scale-[0.95]">
+                    <script>
+                      atOptions = { 'key' : '170a48fef41011f11d7fe004dbc2d72a', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/170a48fef41011f11d7fe004dbc2d72a/invoke.js"></script>
+                </div>
+            </div>
+
+            <!-- RELATED TOOLS -->
+            <div>
+                <h2 class="text-sm font-bold text-slate-800 mb-3 ml-1">🔗 Essential Image Tools</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <a href="profit-loss-calculator.html" class="bg-white p-3.5 rounded-[16px] border border-slate-100 card-shadow text-[12px] font-bold text-slate-700 flex items-center gap-2.5 hover:border-brandBlue hover:text-brandBlue transition-all"><i class="fa-solid fa-chart-pie text-brandBlue text-lg"></i> Profit & Loss</a>
+                    <a href="emi-calculator.html" class="bg-white p-3.5 rounded-[16px] border border-slate-100 card-shadow text-[12px] font-bold text-slate-700 flex items-center gap-2.5 hover:border-brandBlue hover:text-brandBlue transition-all"><i class="fa-solid fa-calculator text-emerald-500 text-lg"></i> EMI Calc</a>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ADVANCED JAVASCRIPT LOGIC -->
+    <script>
+        // --- 1. POPUP AD Logic ---
+        const adPopup = document.getElementById('page-load-ad');
+        const adBox = document.getElementById('ad-box');
+        const appContainer = document.getElementById('app-container');
+        let countdown = 5;
+        let adTimerInterval;
+
+        function showPageLoadAd() {
+            adPopup.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => adBox.classList.remove('scale-95'), 50);
+            
+            adTimerInterval = setInterval(() => {
+                countdown--;
+                document.getElementById('ad-timer').innerText = countdown;
+                if (countdown <= 0) closePageLoadAd();
+            }, 1000);
+        }
+
+        function closePageLoadAd() {
+            clearInterval(adTimerInterval);
+            adPopup.classList.add('opacity-0', 'pointer-events-none');
+            appContainer.classList.remove('opacity-0');
+        }
+
+        // --- 2. COMPRESSOR LOGIC ---
+        const imageInput = document.getElementById('imageInput');
+        const uploadZone = document.getElementById('uploadZone');
+        const workspace = document.getElementById('workspace');
+        
+        const previewImg = document.getElementById('previewImg');
+        const fileName = document.getElementById('fileName');
+        const origSizeLabel = document.getElementById('origSizeLabel');
+        const resetBtn = document.getElementById('resetBtn');
+        
+        const qualityRange = document.getElementById('qualityRange');
+        const qualityLabel = document.getElementById('qualityLabel');
+        
+        const newSizeLabel = document.getElementById('newSizeLabel');
+        const savedPercentLabel = document.getElementById('savedPercentLabel');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        let originalFile = null;
+        let originalSizeByte = 0;
+        let compressedBlob = null;
+        let compressedImageURL = null;
+
+        // Drag & Drop visual effects
+        imageInput.addEventListener('dragenter', () => uploadZone.classList.add('dragover'));
+        imageInput.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
+        imageInput.addEventListener('drop', () => uploadZone.classList.remove('dragover'));
+
+        // Handle File Upload
+        imageInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            // Check if image
+            if (!file.type.startsWith('image/')) {
+                alert('Please upload a valid image file (JPEG, PNG, WebP).');
+                return;
+            }
+
+            originalFile = file;
+            originalSizeByte = file.size;
+            
+            // Update UI
+            fileName.innerText = file.name;
+            origSizeLabel.innerText = formatBytes(originalSizeByte);
+            
+            uploadZone.classList.add('hidden');
+            workspace.classList.remove('hidden');
+
+            // Load Image to preview and prepare for canvas
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                previewImg.src = event.target.result;
+                // Wait for image to load to dimensions before compressing
+                previewImg.onload = () => compressImage(); 
+            };
+            reader.readAsDataURL(file);
+        });
+
+        // Compression Function
+        function compressImage() {
+            if (!originalFile) return;
+
+            const quality = parseInt(qualityRange.value) / 100;
+            
+            // Create invisible Canvas
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = previewImg.naturalWidth;
+            canvas.height = previewImg.naturalHeight;
+            
+            // Draw original image on canvas
+            ctx.drawImage(previewImg, 0, 0, canvas.width, canvas.height);
+            
+            // Convert to Blob with new quality (Format: JPEG saves most space)
+            // Note: If original is PNG with transparency, it will get black background in JPEG.
+            // For simple web tools, JPEG is best for compression.
+            const outputType = (originalFile.type === 'image/png' && quality > 0.9) ? 'image/png' : 'image/jpeg';
+            
+            canvas.toBlob(function(blob) {
+                compressedBlob = blob;
+                
+                // Update Results UI
+                newSizeLabel.innerText = formatBytes(blob.size);
+                
+                let savedPercentage = ((originalSizeByte - blob.size) / originalSizeByte) * 100;
+                if(savedPercentage < 0) savedPercentage = 0; // Prevent negative save UI
+                savedPercentLabel.innerText = savedPercentage.toFixed(0) + '%';
+                
+            }, outputType, quality);
+        }
+
+        // Slider Sync
+        qualityRange.addEventListener('input', function() {
+            qualityLabel.innerText = this.value + '%';
+            updateSliderBackground(this);
+            compressImage(); // Re-compress in real time
+        });
+
+        function updateSliderBackground(slider) {
+            const min = slider.min;
+            const max = slider.max;
+            const val = slider.value;
+            const percentage = (val - min) * 100 / (max - min);
+            slider.style.background = `linear-gradient(to right, #3B82F6 ${percentage}%, #E2E8F0 ${percentage}%)`;
+        }
+
+        // Download Action
+        downloadBtn.addEventListener('click', () => {
+            if (!compressedBlob) return;
+            
+            if (compressedImageURL) URL.revokeObjectURL(compressedImageURL);
+            compressedImageURL = URL.createObjectURL(compressedBlob);
+            
+            const link = document.createElement('a');
+            link.href = compressedImageURL;
+            
+            // Create nice file name
+            const originalName = originalFile.name.split('.')[0];
+            link.download = `${originalName}_BoostifyX.jpg`;
+            
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+
+        // Reset Workspace
+        resetBtn.addEventListener('click', () => {
+            originalFile = null;
+            compressedBlob = null;
+            imageInput.value = '';
+            workspace.classList.add('hidden');
+            uploadZone.classList.remove('hidden');
+        });
+
+        // Utility: Format Bytes
+        function formatBytes(bytes, decimals = 2) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const dm = decimals < 0 ? 0 : decimals;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+        }
+
+        // --- 3. ADVANCED FAQ ACCORDION ---
+        function toggleFaq(element) {
+            const isActive = element.classList.contains('active');
+            document.querySelectorAll('.faq-box').forEach(box => box.classList.remove('active'));
+            if (!isActive) element.classList.add('active');
+        }
+
+        // --- 4. INITIALIZE ---
+        document.addEventListener('DOMContentLoaded', () => {
+            showPageLoadAd();
+            updateSliderBackground(qualityRange);
+        });
+    </script>
+</body>
+</html>
