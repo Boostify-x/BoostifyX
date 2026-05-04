@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- DEEP SEO META TAGS -->
+    <title>JSON Formatter & Validator Online Free | BoostifyX</title>
+    <meta name="description" content="Beautify, format, and validate messy JSON strings instantly. Free online developer tool to indent and clean up JSON code. 100% private and secure.">
+    <meta name="keywords" content="json formatter, json beautifier, format json online, validate json free, clean json code, developer tools, online coding tools">
+    <meta name="author" content="BoostifyX">
+    <link rel="canonical" href="https://boostifyx.in/json-formatter.html" />
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://boostifyx.in/json-formatter.html">
+    <meta property="og:title" content="Free JSON Formatter & Validator | BoostifyX">
+    <meta property="og:description" content="Clean up messy JSON code instantly without sending your data to any server.">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Adsterra Popunders (Safe in Head) -->
+    <script src="https://pl29328467.profitablecpmratenetwork.com/b1/3a/cc/b13acc9740e47b78c81bd1f716464d78.js"></script>
+    <script src="https://pl29328470.profitablecpmratenetwork.com/c2/70/e5/c270e598d58b484b92bb80fe92789aff.js"></script>
+
+    <!-- Google Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "BoostifyX JSON Formatter",
+      "operatingSystem": "Web",
+      "applicationCategory": "DeveloperApplication",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] }, colors: { brandBlue: '#3B82F6', brandDark: '#0f172a' } } }
+        }
+    </script>
+
+    <style>
+        body { background-color: #f8fafc; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .card-shadow { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); border: 1px solid rgba(0,0,0,0.03); }
+        .premium-box { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); position: relative; overflow: hidden;}
+        
+        /* Custom scrollbar for textareas */
+        textarea::-webkit-scrollbar { width: 6px; }
+        textarea::-webkit-scrollbar-track { background: transparent; }
+        textarea::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
+        textarea:focus { box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); }
+
+        /* JSON Code Highlighting Customization */
+        #outputArea { white-space: pre; overflow-x: auto; }
+
+        /* SEO Content */
+        .seo-content h2 { font-size: 1.125rem; font-weight: 700; color: #1e293b; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        .seo-content p { font-size: 0.8125rem; color: #475569; line-height: 1.6; margin-bottom: 0.75rem; }
+
+        /* FAQ Accordion */
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; font-size: 13px; color: #64748b; }
+        .faq-box.active .faq-icon { transform: rotate(180deg); color: #3B82F6; }
+        .faq-box.active .faq-content { max-height: 200px; padding-top: 10px; border-top: 1px solid #f1f5f9; margin-top: 10px; }
+    </style>
+</head>
+<body class="text-slate-800 flex justify-center min-h-screen relative">
+
+    <!-- 1. Auto Close Popup Ad -->
+    <div id="page-load-ad" class="fixed inset-0 bg-black/90 z-[100] flex flex-col items-center justify-center backdrop-blur-sm px-4 opacity-0 transition-opacity duration-300 pointer-events-none">
+        <div class="bg-white p-2 rounded-2xl shadow-2xl relative max-w-[340px] w-full flex flex-col items-center transform scale-95 transition-transform duration-300" id="ad-box">
+            <button onclick="closePageLoadAd()" class="absolute -top-4 -right-4 bg-red-500 text-white w-9 h-9 rounded-full flex items-center justify-center border-2 border-white shadow-lg hover:bg-red-600 z-20">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <span class="text-[10px] text-slate-400 font-bold uppercase mb-2 mt-1">Advertisement</span>
+            <div class="w-[300px] h-[250px] bg-slate-100 flex items-center justify-center overflow-hidden rounded-lg">
+                <script>atOptions = { 'key' : '325051f2cd9932285cc209930b7b6c29', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };</script>
+                <script src="https://www.highperformanceformat.com/325051f2cd9932285cc209930b7b6c29/invoke.js"></script>
+            </div>
+            <div class="mt-3 mb-2 text-[11px] font-semibold text-slate-500 bg-slate-100 px-4 py-1.5 rounded-full flex items-center gap-2">
+                <i class="fa-solid fa-spinner fa-spin text-brandBlue"></i> Closing in <span id="ad-timer" class="text-brandBlue font-bold text-sm">5</span>s
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div id="app-container" class="w-full max-w-[480px] bg-white min-h-screen relative shadow-2xl flex flex-col opacity-0 transition-opacity duration-500 pb-8">
+        
+        <header class="bg-white border-b border-slate-100 flex items-center px-4 py-4 sticky top-0 z-20 shadow-sm">
+            <a href="index.html" class="p-2 -ml-2 text-slate-500 hover:text-brandBlue transition flex items-center gap-1.5 text-sm font-semibold"><i class="fa-solid fa-house"></i> Home</a>
+            <div class="mx-auto font-bold text-lg text-slate-800 pr-10">BoostifyX</div>
+        </header>
+
+        <main class="px-5 py-6 flex-1">
+            
+            <div class="text-center mb-6">
+                <h1 class="text-2xl font-extrabold text-slate-800 mb-2 tracking-tight">JSON Formatter</h1>
+                <p class="text-[13px] text-slate-500 leading-relaxed font-medium">Instantly format, beautify, and validate messy JSON data into a clean structure.</p>
+            </div>
+
+            <!-- Header Ad -->
+            <div class="w-full flex justify-center mb-6 overflow-hidden rounded-lg min-h-[50px] bg-slate-50 border border-slate-100">
+                <script>atOptions = { 'key' : '813ac3f88e00cda4dd606c27868f4998', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };</script>
+                <script src="https://www.highperformanceformat.com/813ac3f88e00cda4dd606c27868f4998/invoke.js"></script>
+            </div>
+
+            <!-- TOOL UI -->
+            <div class="bg-white p-5 rounded-[24px] card-shadow border border-slate-100 mb-6">
+                
+                <!-- Input Textarea -->
+                <div class="mb-4 relative">
+                    <div class="flex justify-between items-center mb-2 pl-1">
+                        <label class="text-[11px] font-bold text-slate-700 uppercase tracking-wider block">Raw JSON Data</label>
+                        <button id="pasteBtn" class="text-[10px] text-brandBlue font-bold bg-blue-50 px-2 py-1 rounded hover:bg-blue-100 transition"><i class="fa-solid fa-paste"></i> Paste</button>
+                    </div>
+                    <textarea id="inputArea" placeholder='{"example":"paste your unformatted JSON here"}' class="w-full h-[150px] bg-slate-50 border border-slate-200 rounded-xl p-4 text-[13px] text-slate-800 resize-none outline-none transition-all font-mono whitespace-pre"></textarea>
+                    
+                    <!-- Error Message Display -->
+                    <div id="errorMsg" class="hidden mt-2 p-2 bg-rose-50 border border-rose-200 rounded-lg flex items-start gap-2">
+                        <i class="fa-solid fa-triangle-exclamation text-rose-500 mt-0.5"></i>
+                        <p class="text-[11px] text-rose-600 font-medium" id="errorText">Invalid JSON format</p>
+                    </div>
+                </div>
+
+                <!-- Indentation Settings -->
+                <div class="flex justify-between items-center bg-slate-50 border border-slate-200 rounded-xl p-3 mb-5">
+                    <label class="text-[12px] font-bold text-slate-700">Indent Spaces</label>
+                    <select id="indentSelect" class="bg-white border border-slate-200 text-xs font-bold text-slate-700 py-1.5 px-2 rounded-lg outline-none cursor-pointer">
+                        <option value="2">2 Spaces</option>
+                        <option value="4" selected>4 Spaces</option>
+                        <option value="8">8 Spaces</option>
+                    </select>
+                </div>
+
+                <!-- Process Button (Monetized) -->
+                <button id="formatBtn" class="w-full bg-slate-800 hover:bg-slate-900 text-white font-bold py-3.5 rounded-xl transition-all shadow-md text-sm mb-5 flex items-center justify-center gap-2 transform active:scale-95">
+                    <i class="fa-solid fa-wand-magic-sparkles text-amber-400"></i> Format JSON
+                </button>
+
+                <!-- Output Display -->
+                <div id="outputContainer" class="hidden relative">
+                    <div class="premium-box rounded-[16px] p-1 shadow-lg relative">
+                        <div class="bg-slate-800 px-3 py-2 border-b border-slate-700 rounded-t-[15px] flex justify-between items-center">
+                            <span class="text-[10px] text-emerald-400 font-bold uppercase tracking-wider"><i class="fa-solid fa-check-circle mr-1"></i> Valid JSON</span>
+                        </div>
+                        <textarea id="outputArea" readonly class="w-full h-[250px] bg-transparent text-[#a5b4fc] font-mono text-[12px] p-4 outline-none resize-none break-normal"></textarea>
+                    </div>
+                    
+                    <div class="flex gap-2 pt-3">
+                        <button id="clearBtn" class="bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold px-4 py-3 rounded-xl transition text-sm">
+                            Clear
+                        </button>
+                        <button id="copyBtn" class="flex-1 bg-brandBlue hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition shadow-[0_4px_15px_rgba(59,130,246,0.4)] text-sm flex items-center justify-center gap-2 transform active:scale-95">
+                            <i class="fa-regular fa-copy" id="copyIcon"></i> <span id="copyText">Copy Formatted</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Middle Native Ad -->
+            <div class="w-full flex justify-center mb-6 overflow-hidden rounded-2xl bg-slate-50 min-h-[250px] border border-slate-100 shadow-sm">
+                <script async="async" data-cfasync="false" src="https://pl29328469.profitablecpmratenetwork.com/7c0513c8e22f42f980b06a1fa0c4ab2c/invoke.js"></script>
+                <div id="container-7c0513c8e22f42f980b06a1fa0c4ab2c"></div>
+            </div>
+
+            <!-- DETAILED SEO ARTICLE SECTION -->
+            <article class="bg-white p-5 rounded-[20px] card-shadow mb-6 seo-content border border-slate-100">
+                <div class="flex items-center gap-2 mb-2 text-brandBlue">
+                    <i class="fa-solid fa-code text-xl"></i>
+                    <span class="font-bold text-sm tracking-wider uppercase">Guide</span>
+                </div>
+                <h2>What is JSON Formatter?</h2>
+                <p>JSON (JavaScript Object Notation) is a lightweight data-interchange format. When APIs return JSON data, it often comes "minified" (all written in a single long line) to save bandwidth. This makes it impossible for humans to read or debug.</p>
+                <p>The <strong>BoostifyX JSON Formatter</strong> parses that messy string and "Beautifies" it by adding proper line breaks and indentations. It also acts as a <strong>JSON Validator</strong>, immediately throwing an error if your code misses a comma or a bracket.</p>
+            </article>
+
+            <!-- FAQ -->
+            <div class="bg-white p-5 rounded-[20px] card-shadow mb-6">
+                <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-circle-question text-brandBlue"></i> FAQs</h2>
+                <div class="space-y-2 border border-slate-100 rounded-xl p-1 bg-slate-50/50">
+                    <div class="faq-box rounded-lg p-3 cursor-pointer transition-all hover:bg-white" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center"><h3 class="font-bold text-[13px] text-slate-800">Is my JSON data uploaded to the cloud?</h3><i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon transition-transform"></i></div>
+                        <div class="faq-content">No! We know JSON files often contain sensitive API keys and personal data. This tool uses native browser JavaScript to format your code locally. Nothing is ever saved or tracked.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Ad -->
+            <div class="w-full flex justify-center overflow-hidden rounded-xl bg-slate-50 min-h-[60px] mb-6">
+                <div class="transform scale-[0.95]">
+                    <script>atOptions = { 'key' : '170a48fef41011f11d7fe004dbc2d72a', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };</script>
+                    <script src="https://www.highperformanceformat.com/170a48fef41011f11d7fe004dbc2d72a/invoke.js"></script>
+                </div>
+            </div>
+
+            <!-- Related Tools -->
+            <div>
+                <h2 class="text-sm font-bold text-slate-800 mb-3 ml-1">🔗 Developer Tools</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <a href="base64-encoder-decoder.html" class="bg-white p-3.5 rounded-[16px] border border-slate-100 card-shadow text-[12px] font-bold text-slate-700 flex items-center gap-2.5 hover:text-brandBlue transition-all"><i class="fa-solid fa-lock text-brandBlue text-lg"></i> Base64 Encoder</a>
+                    <a href="url-encoder-decoder.html" class="bg-white p-3.5 rounded-[16px] border border-slate-100 card-shadow text-[12px] font-bold text-slate-700 flex items-center gap-2.5 hover:text-brandBlue transition-all"><i class="fa-solid fa-link text-emerald-500 text-lg"></i> URL Encoder</a>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // Popup Ad Logic
+        const adPopup = document.getElementById('page-load-ad');
+        const adBox = document.getElementById('ad-box');
+        const appContainer = document.getElementById('app-container');
+        let countdown = 5; let adTimerInterval;
+
+        function showPageLoadAd() {
+            adPopup.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => adBox.classList.remove('scale-95'), 50);
+            adTimerInterval = setInterval(() => {
+                countdown--; document.getElementById('ad-timer').innerText = countdown;
+                if (countdown <= 0) closePageLoadAd();
+            }, 1000);
+        }
+        function closePageLoadAd() {
+            clearInterval(adTimerInterval); adPopup.classList.add('opacity-0', 'pointer-events-none'); appContainer.classList.remove('opacity-0');
+        }
+
+        // Smart Monetization
+        const adsterraDirectLink = "https://www.profitablecpmratenetwork.com/hsu74brun?key=d7a1fa9890aeb9356de9956923b832dd";
+        let clickCount = 0;
+
+        // JSON Formatter Logic
+        const inputArea = document.getElementById('inputArea');
+        const outputArea = document.getElementById('outputArea');
+        const outputContainer = document.getElementById('outputContainer');
+        const indentSelect = document.getElementById('indentSelect');
+        const errorMsg = document.getElementById('errorMsg');
+        const errorText = document.getElementById('errorText');
+
+        // Paste Quick Action
+        document.getElementById('pasteBtn').addEventListener('click', async () => {
+            try {
+                const text = await navigator.clipboard.readText();
+                inputArea.value = text;
+            } catch (err) {
+                alert('Please paste manually using long press or Ctrl+V.');
+            }
+        });
+
+        document.getElementById('formatBtn').addEventListener('click', () => {
+            const rawData = inputArea.value.trim();
+            
+            // Reset UI
+            errorMsg.classList.add('hidden');
+            outputContainer.classList.add('hidden');
+
+            if(!rawData) { 
+                alert("Please enter JSON code first."); 
+                return; 
+            }
+
+            // Monetization Check
+            clickCount++;
+            if (clickCount > 1) { window.open(adsterraDirectLink, '_blank'); }
+
+            try {
+                // Parse the JSON string to an object (this acts as a Validator)
+                const parsedJSON = JSON.parse(rawData);
+                
+                // Get indent preference
+                const spaces = parseInt(indentSelect.value);
+                
+                // Stringify the object back to a formatted string
+                const formattedJSON = JSON.stringify(parsedJSON, null, spaces);
+                
+                outputArea.value = formattedJSON;
+                outputContainer.classList.remove('hidden');
+                outputContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            } catch (e) {
+                // Catch JSON Errors
+                errorText.innerText = "Error: " + e.message;
+                errorMsg.classList.remove('hidden');
+            }
+        });
+
+        // Copy & Clear
+        const copyBtn = document.getElementById('copyBtn');
+        const copyIcon = document.getElementById('copyIcon');
+        const copyText = document.getElementById('copyText');
+
+        copyBtn.addEventListener('click', () => {
+            if(!outputArea.value) return;
+            
+            clickCount++;
+            if (clickCount > 1) { window.open(adsterraDirectLink, '_blank'); }
+
+            navigator.clipboard.writeText(outputArea.value).then(() => {
+                copyBtn.classList.replace('bg-brandBlue', 'bg-emerald-500');
+                copyBtn.classList.replace('hover:bg-blue-700', 'hover:bg-emerald-600');
+                copyText.innerText = "Copied!";
+                copyIcon.className = "fa-solid fa-check";
+
+                setTimeout(() => {
+                    copyBtn.classList.replace('bg-emerald-500', 'bg-brandBlue');
+                    copyBtn.classList.replace('hover:bg-emerald-600', 'hover:bg-blue-700');
+                    copyText.innerText = "Copy Formatted";
+                    copyIcon.className = "fa-regular fa-copy";
+                }, 2000);
+            });
+        });
+
+        document.getElementById('clearBtn').addEventListener('click', () => {
+            inputArea.value = '';
+            outputArea.value = '';
+            errorMsg.classList.add('hidden');
+            outputContainer.classList.add('hidden');
+            inputArea.focus();
+        });
+
+        // Select all formatted text on click
+        outputArea.addEventListener('click', function() { this.select(); });
+
+        // FAQ
+        function toggleFaq(element) {
+            const isActive = element.classList.contains('active');
+            document.querySelectorAll('.faq-box').forEach(box => box.classList.remove('active'));
+            if (!isActive) element.classList.add('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', showPageLoadAd);
+    </script>
+</body>
+</html>
