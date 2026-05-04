@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- DEEP SEO META TAGS -->
+    <title>Color Code Picker Online Free – HEX, RGB & HSL Converter</title>
+    <meta name="description" content="Pick any color instantly and extract its HEX, RGB, and HSL codes for free. The perfect online color picker tool for web developers and graphic designers.">
+    <meta name="keywords" content="color picker, color code extractor, hex color picker, rgb to hex, hex to rgb, color palette generator, web designer tools">
+    <meta name="author" content="BoostifyX">
+    <link rel="canonical" href="https://boostifyx.in/color-picker.html" />
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://boostifyx.in/color-picker.html">
+    <meta property="og:title" content="Free Online Color Code Picker | BoostifyX">
+    <meta property="og:description" content="Easily pick colors and copy their HEX, RGB, or HSL values instantly.">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Adsterra Popunders (Safe in Head) -->
+    <script src="https://pl29328467.profitablecpmratenetwork.com/b1/3a/cc/b13acc9740e47b78c81bd1f716464d78.js"></script>
+    <script src="https://pl29328470.profitablecpmratenetwork.com/c2/70/e5/c270e598d58b484b92bb80fe92789aff.js"></script>
+
+    <!-- Google Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "BoostifyX Color Picker",
+      "operatingSystem": "Web",
+      "applicationCategory": "DesignApplication",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to extract a color code",
+      "step": [
+        { "@type": "HowToStep", "text": "Tap the large color box to open the native color picker." },
+        { "@type": "HowToStep", "text": "Select your desired shade visually." },
+        { "@type": "HowToStep", "text": "Click 'Copy' next to the HEX, RGB, or HSL code to use it in your design." }
+      ]
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] }, colors: { brandBlue: '#3B82F6', brandDark: '#0f172a' } } }
+        }
+    </script>
+
+    <style>
+        body { background-color: #f8fafc; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .card-shadow { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); border: 1px solid rgba(0,0,0,0.03); }
+        .premium-box { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); position: relative; overflow: hidden;}
+        
+        /* Custom Color Input Wrapper */
+        .color-input-wrapper { position: relative; width: 100%; height: 160px; border-radius: 20px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 4px solid #fff; }
+        
+        /* The actual native input is hidden but stretched over the wrapper */
+        input[type="color"] { position: absolute; top: -50px; left: -50px; width: calc(100% + 100px); height: calc(100% + 100px); opacity: 0; cursor: pointer; }
+
+        /* Code display blocks */
+        .code-block { transition: transform 0.2s, box-shadow 0.2s; }
+        .code-block:hover { transform: translateY(-2px); box-shadow: 0 8px 15px rgba(0,0,0,0.05); }
+
+        /* SEO Content */
+        .seo-content h2 { font-size: 1.125rem; font-weight: 700; color: #1e293b; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        .seo-content p { font-size: 0.8125rem; color: #475569; line-height: 1.6; margin-bottom: 0.75rem; }
+
+        /* FAQ Accordion */
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; font-size: 13px; color: #64748b; }
+        .faq-box.active .faq-icon { transform: rotate(180deg); color: #3B82F6; }
+        .faq-box.active .faq-content { max-height: 200px; padding-top: 10px; border-top: 1px solid #f1f5f9; margin-top: 10px; }
+    </style>
+</head>
+<body class="text-slate-800 flex justify-center min-h-screen relative">
+
+    <!-- 1. Auto Close Popup Ad -->
+    <div id="page-load-ad" class="fixed inset-0 bg-black/90 z-[100] flex flex-col items-center justify-center backdrop-blur-sm px-4 opacity-0 transition-opacity duration-300 pointer-events-none">
+        <div class="bg-white p-2 rounded-2xl shadow-2xl relative max-w-[340px] w-full flex flex-col items-center transform scale-95 transition-transform duration-300" id="ad-box">
+            <button onclick="closePageLoadAd()" class="absolute -top-4 -right-4 bg-red-500 text-white w-9 h-9 rounded-full flex items-center justify-center border-2 border-white shadow-lg hover:bg-red-600 z-20">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <span class="text-[10px] text-slate-400 font-bold uppercase mb-2 mt-1">Advertisement</span>
+            <div class="w-[300px] h-[250px] bg-slate-100 flex items-center justify-center overflow-hidden rounded-lg">
+                <script>atOptions = { 'key' : '325051f2cd9932285cc209930b7b6c29', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };</script>
+                <script src="https://www.highperformanceformat.com/325051f2cd9932285cc209930b7b6c29/invoke.js"></script>
+            </div>
+            <div class="mt-3 mb-2 text-[11px] font-semibold text-slate-500 bg-slate-100 px-4 py-1.5 rounded-full flex items-center gap-2">
+                <i class="fa-solid fa-spinner fa-spin text-brandBlue"></i> Closing in <span id="ad-timer" class="text-brandBlue font-bold text-sm">5</span>s
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div id="app-container" class="w-full max-w-[480px] bg-white min-h-screen relative shadow-2xl flex flex-col opacity-0 transition-opacity duration-500 pb-8">
+        
+        <header class="bg-white border-b border-slate-100 flex items-center px-4 py-4 sticky top-0 z-20 shadow-sm">
+            <a href="index.html" class="p-2 -ml-2 text-slate-500 hover:text-brandBlue transition flex items-center gap-1.5 text-sm font-semibold"><i class="fa-solid fa-house"></i> Home</a>
+            <div class="mx-auto font-bold text-lg text-slate-800 pr-10">BoostifyX</div>
+        </header>
+
+        <main class="px-5 py-6 flex-1">
+            
+            <div class="text-center mb-6">
+                <h1 class="text-2xl font-extrabold text-slate-800 mb-2 tracking-tight">Color Picker</h1>
+                <p class="text-[13px] text-slate-500 leading-relaxed font-medium">Click the box to pick a color, and instantly copy its HEX, RGB, or HSL code.</p>
+            </div>
+
+            <!-- Header Ad -->
+            <div class="w-full flex justify-center mb-6 overflow-hidden rounded-lg min-h-[50px] bg-slate-50 border border-slate-100">
+                <script>atOptions = { 'key' : '813ac3f88e00cda4dd606c27868f4998', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };</script>
+                <script src="https://www.highperformanceformat.com/813ac3f88e00cda4dd606c27868f4998/invoke.js"></script>
+            </div>
+
+            <!-- TOOL UI -->
+            <div class="bg-white p-5 rounded-[24px] card-shadow border border-slate-100 mb-6">
+                
+                <!-- Live Color Picker Box -->
+                <div class="mb-6 relative">
+                    <p class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2 pl-1 text-center">Tap to Change Color</p>
+                    
+                    <div id="colorDisplayBox" class="color-input-wrapper flex items-center justify-center" style="background-color: #3B82F6;">
+                        <input type="color" id="colorInput" value="#3B82F6">
+                        <div class="pointer-events-none bg-white/20 backdrop-blur-sm border border-white/30 px-4 py-2 rounded-xl text-white font-bold tracking-widest text-lg shadow-sm" id="overlayHex">
+                            #3B82F6
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-slate-100 mb-5"></div>
+
+                <!-- Generated Codes Section -->
+                <div class="space-y-3">
+                    
+                    <!-- HEX Code -->
+                    <div class="code-block flex items-center justify-between bg-slate-50 border border-slate-200 rounded-xl p-3">
+                        <div class="flex-1 overflow-hidden">
+                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">HEX Code</p>
+                            <p id="txtHex" class="text-[15px] font-mono font-bold text-slate-800 truncate">#3B82F6</p>
+                        </div>
+                        <button onclick="copyCode('txtHex', this)" class="bg-white border border-slate-200 hover:border-brandBlue text-brandBlue w-10 h-10 rounded-lg flex items-center justify-center transition shadow-sm transform active:scale-95 flex-shrink-0">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+
+                    <!-- RGB Code -->
+                    <div class="code-block flex items-center justify-between bg-slate-50 border border-slate-200 rounded-xl p-3">
+                        <div class="flex-1 overflow-hidden">
+                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">RGB Code</p>
+                            <p id="txtRgb" class="text-[15px] font-mono font-bold text-slate-800 truncate">rgb(59, 130, 246)</p>
+                        </div>
+                        <button onclick="copyCode('txtRgb', this)" class="bg-white border border-slate-200 hover:border-brandBlue text-brandBlue w-10 h-10 rounded-lg flex items-center justify-center transition shadow-sm transform active:scale-95 flex-shrink-0">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+
+                    <!-- HSL Code -->
+                    <div class="code-block flex items-center justify-between bg-slate-50 border border-slate-200 rounded-xl p-3">
+                        <div class="flex-1 overflow-hidden">
+                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">HSL Code</p>
+                            <p id="txtHsl" class="text-[15px] font-mono font-bold text-slate-800 truncate">hsl(217, 90%, 60%)</p>
+                        </div>
+                        <button onclick="copyCode('txtHsl', this)" class="bg-white border border-slate-200 hover:border-brandBlue text-brandBlue w-10 h-10 rounded-lg flex items-center justify-center transition shadow-sm transform active:scale-95 flex-shrink-0">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Middle Native Ad -->
+            <div class="w-full flex justify-center mb-6 overflow-hidden rounded-2xl bg-slate-50 min-h-[250px] border border-slate-100 shadow-sm">
+                <script async="async" data-cfasync="false" src="https://pl29328469.profitablecpmratenetwork.com/7c0513c8e22f42f980b06a1fa0c4ab2c/invoke.js"></script>
+                <div id="container-7c0513c8e22f42f980b06a1fa0c4ab2c"></div>
+            </div>
+
+            <!-- DETAILED SEO ARTICLE SECTION -->
+            <article class="bg-white p-5 rounded-[20px] card-shadow mb-6 seo-content border border-slate-100">
+                <div class="flex items-center gap-2 mb-2 text-brandBlue">
+                    <i class="fa-solid fa-palette text-xl"></i>
+                    <span class="font-bold text-sm tracking-wider uppercase">Guide</span>
+                </div>
+                <h2>What is a HEX Color Code?</h2>
+                <p>A HEX (Hexadecimal) color code is a 6-symbol code made of up to three 2-symbol elements. Each of the 2-symbol elements expresses a color value from 00 to FF representing Red, Green, and Blue values respectively. For example, <code>#000000</code> is absolute Black, and <code>#FFFFFF</code> is pure White.</p>
+                <p>Web developers and UI/UX designers use these codes inside CSS files to apply exact, consistent colors across websites and mobile applications.</p>
+            </article>
+
+            <!-- FAQ -->
+            <div class="bg-white p-5 rounded-[20px] card-shadow mb-6">
+                <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-circle-question text-brandBlue"></i> FAQs</h2>
+                <div class="space-y-2 border border-slate-100 rounded-xl p-1 bg-slate-50/50">
+                    <div class="faq-box rounded-lg p-3 cursor-pointer transition-all hover:bg-white" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center"><h3 class="font-bold text-[13px] text-slate-800">What is the difference between HEX and RGB?</h3><i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon transition-transform"></i></div>
+                        <div class="faq-content">HEX is base-16 math, while RGB uses traditional base-10 math (from 0 to 255). They both represent the exact same colors on digital screens, but HEX is shorter and more commonly used in CSS.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Ad -->
+            <div class="w-full flex justify-center overflow-hidden rounded-xl bg-slate-50 min-h-[60px] mb-6">
+                <div class="transform scale-[0.95]">
+                    <script>atOptions = { 'key' : '170a48fef41011f11d7fe004dbc2d72a', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };</script>
+                    <script src="https://www.highperformanceformat.com/170a48fef41011f11d7fe004dbc2d72a/invoke.js"></script>
+                </div>
+            </div>
+
+            <!-- Related Tools -->
+            <div>
+                <h2 class="text-sm font-bold text-slate-800 mb-3 ml-1">🔗 Developer Tools</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <a href="html-viewer.html" class="bg-white p-3.5 rounded-[16px] border border-slate-100 card-shadow text-[12px] font-bold text-slate-700 flex items-center gap-2.5 hover:text-brandBlue transition-all"><i class="fa-brands fa-html5 text-brandBlue text-lg"></i> HTML Viewer</a>
+                    <a href="json-formatter.html" class="bg-white p-3.5 rounded-[16px] border border-slate-100 card-shadow text-[12px] font-bold text-slate-700 flex items-center gap-2.5 hover:text-brandBlue transition-all"><i class="fa-solid fa-brackets-curly text-emerald-500 text-lg"></i> JSON Formatter</a>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // Popup Ad Logic
+        const adPopup = document.getElementById('page-load-ad');
+        const adBox = document.getElementById('ad-box');
+        const appContainer = document.getElementById('app-container');
+        let countdown = 5; let adTimerInterval;
+
+        function showPageLoadAd() {
+            adPopup.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => adBox.classList.remove('scale-95'), 50);
+            adTimerInterval = setInterval(() => {
+                countdown--; document.getElementById('ad-timer').innerText = countdown;
+                if (countdown <= 0) closePageLoadAd();
+            }, 1000);
+        }
+        function closePageLoadAd() {
+            clearInterval(adTimerInterval); adPopup.classList.add('opacity-0', 'pointer-events-none'); appContainer.classList.remove('opacity-0');
+        }
+
+        // Smart Monetization
+        const adsterraDirectLink = "https://www.profitablecpmratenetwork.com/hsu74brun?key=d7a1fa9890aeb9356de9956923b832dd";
+        let clickCount = 0;
+
+        // Color Picker Logic
+        const colorInput = document.getElementById('colorInput');
+        const colorDisplayBox = document.getElementById('colorDisplayBox');
+        const overlayHex = document.getElementById('overlayHex');
+        const txtHex = document.getElementById('txtHex');
+        const txtRgb = document.getElementById('txtRgb');
+        const txtHsl = document.getElementById('txtHsl');
+
+        // Convert HEX to RGB
+        function hexToRgb(hex) {
+            let r = 0, g = 0, b = 0;
+            if (hex.length == 7) {
+                r = parseInt(hex.substring(1, 3), 16);
+                g = parseInt(hex.substring(3, 5), 16);
+                b = parseInt(hex.substring(5, 7), 16);
+            }
+            return { r, g, b };
+        }
+
+        // Convert RGB to HSL
+        function rgbToHsl(r, g, b) {
+            r /= 255, g /= 255, b /= 255;
+            let max = Math.max(r, g, b), min = Math.min(r, g, b);
+            let h, s, l = (max + min) / 2;
+
+            if (max == min) {
+                h = s = 0; // achromatic
+            } else {
+                let d = max - min;
+                s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                switch (max) {
+                    case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                    case g: h = (b - r) / d + 2; break;
+                    case b: h = (r - g) / d + 4; break;
+                }
+                h /= 6;
+            }
+            return { h: Math.round(h * 360), s: Math.round(s * 100), l: Math.round(l * 100) };
+        }
+
+        // Update All Values
+        function updateColorValues(hexVal) {
+            // Update UI
+            colorDisplayBox.style.backgroundColor = hexVal;
+            overlayHex.innerText = hexVal.toUpperCase();
+            txtHex.innerText = hexVal.toUpperCase();
+
+            // Calculate RGB
+            const rgbObj = hexToRgb(hexVal);
+            txtRgb.innerText = `rgb(${rgbObj.r}, ${rgbObj.g}, ${rgbObj.b})`;
+
+            // Calculate HSL
+            const hslObj = rgbToHsl(rgbObj.r, rgbObj.g, rgbObj.b);
+            txtHsl.innerText = `hsl(${hslObj.h}, ${hslObj.s}%, ${hslObj.l}%)`;
+        }
+
+        // Listen for color change
+        colorInput.addEventListener('input', (e) => {
+            updateColorValues(e.target.value);
+        });
+
+        // Copy Function (Monetized)
+        function copyCode(elementId, btnElement) {
+            const textToCopy = document.getElementById(elementId).innerText;
+            if(!textToCopy) return;
+
+            clickCount++;
+            if (clickCount > 1) { window.open(adsterraDirectLink, '_blank'); }
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const icon = btnElement.querySelector('i');
+                const origClass = icon.className;
+                
+                // Visual feedback
+                btnElement.classList.replace('text-brandBlue', 'text-emerald-500');
+                btnElement.classList.replace('border-slate-200', 'border-emerald-500');
+                icon.className = "fa-solid fa-check";
+
+                setTimeout(() => {
+                    btnElement.classList.replace('text-emerald-500', 'text-brandBlue');
+                    btnElement.classList.replace('border-emerald-500', 'border-slate-200');
+                    icon.className = origClass;
+                }, 2000);
+            });
+        }
+
+        // FAQ
+        function toggleFaq(element) {
+            const isActive = element.classList.contains('active');
+            document.querySelectorAll('.faq-box').forEach(box => box.classList.remove('active'));
+            if (!isActive) element.classList.add('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', showPageLoadAd);
+    </script>
+</body>
+</html>
