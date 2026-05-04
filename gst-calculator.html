@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- ADVANCED SEO META TAGS -->
+    <title>GST Calculator Online Free – Add & Remove GST | BoostifyX</title>
+    <meta name="description" content="Calculate GST instantly with our free online GST calculator. Easily add or remove GST (5%, 12%, 18%, 28%) and check exact CGST & SGST amounts.">
+    <meta name="keywords" content="gst calculator, free gst calculator online, gst calculator india, calculate gst amount, add gst, remove gst, exclusive inclusive gst">
+    <meta name="author" content="BoostifyX">
+    <link rel="canonical" href="https://boostifyx.in/gst-calculator.html" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://boostifyx.in/gst-calculator.html">
+    <meta property="og:title" content="GST Calculator Online Free – Add & Remove GST | BoostifyX">
+    <meta property="og:description" content="Calculate exact GST amount, Net Price, CGST & SGST instantly. Free & fast online tool.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="GST Calculator Online Free | BoostifyX">
+    <meta property="twitter:description" content="Calculate exact GST amount, Net Price, CGST & SGST instantly. Free & fast online tool.">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Adsterra Popunders (Safe in Head) -->
+    <script src="https://pl29328467.profitablecpmratenetwork.com/b1/3a/cc/b13acc9740e47b78c81bd1f716464d78.js"></script>
+    <script src="https://pl29328470.profitablecpmratenetwork.com/c2/70/e5/c270e598d58b484b92bb80fe92789aff.js"></script>
+
+    <!-- Google Structured Data (JSON-LD) for SEO Ranking -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "GST Calculator",
+      "operatingSystem": "Web",
+      "applicationCategory": "FinanceApplication",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How to calculate GST?", "acceptedAnswer": { "@type": "Answer", "text": "Simply enter your base amount and select the GST rate (5%, 12%, 18%, or 28%). Choose 'Add GST' to see the final price, or 'Remove GST' to find the original price before tax." } },
+        { "@type": "Question", "name": "What is CGST and SGST?", "acceptedAnswer": { "@type": "Answer", "text": "The total GST amount is equally divided into two parts: Central GST (CGST) and State GST (SGST) for intra-state sales." } }
+      ]
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], }, colors: { brandBlue: '#3B82F6', } } }
+        }
+    </script>
+
+    <style>
+        body { background-color: #f8fafc; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .card-shadow { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); border: 1px solid rgba(0,0,0,0.04); }
+        
+        /* Premium Range Slider */
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; cursor: pointer; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%; background: #ffffff; border: 3px solid #3B82F6; cursor: pointer; margin-top: -7px; box-shadow: 0 4px 10px rgba(59,130,246,0.4); transition: transform 0.2s ease; }
+        input[type=range]:active::-webkit-slider-thumb { transform: scale(1.15); }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; cursor: pointer; background: #E2E8F0; border-radius: 4px; }
+        
+        /* Advanced FAQ Accordion */
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; padding-top: 0; font-size: 13px; color: #64748b; }
+        .faq-box.active .faq-icon { transform: rotate(180deg); color: #3B82F6; }
+        .faq-box.active .faq-content { max-height: 150px; padding-top: 10px; border-top: 1px solid #f1f5f9; margin-top: 10px; }
+        .faq-box { border: 1px solid transparent; }
+        .faq-box.active { border-color: #bfdbfe; background-color: #f8fafc; }
+    </style>
+</head>
+<body class="text-slate-800 flex justify-center min-h-screen relative">
+
+    <!-- 1. PAGE LOAD POP-UP AD (Auto Close 5s) -->
+    <div id="page-load-ad" class="fixed inset-0 bg-black/80 z-[100] flex flex-col items-center justify-center backdrop-blur-sm px-4 opacity-0 transition-opacity duration-300 pointer-events-none">
+        <div class="bg-white p-2 rounded-2xl shadow-2xl relative max-w-[340px] w-full flex flex-col items-center">
+            <button onclick="closePageLoadAd()" class="absolute -top-4 -right-4 bg-red-500 text-white w-9 h-9 rounded-full flex items-center justify-center border-2 border-white shadow-lg hover:bg-red-600 z-20 transition-transform hover:scale-110">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <span class="text-[10px] text-slate-400 font-bold uppercase mb-2 mt-1">Advertisement</span>
+            <div class="w-[300px] h-[250px] bg-slate-100 flex items-center justify-center overflow-hidden rounded-lg">
+                <script>
+                  atOptions = { 'key' : '325051f2cd9932285cc209930b7b6c29', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };
+                </script>
+                <script src="https://www.highperformanceformat.com/325051f2cd9932285cc209930b7b6c29/invoke.js"></script>
+            </div>
+            <div class="mt-3 mb-2 text-[11px] font-semibold text-slate-500 bg-slate-100 px-4 py-1.5 rounded-full">
+                Closing automatically in <span id="ad-timer" class="text-brandBlue font-bold">5</span>s...
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div id="app-container" class="w-full max-w-[480px] bg-white min-h-screen relative shadow-2xl flex flex-col opacity-0 transition-opacity duration-500">
+        
+        <!-- HEADER (Home button strictly points to index.html) -->
+        <header class="bg-white border-b border-slate-100 flex items-center px-4 py-4 sticky top-0 z-20 shadow-sm">
+            <a href="index.html" class="p-2 -ml-2 text-slate-500 hover:text-brandBlue transition flex items-center gap-1.5 text-sm font-semibold">
+                <i class="fa-solid fa-house"></i> Home
+            </a>
+            <div class="mx-auto font-bold text-lg text-slate-800 pr-10">BoostifyX</div>
+        </header>
+
+        <main class="px-5 py-6 flex-1">
+            
+            <!-- Tool Title -->
+            <div class="text-center mb-6">
+                <h1 class="text-2xl font-bold text-slate-800 mb-2">GST Calculator</h1>
+                <h2 class="text-sm font-semibold text-brandBlue mb-3">Add or Remove GST Instantly</h2>
+                <p class="text-[13px] text-slate-500 leading-relaxed">
+                    Easily calculate the final price of your goods or services. Know the exact GST amount, CGST, and SGST split.
+                </p>
+            </div>
+
+            <!-- 2. TOP BANNER AD (320x50) -->
+            <div class="w-full flex justify-center mb-6 overflow-hidden rounded-lg min-h-[50px] bg-slate-50">
+                <script>
+                  atOptions = { 'key' : '813ac3f88e00cda4dd606c27868f4998', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
+                </script>
+                <script src="https://www.highperformanceformat.com/813ac3f88e00cda4dd606c27868f4998/invoke.js"></script>
+            </div>
+
+            <!-- CALCULATOR UI BOX -->
+            <div class="bg-white p-5 rounded-2xl card-shadow border border-slate-100 mb-6">
+                
+                <!-- GST Mode Selection -->
+                <div class="flex bg-slate-100 p-1 rounded-xl mb-6">
+                    <button id="addBtn" onclick="setMode('add')" class="flex-1 py-2 text-[13px] font-bold rounded-lg bg-white text-brandBlue shadow-sm transition-all">Add GST (+)</button>
+                    <button id="remBtn" onclick="setMode('remove')" class="flex-1 py-2 text-[13px] font-bold rounded-lg text-slate-500 hover:text-slate-700 transition-all">Remove GST (-)</button>
+                </div>
+
+                <!-- Base Amount -->
+                <div class="mb-5">
+                    <div class="flex justify-between items-center mb-2">
+                        <label class="text-[13px] font-bold text-slate-700" id="amountLabel">Initial Amount (₹)</label>
+                        <input type="number" id="amountInput" value="10000" class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 text-right font-bold text-brandBlue w-32 outline-none focus:ring-2 focus:ring-brandBlue/50 transition">
+                    </div>
+                    <input type="range" id="amountRange" min="100" max="1000000" step="100" value="10000">
+                </div>
+
+                <!-- Smart GST Rate Presets -->
+                <div class="mb-5">
+                    <div class="flex justify-between items-center mb-2">
+                        <label class="text-[13px] font-bold text-slate-700">GST Rate (%)</label>
+                        <input type="number" id="rateInput" value="18" step="0.1" class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 text-right font-bold text-brandBlue w-24 outline-none focus:ring-2 focus:ring-brandBlue/50 transition">
+                    </div>
+                    <div class="grid grid-cols-4 gap-2 mb-3">
+                        <button onclick="setRate(5)" class="rate-btn py-1.5 text-xs font-semibold rounded border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 transition">5%</button>
+                        <button onclick="setRate(12)" class="rate-btn py-1.5 text-xs font-semibold rounded border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 transition">12%</button>
+                        <button onclick="setRate(18)" class="rate-btn py-1.5 text-xs font-bold rounded border-brandBlue bg-brandBlue text-white shadow-sm transition">18%</button>
+                        <button onclick="setRate(28)" class="rate-btn py-1.5 text-xs font-semibold rounded border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 transition">28%</button>
+                    </div>
+                    <input type="range" id="rateRange" min="1" max="40" step="0.5" value="18" class="hidden"> <!-- Hidden but active for logic -->
+                </div>
+
+                <!-- REAL-TIME RESULTS BOX -->
+                <div class="bg-slate-800 rounded-xl p-5 text-center mb-5 shadow-lg relative overflow-hidden">
+                    <p class="text-sm text-slate-400 font-medium mb-1">Total Final Amount</p>
+                    <h2 class="text-4xl font-bold text-emerald-400 mb-4" id="totalResult">₹ 11,800</h2>
+                    
+                    <div class="flex justify-between border-t border-slate-700 pt-4 mb-3">
+                        <div class="text-left">
+                            <p class="text-[11px] text-slate-400 uppercase">Net Price</p>
+                            <p class="text-base font-bold text-white" id="netResult">₹ 10,000</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-[11px] text-slate-400 uppercase">Total GST</p>
+                            <p class="text-base font-bold text-rose-400" id="gstResult">₹ 1,800</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Advanced Split Info -->
+                    <div class="flex justify-between bg-slate-900/50 rounded-lg p-2 px-3 border border-slate-700">
+                        <div class="text-left">
+                            <p class="text-[10px] text-slate-400 uppercase">CGST</p>
+                            <p class="text-sm font-semibold text-slate-300" id="cgstResult">₹ 900</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-[10px] text-slate-400 uppercase">SGST</p>
+                            <p class="text-sm font-semibold text-slate-300" id="sgstResult">₹ 900</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ADVANCED CHART UI -->
+                <div class="w-full max-w-[200px] mx-auto mt-4"><canvas id="gstChart"></canvas></div>
+            </div>
+
+            <!-- 3. MIDDLE NATIVE AD (Safe min-h) -->
+            <div class="w-full flex justify-center mb-6 overflow-hidden rounded-xl bg-slate-50 min-h-[250px]">
+                <script async="async" data-cfasync="false" src="https://pl29328469.profitablecpmratenetwork.com/7c0513c8e22f42f980b06a1fa0c4ab2c/invoke.js"></script>
+                <div id="container-7c0513c8e22f42f980b06a1fa0c4ab2c"></div>
+            </div>
+
+            <!-- SEO CONTENT -->
+            <div class="bg-white p-5 rounded-2xl card-shadow mb-6">
+                <h2 class="text-lg font-bold text-slate-800 mb-2">Difference: Add vs Remove GST</h2>
+                <p class="text-[13px] text-slate-600 leading-relaxed mb-4">
+                    <b>Add GST (+):</b> Use this when you have the base price of a product and want to know the final billing price after applying taxes.<br><br>
+                    <b>Remove GST (-):</b> Use this when you already know the MRP (which includes tax) and you want to calculate the original product price before tax was added.
+                </p>
+            </div>
+
+            <!-- ADVANCED FAQ ACCORDION -->
+            <div class="bg-white p-5 rounded-2xl card-shadow mb-6">
+                <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-question text-brandBlue"></i> Frequently Asked Questions
+                </h2>
+                <div class="space-y-3">
+                    <div class="faq-box rounded-xl p-3 cursor-pointer transition-all hover:bg-slate-50" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center"><h3 class="font-bold text-[13px] text-slate-800">Q1. What is CGST and SGST?</h3><i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon transition-transform duration-300"></i></div>
+                        <div class="faq-content">When you sell a product within your own state, the GST is divided into two equal parts: Central GST (CGST) goes to the central government, and State GST (SGST) goes to the state government.</div>
+                    </div>
+                    <div class="faq-box rounded-xl p-3 cursor-pointer transition-all hover:bg-slate-50" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center"><h3 class="font-bold text-[13px] text-slate-800">Q2. What are the common GST slabs in India?</h3><i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon transition-transform duration-300"></i></div>
+                        <div class="faq-content">The standard GST tax slabs in India are 5%, 12%, 18%, and 28%. Different products fall under different categories.</div>
+                    </div>
+                    <div class="faq-box rounded-xl p-3 cursor-pointer transition-all hover:bg-slate-50" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center"><h3 class="font-bold text-[13px] text-slate-800">Q3. Is this calculator free?</h3><i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon transition-transform duration-300"></i></div>
+                        <div class="faq-content">Yes, BoostifyX tools are 100% free, fast, and secure. We don't save your data.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. BOTTOM BANNER AD (468x60) -->
+            <div class="w-full flex justify-center overflow-hidden rounded-lg bg-slate-50 min-h-[60px] mb-6">
+                <div class="transform scale-[0.95]">
+                    <script>
+                      atOptions = { 'key' : '170a48fef41011f11d7fe004dbc2d72a', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/170a48fef41011f11d7fe004dbc2d72a/invoke.js"></script>
+                </div>
+            </div>
+
+            <!-- RELATED TOOLS -->
+            <div>
+                <h2 class="text-sm font-bold text-slate-800 mb-3">🔗 Recommended Finance Tools</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <a href="emi-calculator.html" class="bg-white p-3 rounded-xl border border-slate-100 card-shadow text-[12px] font-semibold text-slate-700 flex items-center gap-2 hover:text-brandBlue transition-all"><i class="fa-solid fa-calculator text-emerald-500"></i> EMI Calculator</a>
+                    <a href="sip-calculator.html" class="bg-white p-3 rounded-xl border border-slate-100 card-shadow text-[12px] font-semibold text-slate-700 flex items-center gap-2 hover:text-brandBlue transition-all"><i class="fa-solid fa-chart-line text-blue-500"></i> SIP Calculator</a>
+                    <a href="loan-interest-calculator.html" class="bg-white p-3 rounded-xl border border-slate-100 card-shadow text-[12px] font-semibold text-slate-700 flex items-center gap-2 hover:text-brandBlue transition-all"><i class="fa-solid fa-building-columns text-orange-500"></i> Loan Interest</a>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="bg-white border-t border-slate-200 py-6 text-center mt-4">
+            <p class="text-xs text-slate-400 font-medium">&copy; 2024 BoostifyX — Free Online Tools</p>
+        </footer>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- 1. DOM Elements ---
+        const amountInput = document.getElementById('amountInput');
+        const amountRange = document.getElementById('amountRange');
+        const rateInput = document.getElementById('rateInput');
+        const rateRange = document.getElementById('rateRange');
+        const amountLabel = document.getElementById('amountLabel');
+
+        const totalResult = document.getElementById('totalResult');
+        const netResult = document.getElementById('netResult');
+        const gstResult = document.getElementById('gstResult');
+        const cgstResult = document.getElementById('cgstResult');
+        const sgstResult = document.getElementById('sgstResult');
+        
+        let currentMode = 'add'; // 'add' or 'remove'
+        
+        const chartCanvas = document.getElementById('gstChart');
+        let gstChartInstance = null;
+
+        // --- 2. POPUP AD Logic ---
+        const adPopup = document.getElementById('page-load-ad');
+        const appContainer = document.getElementById('app-container');
+        let countdown = 5;
+        let adTimerInterval;
+
+        function showPageLoadAd() {
+            adPopup.classList.remove('opacity-0', 'pointer-events-none');
+            adTimerInterval = setInterval(() => {
+                countdown--;
+                document.getElementById('ad-timer').innerText = countdown;
+                if (countdown <= 0) closePageLoadAd();
+            }, 1000);
+        }
+
+        function closePageLoadAd() {
+            clearInterval(adTimerInterval);
+            adPopup.classList.add('opacity-0', 'pointer-events-none');
+            appContainer.classList.remove('opacity-0');
+        }
+
+        // --- 3. UI MODE & PRESET BUTTONS ---
+        function setMode(mode) {
+            currentMode = mode;
+            const addBtn = document.getElementById('addBtn');
+            const remBtn = document.getElementById('remBtn');
+
+            if(mode === 'add') {
+                addBtn.className = "flex-1 py-2 text-[13px] font-bold rounded-lg bg-white text-brandBlue shadow-sm transition-all";
+                remBtn.className = "flex-1 py-2 text-[13px] font-bold rounded-lg text-slate-500 hover:text-slate-700 transition-all";
+                amountLabel.innerText = "Base Amount (Without Tax)";
+            } else {
+                remBtn.className = "flex-1 py-2 text-[13px] font-bold rounded-lg bg-white text-rose-500 shadow-sm transition-all";
+                addBtn.className = "flex-1 py-2 text-[13px] font-bold rounded-lg text-slate-500 hover:text-slate-700 transition-all";
+                amountLabel.innerText = "Total Amount (With Tax)";
+            }
+            calculateGST();
+        }
+
+        function setRate(val) {
+            rateInput.value = val;
+            rateRange.value = val;
+            
+            // UI Update for preset buttons
+            document.querySelectorAll('.rate-btn').forEach(btn => {
+                btn.className = "rate-btn py-1.5 text-xs font-semibold rounded border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 transition";
+            });
+            const clickedBtn = Array.from(document.querySelectorAll('.rate-btn')).find(b => b.innerText === val + '%');
+            if(clickedBtn) {
+                clickedBtn.className = "rate-btn py-1.5 text-xs font-bold rounded border-brandBlue bg-brandBlue text-white shadow-sm transition";
+            }
+            calculateGST();
+        }
+
+        // --- 4. ADVANCED CHART SETUP (Doughnut) ---
+        function createOrUpdateChart(net, gst) {
+            if (gstChartInstance) {
+                gstChartInstance.data.datasets[0].data = [net, gst];
+                gstChartInstance.update();
+            } else {
+                const ctx = chartCanvas.getContext('2d');
+                gstChartInstance = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Net Price', 'Total GST'],
+                        datasets: [{
+                            data: [net, gst],
+                            backgroundColor: ['#ffffff', '#fb7185'], // White and Rose
+                            borderColor: '#1e293b',
+                            borderWidth: 2,
+                            hoverOffset: 5
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        cutout: '75%',
+                        animation: { animateScale: true, animateRotate: true },
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: { callbacks: { label: (c) => ` ${c.label}: ₹ ${formatCurrency(c.raw)}` } }
+                        }
+                    }
+                });
+            }
+        }
+
+        // --- 5. CORE MATH LOGIC ---
+        function formatCurrency(num) {
+            return new Intl.NumberFormat('en-IN', { maximumFractionDigits: 2 }).format(num);
+        }
+
+        function calculateGST() {
+            const amount = parseFloat(amountInput.value) || 0;
+            const rate = parseFloat(rateInput.value) || 0;
+
+            let netAmount = 0, gstAmount = 0, totalAmount = 0;
+
+            if(currentMode === 'add') {
+                netAmount = amount;
+                gstAmount = (amount * rate) / 100;
+                totalAmount = netAmount + gstAmount;
+            } else if(currentMode === 'remove') {
+                totalAmount = amount;
+                gstAmount = amount - (amount * (100 / (100 + rate)));
+                netAmount = totalAmount - gstAmount;
+            }
+
+            // Calculate Split
+            const halfGst = gstAmount / 2;
+
+            // Update UI safely
+            totalResult.innerText = `₹ ${formatCurrency(totalAmount)}`;
+            netResult.innerText = `₹ ${formatCurrency(netAmount)}`;
+            gstResult.innerText = `₹ ${formatCurrency(gstAmount)}`;
+            cgstResult.innerText = `₹ ${formatCurrency(halfGst)}`;
+            sgstResult.innerText = `₹ ${formatCurrency(halfGst)}`;
+
+            createOrUpdateChart(netAmount, gstAmount);
+        }
+
+        // --- 6. SLIDER & INPUT SYNC ---
+        function setupEventListeners() {
+            const inputs = [
+                { input: amountInput, range: amountRange },
+                { input: rateInput, range: rateRange }
+            ];
+
+            inputs.forEach(({ input, range }) => {
+                input.addEventListener('input', () => {
+                    range.value = input.value;
+                    if(input === amountInput) updateSliderBackground(range);
+                    
+                    // Reset preset buttons if custom rate is typed
+                    if(input === rateInput) {
+                        document.querySelectorAll('.rate-btn').forEach(btn => {
+                            btn.className = "rate-btn py-1.5 text-xs font-semibold rounded border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 transition";
+                        });
+                    }
+                    calculateGST();
+                });
+                range.addEventListener('input', () => {
+                    input.value = range.value;
+                    if(range === amountRange) updateSliderBackground(range);
+                    calculateGST();
+                });
+            });
+            
+            // Watch for rateInput manual changes to select predefined chips if matched
+            rateInput.addEventListener('blur', () => {
+                const val = rateInput.value;
+                if([5,12,18,28].includes(parseFloat(val))) {
+                    setRate(val);
+                }
+            });
+        }
+        
+        function updateSliderBackground(slider) {
+            const min = slider.min;
+            const max = slider.max;
+            const val = slider.value;
+            const percentage = (val - min) * 100 / (max - min);
+            slider.style.background = `linear-gradient(to right, #3B82F6 ${percentage}%, #E2E8F0 ${percentage}%)`;
+        }
+
+        // --- 7. ADVANCED FAQ ACCORDION ---
+        function toggleFaq(element) {
+            const isActive = element.classList.contains('active');
+            document.querySelectorAll('.faq-box').forEach(box => box.classList.remove('active'));
+            if (!isActive) {
+                element.classList.add('active');
+            }
+        }
+
+        // --- 8. INITIALIZE ---
+        document.addEventListener('DOMContentLoaded', () => {
+            showPageLoadAd();
+            setupEventListeners();
+            updateSliderBackground(amountRange);
+            calculateGST();
+        });
+    </script>
+</body>
+</html>
