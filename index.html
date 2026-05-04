@@ -4,19 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- ================= SEO META TAGS ================= -->
-    <title>Boostifyx.in | Best Free Online Tools - Calculators, Image & Dev Utilities</title>
-    <meta name="description" content="Use 25+ 100% Free Online Tools on Boostifyx. EMI & GST Calculators, Image Compressors, JSON Formatter, Word Counters, and more. Fast, secure, and mobile-friendly!">
-    <meta name="keywords" content="free online tools, EMI calculator, GST calculator India, image compressor free, JSON formatter, age calculator online, online utility tools, Boostifyx">
+    <!-- ================= DEEP SEO META TAGS ================= -->
+    <title>BoostifyX | Best Free Online Tools - Calculators, Image & Dev Utilities</title>
+    <meta name="description" content="Use 25+ 100% Free Online Tools on BoostifyX. EMI & GST Calculators, Image Compressors, JSON Formatter, Word Counters, and more. Fast, secure, and mobile-friendly!">
+    <meta name="keywords" content="free online tools, EMI calculator, GST calculator India, image compressor free, JSON formatter, age calculator online, online utility tools, BoostifyX">
     <meta name="author" content="Sazzidul Corporation">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://boostifyx.in/">
     
-    <!-- Open Graph for Social Media Sharing -->
-    <meta property="og:title" content="Boostifyx.in | 100% Free Online Tools">
+    <!-- ================= WEB APP ICONS (FOR MOBILE/CHROME/SAFARI) ================= -->
+    <!-- Ye tags aapke screenshot wale icon ko ekdum App jaisa gol aur clear dikhayenge -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#050B14"> <!-- Changes mobile status bar color -->
+    
+    <!-- ================= OPEN GRAPH (SOCIAL MEDIA) ================= -->
+    <meta property="og:title" content="BoostifyX | 100% Free Online Tools">
     <meta property="og:description" content="Access 25+ premium free tools. Calculators, image editors, and dev utilities. Secure & Fast.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://boostifyx.in/">
+    <meta property="og:image" content="https://boostifyx.in/favicon.png">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -43,6 +52,8 @@
             background-color: #f1f5f9;
             -webkit-tap-highlight-color: transparent;
         }
+        
+        /* Hide scrollbar for horizontal scrolling elements but keep functionality */
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
@@ -67,7 +78,7 @@
             transition: max-height 0.4s ease-in-out, padding-top 0.4s ease-in-out;
         }
         .faq-item.active .faq-answer {
-            max-height: 300px; /* Adjust if content is very long */
+            max-height: 300px;
             padding-top: 12px;
         }
         .faq-item .faq-icon {
@@ -78,38 +89,43 @@
         }
     </style>
 
-    <!-- ================= GOOGLE FAQ SCHEMA (FOR SEO RANKING) ================= -->
+    <!-- ================= GOOGLE SCHEMA (SEO) ================= -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://boostifyx.in/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://boostifyx.in/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [{
         "@type": "Question",
-        "name": "What is Boostifyx.in?",
+        "name": "What is BoostifyX?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Boostifyx.in is a premium platform offering 25+ 100% free online tools, including Finance Calculators (EMI, GST), Image Compressors, JSON Formatters, and Utility tools designed to simplify your daily digital tasks."
+          "text": "BoostifyX is a premium platform offering 25+ 100% free online tools, including Finance Calculators, Image Compressors, JSON Formatters, and Utility tools."
         }
       }, {
         "@type": "Question",
-        "name": "Is Boostifyx.in completely free to use?",
+        "name": "Is BoostifyX completely free to use?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, Boostifyx.in is 100% free forever. There are no hidden fees, premium subscriptions, or trial periods. All tools are unlocked for everyone globally."
+          "text": "Yes, BoostifyX is 100% free forever. No hidden fees or subscriptions."
         }
       }, {
         "@type": "Question",
-        "name": "Is my data safe when using the Image Compressor or Code Formatters?",
+        "name": "Is my data safe?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Absolutely. Your privacy is our priority. Most of our tools process data locally within your browser. We do not upload, save, or store your images, texts, or codes on any server."
-        }
-      }, {
-        "@type": "Question",
-        "name": "Does the EMI and GST Calculator work for Indian users?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, our Finance tools are highly optimized for both Indian and Global users. The GST Calculator instantly handles Indian tax slabs (5%, 12%, 18%, 28%) accurately."
+          "text": "Absolutely. Your privacy is our priority. Most of our tools process data locally within your browser and do not save data to any server."
         }
       }]
     }
@@ -126,12 +142,12 @@
             <div class="bg-gradient-to-r from-darkblue to-navy p-6 flex justify-between items-center">
                 <div class="flex items-center gap-2 font-bold text-xl text-white">
                     <div class="bg-brandBlue p-1.5 rounded text-sm"><i class="fa-solid fa-bolt text-white"></i></div>
-                    <span>Boostifyx</span>
+                    <span>BoostifyX</span>
                 </div>
                 <button onclick="toggleMenu()" class="text-white/70 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
             </div>
             
-            <div class="flex-1 overflow-y-auto py-4 px-4 flex flex-col gap-2">
+            <div class="flex-1 overflow-y-auto py-4 px-4 flex flex-col gap-2 hide-scrollbar">
                 <a href="index.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-medium transition"><i class="fa-solid fa-house w-5 text-brandBlue"></i> Home</a>
                 <a href="#finance" onclick="toggleMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-medium transition"><i class="fa-solid fa-coins w-5 text-emerald-500"></i> Finance Tools</a>
                 <a href="#image" onclick="toggleMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-medium transition"><i class="fa-solid fa-image w-5 text-orange-500"></i> Image Tools</a>
@@ -144,7 +160,7 @@
             </div>
 
             <div class="p-5 border-t border-slate-100">
-                <p class="text-[11px] text-center text-slate-400">&copy; 2026 Boostifyx.in. All rights reserved.</p>
+                <p class="text-[11px] text-center text-slate-400">&copy; 2026 BoostifyX.in. All rights reserved.</p>
             </div>
         </div>
 
@@ -157,7 +173,7 @@
                 <div class="flex flex-col items-center justify-center cursor-pointer" onclick="window.location.href='index.html'">
                     <div class="flex items-center gap-2 font-bold text-2xl tracking-wide">
                         <div class="bg-brandBlue p-1.5 rounded-lg text-sm shadow-lg shadow-brandBlue/30"><i class="fa-solid fa-bolt text-white"></i></div>
-                        <span>Boostifyx<span class="text-brandBlue">.in</span></span>
+                        <span>BoostifyX<span class="text-brandBlue">.in</span></span>
                     </div>
                 </div>
                 <div class="p-2 w-8"></div>
@@ -185,38 +201,42 @@
 
         <!-- ================= STICKY CATEGORIES ================= -->
         <div id="sticky-categories" class="sticky top-0 bg-white/90 backdrop-blur-md z-30 border-b border-slate-100 px-5 py-4 shadow-sm">
-            <div class="flex gap-4 overflow-x-auto hide-scrollbar pb-1">
-                <a href="#finance" class="flex flex-col items-center gap-1.5 min-w-[65px] group">
+            <div class="flex gap-4 overflow-x-auto hide-scrollbar pb-1 snap-x">
+                <a href="#finance" class="flex flex-col items-center gap-1.5 min-w-[65px] group snap-start">
                     <div class="w-[50px] h-[50px] rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-all shadow-sm"><i class="fa-solid fa-coins text-lg"></i></div>
                     <span class="text-[10px] font-bold text-slate-600 uppercase tracking-wide">Finance</span>
                 </a>
-                <a href="#image" class="flex flex-col items-center gap-1.5 min-w-[65px] group">
+                <a href="#image" class="flex flex-col items-center gap-1.5 min-w-[65px] group snap-start">
                     <div class="w-[50px] h-[50px] rounded-full bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-all shadow-sm"><i class="fa-solid fa-image text-lg"></i></div>
                     <span class="text-[10px] font-bold text-slate-600 uppercase tracking-wide">Image</span>
                 </a>
-                <a href="#text" class="flex flex-col items-center gap-1.5 min-w-[65px] group">
+                <a href="#text" class="flex flex-col items-center gap-1.5 min-w-[65px] group snap-start">
                     <div class="w-[50px] h-[50px] rounded-full bg-purple-50 border border-purple-100 flex items-center justify-center text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-all shadow-sm"><i class="fa-solid fa-font text-lg"></i></div>
                     <span class="text-[10px] font-bold text-slate-600 uppercase tracking-wide">Text</span>
                 </a>
-                <a href="#utility" class="flex flex-col items-center gap-1.5 min-w-[65px] group">
+                <a href="#utility" class="flex flex-col items-center gap-1.5 min-w-[65px] group snap-start">
                     <div class="w-[50px] h-[50px] rounded-full bg-red-50 border border-red-100 flex items-center justify-center text-red-500 group-hover:bg-red-500 group-hover:text-white transition-all shadow-sm"><i class="fa-solid fa-wrench text-lg"></i></div>
                     <span class="text-[10px] font-bold text-slate-600 uppercase tracking-wide">Utility</span>
                 </a>
-                <a href="#web" class="flex flex-col items-center gap-1.5 min-w-[65px] group">
+                <a href="#web" class="flex flex-col items-center gap-1.5 min-w-[65px] group snap-start">
                     <div class="w-[50px] h-[50px] rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-500 group-hover:bg-indigo-500 group-hover:text-white transition-all shadow-sm"><i class="fa-solid fa-code text-lg"></i></div>
                     <span class="text-[10px] font-bold text-slate-600 uppercase tracking-wide">Web/Dev</span>
                 </a>
             </div>
         </div>
 
-        <!-- ================= TRENDING TOOLS ================= -->
-        <div id="trending-wrapper" class="px-5 py-6 bg-gradient-to-b from-slate-50 to-white">
-            <div class="flex items-center gap-2 mb-4">
+        <!-- ================= TRENDING TOOLS (HORIZONTALLY SCROLLABLE) ================= -->
+        <div id="trending-wrapper" class="px-0 py-6 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+            <div class="flex items-center gap-2 mb-4 px-5">
                 <i class="fa-solid fa-fire text-orange-500"></i>
                 <h2 class="text-lg font-bold text-slate-800">Trending Tools</h2>
                 <span class="ml-auto text-[10px] bg-slate-200 text-slate-600 px-2 py-0.5 rounded-full">Auto-updated</span>
             </div>
-            <div id="trending-container" class="flex gap-3 overflow-x-auto hide-scrollbar pb-2 pt-1 -mx-5 px-5"></div>
+            
+            <!-- Horizontal scroll container -->
+            <div id="trending-container" class="flex gap-4 overflow-x-auto hide-scrollbar pb-3 pt-1 px-5 snap-x snap-mandatory" style="scroll-behavior: smooth;">
+                <!-- JavaScript will populate cards here -->
+            </div>
         </div>
 
         <div id="no-results" class="px-5 py-10 text-center flex-col items-center justify-center">
@@ -226,26 +246,26 @@
         </div>
 
         <!-- ================= ALL TOOLS SECTION ================= -->
-        <div class="px-5 py-4 space-y-8" id="all-tools-wrapper">
+        <div class="px-5 py-2 space-y-6" id="all-tools-wrapper">
             
             <script>
                 const toolsData = [
                     { id: 'emi', name: 'EMI Calculator', desc: 'Calculate your EMI instantly', cat: 'finance', icon: 'fa-calculator', color: 'text-emerald-600', bg: 'bg-emerald-50', link: 'emi-calculator.html', defaultViews: 1200 },
                     { id: 'gst', name: 'GST Calculator', desc: 'Calculate GST amount easily', cat: 'finance', icon: 'fa-percent', color: 'text-emerald-600', bg: 'bg-emerald-50', link: 'gst-calculator.html', defaultViews: 850 },
                     { id: 'sip', name: 'SIP Calculator', desc: 'Plan your mutual fund returns', cat: 'finance', icon: 'fa-chart-line', color: 'text-emerald-600', bg: 'bg-emerald-50', link: 'sip-calculator.html', defaultViews: 1500 },
-                    { id: 'loan', name: 'Loan Interest Calculator', desc: 'Check interest on loans', cat: 'finance', icon: 'fa-building-columns', color: 'text-emerald-600', bg: 'bg-emerald-50', link: 'loan-calculator.html', defaultViews: 400 },
+                    { id: 'loan', name: 'Loan Interest Calculator', desc: 'Check interest on loans', cat: 'finance', icon: 'fa-building-columns', color: 'text-emerald-600', bg: 'bg-emerald-50', link: 'loan-interest-calculator.html', defaultViews: 400 },
                     { id: 'discount', name: 'Discount Calculator', desc: 'Find final price after discount', cat: 'finance', icon: 'fa-tags', color: 'text-emerald-600', bg: 'bg-emerald-50', link: 'discount-calculator.html', defaultViews: 600 },
                     { id: 'profit', name: 'Profit & Loss', desc: 'Calculate business margins', cat: 'finance', icon: 'fa-scale-balanced', color: 'text-emerald-600', bg: 'bg-emerald-50', link: 'profit-loss-calculator.html', defaultViews: 550 },
                     
                     { id: 'img-comp', name: 'Image Compressor', desc: 'Reduce image size safely', cat: 'image', icon: 'fa-compress', color: 'text-orange-500', bg: 'bg-orange-50', link: 'image-compressor.html', defaultViews: 1800 },
-                    { id: 'img-res', name: 'Image Resizer', desc: 'Change image dimensions', cat: 'image', icon: 'fa-down-left-and-up-right-to-center', color: 'text-orange-500', bg: 'bg-orange-50', link: 'image-resizer.html', defaultViews: 900 },
+                    { id: 'img-res', name: 'Image Resizer', desc: 'Change image dimensions', cat: 'image', icon: 'fa-expand', color: 'text-orange-500', bg: 'bg-orange-50', link: 'image-resizer.html', defaultViews: 900 },
                     { id: 'img-crop', name: 'Image Crop Tool', desc: 'Crop pictures perfectly', cat: 'image', icon: 'fa-crop-simple', color: 'text-orange-500', bg: 'bg-orange-50', link: 'image-crop.html', defaultViews: 450 },
                     { id: 'img-b64', name: 'Image to Base64', desc: 'Convert image to code', cat: 'image', icon: 'fa-file-code', color: 'text-orange-500', bg: 'bg-orange-50', link: 'image-to-base64.html', defaultViews: 300 },
                     
                     { id: 'word-count', name: 'Word Counter', desc: 'Count words & characters', cat: 'text', icon: 'fa-file-word', color: 'text-purple-500', bg: 'bg-purple-50', link: 'word-counter.html', defaultViews: 1100 },
                     { id: 'case-conv', name: 'Case Converter', desc: 'Change text uppercase/lowercase', cat: 'text', icon: 'fa-font', color: 'text-purple-500', bg: 'bg-purple-50', link: 'case-converter.html', defaultViews: 750 },
                     { id: 'text-rep', name: 'Text Repeater', desc: 'Repeat text multiple times', cat: 'text', icon: 'fa-copy', color: 'text-purple-500', bg: 'bg-purple-50', link: 'text-repeater.html', defaultViews: 200 },
-                    { id: 'remove-space', name: 'Remove Extra Spaces', desc: 'Clean up messy formatting', cat: 'text', icon: 'fa-align-left', color: 'text-purple-500', bg: 'bg-purple-50', link: 'remove-spaces.html', defaultViews: 350 },
+                    { id: 'remove-space', name: 'Remove Extra Spaces', desc: 'Clean up messy formatting', cat: 'text', icon: 'fa-align-left', color: 'text-purple-500', bg: 'bg-purple-50', link: 'remove-extra-spaces.html', defaultViews: 350 },
                     
                     { id: 'age', name: 'Age Calculator', desc: 'Calculate exact age in days', cat: 'utility', icon: 'fa-user-clock', color: 'text-red-500', bg: 'bg-red-50', link: 'age-calculator.html', defaultViews: 1400 },
                     { id: 'qr', name: 'QR Code Generator', desc: 'Create custom QR codes', cat: 'utility', icon: 'fa-qrcode', color: 'text-red-500', bg: 'bg-red-50', link: 'qr-generator.html', defaultViews: 1300 },
@@ -253,8 +273,8 @@
                     { id: 'unit', name: 'Unit Converter', desc: 'Convert lengths, weights, etc', cat: 'utility', icon: 'fa-ruler-combined', color: 'text-red-500', bg: 'bg-red-50', link: 'unit-converter.html', defaultViews: 650 },
                     { id: 'time', name: 'Time Converter', desc: 'Convert timezones & units', cat: 'utility', icon: 'fa-clock', color: 'text-red-500', bg: 'bg-red-50', link: 'time-converter.html', defaultViews: 300 },
                     
-                    { id: 'url', name: 'URL Encoder/Decoder', desc: 'Encode URLs safely', cat: 'web', icon: 'fa-link', color: 'text-indigo-500', bg: 'bg-indigo-50', link: 'url-encoder.html', defaultViews: 800 },
-                    { id: 'b64', name: 'Base64 Encoder/Decoder', desc: 'Encode or decode strings', cat: 'web', icon: 'fa-hashtag', color: 'text-indigo-500', bg: 'bg-indigo-50', link: 'base64-encoder.html', defaultViews: 400 },
+                    { id: 'url', name: 'URL Encoder/Decoder', desc: 'Encode URLs safely', cat: 'web', icon: 'fa-link', color: 'text-indigo-500', bg: 'bg-indigo-50', link: 'url-encoder-decoder.html', defaultViews: 800 },
+                    { id: 'b64', name: 'Base64 Encoder/Decoder', desc: 'Encode or decode strings', cat: 'web', icon: 'fa-hashtag', color: 'text-indigo-500', bg: 'bg-indigo-50', link: 'base64-encoder-decoder.html', defaultViews: 400 },
                     { id: 'json', name: 'JSON Formatter', desc: 'Beautify JSON code', cat: 'web', icon: 'fa-code', color: 'text-indigo-500', bg: 'bg-indigo-50', link: 'json-formatter.html', defaultViews: 1250 },
                     { id: 'html', name: 'HTML Viewer', desc: 'Preview HTML code live', cat: 'web', icon: 'fa-file-code', color: 'text-indigo-500', bg: 'bg-indigo-50', link: 'html-viewer.html', defaultViews: 500 },
                     { id: 'color', name: 'Color Code Picker', desc: 'Extract HEX & RGB codes', cat: 'web', icon: 'fa-eye-dropper', color: 'text-indigo-500', bg: 'bg-indigo-50', link: 'color-picker.html', defaultViews: 700 },
@@ -282,20 +302,67 @@
                 }
             </script>
 
-            <!-- Tools Sections Output -->
-            <section id="finance" class="tool-section scroll-mt-24"><div class="flex items-center gap-2 mb-4 section-header"><div class="w-1 h-5 bg-emerald-500 rounded-full"></div><h2 class="text-lg font-bold text-slate-800">Finance Tools</h2></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-3 tools-grid"><script>renderCategory('finance');</script></div></section>
-            <div class="search-hide-ad w-full bg-slate-50 border border-slate-200 border-dashed rounded-xl h-[70px] flex flex-col items-center justify-center relative mt-2 mb-6"><span class="absolute top-0 right-0 bg-slate-200 text-slate-500 text-[9px] px-1.5 py-0.5 rounded-bl-lg rounded-tr-xl">ADS</span><span class="text-sm font-medium text-slate-500">Ad Space</span></div>
-            <section id="image" class="tool-section scroll-mt-24"><div class="flex items-center gap-2 mb-4 section-header"><div class="w-1 h-5 bg-orange-500 rounded-full"></div><h2 class="text-lg font-bold text-slate-800">Image Tools</h2></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-3 tools-grid"><script>renderCategory('image');</script></div></section>
-            <section id="text" class="tool-section scroll-mt-24"><div class="flex items-center gap-2 mb-4 section-header"><div class="w-1 h-5 bg-purple-500 rounded-full"></div><h2 class="text-lg font-bold text-slate-800">Text Tools</h2></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-3 tools-grid"><script>renderCategory('text');</script></div></section>
-            <div class="search-hide-ad w-full bg-slate-50 border border-slate-200 border-dashed rounded-xl h-[70px] flex flex-col items-center justify-center relative mt-2 mb-6"><span class="absolute top-0 right-0 bg-slate-200 text-slate-500 text-[9px] px-1.5 py-0.5 rounded-bl-lg rounded-tr-xl">ADS</span><span class="text-sm font-medium text-slate-500">Ad Space</span></div>
-            <section id="utility" class="tool-section scroll-mt-24"><div class="flex items-center gap-2 mb-4 section-header"><div class="w-1 h-5 bg-red-500 rounded-full"></div><h2 class="text-lg font-bold text-slate-800">Utility Tools</h2></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-3 tools-grid"><script>renderCategory('utility');</script></div></section>
-            <section id="web" class="tool-section scroll-mt-24"><div class="flex items-center gap-2 mb-4 section-header"><div class="w-1 h-5 bg-indigo-500 rounded-full"></div><h2 class="text-lg font-bold text-slate-800">Web & Developer Tools</h2></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-3 tools-grid"><script>renderCategory('web');</script></div></section>
+            <!-- Finance Category -->
+            <section id="finance" class="tool-section scroll-mt-24">
+                <div class="flex items-center gap-2 mb-4 section-header">
+                    <div class="w-1 h-5 bg-emerald-500 rounded-full"></div>
+                    <h2 class="text-lg font-bold text-slate-800">Finance Tools</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 tools-grid">
+                    <script>renderCategory('finance');</script>
+                </div>
+            </section>
+
+            <!-- Image Category -->
+            <section id="image" class="tool-section scroll-mt-24 mt-4">
+                <div class="flex items-center gap-2 mb-4 section-header">
+                    <div class="w-1 h-5 bg-orange-500 rounded-full"></div>
+                    <h2 class="text-lg font-bold text-slate-800">Image Tools</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 tools-grid">
+                    <script>renderCategory('image');</script>
+                </div>
+            </section>
+            
+            <!-- Text Category -->
+            <section id="text" class="tool-section scroll-mt-24 mt-4">
+                <div class="flex items-center gap-2 mb-4 section-header">
+                    <div class="w-1 h-5 bg-purple-500 rounded-full"></div>
+                    <h2 class="text-lg font-bold text-slate-800">Text Tools</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 tools-grid">
+                    <script>renderCategory('text');</script>
+                </div>
+            </section>
+
+            <!-- Utility Category -->
+            <section id="utility" class="tool-section scroll-mt-24 mt-4">
+                <div class="flex items-center gap-2 mb-4 section-header">
+                    <div class="w-1 h-5 bg-red-500 rounded-full"></div>
+                    <h2 class="text-lg font-bold text-slate-800">Utility Tools</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 tools-grid">
+                    <script>renderCategory('utility');</script>
+                </div>
+            </section>
+            
+            <!-- Web Category -->
+            <section id="web" class="tool-section scroll-mt-24 mt-4">
+                <div class="flex items-center gap-2 mb-4 section-header">
+                    <div class="w-1 h-5 bg-indigo-500 rounded-full"></div>
+                    <h2 class="text-lg font-bold text-slate-800">Web & Developer Tools</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 tools-grid">
+                    <script>renderCategory('web');</script>
+                </div>
+            </section>
+
         </div>
 
-        <hr class="border-slate-100 my-6 mx-5" id="divider-1">
+        <hr class="border-slate-100 my-2 mx-5" id="divider-1">
 
         <!-- ================= ADVANCED FEATURES SECTION ================= -->
-        <div id="features-wrapper" class="px-5 pb-10">
+        <div id="features-wrapper" class="px-5 pb-10 mt-4">
             <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
                 <i class="fa-solid fa-star text-brandBlue"></i> Why Choose Us
             </h2>
@@ -323,8 +390,8 @@
             </div>
         </div>
 
-        <!-- ================= SMOOTH FAQ SECTION (SEO OPTIMIZED) ================= -->
-        <div id="faq-wrapper" class="px-5 pb-10 bg-slate-50 pt-8 rounded-t-3xl border-t border-slate-200/60">
+     <!-- ================= SMOOTH FAQ SECTION (SEO OPTIMIZED) ================= -->
+        <div id="faq-wrapper" class="px-5 pb-10 bg-slate-50 pt-8 rounded-t-3xl border-t border-slate-200/60 mt-6">
             <div class="flex items-center justify-center gap-2 mb-6">
                 <i class="fa-solid fa-circle-question text-xl text-brandBlue"></i>
                 <h2 class="text-xl font-bold text-slate-800">Frequently Asked Questions</h2>
@@ -334,12 +401,12 @@
                 <!-- FAQ 1 -->
                 <div class="faq-item bg-white rounded-xl border border-slate-200 card-shadow px-4 py-1">
                     <button class="w-full text-left font-semibold text-[13px] text-slate-800 flex justify-between items-center py-3 outline-none" onclick="toggleFaq(this)">
-                        1. What is Boostifyx.in?
+                        1. What is BoostifyX.in?
                         <i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon"></i>
                     </button>
                     <div class="faq-answer text-[11.5px] text-slate-500 leading-relaxed border-slate-100">
                         <div class="pb-3 border-t border-slate-100 pt-3">
-                            Boostifyx.in is a premium platform offering 25+ 100% free online tools, including Finance Calculators (EMI, GST), Image Compressors, JSON Formatters, and Utility tools designed to simplify your daily digital tasks.
+                            BoostifyX.in is a premium platform offering 25+ 100% free online tools, including Finance Calculators (EMI, GST), Image Compressors, JSON Formatters, and Utility tools designed to simplify your daily digital tasks.
                         </div>
                     </div>
                 </div>
@@ -347,12 +414,12 @@
                 <!-- FAQ 2 -->
                 <div class="faq-item bg-white rounded-xl border border-slate-200 card-shadow px-4 py-1">
                     <button class="w-full text-left font-semibold text-[13px] text-slate-800 flex justify-between items-center py-3 outline-none" onclick="toggleFaq(this)">
-                        2. Is Boostifyx.in completely free to use?
+                        2. Is BoostifyX.in completely free to use?
                         <i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon"></i>
                     </button>
                     <div class="faq-answer text-[11.5px] text-slate-500 leading-relaxed border-slate-100">
                         <div class="pb-3 border-t border-slate-100 pt-3">
-                            Yes, Boostifyx.in is 100% free forever. There are no hidden fees, premium subscriptions, or trial periods. All tools are unlocked for everyone globally.
+                            Yes, BoostifyX.in is 100% free forever. There are no hidden fees, premium subscriptions, or trial periods. All tools are unlocked for everyone globally.
                         </div>
                     </div>
                 </div>
@@ -412,7 +479,7 @@
                 <!-- FAQ 7 -->
                 <div class="faq-item bg-white rounded-xl border border-slate-200 card-shadow px-4 py-1">
                     <button class="w-full text-left font-semibold text-[13px] text-slate-800 flex justify-between items-center py-3 outline-none" onclick="toggleFaq(this)">
-                        7. Can I use Boostifyx tools on my mobile phone?
+                        7. Can I use BoostifyX tools on my mobile phone?
                         <i class="fa-solid fa-chevron-down text-slate-400 text-xs faq-icon"></i>
                     </button>
                     <div class="faq-answer text-[11.5px] text-slate-500 leading-relaxed border-slate-100">
@@ -460,17 +527,15 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
         <!-- ================= PRO FOOTER ================= -->
         <footer class="bg-navy mt-auto rounded-t-3xl text-white px-6 pt-10 pb-6 relative overflow-hidden -mt-4">
             <div class="absolute top-0 right-0 w-32 h-32 bg-brandBlue/10 rounded-full blur-2xl"></div>
             <div class="relative z-10 flex flex-col items-center text-center mb-8">
                 <div class="flex items-center gap-2 font-bold text-2xl tracking-wide mb-2 cursor-pointer" onclick="window.location.href='index.html'">
                     <div class="bg-brandBlue p-1.5 rounded text-sm"><i class="fa-solid fa-bolt text-white"></i></div>
-                    <span>Boostifyx<span class="text-brandBlue">.in</span></span>
+                    <span>BoostifyX<span class="text-brandBlue">.in</span></span>
                 </div>
                 <p class="text-xs text-gray-400 max-w-[250px] leading-relaxed">
                     Your ultimate toolkit for daily digital tasks.<br>
@@ -495,7 +560,7 @@
             </div>
 
             <div class="relative z-10 border-t border-white/10 pt-6 flex flex-col items-center gap-1.5 text-center">
-                <p class="text-xs text-gray-400">2026 Boostifyx.in — All Rights Reserved</p>
+                <p class="text-xs text-gray-400">2026 BoostifyX.in — All Rights Reserved</p>
                 <p class="text-[10px] text-gray-500">Designed & Powered by <span class="text-gray-300 font-medium">Sazzidul Corporation</span></p>
             </div>
         </footer>
@@ -508,14 +573,11 @@
             const currentItem = button.parentElement;
             const allItems = document.querySelectorAll('.faq-item');
             
-            // Close all others
             allItems.forEach(item => {
                 if(item !== currentItem) {
                     item.classList.remove('active');
                 }
             });
-
-            // Toggle current
             currentItem.classList.toggle('active');
         }
 
@@ -546,8 +608,7 @@
             document.getElementById('divider-1'),
             document.getElementById('features-wrapper'),
             document.getElementById('faq-wrapper'),
-            document.getElementById('sticky-categories'),
-            ...document.querySelectorAll('.search-hide-ad')
+            document.getElementById('sticky-categories')
         ];
 
         searchInput.addEventListener('input', function(e) {
@@ -558,11 +619,7 @@
                 toolSections.forEach(sec => sec.style.display = 'block');
                 document.querySelectorAll('.tool-card').forEach(card => card.style.display = 'flex');
                 noResultsDiv.style.display = 'none';
-                elementsToHideOnSearch.forEach(el => { if(el) el.style.display = 'flex'; });
-                document.getElementById('trending-wrapper').style.display = 'block';
-                document.getElementById('features-wrapper').style.display = 'block';
-                document.getElementById('faq-wrapper').style.display = 'block';
-                document.getElementById('sticky-categories').style.display = 'block';
+                elementsToHideOnSearch.forEach(el => { if(el) el.style.display = 'block'; });
                 return;
             }
 
@@ -587,7 +644,7 @@
             noResultsDiv.style.display = (totalVisibleTools === 0) ? 'flex' : 'none';
         });
 
-        // --- Trending Analytics ---
+        // --- Trending Analytics (Horizontal Scroll) ---
         function updateTrending() {
             let stats = JSON.parse(localStorage.getItem('boostifyx_stats')) || {};
             let sortedTools = toolsData.map(tool => {
@@ -598,11 +655,11 @@
             let html = '';
             sortedTools.forEach(t => {
                 html += `
-                <div class="flex-shrink-0 bg-white border border-slate-100 rounded-xl px-4 py-2.5 flex items-center gap-2.5 card-shadow cursor-pointer" onclick="recordClick('${t.id}', '${t.link}')">
-                    <div class="w-7 h-7 rounded-lg ${t.bg} ${t.color} flex items-center justify-center text-sm"><i class="fa-solid ${t.icon}"></i></div>
-                    <div class="flex flex-col">
-                        <span class="text-[13px] font-bold text-slate-700 leading-tight">${t.name}</span>
-                        <span class="text-[9px] text-slate-400 font-medium"><i class="fa-solid fa-arrow-trend-up text-[8px] mr-0.5"></i> Trending</span>
+                <div class="flex-shrink-0 w-[220px] bg-white border border-slate-100 rounded-xl px-4 py-3 flex items-center gap-3 card-shadow cursor-pointer snap-center" onclick="recordClick('${t.id}', '${t.link}')">
+                    <div class="w-10 h-10 rounded-lg ${t.bg} ${t.color} flex items-center justify-center text-lg"><i class="fa-solid ${t.icon}"></i></div>
+                    <div class="flex flex-col overflow-hidden">
+                        <span class="text-[13px] font-bold text-slate-700 leading-tight truncate">${t.name}</span>
+                        <span class="text-[10px] text-slate-400 font-medium truncate mt-0.5"><i class="fa-solid fa-arrow-trend-up text-brandBlue mr-1"></i> Highly Used</span>
                     </div>
                 </div>`;
             });
